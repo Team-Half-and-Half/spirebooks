@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { NavLink } from 'react-router-dom';
@@ -9,17 +9,33 @@ import { ROLE } from '../../api/role/Role';
 import { COMPONENT_IDS } from '../utilities/ComponentIDs';
 
 const NavBar = () => {
+  const [shrink, setShrink] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setShrink(true);
+    } else {
+      setShrink(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { currentUser } = useTracker(() => ({
     currentUser: Meteor.user() ? Meteor.user().username : '',
   }), []);
   return (
-    <Navbar expand="lg" style={{ height: '125px' }} className="basic-nav gradient">
+    <Navbar expand="lg" style={{ height: shrink ? '75px' : '125px' }} className={`basic-nav gradient ${shrink ? 'shrink' : ''}`}>
       <Container>
         <Navbar.Toggle aria-controls={COMPONENT_IDS.NAVBAR_COLLAPSE} />
         <Navbar.Collapse id={COMPONENT_IDS.NAVBAR_COLLAPSE}>
           <Nav className="me-auto justify-content-end basic-nav">
-            <NavLink to="/home"><Image style={{ marginTop: '8px', marginBottom: '20px', marginRight: '15px', width: '200px', height: '95px' }} src="/images/spirebooks-logo.png" /></NavLink>
+            <NavLink to="/home"><Image style={{ marginTop: '8px', marginBottom: '20px', marginRight: '15px', width: '200px', height: shrink ? '75px' : '95px' }} src="/images/spirebooks-logo.png" /></NavLink>
             {currentUser ? ([
               <Nav.Link className="nav-tabs" id={COMPONENT_IDS.NAVBAR_ADD_STUFF} as={NavLink} to="/add" key="add">FINANCES</Nav.Link>,
               <Nav.Link className="nav-tabs" id={COMPONENT_IDS.NAVBAR_LIST_STUFF} as={NavLink} to="/list" key="list">AUDIT</Nav.Link>,

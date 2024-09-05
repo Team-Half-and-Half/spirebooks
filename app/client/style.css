@@ -11,7 +11,7 @@
  See https://getbootstrap.com/docs/5.2/customize/css-variables/
  */
 body {
-  --bs-light-rgb: var(--matr-navbar-bg-rgb);
+  color: #000000;
 }
 
 .basic-nav {
@@ -19,7 +19,7 @@ body {
   font-weight: 400;
   font-size: large;
   color: #000000;
-  background-color: darkcyan;
+  background-color: #ffffff;
 }
 
 /* Set the SignIn and SignUp alerts background. */

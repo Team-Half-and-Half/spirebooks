@@ -18,12 +18,14 @@ body {
   font-family: Roboto, sans-serif;
   font-weight: 400;
   font-size: large;
+  background-color: #ffffff;
   color: #000000;
 }
 
-.gradient {
-  background: linear-gradient(to right, rgb(255, 255, 255, 0.5) 50%, rgb(135, 205, 250, 0.5), rgb(0, 0, 128, 0.5), rgb(246, 80, 38, 0.5), rgb(242, 133, 0, 0.5), rgb(83, 0, 83, 0.5), rgb(152, 41, 133, 0.5));
-}
+/* Color gradient, possible inclusion
+.gradient-colors {
+  background: linear-gradient(to right, rgb(255, 255, 255, 0.2) 50%, rgb(135, 205, 250, 0.2), rgb(0, 0, 128, 0.2), rgb(246, 80, 38, 0.2), rgb(242, 133, 0, 0.2), rgb(83, 0, 83, 0.2), rgb(152, 41, 133, 0.2));
+} */
 
 .nav-tabs {
   margin-top: 35px;

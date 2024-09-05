@@ -30,7 +30,7 @@ const NavBar = () => {
     currentUser: Meteor.user() ? Meteor.user().username : '',
   }), []);
   return (
-    <Navbar expand="lg" style={{ height: shrink ? '75px' : '125px' }} className={`basic-nav gradient ${shrink ? 'shrink' : ''}`}>
+    <Navbar expand="lg" style={{ height: shrink ? '75px' : '125px' }} className={`basic-nav ${shrink ? 'shrink' : ''}`}>
       <Container>
         <Navbar.Toggle aria-controls={COMPONENT_IDS.NAVBAR_COLLAPSE} />
         <Navbar.Collapse id={COMPONENT_IDS.NAVBAR_COLLAPSE}>

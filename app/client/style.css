@@ -1,5 +1,5 @@
 /* Use Open Sans as the default sans serif font. */
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700|Source+Code+Pro:300,400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:300,400,500,700|Source+Code+Pro:300,400,500,700");
 
 /* Set up some CSS variables to theme the application. */
 :root {
@@ -12,6 +12,14 @@
  */
 body {
   --bs-light-rgb: var(--matr-navbar-bg-rgb);
+}
+
+.basic-nav {
+  font-family: Roboto, sans-serif;
+  font-weight: 375;
+  font-size: large;
+  color: #000000;
+  background-color: darkcyan;
 }
 
 /* Set the SignIn and SignUp alerts background. */

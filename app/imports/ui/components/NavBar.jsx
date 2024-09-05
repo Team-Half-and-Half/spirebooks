@@ -14,16 +14,16 @@ const NavBar = () => {
     currentUser: Meteor.user() ? Meteor.user().username : '',
   }), []);
   return (
-    <Navbar expand="lg" style={{ height: '125px' }} className="basic-nav">
+    <Navbar expand="lg" style={{ height: '125px' }} className="basic-nav gradient">
       <Container>
         <Navbar.Toggle aria-controls={COMPONENT_IDS.NAVBAR_COLLAPSE} />
         <Navbar.Collapse id={COMPONENT_IDS.NAVBAR_COLLAPSE}>
           <Nav className="me-auto justify-content-end basic-nav">
-            <NavLink to="/home"><Image style={{ marginTop: '8px', marginBottom: '20px', marginRight: '10px', width: '200px', height: '95px' }} src="/images/spirebooks-logo.png" /></NavLink>
+            <NavLink to="/home"><Image style={{ marginTop: '8px', marginBottom: '20px', marginRight: '15px', width: '200px', height: '95px' }} src="/images/spirebooks-logo.png" /></NavLink>
             {currentUser ? ([
-              <Nav.Link style={{ marginTop: '35px', marginLeft: '10px' }} id={COMPONENT_IDS.NAVBAR_ADD_STUFF} as={NavLink} to="/add" key="add">CALCULATE FINANCES</Nav.Link>,
-              <Nav.Link style={{ marginTop: '35px', marginLeft: '10px' }} id={COMPONENT_IDS.NAVBAR_LIST_STUFF} as={NavLink} to="/list" key="list">AUDIT</Nav.Link>,
-              <Nav.Link style={{ marginTop: '35px', marginLeft: '10px' }} id={COMPONENT_IDS.NAVBAR_LIST_STUFF} as={NavLink} to="/list" key="list">VISUALIZE</Nav.Link>,
+              <Nav.Link style={{ marginTop: '35px', marginLeft: '15px' }} id={COMPONENT_IDS.NAVBAR_ADD_STUFF} as={NavLink} to="/add" key="add">FINANCES</Nav.Link>,
+              <Nav.Link style={{ marginTop: '35px', marginLeft: '15px' }} id={COMPONENT_IDS.NAVBAR_LIST_STUFF} as={NavLink} to="/list" key="list">AUDIT</Nav.Link>,
+              <Nav.Link style={{ marginTop: '35px', marginLeft: '15px' }} id={COMPONENT_IDS.NAVBAR_LIST_STUFF} as={NavLink} to="/list" key="list">VISUALIZE</Nav.Link>,
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), [ROLE.ADMIN]) ? (
               [<Nav.Link id={COMPONENT_IDS.NAVBAR_LIST_STUFF_ADMIN} as={NavLink} to="/admin" key="admin">Admin</Nav.Link>,

@@ -21,22 +21,22 @@ const NavBar = () => {
           <Nav className="me-auto justify-content-end basic-nav">
             <NavLink to="/home"><Image style={{ marginTop: '8px', marginBottom: '20px', marginRight: '15px', width: '200px', height: '95px' }} src="/images/spirebooks-logo.png" /></NavLink>
             {currentUser ? ([
-              <Nav.Link style={{ marginTop: '35px', marginLeft: '15px' }} id={COMPONENT_IDS.NAVBAR_ADD_STUFF} as={NavLink} to="/add" key="add">FINANCES</Nav.Link>,
-              <Nav.Link style={{ marginTop: '35px', marginLeft: '15px' }} id={COMPONENT_IDS.NAVBAR_LIST_STUFF} as={NavLink} to="/list" key="list">AUDIT</Nav.Link>,
-              <Nav.Link style={{ marginTop: '35px', marginLeft: '15px' }} id={COMPONENT_IDS.NAVBAR_LIST_STUFF} as={NavLink} to="/list" key="list">VISUALIZE</Nav.Link>,
+              <Nav.Link className="nav-tabs" id={COMPONENT_IDS.NAVBAR_ADD_STUFF} as={NavLink} to="/add" key="add">FINANCES</Nav.Link>,
+              <Nav.Link className="nav-tabs" id={COMPONENT_IDS.NAVBAR_LIST_STUFF} as={NavLink} to="/list" key="list">AUDIT</Nav.Link>,
+              <Nav.Link className="nav-tabs" id={COMPONENT_IDS.NAVBAR_LIST_STUFF} as={NavLink} to="/list" key="list">VISUALIZE</Nav.Link>,
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), [ROLE.ADMIN]) ? (
-              [<Nav.Link id={COMPONENT_IDS.NAVBAR_LIST_STUFF_ADMIN} as={NavLink} to="/admin" key="admin">Admin</Nav.Link>,
-                <NavDropdown id={COMPONENT_IDS.NAVBAR_MANAGE_DROPDOWN} title="Manage" key="manage-dropdown">
-                  <NavDropdown.Item id={COMPONENT_IDS.NAVBAR_MANAGE_DROPDOWN_DATABASE} key="manage-database" as={NavLink} to="/manage-database"><CloudDownload /> Database</NavDropdown.Item>
+              [<Nav.Link className="nav-tabs" id={COMPONENT_IDS.NAVBAR_LIST_STUFF_ADMIN} as={NavLink} to="/admin" key="admin">Admin</Nav.Link>,
+                <NavDropdown className="nav-tabs" id={COMPONENT_IDS.NAVBAR_MANAGE_DROPDOWN} title="Manage" key="manage-dropdown">
+                  <NavDropdown.Item className="nav-tabs" id={COMPONENT_IDS.NAVBAR_MANAGE_DROPDOWN_DATABASE} key="manage-database" as={NavLink} to="/manage-database"><CloudDownload /> Database</NavDropdown.Item>
                 </NavDropdown>]
             ) : ''}
           </Nav>
           <Nav className="justify-content-start basic-nav">
             {currentUser === '' ? (
-              <NavDropdown className="basic-nav" id={COMPONENT_IDS.NAVBAR_LOGIN_DROPDOWN} title="Login">
-                <NavDropdown.Item className="basic-nav" id={COMPONENT_IDS.NAVBAR_LOGIN_DROPDOWN_SIGN_IN} as={NavLink} to="/signin"><PersonFill />Sign in</NavDropdown.Item>
-                <NavDropdown.Item className="basic-nav" id={COMPONENT_IDS.NAVBAR_LOGIN_DROPDOWN_SIGN_UP} as={NavLink} to="/signup"><PersonPlusFill />Sign up</NavDropdown.Item>
+              <NavDropdown className="basic-nav nav-tabs" id={COMPONENT_IDS.NAVBAR_LOGIN_DROPDOWN} title="Login">
+                <NavDropdown.Item className="basic-nav nav-tabs" id={COMPONENT_IDS.NAVBAR_LOGIN_DROPDOWN_SIGN_IN} as={NavLink} to="/signin"><PersonFill />Sign in</NavDropdown.Item>
+                <NavDropdown.Item className="basic-nav nav-tabs" id={COMPONENT_IDS.NAVBAR_LOGIN_DROPDOWN_SIGN_UP} as={NavLink} to="/signup"><PersonPlusFill />Sign up</NavDropdown.Item>
               </NavDropdown>
             ) : (
               <NavDropdown className="basic-nav" id={COMPONENT_IDS.NAVBAR_CURRENT_USER} title={currentUser}>

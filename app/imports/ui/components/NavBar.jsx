@@ -38,11 +38,10 @@ const NavBar = () => {
             <NavLink to="/home"><Image style={{ marginTop: '8px', marginBottom: '20px', marginRight: '10px', width: '200px', height: shrink ? '75px' : '95px' }} src="/images/spirebooks-logo.png" /></NavLink>
             {currentUser ? ([
               <Nav.Link className="nav-tabs" id={COMPONENT_IDS.NAVBAR_LIST_STUFF} as={NavLink} to="/list" key="list">DASHBOARD</Nav.Link>,
-              <Nav.Link className="nav-tabs" id={COMPONENT_IDS.NAVBAR_ADD_STUFF} as={NavLink} to="/add" key="add">FINANCES</Nav.Link>,
+              <Nav.Link className="nav-tabs" id={COMPONENT_IDS.NAVBAR_ADD_STUFF} as={NavLink} to="/add-money" key="add">FINANCING</Nav.Link>,
               <Nav.Link className="nav-tabs" id={COMPONENT_IDS.NAVBAR_LIST_STUFF} as={NavLink} to="/list" key="list">AUDIT</Nav.Link>,
               <Nav.Link className="nav-tabs" id={COMPONENT_IDS.NAVBAR_LIST_STUFF} as={NavLink} to="/list" key="list">VISUALIZE</Nav.Link>,
-              <Nav.Link id={COMPONENT_IDS.NAVBAR_ADD_MONEY} as={NavLink} to="/add-money" key="add-money">Add Money</Nav.Link>,
-              <Nav.Link id={COMPONENT_IDS.NAVBAR_LIST_STUFF} as={NavLink} to="/list" key="list">List Stuff</Nav.Link>,
+              <Nav.Link className="nav-tabs" id={COMPONENT_IDS.NAVBAR_LIST_STUFF} as={NavLink} to="/import" key="list">UPLOAD</Nav.Link>,
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), [ROLE.ADMIN]) ? (
               [<Nav.Link className="nav-tabs" id={COMPONENT_IDS.NAVBAR_LIST_STUFF_ADMIN} as={NavLink} to="/admin" key="admin">Admin</Nav.Link>,
@@ -54,8 +53,8 @@ const NavBar = () => {
           <Nav className="justify-content-start basic-nav">
             {currentUser === '' ? (
               <NavDropdown className="basic-nav nav-tabs" id={COMPONENT_IDS.NAVBAR_LOGIN_DROPDOWN} title="Login">
-                <NavDropdown.Item className="basic-nav nav-tabs" id={COMPONENT_IDS.NAVBAR_LOGIN_DROPDOWN_SIGN_IN} as={NavLink} to="/signin"><PersonFill />Sign in</NavDropdown.Item>
-                <NavDropdown.Item className="basic-nav nav-tabs" id={COMPONENT_IDS.NAVBAR_LOGIN_DROPDOWN_SIGN_UP} as={NavLink} to="/signup"><PersonPlusFill />Sign up</NavDropdown.Item>
+                <NavDropdown.Item className="basic-nav" id={COMPONENT_IDS.NAVBAR_LOGIN_DROPDOWN_SIGN_IN} as={NavLink} to="/signin"><PersonFill />Sign in</NavDropdown.Item>
+                <NavDropdown.Item className="basic-nav" id={COMPONENT_IDS.NAVBAR_LOGIN_DROPDOWN_SIGN_UP} as={NavLink} to="/signup"><PersonPlusFill />Sign up</NavDropdown.Item>
               </NavDropdown>
             ) : (
               <NavDropdown className="basic-nav" id={COMPONENT_IDS.NAVBAR_CURRENT_USER} title={currentUser}>

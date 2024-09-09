@@ -1,8 +1,8 @@
 {
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "role": "ADMIN", "firstName": "Admin", "lastName": "MATRP"
+    { "email": "accountant@spirebooks.com", "password": "changeme", "role": "ADMIN", "firstName": "first_name_admin", "lastName": "last_name_admin"
     },
-    { "email": "john@foo.com", "password": "changeme", "role": "USER" , "firstName": "John", "lastName": "Doe" }
+    { "email": "customer@spirebooks.com", "password": "changeme", "role": "USER" , "firstName": "first_name_customer", "lastName": "last_name_customer" }
   ],
 
   "defaultData": [

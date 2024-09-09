@@ -9,8 +9,8 @@ import { COMPONENT_IDS } from '../imports/ui/utilities/ComponentIDs';
 /* global fixture:false, test:false */
 
 /** Credentials for one of the sample users defined in settings.development.json. */
-const credentials = { username: 'john@foo.com', password: 'changeme' };
-const adminCredentials = { username: 'admin@foo.com', password: 'changeme' };
+const credentials = { username: 'customer@spirebooks.com', password: 'changeme' };
+const adminCredentials = { username: 'accountant@spirebooks.com', password: 'changeme' };
 const newCredentials = { username: 'jane@foo.com', password: 'changeme' };
 
 fixture('meteor-application-template-production localhost test with default db')

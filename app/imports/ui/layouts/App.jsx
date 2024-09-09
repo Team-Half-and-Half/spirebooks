@@ -23,7 +23,6 @@ import TermsAndConditions from '../pages/TermsAndConditions';
 import ImportSheet from '../pages/ImportSheet';
 import AddMoney from '../pages/AddMoney';
 
-
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
   const { ready } = useTracker(() => {

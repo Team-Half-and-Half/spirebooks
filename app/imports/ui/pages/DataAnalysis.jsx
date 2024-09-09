@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Container, Row} from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 /* Renders graphs that render all the financial data */

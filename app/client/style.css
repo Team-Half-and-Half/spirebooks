@@ -26,3 +26,18 @@ body {
   padding-top: 10px;
   padding-bottom: 20px;
 }
+
+/* styling for horizontal dividers on Landing */
+hr.gradient {
+  height: 3px;
+  width: 10%;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(
+      90deg,
+      rgba(81,123, 190, 1) 0%,
+      rgba(241, 114, 25, 1) 25%,
+      rgba(126, 22, 84, 1) 75%,
+      rgba(81, 72, 153, 1) 100%
+  );
+}

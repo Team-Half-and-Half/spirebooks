@@ -83,6 +83,51 @@ const formSchema = new SimpleSchema({
     defaultValue: 0,
     min: 0,
   },
+  commingledFunds: {
+    type: Number,
+    defaultValue: 0,
+    min: 0,
+  },
+  hedgeFunds: {
+    type: Number,
+    defaultValue: 0,
+    min: 0,
+  },
+  privateEquity: {
+    type: Number,
+    defaultValue: 0,
+    min: 0,
+  },
+  commonTrustFund: {
+    type: Number,
+    defaultValue: 0,
+    min: 0,
+  },
+  commonAndPreferredStock: {
+    type: Number,
+    defaultValue: 0,
+    min: 0,
+  },
+  privateDebt: {
+    type: Number,
+    defaultValue: 0,
+    min: 0,
+  },
+  other: {
+    type: Number,
+    defaultValue: 0,
+    min: 0,
+  },
+  treasuries: {
+    type: Number,
+    defaultValue: 0,
+    min: 0,
+  },
+  agencies: {
+    type: Number,
+    defaultValue: 0,
+    min: 0,
+  },
   // Capital Assets
   condition: {
     type: String,
@@ -136,6 +181,17 @@ const AddMoney = () => {
                 <NumField name="cashHeldByInvestmentManager" decimal={null} />
                 <h6>INVESTMENTS</h6>
                 <NumField name="mutualFunds" decimal={null} />
+                <NumField name="commingledFunds" decimal={null} />
+                <NumField name="hedgeFunds" decimal={null} />
+                <NumField name="privateEquity" decimal={null} />
+                <NumField name="commonTrustFund" decimal={null} />
+                <NumField name="commonAndPreferredStock" decimal={null} />
+                <NumField name="privateDebt" decimal={null} />
+                <NumField name="other" decimal={null} />
+                <h6>U.S INVESTMENTS</h6>
+                <NumField name="treasuries" decimal={null} />
+                <NumField name="agencies" decimal={null} />
+                <NumField name="other" decimal={null} />
                 <SubmitField value="Submit" />
                 <ErrorsField />
               </Card.Body>

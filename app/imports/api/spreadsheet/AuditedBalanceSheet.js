@@ -1,8 +1,8 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
-
 /**
  * The AuditedBalanceSheetCollection.
+ *
  */
 class AuditedBalanceSheetCollection {
   constructor() {
@@ -412,7 +412,7 @@ class AuditedBalanceSheetCollection {
       NetPosition: {
         type: NetPosition,
         optional: false,
-      }
+      },
     });
     // Main schema for the ScheduleCollection
     this.schema = new SimpleSchema({
@@ -435,9 +435,4 @@ class AuditedBalanceSheetCollection {
     this.adminPublicationName = `${this.name}.publication.admin`;
   }
 }
-
-/**
- * The singleton instance of the AuditedBalanceSheetCollection.
- * @type {AuditedBalanceSheetCollection}
- */
 export const AuditedBalanceSheet = new AuditedBalanceSheetCollection();

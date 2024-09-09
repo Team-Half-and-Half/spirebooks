@@ -1,13 +1,13 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 /**
- * The AuditedBalanceSheetCollection.
+ * The AuditedBalanceCollection.
  *
  */
-class AuditedBalanceSheetCollection {
+class AuditedBalanceCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'AuditedBalanceSheetCollection';
+    this.name = 'AuditedBalanceCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
@@ -435,4 +435,4 @@ class AuditedBalanceSheetCollection {
     this.adminPublicationName = `${this.name}.publication.admin`;
   }
 }
-export const AuditedBalanceSheet = new AuditedBalanceSheetCollection();
+export const AuditedBalance = new AuditedBalanceCollection();

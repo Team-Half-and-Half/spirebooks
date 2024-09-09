@@ -3,7 +3,7 @@ import React from 'react';
 import { Col, Container, Row, Table } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Stuffs } from '../../api/stuff/StuffCollection';
-import { AuditedBalanceSheet } from '../../api/spreadsheet/AuditedBalanceSheet';
+import { AuditedBalance } from '../../api/spreadsheet/AuditedBalanceCollection';
 import StuffItem from '../components/StuffItem';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { PAGE_IDS } from '../utilities/PageIDs';
@@ -16,7 +16,7 @@ const ListStuff = () => {
     // when your component is unmounted or deps change.
     // Get access to Stuff documents.
     const subscription = Stuffs.subscribeStuff();
-    const sub2 = Meteor.subscribe(AuditedBalanceSheet.userPublicationName);
+    const sub2 = Meteor.subscribe(AuditedBalance.userPublicationName);
 
     // Determine if the subscription is ready
     const rdy = subscription.ready();

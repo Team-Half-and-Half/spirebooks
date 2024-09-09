@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/StuffCollection';
-import { AuditedBalanceSheet } from '../../api/spreadsheet/AuditedBalanceSheet';
+import { AuditedBalance } from '../../api/spreadsheet/AuditedBalanceCollection';
 /* eslint-disable no-console */
 
 // Initialize the database with a default data document.
@@ -18,10 +18,10 @@ if (Stuffs.count() === 0) {
 }
 function addABS({ owner, ActualYear, ActualYearGreen }) {
   console.log(`Defining Audited Balance Sheet ${owner}`);
-  AuditedBalanceSheet.collection.insert({ owner, ActualYear, ActualYearGreen });
+  AuditedBalance.collection.insert({ owner, ActualYear, ActualYearGreen });
 }
 
-if (AuditedBalanceSheet.collection.find().count() === 0) {
+if (AuditedBalance.collection.find().count() === 0) {
   if (Meteor.settings.defaultABS) {
     console.log('Creating the default ABS');
     addABS(Meteor.settings.defaultABS);

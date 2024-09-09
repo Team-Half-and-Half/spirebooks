@@ -55,9 +55,9 @@ const SignUp = () => {
   return (
     <Container id={PAGE_IDS.SIGN_UP} className="py-3">
       <Row className="justify-content-center">
-        <Col xs={5}>
+        <Col xs={6}>
           <Col className="text-center">
-            <h2>Register your account</h2>
+            <h2>Register your SpireBooks account</h2>
           </Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
             <Card>

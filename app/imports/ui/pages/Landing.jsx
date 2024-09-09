@@ -12,7 +12,9 @@ const Landing = () => (
 
       <Col xs={8} className="d-flex flex-column justify-content-center">
         <h1>Welcome to this template</h1>
-        <a href="/tos" className="btn btn-secondary" role="button" id="button">idk where to put this, but here&#39s the tos!!!!!!!!!</a>
+        {
+          // <a href="/tos" className="btn btn-secondary" role="button" id="button">idk where to put this, but here&#39s the tos!!!!!!!!!</a>
+        }
       </Col>
 
     </Row>

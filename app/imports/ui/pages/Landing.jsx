@@ -4,8 +4,8 @@ import { PAGE_IDS } from '../utilities/PageIDs';
 
 const Landing = () => (
   <Container fluid id={PAGE_IDS.LANDING} className="py-3">
-    <Row className="full-width">
-      <div className="top-img justify-content-center text-center" />
+    <Row>
+      <div className="top-img" />
     </Row>
     <Row className="align-middle justify-content-center">
       <Col xs={12} className="text-center">
@@ -25,7 +25,18 @@ const Landing = () => (
         <hr />
       </Col>
     </Row>
-
+    <Row>
+      <Col xs={{ span: 4, offset: 1 }}>
+        <h1>About Spire Hawaii</h1>
+      </Col>
+      <Col xs={6} className="d-flex align-items-center flex-column text-center">
+        <p>
+          Spire is an <b>independent strategic advisory & accounting firm</b> that provides clarity and action to solve
+          an organization’s toughest challenges. Comprised of experienced strategists, accountants, marketers,
+          technologists & designers, we deploy small engagement teams that deliver big results.
+        </p>
+      </Col>
+    </Row>
   </Container>
 );
 

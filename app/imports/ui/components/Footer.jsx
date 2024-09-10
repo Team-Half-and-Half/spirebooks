@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Col, Row } from 'react-bootstrap';
+import { Container, Col, Row, Image } from 'react-bootstrap';
 
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 const Footer = () => {
@@ -13,53 +13,53 @@ const Footer = () => {
             {' '}
             <br />
             <a href="/tos" className="text-style link">
-              *TEXT HERE*
+              *
             </a>
             <br />
             <br />
             <a href="/tos" className="text-style link">
-              *TEXT HERE*
+              *
             </a>
             <br />
             <br />
             <a href="/tos" className="text-style link">
-              *TEXT HERE*
+              *
             </a>
           </Col>
           <Col className="text-center">
-            <a href="/add-money" className="link"><h5 className="text-style">FINANCING</h5></a>
+            <h5 className="text-style">FINANCING</h5>
             {' '}
             <br />
-            <a href="/tos" className="text-style link">
-              *TEXT HERE*
+            <a href="/add-money" className="text-style link">
+              Balance Sheet
             </a>
             <br />
             <br />
             <a href="/tos" className="text-style link">
-              *TEXT HERE*
+              *
             </a>
             <br />
             <br />
             <a href="/tos" className="text-style link">
-              *TEXT HERE*
+              *
             </a>
           </Col>
           <Col className="text-center">
             <h5 className="text-style">AUDIT</h5>
             {' '}
             <br />
-            <a href="/tos" className="text-style link">
-              *TEXT HERE*
+            <a href="/import" className="text-style link">
+              Upload
             </a>
             <br />
             <br />
             <a href="/tos" className="text-style link">
-              *TEXT HERE*
+              *
             </a>
             <br />
             <br />
             <a href="/tos" className="text-style link">
-              *TEXT HERE*
+              *
             </a>
           </Col>
           <Col className="text-center">
@@ -72,16 +72,25 @@ const Footer = () => {
             <br />
             <br />
             <a href="/tos" className="text-style link">
-              *TEXT HERE*
+              *
             </a>
             <br />
             <br />
             <a href="/tos" className="text-style link">
-              *TEXT HERE*
+              *
             </a>
           </Col>
           <Col className="text-center">
-            <a href="/import" className="link"><h5 className="text-style">UPLOAD</h5></a>
+            <br />
+            {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
+            <a href="/home">
+              <Image className="logo-footer" src="/images/spirebooks-logo.png" />
+            </a>
+            <br />
+            <br />
+            <a href="/tos" className="text-style link">
+              Terms of Service
+            </a>
             {' '}
           </Col>
         </Row>

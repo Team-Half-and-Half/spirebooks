@@ -88,3 +88,60 @@ html, body {
   padding-top: 10px;
   padding-bottom: 20px;
 }
+
+/* styling for Landing page */
+#landing .top-img {
+  /*noinspection CssUnknownTarget*/
+  background-image: url("images/landing.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  padding-top: 20%;
+  position: relative;
+  top: -1.5rem;
+}
+
+/* CSS for animated text on landing page */
+.anim-text {
+  border-right: 5px solid;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  animation:
+      typing 6s,
+      cursor .4s step-end infinite alternate;
+}
+
+@keyframes cursor {
+  50% {border-color: transparent}
+}
+
+@keyframes typing {
+  from {width: 0}
+}
+
+#landing hr {
+  margin: 2rem 0;
+  height: 2px;
+  width: 50%;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(
+      to right,
+      rgba(81,123, 190, 1),
+      rgba(241, 114, 25, 1),
+      rgba(126, 22, 84, 1),
+      rgba(81, 72, 153, 1)
+  )
+}
+
+#landing .btn {
+  border-radius: 25px;
+  border: none;
+  background-color: rgba(126, 22, 84, 1);
+}
+#landing .btn:hover {
+  border-radius: 25px;
+  background-color: rgba(126, 22, 84, 0.9);
+}

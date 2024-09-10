@@ -37,7 +37,7 @@ const NavBar = () => {
           <Nav className="me-auto justify-content-end basic-nav">
             <NavLink to="/home"><Image className="logo-navbar" style={{ height: shrink ? '75px' : '95px' }} src="/images/spirebooks-logo.png" /></NavLink>
             {currentUser ? ([
-              <Nav.Link className="nav-tabs" id={COMPONENT_IDS.NAVBAR_LIST_STUFF} as={NavLink} to="/list" key="list">DASHBOARD</Nav.Link>,
+              <Nav.Link className="nav-tabs" as={NavLink} to="/list" key="list">DASHBOARD</Nav.Link>,
               <NavDropdown className="nav-tabs" title="FINANCING">
                 <NavDropdown.Item className="basic-nav" as={NavLink} to="/add-money">Balance Sheet</NavDropdown.Item>
               </NavDropdown>,
@@ -49,9 +49,9 @@ const NavBar = () => {
               </NavDropdown>,
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), [ROLE.ADMIN]) ? (
-              [<Nav.Link className="nav-tabs" id={COMPONENT_IDS.NAVBAR_LIST_STUFF_ADMIN} as={NavLink} to="/admin" key="admin">Admin</Nav.Link>,
-                <NavDropdown className="nav-tabs" id={COMPONENT_IDS.NAVBAR_MANAGE_DROPDOWN} title="Manage" key="manage-dropdown">
-                  <NavDropdown.Item className="nav-tabs" id={COMPONENT_IDS.NAVBAR_MANAGE_DROPDOWN_DATABASE} key="manage-database" as={NavLink} to="/manage-database"><CloudDownload /> Database</NavDropdown.Item>
+              [<Nav.Link className="nav-tabs" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>,
+                <NavDropdown className="nav-tabs" title="Manage" key="manage-dropdown">
+                  <NavDropdown.Item className="nav-tabs" key="manage-database" as={NavLink} to="/manage-database"><CloudDownload /> Database</NavDropdown.Item>
                 </NavDropdown>]
             ) : ''}
           </Nav>

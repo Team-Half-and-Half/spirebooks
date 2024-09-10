@@ -1,7 +1,8 @@
 import React from 'react';
 import { Container, Col, Row, Image } from 'react-bootstrap';
+import { GeoAlt, Telephone, EnvelopeAt } from 'react-bootstrap-icons';
 
-/** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
+/** Spire Footer columns for Financing, Audit, Visualize, and Contact */
 const Footer = () => (
   <footer className="mt-auto gradient-colors">
     <Container className="div-style">
@@ -70,16 +71,16 @@ const Footer = () => (
             target="_blank"
             rel="noopener noreferrer"
           >
-            700 Bishop Street, Suite 2001 Honolulu, Hawaii 96813
+            <GeoAlt />&nbsp;700 Bishop Street, Suite 2001 Honolulu, Hawaii 96813
           </a>
           <br />
           <br />
           <a href="/tel:+18085360066" className="text-style link">
-            (808) 536-0066
+            <Telephone />&nbsp;(808) 536-0066
           </a>
           <br />
           <a href="mailto:contactus@spirehi.com" className="text-style link">
-            contactus@spirehi.com
+            <EnvelopeAt />&nbsp;contactus@spirehi.com
           </a>
         </Col>
         <Col className="text-center">

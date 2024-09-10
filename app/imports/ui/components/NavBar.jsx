@@ -35,7 +35,7 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls={COMPONENT_IDS.NAVBAR_COLLAPSE} />
         <Navbar.Collapse id={COMPONENT_IDS.NAVBAR_COLLAPSE}>
           <Nav className="me-auto justify-content-end basic-nav">
-            <NavLink to="/home"><Image style={{ marginTop: '8px', marginBottom: '20px', marginRight: '10px', width: '200px', height: shrink ? '75px' : '95px' }} src="/images/spirebooks-logo.png" /></NavLink>
+            <NavLink to="/"><Image style={{ marginTop: '8px', marginBottom: '20px', marginRight: '10px', width: '200px', height: shrink ? '75px' : '95px' }} src="/images/spirebooks-logo.png" /></NavLink>
             {currentUser ? ([
               <Nav.Link className="nav-tabs" id={COMPONENT_IDS.NAVBAR_LIST_STUFF} as={NavLink} to="/list" key="list">DASHBOARD</Nav.Link>,
               <Nav.Link className="nav-tabs" id={COMPONENT_IDS.NAVBAR_ADD_STUFF} as={NavLink} to="/add" key="add">FINANCES</Nav.Link>,
@@ -53,13 +53,13 @@ const NavBar = () => {
           </Nav>
           <Nav className="justify-content-start basic-nav">
             {currentUser === '' ? (
-              <NavDropdown className="basic-nav nav-tabs" id={COMPONENT_IDS.NAVBAR_LOGIN_DROPDOWN} title="Login">
-                <NavDropdown.Item className="basic-nav nav-tabs" id={COMPONENT_IDS.NAVBAR_LOGIN_DROPDOWN_SIGN_IN} as={NavLink} to="/signin"><PersonFill />Sign in</NavDropdown.Item>
-                <NavDropdown.Item className="basic-nav nav-tabs" id={COMPONENT_IDS.NAVBAR_LOGIN_DROPDOWN_SIGN_UP} as={NavLink} to="/signup"><PersonPlusFill />Sign up</NavDropdown.Item>
+              <NavDropdown className="basic-nav-dropdown" id={COMPONENT_IDS.NAVBAR_LOGIN_DROPDOWN} title="Login">
+                <NavDropdown.Item id={COMPONENT_IDS.NAVBAR_LOGIN_DROPDOWN_SIGN_IN} as={NavLink} to="/signin"><PersonFill /> Sign in</NavDropdown.Item>
+                <NavDropdown.Item id={COMPONENT_IDS.NAVBAR_LOGIN_DROPDOWN_SIGN_UP} as={NavLink} to="/signup"><PersonPlusFill /> Sign up</NavDropdown.Item>
               </NavDropdown>
             ) : (
-              <NavDropdown className="basic-nav" id={COMPONENT_IDS.NAVBAR_CURRENT_USER} title={currentUser}>
-                <NavDropdown.Item className="basic-nav" id={COMPONENT_IDS.NAVBAR_SIGN_OUT} as={NavLink} to="/signout"><BoxArrowRight /> Sign out</NavDropdown.Item>
+              <NavDropdown className="basic-nav-dropdown" id={COMPONENT_IDS.NAVBAR_CURRENT_USER} title={currentUser}>
+                <NavDropdown.Item id={COMPONENT_IDS.NAVBAR_SIGN_OUT} as={NavLink} to="/signout"><BoxArrowRight /> Sign out</NavDropdown.Item>
               </NavDropdown>
             )}
           </Nav>

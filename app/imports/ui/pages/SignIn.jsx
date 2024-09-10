@@ -45,7 +45,7 @@ const SignIn = () => {
   return (
     <Container id={PAGE_IDS.SIGN_IN} className="py-3">
       <Row className="justify-content-center">
-        <Col xs={6}>
+        <Col xs={7}>
           <Col className="text-center">
             <h2>Login to your SpireBooks account</h2>
           </Col>

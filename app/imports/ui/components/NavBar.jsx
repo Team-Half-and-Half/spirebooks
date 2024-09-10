@@ -40,12 +40,24 @@ const NavBar = () => {
               <Nav.Link className="nav-tabs" as={NavLink} to="/list" key="list">DASHBOARD</Nav.Link>,
               <NavDropdown className="nav-tabs" title="FINANCING">
                 <NavDropdown.Item className="basic-nav" as={NavLink} to="/add-money">Balance Sheet</NavDropdown.Item>
+                <NavDropdown.Item className="basic-nav" as={NavLink} to="/">Ratios</NavDropdown.Item>
+                <NavDropdown.Item
+                  className="basic-nav"
+                  as={NavLink}
+                  to="https://www.spirehawaii.com/our-services"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >Services
+                </NavDropdown.Item>
               </NavDropdown>,
               <NavDropdown className="nav-tabs" title="AUDIT">
+                <NavDropdown.Item className="basic-nav" as={NavLink} to="/">Company Audit</NavDropdown.Item>
+                <NavDropdown.Item className="basic-nav" as={NavLink} to="/">History</NavDropdown.Item>
                 <NavDropdown.Item className="basic-nav" as={NavLink} to="/import">Upload</NavDropdown.Item>
               </NavDropdown>,
               <NavDropdown className="nav-tabs" title="VISUALIZE">
-                <NavDropdown.Item className="basic-nav" as={NavLink} to="/list">Chart View</NavDropdown.Item>
+                <NavDropdown.Item className="basic-nav" as={NavLink} to="/add">Chart View</NavDropdown.Item>
+                <NavDropdown.Item className="basic-nav" as={NavLink} to="/">Metrics</NavDropdown.Item>
               </NavDropdown>,
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), [ROLE.ADMIN]) ? (

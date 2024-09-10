@@ -16,49 +16,54 @@ const Footer = () => (
           </a>
           <br />
           <br />
-          <a href="/tos" className="text-style link">
-            *
+          <a href="/" className="text-style link">
+            Ratios
           </a>
           <br />
           <br />
-          <a href="/tos" className="text-style link">
-            *
+          <a
+            href="https://www.spirehawaii.com/our-services"
+            className="text-style link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Services
           </a>
         </Col>
         <Col className="text-center">
           <h5 className="text-style">AUDIT</h5>
           {' '}
           <br />
+          <a href="/" className="text-style link">
+            Company Audit
+          </a>
+          <br />
+          <br />
+          <a href="/" className="text-style link">
+            History
+          </a>
+          <br />
+          <br />
           <a href="/import" className="text-style link">
             Upload
-          </a>
-          <br />
-          <br />
-          <a href="/tos" className="text-style link">
-            *
-          </a>
-          <br />
-          <br />
-          <a href="/tos" className="text-style link">
-            *
           </a>
         </Col>
         <Col className="text-center">
           <h5 className="text-style">VISUALIZE</h5>
           {' '}
           <br />
+          <a href="/list" className="text-style link">
+            Dashboard
+          </a>
+          <br />
+          <br />
           <a href="/" className="text-style link">
             Chart View
           </a>
           <br />
           <br />
-          <a href="/tos" className="text-style link">
-            *
-          </a>
-          <br />
-          <br />
-          <a href="/tos" className="text-style link">
-            *
+          <a href="/" className="text-style link">
+            Metrics
           </a>
         </Col>
         <Col className="text-center">

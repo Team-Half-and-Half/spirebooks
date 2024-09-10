@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import { PAGE_IDS } from '../utilities/PageIDs';
 
 const Landing = () => (
@@ -21,6 +21,7 @@ const Landing = () => (
           make informed financial and strategic decisions based on a comprehensive consolidation of financial data
           and integration of non-financial factors.
         </p>
+        <Button className="px-4"> Request Demo </Button>
         <hr />
       </Col>
     </Row>

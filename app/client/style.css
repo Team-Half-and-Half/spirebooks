@@ -62,9 +62,8 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
-  padding-top: 20%;
-  position: relative;
-  top: -1.5rem;
+  padding-top: 25%;
+  margin-top: -0.8em;
 }
 
 /* CSS for animated text on landing page */

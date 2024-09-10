@@ -9,7 +9,7 @@ const Landing = () => (
     </Row>
     <Row className="align-middle justify-content-center">
       <Col xs={12} className="text-center">
-        <div className="d-inline-block">
+        <div className="d-inline-block mt-3">
           <h1 className="anim-text display-4">Welcome to SpireBooks.</h1>
         </div>
       </Col>

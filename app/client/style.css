@@ -17,7 +17,7 @@ body {
   font-weight: 400;
   font-size: large;
   background-color: #ffffff;
-  color: #000000;
+  color: #3d3e3f;
 }
 
 .basic-nav.shrink {
@@ -34,20 +34,19 @@ body {
 }
 
 .footer-style {
-  bottom: 0;
-  position: sticky;
-  width: 100%;
+  position: relative;
 }
 
 .text-style {
   font-family: Roboto, sans-serif;
   font-weight: 350;
-  color: #36454F;
+  color: #3d3e3f;
 }
 
 .link {
   text-decoration: none;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 .gradient-colors {

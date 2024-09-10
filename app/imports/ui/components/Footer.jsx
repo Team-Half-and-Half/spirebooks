@@ -9,7 +9,7 @@ const Footer = () => {
       <Container style={divStyle}>
         <Row className="text-center">
           <Col className="text-center">
-            <h5 className="text-style">*TEXT HERE*</h5>
+            <h5 className="text-style">DASHBOARD</h5>
             {' '}
             <br />
             <a href="/tos" className="text-style link">
@@ -27,7 +27,7 @@ const Footer = () => {
             </a>
           </Col>
           <Col className="text-center">
-            <h5 className="text-style">*TEXT HERE*</h5>
+            <h5 className="text-style">FINANCING</h5>
             {' '}
             <br />
             <a href="/tos" className="text-style link">
@@ -45,7 +45,7 @@ const Footer = () => {
             </a>
           </Col>
           <Col className="text-center">
-            <h5 className="text-style">*TEXT HERE*</h5>
+            <h5 className="text-style">AUDIT</h5>
             {' '}
             <br />
             <a href="/tos" className="text-style link">
@@ -63,7 +63,7 @@ const Footer = () => {
             </a>
           </Col>
           <Col className="text-center">
-            <h5 className="text-style">*TEXT HERE*</h5>
+            <h5 className="text-style">VISUALIZE</h5>
             {' '}
             <br />
             <a href="/tos" className="text-style link">
@@ -81,7 +81,7 @@ const Footer = () => {
             </a>
           </Col>
           <Col className="text-center">
-            <h5 className="text-style">*SOMETHING ELSE HERE*</h5>
+            <h5 className="text-style">SOMETHING HERE</h5>
             {' '}
           </Col>
         </Row>

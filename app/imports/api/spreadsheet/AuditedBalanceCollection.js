@@ -414,7 +414,7 @@ class AuditedBalanceCollection {
         optional: false,
       },
     });
-    // Main schema for the ScheduleCollection
+    // Main schema for the AuditedBalanceCollection
     this.schema = new SimpleSchema({
       owner: String,
       ActualYear: {

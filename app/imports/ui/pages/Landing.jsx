@@ -1,16 +1,30 @@
 import React from 'react';
-import { Container, Image, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import { PAGE_IDS } from '../utilities/PageIDs';
 
 const Landing = () => (
-  <Container id={PAGE_IDS.LANDING} className="py-3">
-    <Row>
-      <Image className="mx-auto" src="/images/landing.jpg" />
+  <Container fluid id={PAGE_IDS.LANDING} className="py-3">
+    <Row className="full-width">
+      <div className="top-img justify-content-center text-center" />
     </Row>
-    <Row className="text-center">
-      <h1>SpireBooks</h1>
+    <Row className="align-middle justify-content-center">
+      <Col xs={12} className="text-center">
+        <div className="d-inline-block">
+          <h1 className="anim-text display-4">Welcome to SpireBooks.</h1>
+        </div>
+      </Col>
     </Row>
-    <hr className="gradient" />
+    <Row className="align-middle justify-content-center">
+      <Col xs={6} className="d-flex align-items-center flex-column text-center">
+        <p>
+          SpireBooks is a management decision tool, made with the intent to facilitate and help organizations
+          make informed financial and strategic decisions based on a comprehensive consolidation of financial data
+          and integration of non-financial factors.
+        </p>
+        <hr />
+      </Col>
+    </Row>
+
   </Container>
 );
 

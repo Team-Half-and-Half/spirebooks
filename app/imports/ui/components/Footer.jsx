@@ -47,7 +47,7 @@ const Footer = () => (
           <h5 className="text-style">VISUALIZE</h5>
           {' '}
           <br />
-          <a href="/tos" className="text-style link">
+          <a href="/" className="text-style link">
             Chart View
           </a>
           <br />

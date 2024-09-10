@@ -7,24 +7,6 @@ const Footer = () => (
     <Container className="div-style">
       <Row className="text-center">
         <Col className="text-center">
-          <h5 className="text-style">DASHBOARD</h5>
-          {' '}
-          <br />
-          <a href="/tos" className="text-style link">
-            Overview
-          </a>
-          <br />
-          <br />
-          <a href="/tos" className="text-style link">
-            *
-          </a>
-          <br />
-          <br />
-          <a href="/tos" className="text-style link">
-            *
-          </a>
-        </Col>
-        <Col className="text-center">
           <h5 className="text-style">FINANCING</h5>
           {' '}
           <br />
@@ -76,6 +58,28 @@ const Footer = () => (
           <br />
           <a href="/tos" className="text-style link">
             *
+          </a>
+        </Col>
+        <Col className="text-center">
+          <h5 className="text-style">CONTACT</h5>
+          {' '}
+          <br />
+          <a
+            href="https://www.google.com/search?q=700+Bishop+Street+Suite+2001+Honolulu+Hawaii+96813"
+            className="text-style link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            700 Bishop Street, Suite 2001 Honolulu, Hawaii 96813
+          </a>
+          <br />
+          <br />
+          <a href="/tel:+18085360066" className="text-style link">
+            (808) 536-0066
+          </a>
+          <br />
+          <a href="mailto:contactus@spirehi.com" className="text-style link">
+            contactus@spirehi.com
           </a>
         </Col>
         <Col className="text-center">

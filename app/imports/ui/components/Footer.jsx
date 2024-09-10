@@ -1,18 +1,66 @@
 import React from 'react';
-import { Container, Col } from 'react-bootstrap';
+import { Container, Col, Row } from 'react-bootstrap';
 
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 const Footer = () => {
   const divStyle = { paddingTop: '15px' };
   return (
-    <footer className="mt-auto bg-light">
+    <footer className="mt-auto gradient-colors footer-style">
       <Container style={divStyle}>
-        <Col className="text-center">
-          Department of Information and Computer Sciences <br />
-          University of Hawaii<br />
-          Honolulu, HI 96822 <br />
-          <a href="http://ics-software-engineering.github.io/meteor-application-template-production">Template Home Page</a>
-        </Col>
+        <Row className="text-center">
+          <Col className="text-center">
+            <h5 className="text-style">*TEXT HERE*</h5>
+            {' '}
+            <br />
+            <a href="/tos" className="text-style link">
+              *TEXT HERE*
+            </a>
+            <br />
+            <a href="/tos" className="text-style link">
+              *TEXT HERE*
+            </a>
+            <br />
+            <a href="/tos" className="text-style link">
+              *TEXT HERE*
+            </a>
+          </Col>
+          <Col className="text-center">
+            <h5 className="text-style">*TEXT HERE*</h5>
+            {' '}
+            <br />
+            <a href="/tos" className="text-style link">
+              *TEXT HERE*
+            </a>
+            <br />
+            <a href="/tos" className="text-style link">
+              *TEXT HERE*
+            </a>
+            <br />
+            <a href="/tos" className="text-style link">
+              *TEXT HERE*
+            </a>
+          </Col>
+          <Col className="text-center">
+            <h5 className="text-style">*TEXT HERE*</h5>
+            {' '}
+            <br />
+            <a href="/tos" className="text-style link">
+              *TEXT HERE*
+            </a>
+            <br />
+            <a href="/tos" className="text-style link">
+              *TEXT HERE*
+            </a>
+            <br />
+            <a href="/tos" className="text-style link">
+              *TEXT HERE*
+            </a>
+          </Col>
+          <Col className="text-center">
+            <h5 className="text-style">*SOMETHING ELSE HERE*</h5>
+            {' '}
+          </Col>
+        </Row>
       </Container>
     </footer>
   );

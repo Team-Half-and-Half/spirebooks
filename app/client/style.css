@@ -7,9 +7,6 @@
   --matr-navbar-bg-rgb: 236, 236, 236;
 }
 
-/* Change bootstrap variable values.
- See https://getbootstrap.com/docs/5.2/customize/css-variables/
- */
 body {
   color: #000000;
 }
@@ -36,10 +33,26 @@ body {
   margin-left: 30px;
 }
 
-/* Color gradient, could be for footer
+.footer-style {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.text-style {
+  font-family: Roboto, sans-serif;
+  font-weight: 350;
+  color: #36454F;
+}
+
+.link {
+  text-decoration: none;
+  padding-bottom: 15px;
+}
+
 .gradient-colors {
-  background: linear-gradient(to right, rgb(255, 255, 255, 0.2) 50%, rgb(135, 205, 250, 0.2), rgb(0, 0, 128, 0.2), rgb(246, 80, 38, 0.2), rgb(242, 133, 0, 0.2), rgb(83, 0, 83, 0.2), rgb(152, 41, 133, 0.2));
-} */
+  background: linear-gradient(to right, rgb(255, 255, 255, 0.2), rgb(135, 205, 250, 0.2), rgb(0, 0, 128, 0.2), rgb(246, 80, 38, 0.2), rgb(242, 133, 0, 0.2), rgb(83, 0, 83, 0.2), rgb(152, 41, 133, 0.2), rgb(255, 255, 255, 0.2));
+}
 
 /* Set the SignIn and SignUp alerts background. */
 #signin-page .alert-light, #signup-page .alert-light {

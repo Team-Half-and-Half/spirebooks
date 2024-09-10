@@ -35,7 +35,7 @@ body {
 
 .footer-style {
   bottom: 0;
-  position: absolute;
+  position: sticky;
   width: 100%;
 }
 

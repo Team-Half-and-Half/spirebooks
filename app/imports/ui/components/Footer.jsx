@@ -16,9 +16,11 @@ const Footer = () => {
               *TEXT HERE*
             </a>
             <br />
+            <br />
             <a href="/tos" className="text-style link">
               *TEXT HERE*
             </a>
+            <br />
             <br />
             <a href="/tos" className="text-style link">
               *TEXT HERE*
@@ -32,9 +34,11 @@ const Footer = () => {
               *TEXT HERE*
             </a>
             <br />
+            <br />
             <a href="/tos" className="text-style link">
               *TEXT HERE*
             </a>
+            <br />
             <br />
             <a href="/tos" className="text-style link">
               *TEXT HERE*
@@ -48,9 +52,29 @@ const Footer = () => {
               *TEXT HERE*
             </a>
             <br />
+            <br />
             <a href="/tos" className="text-style link">
               *TEXT HERE*
             </a>
+            <br />
+            <br />
+            <a href="/tos" className="text-style link">
+              *TEXT HERE*
+            </a>
+          </Col>
+          <Col className="text-center">
+            <h5 className="text-style">*TEXT HERE*</h5>
+            {' '}
+            <br />
+            <a href="/tos" className="text-style link">
+              *TEXT HERE*
+            </a>
+            <br />
+            <br />
+            <a href="/tos" className="text-style link">
+              *TEXT HERE*
+            </a>
+            <br />
             <br />
             <a href="/tos" className="text-style link">
               *TEXT HERE*

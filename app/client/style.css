@@ -1,7 +1,7 @@
-/* Use Open Sans as the default sans serif font. */
+/* Use Open Sans as the default sans serif font with Roboto imported. */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:300,400,500,700|Source+Code+Pro:300,400,500,700");
 
-/* Set up some CSS variables to theme the application. */
+/*root base themes for app */
 :root {
   --matr-navbar-bg: #ECECEC;
   --matr-navbar-bg-rgb: 236, 236, 236;
@@ -12,7 +12,7 @@ html, body {
   min-height: 100%;
 }
 
-/* Navbar styling */
+/* Navbar text formatting */
 .basic-nav {
   font-family: Roboto, sans-serif;
   font-weight: 400;
@@ -21,6 +21,7 @@ html, body {
   color: #3d3e3f;
 }
 
+/* used to shrink navbar upon scroll, non-stick */
 .basic-nav.shrink {
   transition: height 0.3s ease;
 }
@@ -50,6 +51,7 @@ html, body {
   height: 75px;
 }
 
+/*footer padding specifications to fill space */
 .div-style {
   padding-top: 25px;
   padding-bottom: 15px;
@@ -61,6 +63,7 @@ html, body {
   color: #3d3e3f;
 }
 
+/* define footer link styling */
 .link {
   text-decoration: none;
   padding-bottom: 10px;
@@ -68,6 +71,7 @@ html, body {
   font-size: large;
 }
 
+/* footer background gradient using rgbs */
 .gradient-colors {
   background: linear-gradient(to right, rgb(255, 255, 255, 0.2), rgb(135, 205, 250, 0.2), rgb(0, 0, 128, 0.2), rgb(246, 80, 38, 0.2), rgb(242, 133, 0, 0.2), rgb(83, 0, 83, 0.2), rgb(152, 41, 133, 0.2), rgb(255, 255, 255, 0.2));
 }

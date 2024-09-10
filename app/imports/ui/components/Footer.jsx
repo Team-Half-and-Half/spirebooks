@@ -27,7 +27,7 @@ const Footer = () => {
             </a>
           </Col>
           <Col className="text-center">
-            <h5 className="text-style">FINANCING</h5>
+            <a href="/add-money" className="link"><h5 className="text-style">FINANCING</h5></a>
             {' '}
             <br />
             <a href="/tos" className="text-style link">
@@ -67,7 +67,7 @@ const Footer = () => {
             {' '}
             <br />
             <a href="/tos" className="text-style link">
-              *TEXT HERE*
+              Chart View
             </a>
             <br />
             <br />
@@ -81,7 +81,7 @@ const Footer = () => {
             </a>
           </Col>
           <Col className="text-center">
-            <h5 className="text-style">SOMETHING HERE</h5>
+            <a href="/import" className="link"><h5 className="text-style">UPLOAD</h5></a>
             {' '}
           </Col>
         </Row>

@@ -7,8 +7,9 @@
   --matr-navbar-bg-rgb: 236, 236, 236;
 }
 
-body {
+html, body {
   color: #000000;
+  min-height: 100%;
 }
 
 /* Navbar styling */
@@ -47,6 +48,7 @@ body {
   text-decoration: none;
   padding-bottom: 10px;
   padding-top: 10px;
+  font-size: large;
 }
 
 .gradient-colors {

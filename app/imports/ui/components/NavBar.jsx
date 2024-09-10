@@ -38,10 +38,15 @@ const NavBar = () => {
             <NavLink to="/home"><Image className="logo-navbar" style={{ height: shrink ? '75px' : '95px' }} src="/images/spirebooks-logo.png" /></NavLink>
             {currentUser ? ([
               <Nav.Link className="nav-tabs" id={COMPONENT_IDS.NAVBAR_LIST_STUFF} as={NavLink} to="/list" key="list">DASHBOARD</Nav.Link>,
-              <Nav.Link className="nav-tabs" id={COMPONENT_IDS.NAVBAR_ADD_STUFF} as={NavLink} to="/add-money" key="add">FINANCING</Nav.Link>,
-              <Nav.Link className="nav-tabs" id={COMPONENT_IDS.NAVBAR_LIST_STUFF} as={NavLink} to="/list" key="list">AUDIT</Nav.Link>,
-              <Nav.Link className="nav-tabs" id={COMPONENT_IDS.NAVBAR_LIST_STUFF} as={NavLink} to="/list" key="list">VISUALIZE</Nav.Link>,
-              <Nav.Link className="nav-tabs" id={COMPONENT_IDS.NAVBAR_LIST_STUFF} as={NavLink} to="/import" key="list">UPLOAD</Nav.Link>,
+              <NavDropdown className="nav-tabs" title="FINANCING">
+                <NavDropdown.Item className="basic-nav" as={NavLink} to="/add-money">Balance Sheet</NavDropdown.Item>
+              </NavDropdown>,
+              <NavDropdown className="nav-tabs" title="AUDIT">
+                <NavDropdown.Item className="basic-nav" as={NavLink} to="/import">Upload</NavDropdown.Item>
+              </NavDropdown>,
+              <NavDropdown className="nav-tabs" title="VISUALIZE">
+                <NavDropdown.Item className="basic-nav" as={NavLink} to="/list">Chart View</NavDropdown.Item>
+              </NavDropdown>,
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), [ROLE.ADMIN]) ? (
               [<Nav.Link className="nav-tabs" id={COMPONENT_IDS.NAVBAR_LIST_STUFF_ADMIN} as={NavLink} to="/admin" key="admin">Admin</Nav.Link>,

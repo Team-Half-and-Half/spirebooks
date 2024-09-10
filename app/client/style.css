@@ -50,8 +50,9 @@ html, body {
   height: 75px;
 }
 
-.footer-style {
-  position: relative;
+.div-style {
+  padding-top: 25px;
+  padding-bottom: 15px;
 }
 
 .text-style {

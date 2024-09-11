@@ -27,7 +27,7 @@ import AddMoney from '../pages/AddMoney';
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
   const { ready } = useTracker(() => {
-    const rdy = Roles.subscription.ready();
+    const rdy = Roles.subscriptiogin.ready();
     return {
       ready: rdy,
     };

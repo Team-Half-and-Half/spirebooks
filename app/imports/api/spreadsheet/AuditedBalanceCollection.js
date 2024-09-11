@@ -1,13 +1,13 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 /**
- * The AuditedBalanceSheetCollection.
+ * The AuditedBalanceCollection.
  *
  */
-class AuditedBalanceSheetCollection {
+class AuditedBalanceCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'AuditedBalanceSheetCollection';
+    this.name = 'AuditedBalanceCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
@@ -33,57 +33,7 @@ class AuditedBalanceSheetCollection {
         optional: true,
       },
     });
-    const LongTermAfter = new SimpleSchema({
-      accruedVacation: {
-        type: Number,
-        optional: true,
-      },
-      workersCompensation: {
-        type: Number,
-        optional: true,
-      },
-      accruedRetirement: {
-        type: Number,
-        optional: true,
-      },
-      accruedLease: {
-        type: Number,
-        optional: true,
-      },
-      capitalLease: {
-        type: Number,
-        optional: true,
-      },
-      notesPayableA: {
-        type: Number,
-        optional: true,
-      },
-      netPensionLiability: {
-        type: Number,
-        optional: true,
-      },
-      netOPEDLiability: {
-        type: Number,
-        optional: true,
-      },
-      lineOfCreditA: {
-        type: Number,
-        optional: true,
-      },
-      lineOfCreditB: {
-        type: Number,
-        optional: true,
-      },
-      debtService: {
-        type: Number,
-        optional: true,
-      },
-      LongTermAfterSum: {
-        type: Number,
-        optional: true,
-      },
-    });
-    const LongTermWithin = new SimpleSchema({
+    const LongTermLiabilities = new SimpleSchema({
       accruedVacation: {
         type: Number,
         optional: true,
@@ -147,11 +97,11 @@ class AuditedBalanceSheetCollection {
         optional: true,
       },
       LongTermWithin: {
-        type: LongTermWithin,
+        type: LongTermLiabilities,
         optional: false,
       },
       LongTermAfter: {
-        type: LongTermAfter,
+        type: LongTermLiabilities,
         optional: false,
       },
       totalLiabilities: {
@@ -394,7 +344,7 @@ class AuditedBalanceSheetCollection {
 
     const ColumnData = new SimpleSchema({
       year: {
-        type: String,
+        type: Number,
         optional: true,
       },
       CashAndCashEquivalents: {
@@ -414,7 +364,7 @@ class AuditedBalanceSheetCollection {
         optional: false,
       },
     });
-    // Main schema for the ScheduleCollection
+    // Main schema for the AuditedBalanceCollection
     this.schema = new SimpleSchema({
       owner: String,
       ActualYear: {
@@ -435,4 +385,4 @@ class AuditedBalanceSheetCollection {
     this.adminPublicationName = `${this.name}.publication.admin`;
   }
 }
-export const AuditedBalanceSheet = new AuditedBalanceSheetCollection();
+export const AuditedBalance = new AuditedBalanceCollection();

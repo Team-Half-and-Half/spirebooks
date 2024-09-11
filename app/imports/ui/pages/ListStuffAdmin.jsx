@@ -7,6 +7,7 @@ import StuffItemAdmin from '../components/StuffItemAdmin';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { PAGE_IDS } from '../utilities/PageIDs';
 import { AuditedBalance } from '../../api/spreadsheet/AuditedBalanceCollection';
+import { BudgetPL } from '../../api/spreadsheet/BudgetPLCollection';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItemAdmin> to render each row. */
 const ListStuffAdmin = () => {
@@ -17,11 +18,12 @@ const ListStuffAdmin = () => {
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     const sub2 = Meteor.subscribe(AuditedBalance.userPublicationName);
+    const sub3 = Meteor.subscribe(BudgetPL.userPublicationName);
     // Get the Stuff documents
     const items = Stuffs.find({}).fetch();
     return {
       stuffs: items,
-      ready: rdy && sub2,
+      ready: rdy && sub2 && sub3,
     };
   }, []);
   return (ready ? (

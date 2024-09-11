@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/StuffCollection';
 import { AuditedBalance } from '../../api/spreadsheet/AuditedBalanceCollection';
+import { BudgetPL } from '../../api/spreadsheet/BudgetPLCollection';
 /* eslint-disable no-console */
 
 // Initialize the database with a default data document.
@@ -26,6 +27,20 @@ if (AuditedBalance.collection.find().count() === 0) {
     console.log('Creating the default ABS');
     addABS(Meteor.settings.defaultABS);
   } else {
-    console.log('Cannot initialize the database!  Please invoke meteor with a settings file.');
+    console.log('Cannot initialize the ABS!  Please invoke meteor with a settings file.');
+  }
+}
+
+function addBPL({ owner, ActualYear, ActualYearGreen }) {
+  console.log(`Defining BudgetP&L Sheet ${owner}`);
+  BudgetPL.collection.insert({ owner, ActualYear, ActualYearGreen });
+}
+
+if (BudgetPL.collection.find().count() === 0) {
+  if (Meteor.settings.defaultBPL) {
+    console.log('Creating the default BPL');
+    addBPL(Meteor.settings.defaultBPL);
+  } else {
+    console.log('Cannot initialize the BPL!  Please invoke meteor with a settings file.');
   }
 }

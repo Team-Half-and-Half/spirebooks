@@ -344,7 +344,7 @@ class AuditedBalanceCollection {
 
     const ColumnData = new SimpleSchema({
       year: {
-        type: String,
+        type: Number,
         optional: true,
       },
       CashAndCashEquivalents: {

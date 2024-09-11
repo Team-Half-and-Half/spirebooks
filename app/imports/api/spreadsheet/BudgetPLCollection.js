@@ -82,8 +82,8 @@ class BudgetPLCollection {
       },
     });
     const Expenses = new SimpleSchema({
-      personal: {
-        type: String,
+      personnel: {
+        type: Number,
         optional: true,
       },
       PersonnelFringeAdmin: {
@@ -141,7 +141,7 @@ class BudgetPLCollection {
     });
     const Revenue = new SimpleSchema({
       investmentPortfolio: {
-        type: String,
+        type: Number,
         optional: true,
       },
       revenues: {
@@ -163,7 +163,7 @@ class BudgetPLCollection {
     });
     const ColumnData = new SimpleSchema({
       year: {
-        type: String,
+        type: Number,
         optional: false,
       },
       Revenue: {
@@ -204,4 +204,4 @@ class BudgetPLCollection {
     this.adminPublicationName = `${this.name}.publication.admin`;
   }
 }
-export const AuditedBalance = new BudgetPLCollection();
+export const BudgetPL = new BudgetPLCollection();

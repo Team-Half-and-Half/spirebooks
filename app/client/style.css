@@ -1,28 +1,27 @@
-/* Use Open Sans as the default sans serif font. */
+/* Use Open Sans as the default sans serif font with Roboto imported. */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:300,400,500,700|Source+Code+Pro:300,400,500,700");
 
-/* Set up some CSS variables to theme the application. */
+/*root base themes for app */
 :root {
   --matr-navbar-bg: #ECECEC;
   --matr-navbar-bg-rgb: 236, 236, 236;
 }
 
-/* Change bootstrap variable values.
- See https://getbootstrap.com/docs/5.2/customize/css-variables/
- */
-body {
+html, body {
   color: #000000;
+  min-height: 100%;
 }
 
-/* Navbar styling */
+/* Navbar text formatting */
 .basic-nav {
   font-family: Roboto, sans-serif;
   font-weight: 400;
   font-size: large;
   background-color: #ffffff;
-  color: #000000;
+  color: #3d3e3f;
 }
 
+/* used to shrink navbar upon scroll, non-stick */
 .basic-nav.shrink {
   transition: height 0.3s ease;
 }
@@ -36,10 +35,46 @@ body {
   margin-left: 30px;
 }
 
-/* Color gradient, could be for footer
+.logo-navbar {
+  margin-top: 8px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  width: 200px;
+  height: 85px;
+}
+
+.logo-footer {
+  margin-top: 8px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  width: 165px;
+  height: 75px;
+}
+
+/*footer padding specifications to fill space */
+.div-style {
+  padding-top: 25px;
+  padding-bottom: 15px;
+}
+
+.text-style {
+  font-family: Roboto, sans-serif;
+  font-weight: 350;
+  color: #3d3e3f;
+}
+
+/* define footer link styling */
+.link {
+  text-decoration: none;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-size: large;
+}
+
+/* footer background gradient using rgbs */
 .gradient-colors {
-  background: linear-gradient(to right, rgb(255, 255, 255, 0.2) 50%, rgb(135, 205, 250, 0.2), rgb(0, 0, 128, 0.2), rgb(246, 80, 38, 0.2), rgb(242, 133, 0, 0.2), rgb(83, 0, 83, 0.2), rgb(152, 41, 133, 0.2));
-} */
+  background: linear-gradient(to right, rgb(255, 255, 255, 0.2), rgb(135, 205, 250, 0.2), rgb(0, 0, 128, 0.2), rgb(246, 80, 38, 0.2), rgb(242, 133, 0, 0.2), rgb(83, 0, 83, 0.2), rgb(152, 41, 133, 0.2), rgb(255, 255, 255, 0.2));
+}
 
 /* Set the SignIn and SignUp alerts background. */
 #signin-page .alert-light, #signup-page .alert-light {
@@ -62,9 +97,8 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
-  padding-top: 20%;
-  position: relative;
-  top: -1.5rem;
+  padding-top: 25%;
+  margin-top: -0.8em;
 }
 
 /* CSS for animated text on landing page */
@@ -74,8 +108,8 @@ body {
   white-space: nowrap;
   overflow: hidden;
   animation:
-    typing 6s,
-    cursor .4s step-end infinite alternate;
+      typing 6s,
+      cursor .4s step-end infinite alternate;
 }
 
 @keyframes cursor {

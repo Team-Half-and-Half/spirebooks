@@ -33,57 +33,7 @@ class AuditedBalanceCollection {
         optional: true,
       },
     });
-    const LongTermAfter = new SimpleSchema({
-      accruedVacation: {
-        type: Number,
-        optional: true,
-      },
-      workersCompensation: {
-        type: Number,
-        optional: true,
-      },
-      accruedRetirement: {
-        type: Number,
-        optional: true,
-      },
-      accruedLease: {
-        type: Number,
-        optional: true,
-      },
-      capitalLease: {
-        type: Number,
-        optional: true,
-      },
-      notesPayableA: {
-        type: Number,
-        optional: true,
-      },
-      netPensionLiability: {
-        type: Number,
-        optional: true,
-      },
-      netOPEDLiability: {
-        type: Number,
-        optional: true,
-      },
-      lineOfCreditA: {
-        type: Number,
-        optional: true,
-      },
-      lineOfCreditB: {
-        type: Number,
-        optional: true,
-      },
-      debtService: {
-        type: Number,
-        optional: true,
-      },
-      LongTermAfterSum: {
-        type: Number,
-        optional: true,
-      },
-    });
-    const LongTermWithin = new SimpleSchema({
+    const LongTermLiabilities = new SimpleSchema({
       accruedVacation: {
         type: Number,
         optional: true,
@@ -147,11 +97,11 @@ class AuditedBalanceCollection {
         optional: true,
       },
       LongTermWithin: {
-        type: LongTermWithin,
+        type: LongTermLiabilities,
         optional: false,
       },
       LongTermAfter: {
-        type: LongTermAfter,
+        type: LongTermLiabilities,
         optional: false,
       },
       totalLiabilities: {

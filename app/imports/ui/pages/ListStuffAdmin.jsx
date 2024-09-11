@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Col, Container, Row, Table } from 'react-bootstrap';
@@ -5,6 +6,7 @@ import { Stuffs } from '../../api/stuff/StuffCollection';
 import StuffItemAdmin from '../components/StuffItemAdmin';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { PAGE_IDS } from '../utilities/PageIDs';
+import { AuditedBalance } from '../../api/spreadsheet/AuditedBalanceCollection';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItemAdmin> to render each row. */
 const ListStuffAdmin = () => {
@@ -14,11 +16,12 @@ const ListStuffAdmin = () => {
     const subscription = Stuffs.subscribeStuffAdmin();
     // Determine if the subscription is ready
     const rdy = subscription.ready();
+    const sub2 = Meteor.subscribe(AuditedBalance.userPublicationName);
     // Get the Stuff documents
     const items = Stuffs.find({}).fetch();
     return {
       stuffs: items,
-      ready: rdy,
+      ready: rdy && sub2,
     };
   }, []);
   return (ready ? (

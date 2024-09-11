@@ -21,17 +21,17 @@ const Landing = () => (
           make informed financial and strategic decisions based on a comprehensive consolidation of financial data
           and integration of non-financial factors.
         </p>
-        <Button className="px-4" href="/signin"> Get Started </Button>
+        <Button className="px-4 btn-lg" href="/signin"> Get Started </Button>
         <hr />
       </Col>
     </Row>
-    <Row className="align-middle justify-content-center">
+    <Row className="d-flex justify-content-center align-items-center text-center">
       <Col xs={4}>
         <h1>About Spire Hawaii</h1>
-        <Image src="/images/landing-2.jpg" width="80%" />
+        <Image className="mt-2" src="/images/landing-2.jpg" width="80%" />
       </Col>
-      <Col xs={6} className="d-flex align-items-center flex-column text-center">
-        <Image className="py-3" src="/images/spire-logo.png" width="30%" />
+      <Col xs={6}>
+        <Image src="/images/spire-logo.png" width="30%" />
         <p className="py-3">
           Spire is an <b>independent strategic advisory & accounting firm</b> that provides clarity and action to solve
           an organization’s toughest challenges. Comprised of experienced strategists, accountants, marketers,

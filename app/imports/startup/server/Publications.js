@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { MATPCollections } from '../../api/matp/MATPCollections';
-import { AuditedBalanceSheet } from '../../api/spreadsheet/AuditedBalanceSheet';
+import { AuditedBalance } from '../../api/spreadsheet/AuditedBalanceCollection';
+import { BudgetPL } from '../../api/spreadsheet/BudgetPLCollection';
 
 // Call publish for all the collections.
 MATPCollections.collections.forEach(c => c.publish());
@@ -8,7 +9,8 @@ MATPCollections.collections.forEach(c => c.publish());
 // alanning:roles publication
 // Recommended code to publish roles for each user.
 // eslint-disable-next-line consistent-return
-Meteor.publish(AuditedBalanceSheet.userPublicationName, () => AuditedBalanceSheet.collection.find());
+Meteor.publish(AuditedBalance.userPublicationName, () => AuditedBalance.collection.find());
+Meteor.publish(BudgetPL.userPublicationName, () => BudgetPL.collection.find());
 
 Meteor.publish(null, function () {
   if (this.userId) {

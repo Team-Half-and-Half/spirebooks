@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row, Image } from 'react-bootstrap';
 import { PAGE_IDS } from '../utilities/PageIDs';
 
 const Landing = () => (
@@ -21,19 +21,27 @@ const Landing = () => (
           make informed financial and strategic decisions based on a comprehensive consolidation of financial data
           and integration of non-financial factors.
         </p>
-        <Button className="px-4"> Request Demo </Button>
+        <Button className="px-4" href="/signin"> Get Started </Button>
         <hr />
       </Col>
     </Row>
-    <Row>
-      <Col xs={{ span: 4, offset: 1 }}>
+    <Row className="align-middle justify-content-center">
+      <Col xs={4}>
         <h1>About Spire Hawaii</h1>
+        <Image src="/images/landing-2.jpg" width="80%" />
       </Col>
       <Col xs={6} className="d-flex align-items-center flex-column text-center">
-        <p>
+        <Image className="py-3" src="/images/spire-logo.png" width="30%" />
+        <p className="py-3">
           Spire is an <b>independent strategic advisory & accounting firm</b> that provides clarity and action to solve
           an organization’s toughest challenges. Comprised of experienced strategists, accountants, marketers,
           technologists & designers, we deploy small engagement teams that deliver big results.
+        </p>
+        <p>
+          As a purpose-driven firm, Spire is proud of our problem-solving capabilities and our ability to solve  today’s
+          most complex challenges. Collectively, as a CPA firm held to the highest standards of integrity, objectivity, and due care, these standards
+          apply to all engagements including consulting and planning services, ensuring the highest commitment of
+          professionalism and expertise.
         </p>
       </Col>
     </Row>

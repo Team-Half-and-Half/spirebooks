@@ -1,8 +1,8 @@
 {
   "defaultAccounts": [
-    { "email": "accountant@spirebooks.com", "password": "changeme", "role": "ADMIN", "firstName": "first_name_admin", "lastName": "last_name_admin"
+    { "email": "accountant@spirebooks.com", "password": "spirebooksadmin", "role": "ADMIN", "firstName": "first_name_admin", "lastName": "last_name_admin"
     },
-    { "email": "customer@spirebooks.com", "password": "changeme", "role": "USER" , "firstName": "first_name_customer", "lastName": "last_name_customer" }
+    { "email": "customer@spirebooks.com", "password": "spirebookscustomer", "role": "USER" , "firstName": "first_name_customer", "lastName": "last_name_customer" }
   ],
 
   "defaultData": [

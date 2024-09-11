@@ -9,15 +9,16 @@ const ImportSheet = () => {
     const reader = new FileReader();
 
     reader.onload = (event) => {
-      const workbook = XLSX.read(event.target.result, { type: 'binary' });
+      const fileData = new Uint8Array(event.target.result);
+      const workbook = XLSX.read(fileData, { type: 'array' });
       const sheetName = workbook.SheetNames[0];
       const sheet = workbook.Sheets[sheetName];
-      const sheetData = XLSX.utils.sheet_to_json(sheet);
+      const sheetData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
 
       setData(sheetData);
     };
 
-    reader.readAsBinaryString(file);
+    reader.readAsArrayBuffer(file);
   };
 
   return (
@@ -25,8 +26,20 @@ const ImportSheet = () => {
       <input type="file" onChange={handleFileUpload} />
       {data && (
         <div>
-          <h2>Imported Data:</h2>
-          <pre>{JSON.stringify(data, null, 2)}</pre>
+          <h3>Imported Data:</h3>
+          <pre>
+            <table>
+              <tbody>
+                {data.map((row, rowIndex) => (
+                  <tr key={rowIndex}>
+                    {row.map((cell, cellIndex) => (
+                      <td key={cellIndex}>{cell}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </pre>
         </div>
       )}
     </div>

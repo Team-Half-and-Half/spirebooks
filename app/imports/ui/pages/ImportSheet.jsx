@@ -9,7 +9,6 @@ const ImportSheet = () => {
     const newTDAta = tData.map((row) => (
       row.map((cell) => ({ value: cell }))
     ));
-    console.log(newTDAta);
     return newTDAta;
   };
 
@@ -24,8 +23,6 @@ const ImportSheet = () => {
       const sheet = workbook.Sheets[sheetName];
       const sheetData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
 
-      // console.log(sheetData);
-      // setData(sheetData);
       setData(transformData(sheetData));
     };
 

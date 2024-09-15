@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
 import * as XLSX from 'xlsx';
+import Spreadsheet from 'react-spreadsheet';
 
 const ImportSheet = () => {
   const [data, setData] = useState(null);
+
+  const transformData = (tData) => {
+    const newTDAta = tData.map((row) => (
+      row.map((cell) => ({ value: cell }))
+    ));
+    console.log(newTDAta);
+    return newTDAta;
+  };
 
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
@@ -15,7 +24,9 @@ const ImportSheet = () => {
       const sheet = workbook.Sheets[sheetName];
       const sheetData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
 
-      setData(sheetData);
+      // console.log(sheetData);
+      // setData(sheetData);
+      setData(transformData(sheetData));
     };
 
     reader.readAsArrayBuffer(file);
@@ -27,19 +38,7 @@ const ImportSheet = () => {
       {data && (
         <div>
           <h3>Imported Data:</h3>
-          <pre>
-            <table>
-              <tbody>
-                {data.map((row, rowIndex) => (
-                  <tr key={rowIndex}>
-                    {row.map((cell, cellIndex) => (
-                      <td key={cellIndex}>{cell}</td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </pre>
+          <Spreadsheet data={data} onChange={setData} />
         </div>
       )}
     </div>

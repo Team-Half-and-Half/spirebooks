@@ -22,6 +22,7 @@ import DataAnalysis from '../pages/DataAnalysis';
 import TermsAndConditions from '../pages/TermsAndConditions';
 import ImportSheet from '../pages/ImportSheet';
 import AddMoney from '../pages/AddMoney';
+import UserSettings from '../pages/UserSettings';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -40,6 +41,7 @@ const App = () => {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
+          <Route path="/usersettings" element={<UserSettings />} />
           <Route path="/import" element={<ImportSheet />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/list" element={<ProtectedRoute><DataAnalysis /></ProtectedRoute>} />

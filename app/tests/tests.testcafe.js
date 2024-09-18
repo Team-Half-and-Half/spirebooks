@@ -16,8 +16,9 @@ const newCredentials = { username: 'newcustomer@spirebooks.com', password: 'spir
 fixture('meteor-application-template-production localhost test with default db')
   .page('http://localhost:3000');
 
-test('Test that landing page shows up', async () => {
+test('Test that landing page shows up and button works', async () => {
   await landingPage.isDisplayed();
+  await landingPage.assertButtonWorks();
 });
 
 test('Test that signin and signout work', async () => {

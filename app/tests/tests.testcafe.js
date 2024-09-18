@@ -4,6 +4,7 @@ import { signInPage } from './signin.page';
 import { signUpPage } from './signup.page';
 import { navBar } from './navbar.component';
 import { dashboardPage } from './dashboard.page';
+import { importPage } from './import.page';
 
 /* global fixture:false, test:false */
 
@@ -42,10 +43,23 @@ test('Test that sign up and sign out work', async () => {
   await navBar.logout();
   await signOutPage.isDisplayed();
 });
+
 test('Test that dashboard page shows up', async () => {
   await navBar.gotoSignInPage();
   await signInPage.signin(adminCredentials.username, adminCredentials.password);
   await navBar.isLoggedIn(adminCredentials.username);
   await navBar.gotoDashboardPage();
   await dashboardPage.isDisplayed();
+  await navBar.logout();
+  await signOutPage.isDisplayed();
+});
+
+test('Test that import page shows up', async () => {
+  await navBar.gotoSignInPage();
+  await signInPage.signin(adminCredentials.username, adminCredentials.password);
+  await navBar.isLoggedIn(adminCredentials.username);
+  await navBar.gotoImportPage();
+  await importPage.isDisplayed();
+  await navBar.logout();
+  await signOutPage.isDisplayed();
 });

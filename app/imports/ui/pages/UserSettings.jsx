@@ -1,65 +1,53 @@
 import React from 'react';
-import swal from 'sweetalert';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, HiddenField, NumField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
-import { useTracker } from 'meteor/react-meteor-data';
+import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { useParams } from 'react-router';
-import { Stuffs } from '../../api/stuff/StuffCollection';
-import { updateMethod } from '../../api/base/BaseCollection.methods';
-import LoadingSpinner from '../components/LoadingSpinner';
+import SimpleSchema from 'simpl-schema';
 
-const bridge = new SimpleSchema2Bridge(Stuffs._schema);
+// Creates schema for user settings
+const formSchema = new SimpleSchema({
+  companyName: {
+    type: String,
+    defaultValue: '',
+  },
+  password: {
+    type: String,
+    min: 6,
+    defaultValue: '',
+  },
+});
 
-/* Renders the EditStuff page for editing a single document. */
+const bridge = new SimpleSchema2Bridge(formSchema);
+
 const UserSettings = () => {
-  // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
-  const { _id } = useParams();
-  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { doc, ready } = useTracker(() => {
-    // Get access to Stuff documents.
-    const subscription = Stuffs.subscribeStuff();
-    // Determine if the subscription is ready
-    const rdy = subscription.ready();
-    // Get the document
-    const document = Stuffs.findDoc(_id);
-    return {
-      doc: document,
-      ready: rdy,
-    };
-  }, [_id]);
-
-  // On successful submit, insert the data.
-  const submit = (data) => {
-    const { name, quantity, condition } = data;
-    const collectionName = Stuffs.getCollectionName();
-    const updateData = { id: _id, name, quantity, condition };
-    updateMethod.callPromise({ collectionName, updateData })
-      .catch(error => swal('Error', error.message, 'error'))
-      .then(() => swal('Success', 'Item updated successfully', 'success'));
+  // On submit, show a success message.
+  const submit = (data, formRef) => {
+    swal('Success', 'Settings updated successfully', 'success');
+    formRef.reset();
   };
 
-  return ready ? (
-    <Container className="py-3">
+  // Renders the settings form
+  let fRef = null;
+  return (
+    <Container fluid className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
-          <Col className="text-center"><h2>Edit Stuff</h2></Col>
-          <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
+          <Col className="text-center"><h2>User Settings</h2></Col>
+          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
-                <TextField name="name" />
-                <NumField name="quantity" decimal={null} />
-                <SelectField name="condition" />
-                <SubmitField value="Submit" />
+                <TextField name="companyName" label="Company Name" />
+                <TextField name="password" type="password" label="Password" />
+                <SubmitField value="Save Settings" />
                 <ErrorsField />
-                <HiddenField name="owner" />
               </Card.Body>
             </Card>
           </AutoForm>
         </Col>
       </Row>
     </Container>
-  ) : <LoadingSpinner />;
+  );
 };
 
 export default UserSettings;

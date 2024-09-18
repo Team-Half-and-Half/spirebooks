@@ -21,7 +21,7 @@ const Landing = () => (
           make informed financial and strategic decisions based on a comprehensive consolidation of financial data
           and integration of non-financial factors.
         </p>
-        <Button className="px-4 btn-lg" href="/signin"> Get Started </Button>
+        <Button className="px-4 btn-lg" href="/signup" id="get-started-btn"> Get Started </Button>
         <hr />
       </Col>
     </Row>

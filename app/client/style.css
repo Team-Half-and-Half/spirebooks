@@ -150,4 +150,14 @@ html, body {
   font-family: Roboto, sans-serif;
   border: 1px;
   min-height: 60vh;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: rise-up 1s ease-out forwards;
+}
+
+@keyframes rise-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

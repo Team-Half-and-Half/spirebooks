@@ -1,6 +1,7 @@
 export const COMPONENT_IDS = {
   LIST_STUFF_EDIT: 'list-stuff-edit',
   MANGAGE_DATABASE_DUMP: 'manage-database-dump',
+  NAVBAR_DASHBOARD: 'navbar-dashboard',
   NAVBAR_ADD_STUFF: 'navbar-add-stuff',
   NAVBAR_ADD_MONEY: 'navbar-add-money',
   NAVBAR_LIST_STUFF: 'navbar-list-stuff',

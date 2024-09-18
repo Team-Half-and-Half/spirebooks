@@ -144,3 +144,31 @@ html, body {
   border-radius: 25px;
   background-color: rgba(126, 22, 84, 0.9);
 }
+
+.user-settings {
+  color: #3d3e3f;
+  font-family: Roboto, sans-serif;
+  border: 1px;
+  min-height: 60vh;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: rise-up 1s ease-out forwards;
+  background-image: url("images/subtle-pattern-bg.jpg");
+}
+
+.user-settings .card,
+.user-settings .form-control {
+  border-radius: 8px;
+}
+
+.user-settings .card:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease-in-out;
+}
+
+@keyframes rise-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

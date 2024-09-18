@@ -22,6 +22,7 @@ import Dashboard from '../pages/Dashboard';
 import TermsAndConditions from '../pages/TermsAndConditions';
 import ImportSheet from '../pages/ImportSheet';
 import AddMoney from '../pages/AddMoney';
+import UserSettings from '../pages/UserSettings';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -46,6 +47,7 @@ const App = () => {
           <Route path="/list" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="/add" element={<ProtectedRoute><AddStuff /></ProtectedRoute>} />
           <Route path="/add-money" element={<ProtectedRoute><AddMoney /></ProtectedRoute>} />
+          <Route path="/user-settings" element={<ProtectedRoute><UserSettings /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />
           <Route path="/manage-database" element={<AdminProtectedRoute ready={ready}><ManageDatabase /></AdminProtectedRoute>} />

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Col, Container, Row, Card, CardHeader } from 'react-bootstrap';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
+import { PAGE_IDS } from '../utilities/PageIDs';
 /* Renders graphs that render all the financial data */
-const DataAnalysis = () => {
+const Dashboard = () => {
   const data = [
     {
       name: 'Year 1',
@@ -49,7 +49,7 @@ const DataAnalysis = () => {
     },
   ];
   return (
-    <Container>
+    <Container fluid id={PAGE_IDS.DASHBOARD}>
       <Row>
         <Col>
           <h1>Equity Metrics</h1>
@@ -180,4 +180,4 @@ const DataAnalysis = () => {
   );
 };
 
-export default DataAnalysis;
+export default Dashboard;

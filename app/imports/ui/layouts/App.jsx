@@ -18,7 +18,7 @@ import NotAuthorized from '../pages/NotAuthorized';
 import { ROLE } from '../../api/role/Role';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ManageDatabase from '../pages/ManageDatabase';
-import DataAnalysis from '../pages/DataAnalysis';
+import Dashboard from '../pages/Dashboard';
 import TermsAndConditions from '../pages/TermsAndConditions';
 import ImportSheet from '../pages/ImportSheet';
 import AddMoney from '../pages/AddMoney';
@@ -42,7 +42,7 @@ const App = () => {
           <Route path="/signout" element={<SignOut />} />
           <Route path="/import" element={<ImportSheet />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
-          <Route path="/list" element={<ProtectedRoute><DataAnalysis /></ProtectedRoute>} />
+          <Route path="/list" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="/add" element={<ProtectedRoute><AddStuff /></ProtectedRoute>} />
           <Route path="/add-money" element={<ProtectedRoute><AddMoney /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />

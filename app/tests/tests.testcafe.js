@@ -1,4 +1,3 @@
-import { Selector, t } from 'testcafe';
 import { signOutPage } from './simple.page';
 import { landingPage } from './landing.page';
 import { signInPage } from './signin.page';

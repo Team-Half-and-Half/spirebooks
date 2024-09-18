@@ -144,3 +144,10 @@ html, body {
   border-radius: 25px;
   background-color: rgba(126, 22, 84, 0.9);
 }
+
+.user-settings {
+  color: #3d3e3f;
+  font-family: Roboto, sans-serif;
+  border: 1px;
+  min-height: 60vh;
+}

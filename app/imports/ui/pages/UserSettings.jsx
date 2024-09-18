@@ -6,7 +6,7 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 
 // Creates schema for user settings
-const formSchema = new SimpleSchema({
+const userSchema = new SimpleSchema({
   companyName: {
     type: String,
     defaultValue: '',
@@ -18,28 +18,28 @@ const formSchema = new SimpleSchema({
   },
 });
 
-const bridge = new SimpleSchema2Bridge(formSchema);
+const bridge = new SimpleSchema2Bridge(userSchema);
 
 const UserSettings = () => {
   // On submit, show a success message.
   const submit = (data, formRef) => {
-    swal('Success', 'Settings updated successfully', 'success');
+    swal('Success', 'Account Updated', 'success');
     formRef.reset();
   };
 
   // Renders the settings form
   let fRef = null;
   return (
-    <Container fluid className="py-3">
+    <Container fluid className="py-lg-5 user-settings">
       <Row className="justify-content-center">
         <Col xs={5}>
-          <Col className="text-center"><h2>User Settings</h2></Col>
+          <Col className="text-center py-lg-3"><h2>User Settings</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
-              <Card.Body>
-                <TextField name="companyName" label="Company Name" />
-                <TextField name="password" type="password" label="Password" />
-                <SubmitField value="Save Settings" />
+              <Card.Body className="gradient-colors">
+                <TextField name="companyName" label="Company" placeholder="Enter company name" />
+                <TextField name="password" type="password" label="Password" placeholder="Enter new password" />
+                <SubmitField value="Save" />
                 <ErrorsField />
               </Card.Body>
             </Card>

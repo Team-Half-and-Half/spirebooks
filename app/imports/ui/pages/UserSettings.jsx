@@ -24,7 +24,7 @@ const bridge = new SimpleSchema2Bridge(userSchema);
 const UserSettings = () => {
   // On submit, show a success message.
   const submit = (data, formRef) => {
-    swal('Account Updated!', 'Your account has been successfully updated.', 'success');
+    swal('Success!', 'Your account has been successfully updated.', 'success');
     formRef.reset();
   };
 

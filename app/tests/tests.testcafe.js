@@ -50,4 +50,3 @@ test('Test that dashboard page shows up', async () => {
   await navBar.gotoDashboardPage();
   await dashboardPage.isDisplayed();
 });
-

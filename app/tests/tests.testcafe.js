@@ -1,4 +1,4 @@
-import { signOutPage } from './simple.page';
+import { signOutPage, addMoneyPage } from './simple.page';
 import { landingPage } from './landing.page';
 import { signInPage } from './signin.page';
 import { signUpPage } from './signup.page';
@@ -12,6 +12,7 @@ import { importPage } from './import.page';
 const adminCredentials = { username: 'accountant@spirebooks.com', password: 'spirebooksadmin' };
 const credentials = { username: 'customer@spirebooks.com', password: 'spirebookscustomer' };
 const newCredentials = { username: 'newcustomer@spirebooks.com', password: 'spirebooksnewcustomer' };
+// TODO: Figure out if having login information above is technically safe, or if it's a vulnerability.
 
 fixture('meteor-application-template-production localhost test with default db')
   .page('http://localhost:3000');
@@ -21,7 +22,7 @@ test('Test that landing page shows up and button works', async () => {
   await landingPage.assertButtonWorks();
 });
 
-test('Test that signin and signout work', async () => {
+test('Test that sign in and sign out work', async () => {
   await navBar.gotoSignInPage();
   await signInPage.signin(credentials.username, credentials.password);
   await navBar.isLoggedIn(credentials.username);
@@ -60,6 +61,16 @@ test('Test that import page shows up', async () => {
   await navBar.isLoggedIn(adminCredentials.username);
   await navBar.gotoImportPage();
   await importPage.isDisplayed();
+  await navBar.logout();
+  await signOutPage.isDisplayed();
+});
+
+test('Test that the Balance Sheet shows up', async () => {
+  await navBar.gotoSignInPage();
+  await signInPage.signin(adminCredentials.username, adminCredentials.password);
+  await navBar.isLoggedIn(adminCredentials.username);
+  await navBar.gotoAddMoneyPage();
+  await addMoneyPage.isDisplayed();
   await navBar.logout();
   await signOutPage.isDisplayed();
 });

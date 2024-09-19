@@ -194,7 +194,7 @@ const AddMoney = () => {
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
   return (
-    <Container fluid id={PAGE_IDS.ADD_STUFF} className="py-3">
+    <Container fluid id={PAGE_IDS.ADD_MONEY} className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center"><h2>Custom Balance Sheet</h2></Col>

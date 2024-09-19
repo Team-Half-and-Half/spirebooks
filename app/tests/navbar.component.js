@@ -55,13 +55,14 @@ class NavBar {
   }
 
   /* Go to the add stuff page. */
-  async gotoAddStuffPage() {
+  async gotoAddMoneyPage() {
     const visible = await Selector(`#${COMPONENT_IDS.NAVBAR_COLLAPSE}`).visible;
     if (!visible) {
       await t.click('button.navbar-toggler');
     }
     await t.expect(Selector(`#${COMPONENT_IDS.NAVBAR_CURRENT_USER}`).exists).ok();
-    await t.click(`#${COMPONENT_IDS.NAVBAR_ADD_STUFF}`);
+    await t.click(`#${COMPONENT_IDS.NAVBAR_FINANCING_DROPDOWN}`);
+    await t.click(`#${COMPONENT_IDS.NAVBAR_ADD_MONEY}`);
   }
 
   /* Go to the list stuff page. */

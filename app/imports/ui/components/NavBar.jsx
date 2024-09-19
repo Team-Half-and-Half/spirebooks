@@ -50,10 +50,10 @@ const NavBar = () => {
                 >Services
                 </NavDropdown.Item>
               </NavDropdown>,
-              <NavDropdown className="nav-tabs" title="AUDIT">
+              <NavDropdown className="nav-tabs" title="AUDIT" id={COMPONENT_IDS.NAVBAR_AUDIT_DROPDOWN}>
                 <NavDropdown.Item className="basic-nav" as={NavLink} to="/">Company Audit</NavDropdown.Item>
                 <NavDropdown.Item className="basic-nav" as={NavLink} to="/">History</NavDropdown.Item>
-                <NavDropdown.Item className="basic-nav" as={NavLink} to="/import">Upload</NavDropdown.Item>
+                <NavDropdown.Item className="basic-nav" id={COMPONENT_IDS.NAVBAR_AUDIT_DROPDOWN_IMPORT} as={NavLink} to="/import">Upload</NavDropdown.Item>
               </NavDropdown>,
               <NavDropdown className="nav-tabs" title="VISUALIZE">
                 <NavDropdown.Item className="basic-nav" as={NavLink} to="/add">Chart View</NavDropdown.Item>

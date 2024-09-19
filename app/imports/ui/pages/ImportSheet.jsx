@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import * as XLSX from 'xlsx';
 import Spreadsheet from 'react-spreadsheet';
+import { Container } from 'react-bootstrap';
+import { PAGE_IDS } from '../utilities/PageIDs';
 
 const ImportSheet = () => {
   const [data, setData] = useState(null);
@@ -30,7 +32,7 @@ const ImportSheet = () => {
   };
 
   return (
-    <div>
+    <Container fluid id={PAGE_IDS.IMPORT}>
       <input type="file" onChange={handleFileUpload} />
       {data && (
         <div>
@@ -38,7 +40,7 @@ const ImportSheet = () => {
           <Spreadsheet data={data} onChange={setData} />
         </div>
       )}
-    </div>
+    </Container>
   );
 };
 

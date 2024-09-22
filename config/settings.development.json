@@ -14,13 +14,14 @@
   "public": {
     "development": true
   },
-  "defaultABS": {
-    "owner": "accountant@spirebooks.com",
-    "ActualYear": [
+  "defaultABS": [
+    {
+      "owner": "accountant@spirebooks.com",
+      "ActualYear": [
       {
         "year": 6,
         "CashAndCashEquivalents": {
-          "prettyCash": 800,
+          "pettyCash": 800,
           "cash": 8047307,
           "cashInBank": 17643599,
           "CashAndCashEquivalentsSum": 25691706
@@ -446,10 +447,446 @@
         }
       }
     ],
-    "ActualYearGreen": [
+      "ActualYearGreen": [
     ]
-  },
-  "defaultBPL": {
+    },
+    {
+      "owner": "customer@spirebooks.com",
+      "ActualYear": [
+        {
+          "year": 6,
+          "CashAndCashEquivalents": {
+            "pettyCash": 800,
+            "cash": 8047307,
+            "cashInBank": 17643599,
+            "CashAndCashEquivalentsSum": 25691706
+          },
+          "OtherAssets": {
+            "accountsReceivable": 4771991,
+            "dueFromOtherFund": null,
+            "interestDividendsReceivable": 41741,
+            "inventoryPrepaidOtherAssets": 1295094,
+            "notesWithinOneYear": 2524267,
+            "notesAfterOneYear": 6688754,
+            "securityDeposits": null,
+            "cashHeldInvestmentManager": 9380389,
+            "Investments": {
+              "mutualFunds": 110086715,
+              "commingledFunds": 99948462,
+              "hedgeFunds": 57442185,
+              "privateEquity": 52547943,
+              "commonTrustFund": null,
+              "commonPreferredStock": null,
+              "privateDebt": 9398843,
+              "other": null,
+              "subTotalInvestments": 329424148,
+              "treasuriesUS": 3142866,
+              "agenciesUS": 1778895,
+              "subtotalLoanFund": 4921761
+            },
+            "investmentSum": 334345909,
+            "CapitalAssetsNet": {
+              "Assets": {
+                "buildings": 23708949,
+                "leaseholdImprovements": 6140781,
+                "furnitureFixturesEquipment": 5709610,
+                "lessAccumulatedDepreciation": 11581988,
+                "net": 23977352,
+                "landA": 200000000,
+                "landB": 13961981,
+                "constructionInProgress": null,
+                "subTotal": 213961981
+              },
+              "LiabilityBAsset": {
+                "buildings": 968388,
+                "leaseholdImprovements": 1613512,
+                "furnitureFixturesEquipment": 958173,
+                "vehicles": null,
+                "lessAccumulatedDepreciation": 1611697,
+                "net": 1928376,
+                "land": 13003821,
+                "subTotal": 14932197
+              },
+              "capitalAssetsNetSum": 252871530
+            },
+            "restrictedCash": 184230,
+            "totalOtherAssets": 612103905,
+            "deferredPensions": 3070777,
+            "deferredOPEB": null,
+            "totalAssetsDeferred": 640866388
+          },
+          "Liabilities": {
+            "accountPayableAccrued": 6653737,
+            "dueToFund": 3359468,
+            "dueToOtherFund": null,
+            "LongTermWithin": {
+              "accruedVacation": 958024,
+              "workersCompensation": null,
+              "accruedRetirement": null,
+              "accruedLease": null,
+              "capitalLease": 41595,
+              "notesPayableA": 555069,
+              "netPensionLiability": null,
+              "netOPEDLiability": null,
+              "lineOfCreditA": 454379,
+              "lineOfCreditB": null,
+              "debtService": null,
+              "LongTermWithinSum": 2009067
+            },
+            "LongTermAfter": {
+              "accruedVacation": 773416,
+              "workersCompensation": null,
+              "accruedRetirement": null,
+              "accruedLease": null,
+              "capitalLease": 688,
+              "notesPayableA": 20336417,
+              "netPensionLiability": 21773504,
+              "netOPEDLiability": null,
+              "lineOfCreditA": 9741121,
+              "lineOfCreditB": null,
+              "debtService": null,
+              "LongTermAfterSum": 52625146
+            },
+            "totalLiabilities": 64647418,
+            "deferredInflowsPension": 1413791,
+            "deferredInflowsOPED": null,
+            "totalLiabilitiesDeferredInflows": 66061209
+          },
+          "NetPosition": {
+            "netOfRelatedDebt": 225290261,
+            "restrictedFederal": 26690007,
+            "unrestricted": 322824911,
+            "totalNetPosition": 574805179,
+            "totalLiabilitiesInflowsNetPosition": 640866388
+          }
+        },
+        {
+          "year": 7,
+          "CashAndCashEquivalents": {
+            "pettyCash": 800,
+            "cash": 5794491,
+            "cashInBank": 22754877,
+            "CashAndCashEquivalentsSum": 28550168
+          },
+          "OtherAssets": {
+            "accountsReceivable": 364228,
+            "dueFromOtherFund": null,
+            "interestDividendsReceivable": 69291,
+            "inventoryPrepaidOtherAssets": 1120233,
+            "notesWithinOneYear": 2146507,
+            "notesAfterOneYear": 4136100,
+            "securityDeposits": null,
+            "cashHeldInvestmentManager": 4498433,
+            "Investments": {
+              "mutualFunds": 198130341,
+              "commingledFunds": 65120614,
+              "hedgeFunds": 23836788,
+              "privateEquity": 61486931,
+              "commonTrustFund": null,
+              "commonPreferredStock": null,
+              "privateDebt": 8439611,
+              "other": null,
+              "subTotalInvestments": 357014285,
+              "treasuriesUS": 11109117,
+              "agenciesUS": 2198305,
+              "subtotalLoanFund": 13307422
+            },
+            "investmentSum": 370321707,
+            "CapitalAssetsNet": {
+              "Assets": {
+                "buildings": 23708949,
+                "leaseholdImprovements": 6140781,
+                "furnitureFixturesEquipment": 5832744,
+                "lessAccumulatedDepreciation": 13650057,
+                "net": 22032417,
+                "landA": 200000000,
+                "landB": 13961981,
+                "constructionInProgress": null,
+                "subTotal": 213961981
+              },
+              "LiabilityBAsset": {
+                "buildings": 1196598,
+                "leaseholdImprovements": 1651916,
+                "furnitureFixturesEquipment": 993982,
+                "vehicles": null,
+                "lessAccumulatedDepreciation": 1909242,
+                "net": 1933254,
+                "land": 13003821,
+                "subTotal": 14937075
+              },
+              "capitalAssetsNetSum": 250931473
+            },
+            "restrictedCash": 365259,
+            "totalOtherAssets": 633953231,
+            "deferredPensions": 10362562,
+            "deferredOPEB": null,
+            "totalAssetsDeferred": 672865961
+          },
+          "Liabilities": {
+            "accountPayableAccrued": 5386031,
+            "dueToFund": 1138542,
+            "dueToOther": null,
+            "LongTermWithin": {
+              "accruedVacation": 982476,
+              "workersCompensation": null,
+              "accruedRetirement": null,
+              "accruedLease": null,
+              "capitalLease": 45277,
+              "notesPayableA": 575385,
+              "netPensionLiability": null,
+              "netOPEDLiability": null,
+              "lineOfCreditA": 1614774,
+              "lineOfCreditB": null,
+              "debtService": null,
+              "LongTermWithinSum": 3217912
+            },
+            "LongTermAfter": {
+              "accruedVacation": 678289,
+              "workersCompensation": null,
+              "accruedRetirement": null,
+              "accruedLease": null,
+              "capitalLease": 167694,
+              "notesPayableA": 19725001,
+              "netPensionLiability": 32669717,
+              "netOPEDLiability": null,
+              "lineOfCreditA": 8580726,
+              "lineOfCreditB": null,
+              "debtService": null,
+              "LongTermAfterSum": 61821427
+            },
+            "totalLiabilities": 71563912,
+            "deferredInflowsPension": 575904,
+            "deferredInflowsOPED": null,
+            "totalLiabilitiesDeferredInflows": 72139816
+          },
+          "NetPosition": {
+            "netOfRelatedDebt": 220222616,
+            "restrictedFederal": 25498353,
+            "unrestricted": 355005176,
+            "totalNetPosition": 600726145,
+            "totalLiabilitiesInflowsNetPosition": 672865961
+          }
+        },
+        {
+          "year": 8,
+          "CashAndCashEquivalents": {
+            "pettyCash": 784,
+            "cash": 5355851,
+            "cashInBank": 14735032,
+            "CashAndCashEquivalentsSum": 20091667
+          },
+          "OtherAssets": {
+            "accountsReceivable": 2029739,
+            "dueFromOtherFund": null,
+            "interestDividendsReceivable": 83425,
+            "inventoryPrepaidOtherAssets": 1166716,
+            "notesWithinOneYear": 1775892,
+            "notesAfterOneYear": 3546701,
+            "securityDeposits": null,
+            "cashHeldInvestmentManager": 4685289,
+            "Investments": {
+              "mutualFunds": 200172908,
+              "commingledFunds": 59446468,
+              "hedgeFunds": 45365409,
+              "privateEquity": 79695102,
+              "commonTrustFund": null,
+              "commonPreferredStock": null,
+              "privateDebt": null,
+              "other": null,
+              "subTotalInvestments": 384679887,
+              "treasuriesUS": 11713544,
+              "agenciesUS": 1435432,
+              "subtotalLoanFund": 13148976
+            },
+            "investmentSum": 397828863,
+            "CapitalAssetsNet": {
+              "Assets": {
+                "buildings": 23708949,
+                "leaseholdImprovements": 6187360,
+                "furnitureFixturesEquipment": 5975391,
+                "lessAccumulatedDepreciation": 15863772,
+                "net": 20007928,
+                "landA": 200000000,
+                "landB": 13961981,
+                "constructionInProgress": null,
+                "subTotal": 213961981
+              },
+              "LiabilityBAsset": {
+                "buildings": 3104262,
+                "leaseholdImprovements": null,
+                "furnitureFixturesEquipment": 926734,
+                "vehicles": 244742,
+                "lessAccumulatedDepreciation": 2197309,
+                "net": 2078429,
+                "land": 13003821,
+                "subTotal": 15082250
+              },
+              "capitalAssetsNetSum": 249052159
+            },
+            "restrictedCash": 294142,
+            "totalOtherAssets": 660462926,
+            "deferredPensions": 7089131,
+            "deferredOPEB": 1881695,
+            "totalAssetsDeferred": 689525419
+          },
+          "Liabilities": {
+            "accountPayableAccrued": 7225413,
+            "dueToFund": 332397,
+            "dueToOther": null,
+            "LongTermWithin": {
+              "accruedVacation": 1095736,
+              "workersCompensation": null,
+              "accruedRetirement": null,
+              "accruedLease": null,
+              "capitalLease": 48898,
+              "notesPayableA": 596444,
+              "netPensionLiability": null,
+              "netOPEDLiability": null,
+              "lineOfCreditA": 1614666,
+              "lineOfCreditB": null,
+              "debtService": null,
+              "LongTermWithinSum": 3355744
+            },
+            "LongTermAfter": {
+              "accruedVacation": 494627,
+              "workersCompensation": null,
+              "accruedRetirement": null,
+              "accruedLease": null,
+              "capitalLease": 131617,
+              "notesPayableA": 19137923,
+              "netPensionLiability": 31892391,
+              "netOPEDLiability": 33325299,
+              "lineOfCreditA": 6711039,
+              "lineOfCreditB": null,
+              "debtService": null,
+              "LongTermAfterSum": 91692896
+            },
+            "totalLiabilities": 102606450,
+            "deferredInflowsPension": 420848,
+            "deferredInflowsOPED": 38288,
+            "totalLiabilitiesDeferredInflows": 103065586
+          },
+          "NetPosition": {
+            "netOfRelatedDebt": 220811572,
+            "restrictedFederal": 25326992,
+            "unrestricted": 340321269,
+            "totalNetPosition": 586459833,
+            "totalLiabilitiesInflowsNetPosition": 689525419
+          }
+        },
+        {
+          "year": 9,
+          "CashAndCashEquivalents": {
+            "pettyCash": 700,
+            "cash": 5118284,
+            "cashInBank": 17528894,
+            "CashAndCashEquivalentsSum": 22647878
+          },
+          "OtherAssets": {
+            "accountsReceivable": 2253707,
+            "dueFromOtherFund": null,
+            "interestDividendsReceivable": 172599,
+            "inventoryPrepaidOtherAssets": 1181746,
+            "notesWithinOneYear": 1477076,
+            "notesAfterOneYear": 4977748,
+            "securityDeposits": null,
+            "cashHeldInvestmentManager": 3925659,
+            "Investments": {
+              "mutualFunds": 200421798,
+              "commingledFunds": 61042978,
+              "hedgeFunds": 48479482,
+              "privateEquity": 75472196,
+              "commonTrustFund": null,
+              "commonPreferredStock": null,
+              "privateDebt": 6796150,
+              "other": null,
+              "subTotalInvestments": 392212604,
+              "treasuriesUS": 13091017,
+              "agenciesUS": 792260,
+              "subtotalLoanFund": 13883277
+            },
+            "investmentSum": 406095881,
+            "CapitalAssetsNet": {
+              "Assets": {
+                "buildings": 23708949,
+                "leaseholdImprovements": 6215252,
+                "furnitureFixturesEquipment": 6233495,
+                "lessAccumulatedDepreciation": 17839962,
+                "net": 18317734,
+                "landA": 200000000,
+                "landB": 13961981,
+                "constructionInProgress": 21041,
+                "subTotal": 213983022
+              },
+              "LiabilityBAsset": {
+                "buildings": 3445360,
+                "leaseholdImprovements": null,
+                "furnitureFixturesEquipment": 923806,
+                "vehicles": 227402,
+                "lessAccumulatedDepreciation": 2489934,
+                "net": 2106634,
+                "land": 13072711,
+                "subTotal": 15179345
+              },
+              "capitalAssetsNetSum": 247480101
+            },
+            "restrictedCash": 284790,
+            "totalOtherAssets": 667849307,
+            "deferredPensions": 5801500,
+            "deferredOPEB": 2418015,
+            "totalAssetsDeferred": 698716700
+          },
+          "Liabilities": {
+            "accountPayableAccrued": 6730596,
+            "dueToFund": 300000,
+            "dueToOther": null,
+            "LongTermWithin": {
+              "accruedVacation": 1005458,
+              "workersCompensation": null,
+              "accruedRetirement": null,
+              "accruedLease": null,
+              "capitalLease": 50461,
+              "notesPayableA": 618274,
+              "netPensionLiability": null,
+              "netOPEDLiability": null,
+              "lineOfCreditA": 1614666,
+              "lineOfCreditB": null,
+              "debtService": null,
+              "LongTermWithinSum": 3288859
+            },
+            "LongTermAfter": {
+              "accruedVacation": 417670,
+              "workersCompensation": null,
+              "accruedRetirement": null,
+              "accruedLease": null,
+              "capitalLease": 81808,
+              "notesPayableA": 18518211,
+              "netPensionLiability": 32698545,
+              "netOPEDLiability": 33586793,
+              "lineOfCreditA": 5096373,
+              "lineOfCreditB": null,
+              "debtService": null,
+              "LongTermAfterSum": 90399400
+            },
+            "totalLiabilities": 100718855,
+            "deferredInflowsPension": 528581,
+            "deferredInflowsOPED": 521102,
+            "totalLiabilitiesDeferredInflows": 101768538
+          },
+          "NetPosition": {
+            "netOfRelatedDebt": 221500308,
+            "restrictedFederal": 25335251,
+            "unrestricted": 350112603,
+            "totalNetPosition": 596948162,
+            "totalLiabilitiesInflowsNetPosition": 698716700
+          }
+        }
+      ],
+      "ActualYearGreen": [
+      ]
+    }
+    ],
+  "defaultBPL": [{
     "owner": "accountant@spirebooks.com",
     "ActualYear": [
       {
@@ -758,5 +1195,5 @@
       }
     ],
     "ActualYearGreen": []
-  }
+  }]
 }

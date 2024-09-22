@@ -1,49 +1,32 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Col, Container, Row, Table } from 'react-bootstrap';
-import { Stuffs } from '../../api/stuff/StuffCollection';
-import StuffItemAdmin from '../components/StuffItemAdmin';
+import { Col, Container, Row } from 'react-bootstrap';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { PAGE_IDS } from '../utilities/PageIDs';
 import { AuditedBalance } from '../../api/spreadsheet/AuditedBalanceCollection';
-import { BudgetPL } from '../../api/spreadsheet/BudgetPLCollection';
+import StuffItemAdmin from '../components/StuffItemAdmin';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItemAdmin> to render each row. */
 const ListStuffAdmin = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { stuffs, ready } = useTracker(() => {
+  const { ready, stuff } = useTracker(() => {
     // Get access to Stuff documents.
-    const subscription = Stuffs.subscribeStuffAdmin();
     // Determine if the subscription is ready
-    const rdy = subscription.ready();
+    const owner = Meteor.user()?.username;
     const sub2 = Meteor.subscribe(AuditedBalance.userPublicationName);
-    const sub3 = Meteor.subscribe(BudgetPL.userPublicationName);
-    // Get the Stuff documents
-    const items = Stuffs.find({}).fetch();
+    const yearData = AuditedBalance.collection.findOne({ owner: owner });
     return {
-      stuffs: items,
-      ready: rdy && sub2 && sub3,
+      stuff: yearData,
+      ready: sub2,
     };
   }, []);
-  return (ready ? (
+  return (ready && stuff ? (
     <Container id={PAGE_IDS.LIST_STUFF_ADMIN} className="py-3">
       <Row className="justify-content-center">
         <Col md={7}>
           <Col className="text-center"><h2>List Stuff (Admin)</h2></Col>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Condition</th>
-                <th>Owner</th>
-              </tr>
-            </thead>
-            <tbody>
-              {stuffs.map((stuff) => <StuffItemAdmin key={stuff._id} stuff={stuff} />)}
-            </tbody>
-          </Table>
+          <StuffItemAdmin stuff={stuff.ActualYear[0]} />
         </Col>
       </Row>
     </Container>

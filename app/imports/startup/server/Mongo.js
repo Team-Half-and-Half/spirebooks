@@ -25,7 +25,7 @@ function addABS({ owner, ActualYear, ActualYearGreen }) {
 if (AuditedBalance.collection.find().count() === 0) {
   if (Meteor.settings.defaultABS) {
     console.log('Creating the default ABS');
-    addABS(Meteor.settings.defaultABS);
+    Meteor.settings.defaultABS.map(abs => addABS(abs));
   } else {
     console.log('Cannot initialize the ABS!  Please invoke meteor with a settings file.');
   }
@@ -39,7 +39,7 @@ function addBPL({ owner, ActualYear, ActualYearGreen }) {
 if (BudgetPL.collection.find().count() === 0) {
   if (Meteor.settings.defaultBPL) {
     console.log('Creating the default BPL');
-    addBPL(Meteor.settings.defaultBPL);
+    Meteor.settings.defaultBPL.forEach(bpl => addBPL(bpl));
   } else {
     console.log('Cannot initialize the BPL!  Please invoke meteor with a settings file.');
   }

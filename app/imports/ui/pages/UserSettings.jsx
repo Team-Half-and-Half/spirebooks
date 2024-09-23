@@ -58,7 +58,7 @@ const UserSettings = () => {
               <Card.Body className="gradient-colors">
                 <TextField name="companyName" label={<span>Company <Buildings /></span>} placeholder="Enter company name" />
                 <TextField name="password" type="password" label={<span>Password <Key /></span>} placeholder="Enter new password" />
-                <div className="mb-2 text-center form-text"><small>(Updating settings may log users out.)</small></div>
+                <div className="mb-2 text-center form-text"><small>(WARNING: Updating settings may log users out. Please keep track of new passwords.)</small></div>
                 <SubmitField value="Save" />
                 <ErrorsField />
               </Card.Body>

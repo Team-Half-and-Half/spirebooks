@@ -3,6 +3,7 @@ import { Card, Col, Container, Row } from 'react-bootstrap';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import { Buildings, Key } from 'react-bootstrap-icons';
 import swal from 'sweetalert';
+import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 
@@ -22,9 +23,34 @@ const userSchema = new SimpleSchema({
 const bridge = new SimpleSchema2Bridge(userSchema);
 
 const UserSettings = () => {
-  // On submit, show a success message.
+  // On submit, show success message
   const submit = (data, formRef) => {
-    swal('Success!', 'Your account has been successfully updated.', 'success');
+    const { companyName, password } = data;
+
+    // Calls Meteor methods to update company name and password
+    Meteor.call('UserProfiles.UpdateCompanyName', { companyName }, (error) => {
+      if (error) {
+        swal('Error!', error.reason, 'error');
+      } else {
+        // eslint-disable-next-line no-shadow
+        Meteor.call('UserProfiles.UpdatePassword', { password }, (error) => {
+          if (error) {
+            swal('Error!', error.reason, 'error');
+          } else {
+            swal({
+              title: 'Success!',
+              text: 'Your account has been updated.',
+              icon: 'success',
+              buttons: true,
+            }).then(() => {
+              // Redirect upon update
+              window.location.href = '/home';
+            });
+          }
+        });
+      }
+    });
+
     formRef.reset();
   };
 
@@ -40,6 +66,7 @@ const UserSettings = () => {
               <Card.Body className="gradient-colors">
                 <TextField name="companyName" label={<span>Company <Buildings /></span>} placeholder="Enter company name" />
                 <TextField name="password" type="password" label={<span>Password <Key /></span>} placeholder="Enter new password" />
+                <div className="mb-2 text-center form-text"><small>(WARNING: Updating settings may log users out. Please keep track of new passwords.)</small></div>
                 <SubmitField value="Save" />
                 <ErrorsField />
               </Card.Body>

@@ -24,7 +24,7 @@
           "pettyCash": 800,
           "cash": 8047307,
           "cashInBank": 17643599,
-          "CashAndCashEquivalentsSum": 25691706
+          "cashAndCashEquivalentsSum": 25691706
         },
         "OtherAssets": {
           "accountsReceivable": 4771991,
@@ -96,7 +96,7 @@
             "lineOfCreditA": 454379,
             "lineOfCreditB": null,
             "debtService": null,
-            "LongTermWithinSum": 2009067
+            "longTermWithinSum": 2009067
           },
           "LongTermAfter": {
             "accruedVacation": 773416,
@@ -110,7 +110,7 @@
             "lineOfCreditA": 9741121,
             "lineOfCreditB": null,
             "debtService": null,
-            "LongTermAfterSum": 52625146
+            "longTermAfterSum": 52625146
           },
           "totalLiabilities": 64647418,
           "deferredInflowsPension": 1413791,
@@ -131,7 +131,7 @@
           "pettyCash": 800,
           "cash": 5794491,
           "cashInBank": 22754877,
-          "CashAndCashEquivalentsSum": 28550168
+          "cashAndCashEquivalentsSum": 28550168
         },
         "OtherAssets": {
           "accountsReceivable": 364228,
@@ -203,7 +203,7 @@
             "lineOfCreditA": 1614774,
             "lineOfCreditB": null,
             "debtService": null,
-            "LongTermWithinSum": 3217912
+            "longTermWithinSum": 3217912
           },
           "LongTermAfter": {
             "accruedVacation": 678289,
@@ -217,7 +217,7 @@
             "lineOfCreditA": 8580726,
             "lineOfCreditB": null,
             "debtService": null,
-            "LongTermAfterSum": 61821427
+            "longTermAfterSum": 61821427
           },
           "totalLiabilities": 71563912,
           "deferredInflowsPension": 575904,
@@ -238,7 +238,7 @@
           "pettyCash": 784,
           "cash": 5355851,
           "cashInBank": 14735032,
-          "CashAndCashEquivalentsSum": 20091667
+          "cashAndCashEquivalentsSum": 20091667
         },
         "OtherAssets": {
           "accountsReceivable": 2029739,
@@ -310,7 +310,7 @@
             "lineOfCreditA": 1614666,
             "lineOfCreditB": null,
             "debtService": null,
-            "LongTermWithinSum": 3355744
+            "longTermWithinSum": 3355744
           },
           "LongTermAfter": {
             "accruedVacation": 494627,
@@ -324,7 +324,7 @@
             "lineOfCreditA": 6711039,
             "lineOfCreditB": null,
             "debtService": null,
-            "LongTermAfterSum": 91692896
+            "longTermAfterSum": 91692896
           },
           "totalLiabilities": 102606450,
           "deferredInflowsPension": 420848,
@@ -345,7 +345,7 @@
           "pettyCash": 700,
           "cash": 5118284,
           "cashInBank": 17528894,
-          "CashAndCashEquivalentsSum": 22647878
+          "cashAndCashEquivalentsSum": 22647878
         },
         "OtherAssets": {
           "accountsReceivable": 2253707,
@@ -417,7 +417,7 @@
             "lineOfCreditA": 1614666,
             "lineOfCreditB": null,
             "debtService": null,
-            "LongTermWithinSum": 3288859
+            "longTermWithinSum": 3288859
           },
           "LongTermAfter": {
             "accruedVacation": 417670,
@@ -431,7 +431,7 @@
             "lineOfCreditA": 5096373,
             "lineOfCreditB": null,
             "debtService": null,
-            "LongTermAfterSum": 90399400
+            "longTermAfterSum": 90399400
           },
           "totalLiabilities": 100718855,
           "deferredInflowsPension": 528581,
@@ -459,7 +459,7 @@
             "pettyCash": 800,
             "cash": 8047307,
             "cashInBank": 17643599,
-            "CashAndCashEquivalentsSum": 25691706
+            "cashAndCashEquivalentsSum": 25691706
           },
           "OtherAssets": {
             "accountsReceivable": 4771991,
@@ -531,7 +531,7 @@
               "lineOfCreditA": 454379,
               "lineOfCreditB": null,
               "debtService": null,
-              "LongTermWithinSum": 2009067
+              "longTermWithinSum": 2009067
             },
             "LongTermAfter": {
               "accruedVacation": 773416,
@@ -545,7 +545,7 @@
               "lineOfCreditA": 9741121,
               "lineOfCreditB": null,
               "debtService": null,
-              "LongTermAfterSum": 52625146
+              "longTermAfterSum": 52625146
             },
             "totalLiabilities": 64647418,
             "deferredInflowsPension": 1413791,
@@ -566,7 +566,7 @@
             "pettyCash": 800,
             "cash": 5794491,
             "cashInBank": 22754877,
-            "CashAndCashEquivalentsSum": 28550168
+            "cashAndCashEquivalentsSum": 28550168
           },
           "OtherAssets": {
             "accountsReceivable": 364228,
@@ -638,7 +638,7 @@
               "lineOfCreditA": 1614774,
               "lineOfCreditB": null,
               "debtService": null,
-              "LongTermWithinSum": 3217912
+              "longTermWithinSum": 3217912
             },
             "LongTermAfter": {
               "accruedVacation": 678289,
@@ -652,7 +652,7 @@
               "lineOfCreditA": 8580726,
               "lineOfCreditB": null,
               "debtService": null,
-              "LongTermAfterSum": 61821427
+              "longTermAfterSum": 61821427
             },
             "totalLiabilities": 71563912,
             "deferredInflowsPension": 575904,
@@ -673,7 +673,7 @@
             "pettyCash": 784,
             "cash": 5355851,
             "cashInBank": 14735032,
-            "CashAndCashEquivalentsSum": 20091667
+            "cashAndCashEquivalentsSum": 20091667
           },
           "OtherAssets": {
             "accountsReceivable": 2029739,
@@ -745,7 +745,7 @@
               "lineOfCreditA": 1614666,
               "lineOfCreditB": null,
               "debtService": null,
-              "LongTermWithinSum": 3355744
+              "longTermWithinSum": 3355744
             },
             "LongTermAfter": {
               "accruedVacation": 494627,
@@ -759,7 +759,7 @@
               "lineOfCreditA": 6711039,
               "lineOfCreditB": null,
               "debtService": null,
-              "LongTermAfterSum": 91692896
+              "longTermAfterSum": 91692896
             },
             "totalLiabilities": 102606450,
             "deferredInflowsPension": 420848,
@@ -780,7 +780,7 @@
             "pettyCash": 700,
             "cash": 5118284,
             "cashInBank": 17528894,
-            "CashAndCashEquivalentsSum": 22647878
+            "cashAndCashEquivalentsSum": 22647878
           },
           "OtherAssets": {
             "accountsReceivable": 2253707,
@@ -852,7 +852,7 @@
               "lineOfCreditA": 1614666,
               "lineOfCreditB": null,
               "debtService": null,
-              "LongTermWithinSum": 3288859
+              "longTermWithinSum": 3288859
             },
             "LongTermAfter": {
               "accruedVacation": 417670,
@@ -866,7 +866,7 @@
               "lineOfCreditA": 5096373,
               "lineOfCreditB": null,
               "debtService": null,
-              "LongTermAfterSum": 90399400
+              "longTermAfterSum": 90399400
             },
             "totalLiabilities": 100718855,
             "deferredInflowsPension": 528581,
@@ -914,7 +914,7 @@
               "pensionCompensation": null,
               "fringeBenefitsSum": 3987817
             },
-            "PersonnelFringeSum": 12037508
+            "personnelFringeSum": 12037508
           },
           "PersonnelFringeAdminStaff": {
             "salary": 1305437,
@@ -930,7 +930,7 @@
               "pensionCompensation": null,
               "fringeBenefitsSum": 646713
             },
-            "PersonnelFringeSum": 1952150
+            "personnelFringeSum": 1952150
           },
           "FringeAdminManagement": {
             "salary": 514404,
@@ -946,7 +946,7 @@
               "pensionCompensation": null,
               "fringeBenefitsSum": 254836
             },
-            "PersonnelFringeSum": 769240
+            "personnelFringeSum": 769240
           },
           "program": 1041866,
           "contracts": 6378047,
@@ -990,7 +990,7 @@
               "pensionCompensation": 148,
               "fringeBenefitsSum": 4114214
             },
-            "PersonnelFringeSum": 11529618
+            "personnelFringeSum": 11529618
           },
           "PersonnelFringeAdminStaff": {
             "salary": 1264744,
@@ -1006,7 +1006,7 @@
               "pensionCompensation": 25,
               "fringeBenefitsSum": 701705
             },
-            "PersonnelFringeSum": 1966449
+            "personnelFringeSum": 1966449
           },
           "FringeAdminManagement": {
             "salary": 514404,
@@ -1022,7 +1022,7 @@
               "pensionCompensation": 10,
               "fringeBenefitsSum": 285402
             },
-            "PersonnelFringeSum": 799806
+            "personnelFringeSum": 799806
           },
           "program": 1074945,
           "contracts": 4698334,
@@ -1066,7 +1066,7 @@
               "pensionCompensation": 745,
               "fringeBenefitsSum": 4401348
             },
-            "PersonnelFringeSum": 11851159
+            "personnelFringeSum": 11851159
           },
           "PersonnelFringeAdminStaff": {
             "salary": 1291643,
@@ -1082,7 +1082,7 @@
               "pensionCompensation": 129,
               "fringeBenefitsSum": 763103
             },
-            "PersonnelFringeSum": 2054746
+            "personnelFringeSum": 2054746
           },
           "FringeAdminManagement": {
             "salary": 524178,
@@ -1098,7 +1098,7 @@
               "pensionCompensation": 52,
               "fringeBenefitsSum": 309684
             },
-            "PersonnelFringeSum": 833862
+            "personnelFringeSum": 833862
           },
           "program": 1510657,
           "contracts": 6185850,
@@ -1142,7 +1142,7 @@
               "pensionCompensation": 785,
               "fringeBenefitsSum": 4713940
             },
-            "PersonnelFringeSum": 12560046
+            "personnelFringeSum": 12560046
           },
           "PersonnelFringeAdminStaff": {
             "salary": 1230767,
@@ -1158,7 +1158,7 @@
               "pensionCompensation": 123,
               "fringeBenefitsSum": 739445
             },
-            "PersonnelFringeSum": 1970212
+            "personnelFringeSum": 1970212
           },
           "FringeAdminManagement": {
             "salary": 532565,
@@ -1174,7 +1174,7 @@
               "pensionCompensation": 53,
               "fringeBenefitsSum": 319965
             },
-            "PersonnelFringeSum": 852529
+            "personnelFringeSum": 852529
           },
           "program": 1617949,
           "contracts": 5498625,

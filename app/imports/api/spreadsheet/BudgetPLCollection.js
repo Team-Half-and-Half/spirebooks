@@ -76,7 +76,7 @@ class BudgetPLCollection {
         type: FringeBenefits,
         optional: false,
       },
-      PersonnelFringeSum: {
+      personnelFringeSum: {
         type: Number,
         optional: true,
       },
@@ -98,7 +98,7 @@ class BudgetPLCollection {
         type: PersonnelFringe,
         optional: false,
       },
-      PersonnelFringeSum: {
+      personnelFringeSum: {
         type: Number,
         optional: true,
       },

@@ -37,6 +37,7 @@ export const updatePasswordMethod = new ValidatedMethod({
   },
 });
 
+// method to update company name for account
 export const updateCompanyNameMethod = new ValidatedMethod({
   name: 'UserProfiles.UpdateCompanyName',
   mixins: [CallPromiseMixin],
@@ -51,7 +52,6 @@ export const updateCompanyNameMethod = new ValidatedMethod({
         throw new Meteor.Error('User not logged in');
       }
 
-      // Update the company name in the user's profile
       Meteor.users.update(userId, { $set: { 'profile.companyName': companyName } });
     }
   },

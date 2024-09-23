@@ -27,7 +27,7 @@ const UserSettings = () => {
   const submit = (data, formRef) => {
     const { companyName, password } = data;
 
-    // Calls Meteor methods to update company name and password
+    // methods to update company name and password
     Meteor.call('UserProfiles.UpdateCompanyName', { companyName }, (error) => {
       if (error) {
         swal('Error!', error.reason, 'error');
@@ -43,7 +43,7 @@ const UserSettings = () => {
               icon: 'success',
               buttons: true,
             }).then(() => {
-              // Redirect upon update
+              // redirect to home after update
               window.location.href = '/home';
             });
           }

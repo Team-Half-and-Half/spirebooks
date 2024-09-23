@@ -9,7 +9,7 @@ const StuffItemAdmin = ({ stuff }) => {
   return (
     <Table>
       <tr>
-        {year}
+        Year {year}
       </tr>
       <tr>
         {pettyCash}

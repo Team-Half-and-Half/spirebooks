@@ -1,18 +1,138 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 /**
- * The AuditedBalanceCollection.
+ * The AuditedFSCollection.
  *
  */
-class AuditedBalanceCollection {
+class AuditedFSCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'AuditedBalanceCollection';
+    this.name = 'AuditedFSCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
-    const NetPosition = new SimpleSchema({
-      netOfRelatedDebt: {
+    const FundBalances = new SimpleSchema({
+      beginningOfYear: {
+        type: Number,
+        optional: true,
+      },
+      restatementAdjustment: {
+        type: Number,
+        optional: true,
+      },
+      netPositionEndOfYear: {
+        type: Number,
+        optional: true,
+      },
+    });
+    const Expenditures = new SimpleSchema({
+      management: {
+        type: Number,
+        optional: true,
+      },
+      supportServices: {
+        type: Number,
+        optional: true,
+      },
+      beneficiaryAdvocacy: {
+        type: Number,
+        optional: true,
+      },
+      depreciation: {
+        type: Number,
+        optional: true,
+      },
+      limitedLiabilityA: {
+        type: Number,
+        optional: true,
+      },
+      limitedLiabilityB: {
+        type: Number,
+        optional: true,
+      },
+      totalExpenses: {
+        type: Number,
+        optional: true,
+      },
+      excessOfRevenue: {
+        type: Number,
+        optional: true,
+      },
+      proceedsFromDebt: {
+        type: Number,
+        optional: true,
+      },
+      proceedsFromCapitalLease: {
+        type: Number,
+        optional: true,
+      },
+      netTransfersOtherFunds: {
+        type: Number,
+        optional: true,
+      },
+      changeInNetAssets: {
+        type: Number,
+        optional: true,
+      },
+    });
+    const GeneralRevenues = new SimpleSchema({
+      appropriations: {
+        type: Number,
+        optional: true,
+      },
+      trust: {
+        type: Number,
+        optional: true,
+      },
+      interestInvestmentLossesEarnings: {
+        type: Number,
+        optional: true,
+      },
+      newspaperAds: {
+        type: Number,
+        optional: true,
+      },
+      donationsAndOther: {
+        type: Number,
+        optional: true,
+      },
+      limitedLiabilityB: {
+        type: Number,
+        optional: true,
+      },
+      nonImposedFringeBenefits: {
+        type: Number,
+        optional: true,
+      },
+      totalGeneralRevenue: {
+        type: Number,
+        optional: true,
+      },
+      totalRevenue: {
+        type: Number,
+        optional: true,
+      },
+    });
+    const ProgramRevenues = new SimpleSchema({
+      chargesForServices: {
+        type: Number,
+        optional: true,
+      },
+      operatingGrants: {
+        type: Number,
+        optional: true,
+      },
+      interestInvestmentsEarnings: {
+        type: Number,
+        optional: true,
+      },
+      totalProgramRevenues: {
+        type: Number,
+        optional: true,
+      },
+    });
+    const NetAssets = new SimpleSchema({
+      investedCapitalAssets: {
         type: Number,
         optional: true,
       },
@@ -24,61 +144,11 @@ class AuditedBalanceCollection {
         type: Number,
         optional: true,
       },
-      totalNetPosition: {
+      totalNetAssets: {
         type: Number,
         optional: true,
       },
-      totalLiabilitiesInflowsNetPosition: {
-        type: Number,
-        optional: true,
-      },
-    });
-    const LongTermLiabilities = new SimpleSchema({
-      accruedVacation: {
-        type: Number,
-        optional: true,
-      },
-      workersCompensation: {
-        type: Number,
-        optional: true,
-      },
-      accruedRetirement: {
-        type: Number,
-        optional: true,
-      },
-      accruedLease: {
-        type: Number,
-        optional: true,
-      },
-      capitalLease: {
-        type: Number,
-        optional: true,
-      },
-      notesPayableA: {
-        type: Number,
-        optional: true,
-      },
-      netPensionLiability: {
-        type: Number,
-        optional: true,
-      },
-      netOPEDLiability: {
-        type: Number,
-        optional: true,
-      },
-      lineOfCreditA: {
-        type: Number,
-        optional: true,
-      },
-      lineOfCreditB: {
-        type: Number,
-        optional: true,
-      },
-      debtService: {
-        type: Number,
-        optional: true,
-      },
-      longTermWithinSum: {
+      totalLiabilitiesNetAssets: {
         type: Number,
         optional: true,
       },
@@ -96,19 +166,19 @@ class AuditedBalanceCollection {
         type: Number,
         optional: true,
       },
-      LongTermWithin: {
-        type: LongTermLiabilities,
-        optional: false,
+      longTermWithin: {
+        type: Number,
+        optional: true,
       },
-      LongTermAfter: {
-        type: LongTermLiabilities,
-        optional: false,
+      longTermAfter: {
+        type: Number,
+        optional: true,
       },
       totalLiabilities: {
         type: Number,
         optional: true,
       },
-      deferredInflowsPension: {
+      deferredInflowsResources: {
         type: Number,
         optional: true,
       },
@@ -117,142 +187,6 @@ class AuditedBalanceCollection {
         optional: true,
       },
       totalLiabilitiesDeferredInflows: {
-        type: Number,
-        optional: true,
-      },
-    });
-    const LiabilityBAsset = new SimpleSchema({
-      buildings: {
-        type: Number,
-        optional: true,
-      },
-      leaseholdImprovements: {
-        type: Number,
-        optional: true,
-      },
-      furnitureFixturesEquipment: {
-        type: Number,
-        optional: true,
-      },
-      vehicles: {
-        type: Number,
-        optional: true,
-      },
-      lessAccumulatedDepreciation: {
-        type: Number,
-        optional: true,
-      },
-      net: {
-        type: Number,
-        optional: true,
-      },
-      land: {
-        type: Number,
-        optional: true,
-      },
-      subTotal: {
-        type: Number,
-        optional: true,
-      },
-    });
-    const Assets = new SimpleSchema({
-      buildings: {
-        type: Number,
-        optional: true,
-      },
-      leaseholdImprovements: {
-        type: Number,
-        optional: true,
-      },
-      furnitureFixturesEquipment: {
-        type: Number,
-        optional: true,
-      },
-      lessAccumulatedDepreciation: {
-        type: Number,
-        optional: true,
-      },
-      net: {
-        type: Number,
-        optional: true,
-      },
-      landA: {
-        type: Number,
-        optional: true,
-      },
-      landB: {
-        type: Number,
-        optional: true,
-      },
-      constructionInProgress: {
-        type: Number,
-        optional: true,
-      },
-      subTotal: {
-        type: Number,
-        optional: true,
-      },
-    });
-    const CapitalAssetsNet = new SimpleSchema({
-      Assets: {
-        type: Assets,
-        optional: false,
-      },
-      LiabilityBAsset: {
-        type: LiabilityBAsset,
-        optional: false,
-      },
-      capitalAssetsNetSum: {
-        type: Number,
-        optional: true,
-      },
-    });
-    const Investments = new SimpleSchema({
-      mutualFunds: {
-        type: Number,
-        optional: true,
-      },
-      commingledFunds: {
-        type: Number,
-        optional: true,
-      },
-      hedgeFunds: {
-        type: Number,
-        optional: true,
-      },
-      privateEquity: {
-        type: Number,
-        optional: true,
-      },
-      commonTrustFund: {
-        type: Number,
-        optional: true,
-      },
-      commonPreferredStock: {
-        type: Number,
-        optional: true,
-      },
-      privateDebt: {
-        type: Number,
-        optional: true,
-      },
-      other: {
-        type: Number,
-        optional: true,
-      },
-      subTotalInvestments: {
-        type: Number,
-        optional: true,
-      },
-      treasuriesUS: {
-        type: Number,
-        optional: true,
-      },
-      agenciesUS: {
-        type: Number,
-        optional: true,
-      },
-      subtotalLoanFund: {
         type: Number,
         optional: true,
       },
@@ -286,23 +220,11 @@ class AuditedBalanceCollection {
         type: Number,
         optional: true,
       },
-      cashHeldInvestmentManager: {
+      investments: {
         type: Number,
         optional: true,
       },
-      Investments: {
-        type: Investments,
-        optional: false,
-      },
-      investmentSum: {
-        type: Number,
-        optional: true,
-      },
-      CapitalAssetsNet: {
-        type: CapitalAssetsNet,
-        optional: false,
-      },
-      restrictedCash: {
+      capitalAssetNet: {
         type: Number,
         optional: true,
       },
@@ -310,11 +232,7 @@ class AuditedBalanceCollection {
         type: Number,
         optional: true,
       },
-      deferredPensions: {
-        type: Number,
-        optional: true,
-      },
-      deferredOPEB: {
+      deferredOutflows: {
         type: Number,
         optional: true,
       },
@@ -336,12 +254,19 @@ class AuditedBalanceCollection {
         type: Number,
         optional: true,
       },
-      cashAndCashEquivalentsSum: {
+      cashHeldInvestmentManager: {
+        type: Number,
+        optional: true,
+      },
+      restrictedCash: {
+        type: Number,
+        optional: true,
+      },
+      CashAndCashEquivalentsSum: {
         type: Number,
         optional: true,
       },
     });
-
     const ColumnData = new SimpleSchema({
       year: {
         type: Number,
@@ -359,12 +284,28 @@ class AuditedBalanceCollection {
         type: Liabilities,
         optional: false,
       },
-      NetPosition: {
-        type: NetPosition,
+      NetAssets: {
+        type: NetAssets,
+        optional: false,
+      },
+      ProgramRevenues: {
+        type: ProgramRevenues,
+        optional: false,
+      },
+      GeneralRevenues: {
+        type: GeneralRevenues,
+        optional: false,
+      },
+      Expenditures: {
+        type: Expenditures,
+        optional: false,
+      },
+      FundBalances: {
+        type: FundBalances,
         optional: false,
       },
     });
-    // Main schema for the AuditedBalanceCollection
+    // Main schema for the AuditedFSCollection
     this.schema = new SimpleSchema({
       owner: String,
       ActualYear: {
@@ -385,4 +326,4 @@ class AuditedBalanceCollection {
     this.adminPublicationName = `${this.name}.publication.admin`;
   }
 }
-export const AuditedBalance = new AuditedBalanceCollection();
+export const AuditedFS = new AuditedFSCollection();

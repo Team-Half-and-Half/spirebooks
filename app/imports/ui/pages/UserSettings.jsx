@@ -25,25 +25,33 @@ const bridge = new SimpleSchema2Bridge(userSchema);
 const UserSettings = () => {
   // On submit, show success message
   const submit = (data, formRef) => {
-    const { password } = data;
+    const { companyName, password } = data;
 
-    // updates psswrd upon form submission
-    Meteor.call('UserProfiles.UpdatePassword', { password }, (error) => {
+    // Calls Meteor methods to update company name and password
+    Meteor.call('UserProfiles.UpdateCompanyName', { companyName }, (error) => {
       if (error) {
         swal('Error!', error.reason, 'error');
       } else {
-        swal({
-          title: 'Success!',
-          text: 'Your account has been updated.',
-          icon: 'success',
-          buttons: true,
-        }).then(() => {
-          // redirects upon update
-          window.location.href = '/home';
+        // eslint-disable-next-line no-shadow
+        Meteor.call('UserProfiles.UpdatePassword', { password }, (error) => {
+          if (error) {
+            swal('Error!', error.reason, 'error');
+          } else {
+            swal({
+              title: 'Success!',
+              text: 'Your account has been updated.',
+              icon: 'success',
+              buttons: true,
+            }).then(() => {
+              // Redirect upon update
+              window.location.href = '/home';
+            });
+          }
         });
-        formRef.reset();
       }
     });
+
+    formRef.reset();
   };
 
   // Renders the settings form

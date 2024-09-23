@@ -36,3 +36,23 @@ export const updatePasswordMethod = new ValidatedMethod({
     }
   },
 });
+
+export const updateCompanyNameMethod = new ValidatedMethod({
+  name: 'UserProfiles.UpdateCompanyName',
+  mixins: [CallPromiseMixin],
+  validate: new SimpleSchema({
+    companyName: { type: String },
+  }).validator(),
+  run({ companyName }) {
+    if (Meteor.isServer) {
+      const userId = this.userId;
+
+      if (!userId) {
+        throw new Meteor.Error('User not logged in');
+      }
+
+      // Update the company name in the user's profile
+      Meteor.users.update(userId, { $set: { 'profile.companyName': companyName } });
+    }
+  },
+});

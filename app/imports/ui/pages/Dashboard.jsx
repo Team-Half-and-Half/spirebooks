@@ -1,9 +1,14 @@
 import React from 'react';
 import { Col, Container, Row, Card, CardHeader } from 'react-bootstrap';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { Meteor } from 'meteor/meteor';
+import { useTracker } from 'meteor/react-meteor-data';
 import { PAGE_IDS } from '../utilities/PageIDs';
 /* Renders graphs that render all the financial data */
 const Dashboard = () => {
+  const { currentUser } = useTracker(() => ({
+    currentUser: Meteor.user(),
+  }), []);
   const data = [
     {
       name: 'Year 1',
@@ -52,6 +57,9 @@ const Dashboard = () => {
     <Container fluid id={PAGE_IDS.DASHBOARD}>
       <Row>
         <Col>
+          <div>
+            <h1 className="company-title">{currentUser?.profile?.companyName || 'Company Name'}</h1>
+          </div>
           <h1>Equity Metrics</h1>
           <Card>
             <CardHeader>Net Position</CardHeader>
@@ -114,6 +122,7 @@ const Dashboard = () => {
           </Card>
         </Col>
         <Col>
+          <h1>&nbsp;</h1>
           <h1>Cash Flow Metrics</h1>
           <Card>
             <CardHeader>Financing</CardHeader>

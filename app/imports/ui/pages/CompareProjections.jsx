@@ -4,6 +4,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { PAGE_IDS } from '../utilities/PageIDs';
+import CustomLineChart from '../components/CustomLineChart';
 /* Renders graphs that render all the financial data */
 const CompareProjections = () => {
   const { currentUser } = useTracker(() => ({
@@ -60,64 +61,10 @@ const CompareProjections = () => {
           <div>
             <h1 className="company-title">{currentUser?.profile?.companyName || 'Company Name'}</h1>
           </div>
-          <h1>Equity Metrics</h1>
           <Card>
-            <CardHeader>Net Position</CardHeader>
+            <CardHeader>Chart 1</CardHeader>
             <ResponsiveContainer width="100%" height={300}>
-              <LineChart
-                width={500}
-                height={300}
-                data={data}
-                margin={{
-                  top: 5, right: 30, left: 20, bottom: 5,
-                }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="actual" stroke="#8884d8" activeDot={{ r: 8 }} />
-                <Line type="monotone" dataKey="edited" stroke="#82ca9d" />
-              </LineChart>
-            </ResponsiveContainer>
-            <CardHeader>Years of Solvency</CardHeader>
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart
-                width={500}
-                height={300}
-                data={data}
-                margin={{
-                  top: 5, right: 30, left: 20, bottom: 5,
-                }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="actual" stroke="#8884d8" activeDot={{ r: 8 }} />
-                <Line type="monotone" dataKey="edited" stroke="#82ca9d" />
-              </LineChart>
-            </ResponsiveContainer>
-            <CardHeader>Demand for Capital</CardHeader>
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart
-                width={500}
-                height={300}
-                data={data}
-                margin={{
-                  top: 5, right: 30, left: 20, bottom: 5,
-                }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="actual" stroke="#8884d8" activeDot={{ r: 8 }} />
-                <Line type="monotone" dataKey="edited" stroke="#82ca9d" />
-              </LineChart>
+              <CustomLineChart />
             </ResponsiveContainer>
           </Card>
         </Col>

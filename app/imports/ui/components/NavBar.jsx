@@ -57,6 +57,7 @@ const NavBar = () => {
               </NavDropdown>,
               <NavDropdown className="nav-tabs" title="VISUALIZE">
                 <NavDropdown.Item className="basic-nav" as={NavLink} to="/add">Chart View</NavDropdown.Item>
+                <NavDropdown.Item className="basic-nav" as={NavLink} to="/compare-projections">Compare Projections</NavDropdown.Item>
                 <NavDropdown.Item className="basic-nav" as={NavLink} to="/">Metrics</NavDropdown.Item>
               </NavDropdown>,
             ]) : ''}

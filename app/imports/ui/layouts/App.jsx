@@ -23,6 +23,7 @@ import TermsAndConditions from '../pages/TermsAndConditions';
 import ImportSheet from '../pages/ImportSheet';
 import AddMoney from '../pages/AddMoney';
 import UserSettings from '../pages/UserSettings';
+import CompareProjections from '../pages/CompareProjections';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -43,6 +44,7 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
           <Route path="/import" element={<ImportSheet />} />
+          <Route path="/compare-projections" element={<CompareProjections />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/list" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="/add" element={<ProtectedRoute><AddStuff /></ProtectedRoute>} />

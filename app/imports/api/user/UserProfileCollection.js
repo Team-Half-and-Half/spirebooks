@@ -2,7 +2,7 @@ import SimpleSchema from 'simpl-schema';
 import BaseProfileCollection from './BaseProfileCollection';
 import { ROLE } from '../role/Role';
 import { Users } from './UserCollection';
-import { UserVerification } from "./UserVerificationCollection";
+import { UserVerification } from './UserVerificationCollection';
 
 class UserProfileCollection extends BaseProfileCollection {
   constructor() {

@@ -1,5 +1,11 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
+
+export const userVerificationPublications = {
+  verificationUsers: 'verificationUsers',
+  verificationAdmins: 'verificationAdmins',
+};
+
 /**
  * The UserVerificationCollection.
  *
@@ -25,4 +31,5 @@ class UserVerificationCollection {
     this.adminPublicationName = `${this.name}.publication.admin`;
   }
 }
+
 export const UserVerification = new UserVerificationCollection();

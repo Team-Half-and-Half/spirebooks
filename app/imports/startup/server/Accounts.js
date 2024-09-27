@@ -1,10 +1,17 @@
 import { Meteor } from 'meteor/meteor';
+import { Accounts } from 'meteor/accounts-base';
 import { ROLE } from '../../api/role/Role';
 import { AdminProfiles } from '../../api/user/AdminProfileCollection';
 import { UserProfiles } from '../../api/user/UserProfileCollection';
 
 /* eslint-disable no-console */
-
+Accounts.onCreateUser((options, user) => {
+  // eslint-disable-next-line no-param-reassign
+  user.profile = user.profile || {};
+  // eslint-disable-next-line no-param-reassign
+  user.profile.companyName = ''; // Default empty company name
+  return user;
+});
 function createUser(email, role, firstName, lastName, password) {
   console.log(`  Creating user ${email} with role ${role}.`);
   if (role === ROLE.ADMIN) {

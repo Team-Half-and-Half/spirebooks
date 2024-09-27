@@ -15,4 +15,5 @@ export const PAGE_IDS = {
   DASHBOARD: 'dashboard',
   IMPORT: 'import',
   VERIFICATION_TABLE: 'verification-table',
+  COMPARE_PROJECTIONS: 'compare-projections',
 };

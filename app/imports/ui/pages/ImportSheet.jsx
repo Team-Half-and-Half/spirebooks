@@ -1,10 +1,26 @@
+import { Meteor } from 'meteor/meteor';
+import { Roles } from 'meteor/alanning:roles';
+import { useTracker } from 'meteor/react-meteor-data';
 import React, { useState } from 'react';
 import * as XLSX from 'xlsx';
 import Spreadsheet from 'react-spreadsheet';
 import { Container } from 'react-bootstrap';
 import { PAGE_IDS } from '../utilities/PageIDs';
+import { UserVerification } from '../../api/user/UserVerificationCollection';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const ImportSheet = () => {
+  const currentUserID = Meteor.userId();
+  const { verificationStatus, ready } = useTracker(() => {
+    const sub = Meteor.subscribe(UserVerification.userPublicationName);
+    const rdy = sub.ready();
+    const currentVerification = UserVerification.collection.find({ userID: currentUserID }).fetch();
+    return {
+      verificationStatus: currentVerification,
+      ready: rdy && sub,
+    };
+  }, []);
+
   const [data, setData] = useState(null);
 
   const transformData = (tData) => {
@@ -31,17 +47,25 @@ const ImportSheet = () => {
     reader.readAsArrayBuffer(file);
   };
 
-  return (
-    <Container fluid id={PAGE_IDS.IMPORT}>
-      <input type="file" onChange={handleFileUpload} />
-      {data && (
-        <div>
-          <h3>Imported Data:</h3>
-          <Spreadsheet data={data} onChange={setData} />
-        </div>
-      )}
-    </Container>
-  );
+  if (ready) {
+    return ((Roles.userIsInRole(currentUserID, 'ADMIN') || verificationStatus[0].verification) ? (
+      <Container fluid id={PAGE_IDS.IMPORT}>
+        <input type="file" onChange={handleFileUpload} />
+        {data && (
+          <div>
+            <h3>Imported Data:</h3>
+            <Spreadsheet data={data} onChange={setData} />
+          </div>
+        )}
+      </Container>
+    ) : (
+      <Container fluid>
+        <h3>User not verified to submit data.</h3>
+      </Container>
+    )
+    );
+  }
+  return (<LoadingSpinner />);
 };
 
 export default ImportSheet;

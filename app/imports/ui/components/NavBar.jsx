@@ -65,6 +65,7 @@ const NavBar = () => {
               [<Nav.Link className="nav-tabs" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>,
                 <NavDropdown className="nav-tabs" title="Manage" key="manage-dropdown">
                   <NavDropdown.Item className="nav-tabs" key="manage-database" as={NavLink} to="/manage-database"><CloudDownload /> Database</NavDropdown.Item>
+                  <NavDropdown.Item className="nav-tabs" key="verification-table" as={NavLink} to="/verification-table"> Verification Table</NavDropdown.Item>
                 </NavDropdown>]
             ) : ''}
           </Nav>

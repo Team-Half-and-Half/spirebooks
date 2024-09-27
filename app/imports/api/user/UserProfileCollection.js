@@ -26,7 +26,7 @@ class UserProfileCollection extends BaseProfileCollection {
       const profileID = this._collection.insert({ email, firstName, lastName, userID, role });
       // defaultVerification (set to false for all created users)
       const defaultVerification = false;
-      UserVerification.collection.insert({ userID: userID, verification: defaultVerification });
+      UserVerification.collection.insert({ userID: userID, username: username, verification: defaultVerification });
       // this._collection.update(profileID, { $set: { userID } });
       return profileID;
     }

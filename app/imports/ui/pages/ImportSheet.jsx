@@ -43,8 +43,9 @@ const ImportSheet = () => {
       // Checks if xlsx file was uploaded using 'magic numbers'
       const detectedFile = fileTypeChecker.detectFile(reader.result);
       if (JSON.stringify(detectedFile.signature.sequence) !== JSON.stringify(['50', '4b', '3', '4'])) {
-        swal('Error!', 'Wrong file type');
+        swal('Error!', 'Wrong file type', 'error');
       } else {
+        swal('Success!', 'File uploaded successfully', 'success');
         const fileData = new Uint8Array(event.target.result);
         const workbook = XLSX.read(fileData, { type: 'array' });
         const sheetName = workbook.SheetNames[0];

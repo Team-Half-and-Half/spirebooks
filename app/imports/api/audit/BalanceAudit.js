@@ -1,20 +1,29 @@
 import { Mongo } from 'meteor/mongo';
-import SimpleSchema from "simpl-schema";
+import SimpleSchema from 'simpl-schema';
 
-class BalanceAudit {
-    constructor() {
-        this.name = 'BalanceAudit';
-        this.collection = new Mongo.Collection(this.name);
+// Audit collection for audited balance sheet
+class BalanceAuditCollection {
+  constructor() {
+    this.name = 'BalanceAudit';
+    this.collection = new Mongo.Collection(this.name);
 
-        this.schema = new SimpleSchema({
-            BalanceCollectionAudit: {
-                type: AuditedBalanceCollection,
-                optional: false,
-            }
-        })
-        this.userPublicationName = `${this.name}.publication.user`;
-        this.adminPublicationName = `${this.name}.publication.admin`;
-    }
+    this.schema = new SimpleSchema({
+      BalanceCollectionAudit: {
+        collection: 'AuditedBalanceCollection',
+        document: document,
+        documentID: String,
+        operation: {
+          type: String,
+          allowedStrings: ['insert', 'delete', 'modify'],
+        },
+        user: String,
+        timestamp: Date(),
+
+      },
+    });
+    this.collection.attachSchema(this.schema);
+    this.adminPublicationName = `${this.name}.publication.admin`;
+  }
 }
 
-export const BalanceAudit = new BalanceAudit();
+export const BalanceAudit = new BalanceAuditCollection();

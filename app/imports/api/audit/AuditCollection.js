@@ -2,19 +2,20 @@ import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
 // Audit collection for audited balance sheet
-class BalanceAuditCollection {
+class AuditCollection {
   constructor() {
-    this.name = 'BalanceAudit';
+    this.name = 'AuditCollection';
     this.collection = new Mongo.Collection(this.name);
 
+    /* In practice, this collection should save a copy of the document with who did it, when, and what they did */
     this.schema = new SimpleSchema({
       BalanceCollectionAudit: {
-        collection: 'AuditedBalanceCollection',
+        collectionName: String,
         document: document,
         documentID: String,
         operation: {
           type: String,
-          allowedStrings: ['insert', 'delete', 'modify'],
+          allowedStrings: ['Inserted new document', 'Deleted document', 'Modified existing document'],
         },
         user: String,
         timestamp: Date(),
@@ -24,6 +25,7 @@ class BalanceAuditCollection {
     this.collection.attachSchema(this.schema);
     this.adminPublicationName = `${this.name}.publication.admin`;
   }
+
 }
 
-export const BalanceAudit = new BalanceAuditCollection();
+export const Audit = new AuditCollection();

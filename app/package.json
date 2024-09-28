@@ -7,6 +7,7 @@
     "bootstrap": "^5.3.3",
     "classnames": "^2.5.1",
     "core-js": "^3.36.0",
+    "file-type-checker": "^1.1.2",
     "graphql": "^16.8.1",
     "meteor-node-stubs": "^1.2.10",
     "moment": "^2.30.1",

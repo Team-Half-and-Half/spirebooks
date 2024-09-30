@@ -1,12 +1,16 @@
 import React from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, NumField, SubmitField } from 'uniforms-bootstrap5';
+import { Card, CardBody, Col, Container, Row } from 'react-bootstrap';
+import { AutoForm, ErrorsField, NumField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
+import ListGroup from 'react-bootstrap/ListGroup';
+import CardGroup from 'react-bootstrap/CardGroup';
 import { Stuffs } from '../../api/stuff/StuffCollection';
 import { defineMethod } from '../../api/base/BaseCollection.methods';
 import { PAGE_IDS } from '../utilities/PageIDs';
 import { DataInputBridge } from '../components/DataInputBridge';
+import { List } from 'react-bootstrap-icons';
+
 
 const InputClientInfo = () => {
   // On submit, insert the data.
@@ -22,36 +26,88 @@ const InputClientInfo = () => {
         formRef.reset();
       });
   };
-
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
   return (
     <Container fluid id={PAGE_IDS.ADD_MONEY} className="py-3">
-      <Row className="justify-content-center">
-        <Col xs={5}>
-          <Col className="text-center"><h2>Custom Balance Sheet</h2></Col>
-          <AutoForm ref={ref => { fRef = ref; }} schema={DataInputBridge} onSubmit={data => submit(data, fRef)}>
-            <Container fluid className="py-3">
-              <Row className="justify-content-center">
-                <Col xs={5}>
-                  <Card>
-                    <Card.Body>
-                      <NumField name="year" decimal={null} />
-                    </Card.Body>
-                  </Card>
-                </Col>
-                <Col xs={5}>
-                  <Card>
-                    <Card.Body>
-                      <NumField name="pettyCash" decimal={null} />
-                    </Card.Body>
-                  </Card>
-                </Col>
-              </Row>
-            </Container>
-          </AutoForm>
-        </Col>
-      </Row>
+      <AutoForm ref={ref => { fRef = ref; }} schema={DataInputBridge} onSubmit={data => submit(data, fRef)}>
+        <Container className="justify-content-center">
+          <h5 className="text-center">Company Information</h5>
+          <NumField name="year" decimal={null} />
+          <TextField name="companyName" />
+        </Container>
+        <Container className="justify-content-center">
+          <CardGroup>
+            <Card>
+              <ListGroup variant="flush">
+                <ListGroup.Item><h5>Cash and Cash Equivalents</h5></ListGroup.Item>
+              </ListGroup>
+              <Container className="justify-content-center">
+                <NumField name="pettyCash" decimal={null} />
+                <NumField name="cash" decimal={null} />
+                <NumField name="cashInBank" decimal={null} />
+                <NumField name="cashHeldInvestmentManager" decimal={null} />
+                <NumField name="restrictedCash" decimal={null} />
+              </Container>
+            </Card>
+            <Card>
+              <ListGroup variant="flush">
+                <ListGroup.Item><h5>Other Assets</h5></ListGroup.Item>
+              </ListGroup>
+              <Container className="justify-content-center">
+                <Row>
+                  <Col>
+                    <NumField name="accountsReceivable" decimal={null} />
+                    <NumField name="notesWithinOneYear" decimal={null} />
+                    <NumField name="interestDividendsReceivable" decimal={null} />
+                    <NumField name="securityDeposits" decimal={null} />
+                    <NumField name="capitalAssetNet" decimal={null} />
+                  </Col>
+                  <Col>
+                    <NumField name="dueFromOtherFund" decimal={null} />
+                    <NumField name="notesAfterOneYear" decimal={null} />
+                    <NumField name="inventoryPrepaidOtherAssets" decimal={null} />
+                    <NumField name="investments" decimal={null} />
+                    <NumField name="deferredOutflows" decimal={null} />
+                  </Col>
+                </Row>
+              </Container>
+            </Card>
+          </CardGroup>
+          <CardGroup>
+            <Card>
+              <ListGroup variant="flush">
+                <ListGroup.Item><h5>Liabilities</h5></ListGroup.Item>
+              </ListGroup>
+              <Container className="justify-content-center">
+                <Row>
+                  <NumField name="accountPayableAccrued" decimal={null} />
+                  <Col>
+                    <NumField name="dueToFund" decimal={null} />
+                    <NumField name="longTermWithinOneYear" decimal={null} />
+                    <NumField name="deferredInflowsResources" decimal={null} />
+                  </Col>
+                  <Col>
+                    <NumField name="dueToOtherFund" decimal={null} />
+                    <NumField name="longTermAfterOneYear" decimal={null} />
+                    <NumField name="deferredInflowsOPEB" decimal={null} />
+                  </Col>
+                </Row>
+              </Container>
+            </Card>
+            <Card>
+              <ListGroup variant="flush">
+                <ListGroup.Item><h5>Net Assets</h5></ListGroup.Item>
+              </ListGroup>
+              <Container className="justify-content-center">
+                <NumField name="investedCapitalAssets" decimal={null} />
+                <NumField name="restrictedFederalFunds" decimal={null} />
+                <NumField name="unrestricted" decimal={null} />
+              </Container>
+            </Card>
+          </CardGroup>
+        </Container>
+      </AutoForm>
     </Container>
   );
 };

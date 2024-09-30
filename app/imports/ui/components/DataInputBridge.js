@@ -14,133 +14,195 @@ const DataInputSchema = new SimpleSchema({
   // Cash and Cash Equivalents
   pettyCash: {
     type: Number,
-    defaultValue: 0,
     min: 0,
   },
   cash: {
     type: Number,
-    defaultValue: 0,
     min: 0,
   },
   cashInBank: {
     type: Number,
-    defaultValue: 0,
     min: 0,
   },
   cashHeldInvestmentManager: {
     type: Number,
-    defaultValue: 0,
     min: 0,
   },
   restrictedCash: {
     type: Number,
-    defaultValue: 0,
     min: 0,
   },
   // Other Assets
   accountsReceivable: {
     type: Number,
-    defaultValue: 0,
     min: 0,
   },
   dueFromOtherFund: {
     type: Number,
-    defaultValue: 0,
     min: 0,
   },
   interestDividendsReceivable: {
     type: Number,
-    defaultValue: 0,
     min: 0,
   },
   inventoryPrepaidOtherAssets: {
     type: Number,
-    defaultValue: 0,
     min: 0,
   },
   notesWithinOneYear: {
     type: Number,
-    defaultValue: 0,
     min: 0,
   },
   notesAfterOneYear: {
     type: Number,
-    defaultValue: 0,
     min: 0,
   },
   securityDeposits: {
     type: Number,
-    defaultValue: 0,
     min: 0,
   },
   investments: {
     type: Number,
-    defaultValue: 0,
     min: 0,
   },
   capitalAssetNet: {
     type: Number,
-    defaultValue: 0,
     min: 0,
   },
   deferredOutflows: {
     type: Number,
-    defaultValue: 0,
     min: 0,
   },
   // Liabilities
   accountPayableAccrued: {
     type: Number,
-    defaultValue: 0,
     min: 0,
   },
   dueToFund: {
     type: Number,
-    defaultValue: 0,
     min: 0,
   },
   dueToOtherFund: {
     type: Number,
-    defaultValue: 0,
     min: 0,
   },
   longTermWithinOneYear: {
     type: Number,
-    defaultValue: 0,
     min: 0,
   },
   longTermAfterOneYear: {
     type: Number,
-    defaultValue: 0,
     min: 0,
   },
   deferredInflowsResources: {
     type: Number,
-    defaultValue: 0,
     min: 0,
   },
   deferredInflowsOPEB: {
     type: Number,
-    defaultValue: 0,
     min: 0,
   },
   // Net Assets
   investedCapitalAssets: {
     type: Number,
-    defaultValue: 0,
     min: 0,
   },
   restrictedFederalFunds: {
     type: Number,
-    defaultValue: 0,
     min: 0,
   },
   unrestricted: {
     type: Number,
-    defaultValue: 0,
     min: 0,
   },
-
+  // Revenues (Program Revenues)
+  chargesForServices: {
+    type: Number,
+    min: 0,
+  },
+  operatingGrants: {
+    type: Number,
+    min: 0,
+  },
+  interestAndInvestmentsEarnings: {
+    type: Number,
+    min: 0,
+  },
+  // Revenues (General Revenues)
+  appropriations: {
+    type: Number,
+    min: 0,
+  },
+  trust: {
+    type: Number,
+    min: 0,
+  },
+  interestInvestmentLossesEarnings: {
+    type: Number,
+    min: 0,
+  },
+  newspaperAds: {
+    type: Number,
+    min: 0,
+  },
+  donationsAndOther: {
+    type: Number,
+    min: 0,
+  },
+  limitedLiabilityB: {
+    type: Number,
+    min: 0,
+  },
+  nonImposedFringeBenefits: {
+    type: Number,
+    min: 0,
+  },
+  // Expenditures
+  management: {
+    type: Number,
+    min: 0,
+  },
+  supportServices: {
+    type: Number,
+    min: 0,
+  },
+  beneficiaryAdvocacy: {
+    type: Number,
+    min: 0,
+  },
+  depreciation: {
+    type: Number,
+    min: 0,
+  },
+  limitedLiabilityCompanyA: {
+    type: Number,
+    min: 0,
+  },
+  limitedLiabilityCompanyB: {
+    type: Number,
+    min: 0,
+  },
+  proceedsFromDebt: {
+    type: Number,
+    min: 0,
+  },
+  proceedsFromCapitalLeaseObligations: {
+    type: Number,
+    min: 0,
+  },
+  netTransfersToAndFromOtherFunds: {
+    type: Number,
+    min: 0,
+  },
+  // Fund Balances
+  beginningOfYear: {
+    type: Number,
+    min: 0,
+  },
+  restatementAdjustment: {
+    type: Number,
+    min: 0,
+  },
 });
 
 export const DataInputBridge = new SimpleSchema2Bridge(DataInputSchema);

@@ -9,8 +9,6 @@ import { Stuffs } from '../../api/stuff/StuffCollection';
 import { defineMethod } from '../../api/base/BaseCollection.methods';
 import { PAGE_IDS } from '../utilities/PageIDs';
 import { DataInputBridge } from '../components/DataInputBridge';
-import { List } from 'react-bootstrap-icons';
-
 
 const InputClientInfo = () => {
   // On submit, insert the data.
@@ -36,6 +34,7 @@ const InputClientInfo = () => {
           <NumField name="year" decimal={null} />
           <TextField name="companyName" />
         </Container>
+        <h5 className="text-center">Government Wide Statement of Net Position</h5>
         <Container className="justify-content-center">
           <CardGroup>
             <Card>
@@ -103,6 +102,76 @@ const InputClientInfo = () => {
                 <NumField name="investedCapitalAssets" decimal={null} />
                 <NumField name="restrictedFederalFunds" decimal={null} />
                 <NumField name="unrestricted" decimal={null} />
+              </Container>
+            </Card>
+          </CardGroup>
+        </Container>
+        <h5 className="text-center">Statement of Revenues, Expenditures, and Changes in Fund Balances/Statement of Activities</h5>
+        <Container className="justify-content-center">
+          <CardGroup>
+            <Card>
+              <ListGroup variant="flush">
+                <ListGroup.Item><h5>General Revenues</h5></ListGroup.Item>
+              </ListGroup>
+              <Container className="justify-content-center">
+                <Row>
+                  <NumField name="appropriations" decimal={null} />
+                  <Col>
+                    <NumField name="trust" decimal={null} />
+                    <NumField name="interestInvestmentLossesEarnings" decimal={null} />
+                    <NumField name="newspaperAds" decimal={null} />
+                  </Col>
+                  <Col>
+                    <NumField name="donationsAndOther" decimal={null} />
+                    <NumField name="limitedLiabilityB" decimal={null} />
+                    <NumField name="nonImposedFringeBenefits" decimal={null} />
+                  </Col>
+                </Row>
+              </Container>
+            </Card>
+            <Card>
+              <ListGroup variant="flush">
+                <ListGroup.Item><h5>Program Revenues</h5></ListGroup.Item>
+              </ListGroup>
+              <Container className="justify-content-center">
+                <NumField name="chargesForServices" decimal={null} />
+                <NumField name="operatingGrants" decimal={null} />
+                <NumField name="interestAndInvestmentsEarnings" decimal={null} />
+              </Container>
+            </Card>
+          </CardGroup>
+          <CardGroup>
+            <Card>
+              <ListGroup variant="flush">
+                <ListGroup.Item><h5>Expenditures</h5></ListGroup.Item>
+              </ListGroup>
+              <Container className="justify-content-center">
+                <Row>
+                  <Col>
+                    <NumField name="management" decimal={null} />
+                    <NumField name="depreciation" decimal={null} />
+                    <NumField name="proceedsFromDebt" decimal={null} />
+                  </Col>
+                  <Col>
+                    <NumField name="supportServices" decimal={null} />
+                    <NumField name="limitedLiabilityCompanyA" decimal={null} />
+                    <NumField name="proceedsFromCapitalLeaseObligations" decimal={null} />
+                  </Col>
+                  <Col>
+                    <NumField name="beneficiaryAdvocacy" decimal={null} />
+                    <NumField name="limitedLiabilityCompanyB" decimal={null} />
+                    <NumField name="netTransfersToAndFromOtherFunds" decimal={null} />
+                  </Col>
+                </Row>
+              </Container>
+            </Card>
+            <Card>
+              <ListGroup variant="flush">
+                <ListGroup.Item><h5>Fund Balances</h5></ListGroup.Item>
+              </ListGroup>
+              <Container className="justify-content-center">
+                <NumField name="beginningOfYear" decimal={null} />
+                <NumField name="restatementAdjustment" decimal={null} />
               </Container>
             </Card>
           </CardGroup>

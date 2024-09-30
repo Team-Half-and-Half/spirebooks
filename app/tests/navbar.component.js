@@ -62,7 +62,7 @@ class NavBar {
     }
     await t.expect(Selector(`#${COMPONENT_IDS.NAVBAR_CURRENT_USER}`).exists).ok();
     await t.click(`#${COMPONENT_IDS.NAVBAR_FINANCING_DROPDOWN}`);
-    await t.click(`#${COMPONENT_IDS.NAVBAR_ADD_MONEY}`);
+    await t.click(`#${COMPONENT_IDS.NAVBAR_BALANCE_SHEET}`);
   }
 
   /* Go to the list stuff page. */

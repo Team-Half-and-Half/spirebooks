@@ -199,49 +199,24 @@ const AddMoney = () => {
         <Col xs={5}>
           <Col className="text-center"><h2>Custom Balance Sheet</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
-            <Card>
-              <Card.Body>
-                <NumField name="year" decimal={null} />
-                <h3>CASH AND CASH EQUIVALENTS</h3>
-                <NumField name="pettyCash" decimal={null} />
-                <NumField name="cash" decimal={null} />
-                <NumField name="bankCash" decimal={null} />
-                <h3>OTHER ASSETS</h3>
-                <NumField name="accountsReceivable" decimal={null} />
-                <NumField name="dueFromOtherFund" decimal={null} />
-                <NumField name="interestAndDividendsReceivable" decimal={null} />
-                <NumField name="inventory" decimal={null} />
-                <NumField name="notesReceivableDueWithinOneYear" decimal={null} />
-                <NumField name="notesReceivableDueAfterOneYear" decimal={null} />
-                <NumField name="securityDeposits" decimal={null} />
-                <NumField name="cashHeldByInvestmentManager" decimal={null} />
-                <h4>INVESTMENTS</h4>
-                <NumField name="mutualFunds" decimal={null} />
-                <NumField name="commingledFunds" decimal={null} />
-                <NumField name="hedgeFunds" decimal={null} />
-                <NumField name="privateEquity" decimal={null} />
-                <NumField name="commonTrustFund" decimal={null} />
-                <NumField name="commonAndPreferredStock" decimal={null} />
-                <NumField name="privateDebt" decimal={null} />
-                <NumField name="other" decimal={null} />
-                <h4>U.S INVESTMENTS</h4>
-                <NumField name="treasuries" decimal={null} />
-                <NumField name="agencies" decimal={null} />
-                <NumField name="other" decimal={null} />
-                <h4>Capital Assets, net:</h4>
-                <h6>Assets</h6>
-                <NumField name="buildings" decimal={null} />
-                <NumField name="leaseholdImprovements" decimal={null} />
-                <NumField name="furnitureFixturesAndEquipment" decimal={null} />
-                <NumField name="lessAccumulatedDepreciation" decimal={null} />
-                <h6>Land</h6>
-                <NumField name="landA" decimal={null} />
-                <NumField name="landB" decimal={null} />
-                <NumField name="constructionInProgress" decimal={null} />
-                <SubmitField value="Submit" />
-                <ErrorsField />
-              </Card.Body>
-            </Card>
+            <Container fluid className="py-3">
+              <Row className="justify-content-center">
+                <Col xs={5}>
+                  <Card>
+                    <Card.Body>
+                      <NumField name="year" decimal={null} />
+                    </Card.Body>
+                  </Card>
+                </Col>
+                <Col xs={5}>
+                  <Card>
+                    <Card.Body>
+                      <NumField name="pettyCash" decimal={null} />
+                    </Card.Body>
+                  </Card>
+                </Col>
+              </Row>
+            </Container>
           </AutoForm>
         </Col>
       </Row>

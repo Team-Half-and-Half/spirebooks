@@ -172,3 +172,10 @@ html, body {
     transform: translateY(0);
   }
 }
+
+.company-title {
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  background-color: #ffffff;
+  color: #8884d8;
+}

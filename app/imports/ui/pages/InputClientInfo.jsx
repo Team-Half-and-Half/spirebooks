@@ -175,7 +175,7 @@ const formSchema = new SimpleSchema({
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 /* Data Input Page for clients money. */
-const AddMoney = () => {
+const InputClientInfo = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
@@ -224,4 +224,4 @@ const AddMoney = () => {
   );
 };
 
-export default AddMoney;
+export default InputClientInfo;

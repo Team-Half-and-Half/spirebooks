@@ -21,8 +21,10 @@ import ManageDatabase from '../pages/ManageDatabase';
 import Dashboard from '../pages/Dashboard';
 import TermsAndConditions from '../pages/TermsAndConditions';
 import ImportSheet from '../pages/ImportSheet';
-import AddMoney from '../pages/AddMoney';
+import InputClientInfo from '../pages/InputClientInfo';
 import UserSettings from '../pages/UserSettings';
+import VerificationTable from '../pages/VerificationTable';
+import CompareProjections from '../pages/CompareProjections';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -43,13 +45,15 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
           <Route path="/import" element={<ImportSheet />} />
+          <Route path="/compare-projections" element={<CompareProjections />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/list" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="/add" element={<ProtectedRoute><AddStuff /></ProtectedRoute>} />
-          <Route path="/add-money" element={<ProtectedRoute><AddMoney /></ProtectedRoute>} />
+          <Route path="/add-money" element={<ProtectedRoute><InputClientInfo /></ProtectedRoute>} />
           <Route path="/user-settings" element={<ProtectedRoute><UserSettings /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />
+          <Route path="/verification-table" element={<AdminProtectedRoute ready={ready}><VerificationTable /></AdminProtectedRoute>} />
           <Route path="/manage-database" element={<AdminProtectedRoute ready={ready}><ManageDatabase /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="/tos" element={<TermsAndConditions />} />

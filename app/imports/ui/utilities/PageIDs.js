@@ -14,4 +14,6 @@ export const PAGE_IDS = {
   SIGN_UP: 'sign-up',
   DASHBOARD: 'dashboard',
   IMPORT: 'import',
+  VERIFICATION_TABLE: 'verification-table',
+  COMPARE_PROJECTIONS: 'compare-projections',
 };

@@ -2,6 +2,7 @@ import SimpleSchema from 'simpl-schema';
 import BaseProfileCollection from './BaseProfileCollection';
 import { ROLE } from '../role/Role';
 import { Users } from './UserCollection';
+import { UserVerification } from './UserVerificationCollection';
 
 class UserProfileCollection extends BaseProfileCollection {
   constructor() {
@@ -23,6 +24,9 @@ class UserProfileCollection extends BaseProfileCollection {
       const role = ROLE.USER;
       const userID = Users.define({ username, role, password });
       const profileID = this._collection.insert({ email, firstName, lastName, userID, role });
+      // defaultVerification (set to false for all created users)
+      const defaultVerification = false;
+      UserVerification.collection.insert({ userID: userID, username: username, verification: defaultVerification });
       // this._collection.update(profileID, { $set: { userID } });
       return profileID;
     }

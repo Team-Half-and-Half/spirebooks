@@ -24,7 +24,6 @@ const InputClientInfo = () => {
         formRef.reset();
       });
   };
-  // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
   return (
     <Container fluid id={PAGE_IDS.ADD_MONEY} className="py-3">
@@ -176,9 +175,9 @@ const InputClientInfo = () => {
             </Card>
           </CardGroup>
         </Container>
+        <SubmitField className="text-center" value="Submit" />
       </AutoForm>
     </Container>
   );
 };
-
 export default InputClientInfo;

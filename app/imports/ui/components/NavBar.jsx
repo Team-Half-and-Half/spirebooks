@@ -35,9 +35,9 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls={COMPONENT_IDS.NAVBAR_COLLAPSE} />
         <Navbar.Collapse id={COMPONENT_IDS.NAVBAR_COLLAPSE}>
           <Nav className="me-auto justify-content-end basic-nav">
-            <NavLink to="/home"><Image className="logo-navbar" style={{ height: shrink ? '75px' : '95px' }} src="/images/spirebooks-logo.png" /></NavLink>
+            <NavLink to="/"><Image className="logo-navbar" style={{ height: shrink ? '75px' : '95px' }} src="/images/spirebooks-logo.png" /></NavLink>
             {currentUser ? ([
-              <Nav.Link className="nav-tabs" as={NavLink} to="/list" key="list" id={COMPONENT_IDS.NAVBAR_DASHBOARD}>DASHBOARD</Nav.Link>,
+              <Nav.Link className="nav-tabs" as={NavLink} to="/dashboard" key="dashboard" id={COMPONENT_IDS.NAVBAR_DASHBOARD}>DASHBOARD</Nav.Link>,
               <NavDropdown className="nav-tabs" title="FINANCING" id={COMPONENT_IDS.NAVBAR_FINANCING_DROPDOWN}>
                 <NavDropdown.Item className="basic-nav" as={NavLink} to="/balance-sheet" id={COMPONENT_IDS.NAVBAR_BALANCE_SHEET}>Balance Sheet</NavDropdown.Item>
                 <NavDropdown.Item className="basic-nav" as={NavLink} to="/">Ratios</NavDropdown.Item>
@@ -51,22 +51,17 @@ const NavBar = () => {
                 </NavDropdown.Item>
               </NavDropdown>,
               <NavDropdown className="nav-tabs" title="AUDIT" id={COMPONENT_IDS.NAVBAR_AUDIT_DROPDOWN}>
-                <NavDropdown.Item className="basic-nav" as={NavLink} to="/">Company Audit</NavDropdown.Item>
-                <NavDropdown.Item className="basic-nav" as={NavLink} to="/">History</NavDropdown.Item>
                 <NavDropdown.Item className="basic-nav" id={COMPONENT_IDS.NAVBAR_AUDIT_DROPDOWN_IMPORT} as={NavLink} to="/import">Upload</NavDropdown.Item>
               </NavDropdown>,
               <NavDropdown className="nav-tabs" title="VISUALIZE">
-                <NavDropdown.Item className="basic-nav" as={NavLink} to="/add">Chart View</NavDropdown.Item>
                 <NavDropdown.Item className="basic-nav" as={NavLink} to="/compare-projections">Compare Projections</NavDropdown.Item>
-                <NavDropdown.Item className="basic-nav" as={NavLink} to="/">Metrics</NavDropdown.Item>
               </NavDropdown>,
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), [ROLE.ADMIN]) ? (
-              [<Nav.Link className="nav-tabs" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>,
-                <NavDropdown className="nav-tabs" title="Manage" key="manage-dropdown">
-                  <NavDropdown.Item className="nav-tabs" key="manage-database" as={NavLink} to="/manage-database"><CloudDownload /> Database</NavDropdown.Item>
-                  <NavDropdown.Item className="nav-tabs" key="verification-table" as={NavLink} to="/verification-table"> Verification Table</NavDropdown.Item>
-                </NavDropdown>]
+              <NavDropdown className="nav-tabs" id={COMPONENT_IDS.NAVBAR_MANAGE_DROPDOWN} title="MANAGE" key="manage-dropdown">
+                <NavDropdown.Item className="nav-tabs" id={COMPONENT_IDS.NAVBAR_MANAGE_DROPDOWN_DATABASE} key="manage-database" as={NavLink} to="/manage-database"><CloudDownload /> Database</NavDropdown.Item>
+                <NavDropdown.Item className="nav-tabs" key="verification-table" as={NavLink} to="/verification-table"> Verification Table</NavDropdown.Item>
+              </NavDropdown>
             ) : ''}
           </Nav>
           <Nav className="justify-content-start basic-nav">

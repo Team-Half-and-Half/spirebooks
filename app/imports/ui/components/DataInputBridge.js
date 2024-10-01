@@ -1,7 +1,6 @@
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 
-// Data Input Schema/Bridge to be used for InputClientInfo.jsx
 const DataInputSchema = new SimpleSchema({
   companyName: {
     type: String,

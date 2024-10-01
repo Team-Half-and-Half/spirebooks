@@ -45,7 +45,6 @@ const App = () => {
           <Route path="/compare-projections" element={<CompareProjections />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/list" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-          <Route path="/add" element={<ProtectedRoute><AddStuff /></ProtectedRoute>} />
           <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="/balance-sheet" element={<ProtectedRoute><InputClientInfo /></ProtectedRoute>} />
           <Route path="/user-settings" element={<ProtectedRoute><UserSettings /></ProtectedRoute>} />

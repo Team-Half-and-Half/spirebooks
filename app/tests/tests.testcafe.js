@@ -10,7 +10,6 @@ import { importPage } from './import.page';
 
 /** Credentials for one of the sample users defined in settings.development.json. */
 const adminCredentials = { username: 'accountant@spirebooks.com', password: 'spirebooksadmin' };
-const credentials = { username: 'customer@spirebooks.com', password: 'spirebookscustomer' };
 const newCredentials = { username: 'newcustomer@spirebooks.com', password: 'spirebooksnewcustomer' };
 // TODO: Figure out if having login information above is technically safe, or if it's a vulnerability.
 

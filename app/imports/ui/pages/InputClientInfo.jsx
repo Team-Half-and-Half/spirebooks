@@ -1,182 +1,16 @@
 import React from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, NumField, SubmitField } from 'uniforms-bootstrap5';
+import { Card, CardBody, Col, Container, Row } from 'react-bootstrap';
+import { AutoForm, ErrorsField, NumField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
-import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import SimpleSchema from 'simpl-schema';
+import ListGroup from 'react-bootstrap/ListGroup';
+import CardGroup from 'react-bootstrap/CardGroup';
 import { Stuffs } from '../../api/stuff/StuffCollection';
 import { defineMethod } from '../../api/base/BaseCollection.methods';
 import { PAGE_IDS } from '../utilities/PageIDs';
+import { DataInputBridge } from '../components/DataInputBridge';
 
-// Create a schema to specify the structure of the data to appear in the form.
-const formSchema = new SimpleSchema({
-  name: {
-    type: String,
-    defaultValue: 'bob',
-  },
-  year: {
-    type: Number,
-    defaultValue: 1,
-    min: 1,
-  },
-  // Cash and Cash Equivalents
-  pettyCash: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  cash: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  bankCash: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  // Other Assets
-  accountsReceivable: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  dueFromOtherFund: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  interestAndDividendsReceivable: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  inventory: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  notesReceivableDueWithinOneYear: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  notesReceivableDueAfterOneYear: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  securityDeposits: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  cashHeldByInvestmentManager: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  // Investments
-  mutualFunds: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  commingledFunds: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  hedgeFunds: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  privateEquity: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  commonTrustFund: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  commonAndPreferredStock: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  privateDebt: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  other: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  treasuries: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  agencies: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  // Capital Assets (Assets)
-  buildings: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  leaseholdImprovements: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  furnitureFixturesAndEquipment: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  lessAccumulatedDepreciation: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  // Capital Assets (Land)
-  landA: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  landB: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  constructionInProgress: {
-    type: Number,
-    defaultValue: 0,
-    min: 0,
-  },
-  condition: {
-    type: String,
-    allowedValues: ['dawg', 'good', 'fair', 'poor'],
-    defaultValue: 'good',
-  },
-});
-
-const bridge = new SimpleSchema2Bridge(formSchema);
-
-/* Data Input Page for clients money. */
 const InputClientInfo = () => {
-
   // On submit, insert the data.
   const submit = (data, formRef) => {
     const { name, quantity, condition } = data;
@@ -190,63 +24,160 @@ const InputClientInfo = () => {
         formRef.reset();
       });
   };
-
-  // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
   return (
     <Container fluid id={PAGE_IDS.ADD_MONEY} className="py-3">
-      <Row className="justify-content-center">
-        <Col xs={5}>
-          <Col className="text-center"><h2>Custom Balance Sheet</h2></Col>
-          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
+      <AutoForm ref={ref => { fRef = ref; }} schema={DataInputBridge} onSubmit={data => submit(data, fRef)}>
+        <Container className="justify-content-center">
+          <h5 className="text-center">Company Information</h5>
+          <NumField name="year" decimal={null} />
+          <TextField name="companyName" />
+        </Container>
+        <h5 className="text-center">Government Wide Statement of Net Position</h5>
+        <Container className="justify-content-center">
+          <CardGroup>
             <Card>
-              <Card.Body>
-                <NumField name="year" decimal={null} />
-                <h3>CASH AND CASH EQUIVALENTS</h3>
+              <ListGroup variant="flush">
+                <ListGroup.Item><h5>Cash and Cash Equivalents</h5></ListGroup.Item>
+              </ListGroup>
+              <Container className="justify-content-center">
                 <NumField name="pettyCash" decimal={null} />
                 <NumField name="cash" decimal={null} />
-                <NumField name="bankCash" decimal={null} />
-                <h3>OTHER ASSETS</h3>
-                <NumField name="accountsReceivable" decimal={null} />
-                <NumField name="dueFromOtherFund" decimal={null} />
-                <NumField name="interestAndDividendsReceivable" decimal={null} />
-                <NumField name="inventory" decimal={null} />
-                <NumField name="notesReceivableDueWithinOneYear" decimal={null} />
-                <NumField name="notesReceivableDueAfterOneYear" decimal={null} />
-                <NumField name="securityDeposits" decimal={null} />
-                <NumField name="cashHeldByInvestmentManager" decimal={null} />
-                <h4>INVESTMENTS</h4>
-                <NumField name="mutualFunds" decimal={null} />
-                <NumField name="commingledFunds" decimal={null} />
-                <NumField name="hedgeFunds" decimal={null} />
-                <NumField name="privateEquity" decimal={null} />
-                <NumField name="commonTrustFund" decimal={null} />
-                <NumField name="commonAndPreferredStock" decimal={null} />
-                <NumField name="privateDebt" decimal={null} />
-                <NumField name="other" decimal={null} />
-                <h4>U.S INVESTMENTS</h4>
-                <NumField name="treasuries" decimal={null} />
-                <NumField name="agencies" decimal={null} />
-                <NumField name="other" decimal={null} />
-                <h4>Capital Assets, net:</h4>
-                <h6>Assets</h6>
-                <NumField name="buildings" decimal={null} />
-                <NumField name="leaseholdImprovements" decimal={null} />
-                <NumField name="furnitureFixturesAndEquipment" decimal={null} />
-                <NumField name="lessAccumulatedDepreciation" decimal={null} />
-                <h6>Land</h6>
-                <NumField name="landA" decimal={null} />
-                <NumField name="landB" decimal={null} />
-                <NumField name="constructionInProgress" decimal={null} />
-                <SubmitField value="Submit" />
-                <ErrorsField />
-              </Card.Body>
+                <NumField name="cashInBank" decimal={null} />
+                <NumField name="cashHeldInvestmentManager" decimal={null} />
+                <NumField name="restrictedCash" decimal={null} />
+              </Container>
             </Card>
-          </AutoForm>
-        </Col>
-      </Row>
+            <Card>
+              <ListGroup variant="flush">
+                <ListGroup.Item><h5>Other Assets</h5></ListGroup.Item>
+              </ListGroup>
+              <Container className="justify-content-center">
+                <Row>
+                  <Col>
+                    <NumField name="accountsReceivable" decimal={null} />
+                    <NumField name="notesWithinOneYear" decimal={null} />
+                    <NumField name="interestDividendsReceivable" decimal={null} />
+                    <NumField name="securityDeposits" decimal={null} />
+                    <NumField name="capitalAssetNet" decimal={null} />
+                  </Col>
+                  <Col>
+                    <NumField name="dueFromOtherFund" decimal={null} />
+                    <NumField name="notesAfterOneYear" decimal={null} />
+                    <NumField name="inventoryPrepaidOtherAssets" decimal={null} />
+                    <NumField name="investments" decimal={null} />
+                    <NumField name="deferredOutflows" decimal={null} />
+                  </Col>
+                </Row>
+              </Container>
+            </Card>
+          </CardGroup>
+          <CardGroup>
+            <Card>
+              <ListGroup variant="flush">
+                <ListGroup.Item><h5>Liabilities</h5></ListGroup.Item>
+              </ListGroup>
+              <Container className="justify-content-center">
+                <Row>
+                  <NumField name="accountPayableAccrued" decimal={null} />
+                  <Col>
+                    <NumField name="dueToFund" decimal={null} />
+                    <NumField name="longTermWithinOneYear" decimal={null} />
+                    <NumField name="deferredInflowsResources" decimal={null} />
+                  </Col>
+                  <Col>
+                    <NumField name="dueToOtherFund" decimal={null} />
+                    <NumField name="longTermAfterOneYear" decimal={null} />
+                    <NumField name="deferredInflowsOPEB" decimal={null} />
+                  </Col>
+                </Row>
+              </Container>
+            </Card>
+            <Card>
+              <ListGroup variant="flush">
+                <ListGroup.Item><h5>Net Assets</h5></ListGroup.Item>
+              </ListGroup>
+              <Container className="justify-content-center">
+                <NumField name="investedCapitalAssets" decimal={null} />
+                <NumField name="restrictedFederalFunds" decimal={null} />
+                <NumField name="unrestricted" decimal={null} />
+              </Container>
+            </Card>
+          </CardGroup>
+        </Container>
+        <h5 className="text-center">Statement of Revenues, Expenditures, and Changes in Fund Balances/Statement of Activities</h5>
+        <Container className="justify-content-center">
+          <CardGroup>
+            <Card>
+              <ListGroup variant="flush">
+                <ListGroup.Item><h5>General Revenues</h5></ListGroup.Item>
+              </ListGroup>
+              <Container className="justify-content-center">
+                <Row>
+                  <NumField name="appropriations" decimal={null} />
+                  <Col>
+                    <NumField name="trust" decimal={null} />
+                    <NumField name="interestInvestmentLossesEarnings" decimal={null} />
+                    <NumField name="newspaperAds" decimal={null} />
+                  </Col>
+                  <Col>
+                    <NumField name="donationsAndOther" decimal={null} />
+                    <NumField name="limitedLiabilityB" decimal={null} />
+                    <NumField name="nonImposedFringeBenefits" decimal={null} />
+                  </Col>
+                </Row>
+              </Container>
+            </Card>
+            <Card>
+              <ListGroup variant="flush">
+                <ListGroup.Item><h5>Program Revenues</h5></ListGroup.Item>
+              </ListGroup>
+              <Container className="justify-content-center">
+                <NumField name="chargesForServices" decimal={null} />
+                <NumField name="operatingGrants" decimal={null} />
+                <NumField name="interestAndInvestmentsEarnings" decimal={null} />
+              </Container>
+            </Card>
+          </CardGroup>
+          <CardGroup>
+            <Card>
+              <ListGroup variant="flush">
+                <ListGroup.Item><h5>Expenditures</h5></ListGroup.Item>
+              </ListGroup>
+              <Container className="justify-content-center">
+                <Row>
+                  <Col>
+                    <NumField name="management" decimal={null} />
+                    <NumField name="depreciation" decimal={null} />
+                    <NumField name="proceedsFromDebt" decimal={null} />
+                  </Col>
+                  <Col>
+                    <NumField name="supportServices" decimal={null} />
+                    <NumField name="limitedLiabilityCompanyA" decimal={null} />
+                    <NumField name="proceedsFromCapitalLeaseObligations" decimal={null} />
+                  </Col>
+                  <Col>
+                    <NumField name="beneficiaryAdvocacy" decimal={null} />
+                    <NumField name="limitedLiabilityCompanyB" decimal={null} />
+                    <NumField name="netTransfersToAndFromOtherFunds" decimal={null} />
+                  </Col>
+                </Row>
+              </Container>
+            </Card>
+            <Card>
+              <ListGroup variant="flush">
+                <ListGroup.Item><h5>Fund Balances</h5></ListGroup.Item>
+              </ListGroup>
+              <Container className="justify-content-center">
+                <NumField name="beginningOfYear" decimal={null} />
+                <NumField name="restatementAdjustment" decimal={null} />
+              </Container>
+            </Card>
+          </CardGroup>
+        </Container>
+        <SubmitField className="text-center" value="Submit" />
+      </AutoForm>
     </Container>
   );
 };
-
 export default InputClientInfo;

@@ -26,7 +26,7 @@ const InputClientInfo = () => {
   };
   let fRef = null;
   return (
-    <Container fluid id={PAGE_IDS.ADD_MONEY} className="py-3">
+    <Container fluid id={PAGE_IDS.BALANCE_SHEET} className="py-3">
       <AutoForm ref={ref => { fRef = ref; }} schema={DataInputBridge} onSubmit={data => submit(data, fRef)}>
         <Container className="justify-content-center">
           <h5 className="text-center">Company Information</h5>

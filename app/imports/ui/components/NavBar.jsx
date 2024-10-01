@@ -39,7 +39,7 @@ const NavBar = () => {
             {currentUser ? ([
               <Nav.Link className="nav-tabs" as={NavLink} to="/list" key="list" id={COMPONENT_IDS.NAVBAR_DASHBOARD}>DASHBOARD</Nav.Link>,
               <NavDropdown className="nav-tabs" title="FINANCING" id={COMPONENT_IDS.NAVBAR_FINANCING_DROPDOWN}>
-                <NavDropdown.Item className="basic-nav" as={NavLink} to="/add-money" id={COMPONENT_IDS.NAVBAR_ADD_MONEY}>Balance Sheet</NavDropdown.Item>
+                <NavDropdown.Item className="basic-nav" as={NavLink} to="/balance-sheet" id={COMPONENT_IDS.NAVBAR_BALANCE_SHEET}>Balance Sheet</NavDropdown.Item>
                 <NavDropdown.Item className="basic-nav" as={NavLink} to="/">Ratios</NavDropdown.Item>
                 <NavDropdown.Item
                   className="basic-nav"

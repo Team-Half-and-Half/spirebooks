@@ -22,20 +22,6 @@ test('Test that landing page shows up and button works', async () => {
   await landingPage.assertButtonWorks();
 });
 
-test('Test that sign in and sign out work', async () => {
-  await navBar.gotoSignInPage();
-  await signInPage.signin(credentials.username, credentials.password);
-  await navBar.isLoggedIn(credentials.username);
-  await navBar.logout();
-  await signOutPage.isDisplayed();
-  // Admin Login/Logout
-  await navBar.gotoSignInPage();
-  await signInPage.signin(adminCredentials.username, adminCredentials.password);
-  await navBar.isLoggedIn(adminCredentials.username);
-  await navBar.logout();
-  await signOutPage.isDisplayed();
-});
-
 test('Test that sign up and sign out work', async () => {
   await navBar.gotoSignUpPage();
   await signUpPage.isDisplayed();

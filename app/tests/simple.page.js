@@ -30,4 +30,4 @@ export const listStuffAdminPage = new SimplePage(PAGE_IDS.LIST_STUFF_ADMIN);
 export const manageDatabasePage = new SimplePage(PAGE_IDS.MANAGE_DATABASE);
 export const verificationTablePage = new SimplePage(PAGE_IDS.VERIFICATION_TABLE);
 export const signOutPage = new SimplePage(PAGE_IDS.SIGN_OUT);
-export const addMoneyPage = new SimplePage(PAGE_IDS.ADD_MONEY);
+export const addMoneyPage = new SimplePage(PAGE_IDS.BALANCE_SHEET);

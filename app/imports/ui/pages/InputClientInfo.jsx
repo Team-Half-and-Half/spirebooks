@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardBody, Col, Container, Row } from 'react-bootstrap';
+import { Card, Col, Container, Row } from 'react-bootstrap';
 import { AutoForm, ErrorsField, NumField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
@@ -176,6 +176,7 @@ const InputClientInfo = () => {
           </CardGroup>
         </Container>
         <SubmitField className="text-center" value="Submit" />
+        <ErrorsField />
       </AutoForm>
     </Container>
   );

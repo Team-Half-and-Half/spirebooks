@@ -5,6 +5,7 @@ import { signUpPage } from './signup.page';
 import { navBar } from './navbar.component';
 import { dashboardPage } from './dashboard.page';
 import { importPage } from './import.page';
+import { userSettingsPage } from './usersettings';
 
 /* global fixture:false, test:false */
 
@@ -57,5 +58,15 @@ test('Test that the Balance Sheet shows up', async () => {
   await navBar.gotoAddMoneyPage();
   await addMoneyPage.isDisplayed();
   await navBar.logout();
+  await signOutPage.isDisplayed();
+});
+
+test('Test that User Settings page works', async () => {
+  await navBar.gotoSignInPage();
+  await signInPage.signin(adminCredentials.username, adminCredentials.password);
+  await navBar.isLoggedIn(adminCredentials.username);
+  await navBar.gotoUserSettingsPage();
+  await userSettingsPage.isDisplayed();
+  await userSettingsPage.usersettings('New Company Name', 'new password');
   await signOutPage.isDisplayed();
 });

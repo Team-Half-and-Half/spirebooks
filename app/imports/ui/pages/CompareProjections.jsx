@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Col, Container, Row, Card, CardHeader, Dropdown } from 'react-bootstrap';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { ResponsiveContainer } from 'recharts';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { PAGE_IDS } from '../utilities/PageIDs';
+import CustomLineChart from '../components/CustomLineChart';
 
 /* Compare projection graphs using dropdown menus */
 // sample data to test that the dropdown menu changes the charts, replace later with real projections
@@ -90,21 +91,7 @@ const CompareProjections = () => {
               </Dropdown>
             </CardHeader>
             <ResponsiveContainer width="100%" height={300}>
-              {/* Replace later with CustomLineChart */}
-              <LineChart
-                width={500}
-                height={300}
-                data={sampleProjections[selectedChart1]}
-                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="actual" stroke="#8884d8" activeDot={{ r: 8 }} />
-                <Line type="monotone" dataKey="edited" stroke="#82ca9d" />
-              </LineChart>
+              <CustomLineChart data={sampleProjections[selectedChart1]} />
             </ResponsiveContainer>
           </Card>
         </Col>
@@ -129,21 +116,7 @@ const CompareProjections = () => {
               </Dropdown>
             </CardHeader>
             <ResponsiveContainer width="100%" height={300}>
-              {/* Replace later with CustomLineChart */}
-              <LineChart
-                width={500}
-                height={300}
-                data={sampleProjections[selectedChart2]}
-                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="actual" stroke="#8884d8" activeDot={{ r: 8 }} />
-                <Line type="monotone" dataKey="edited" stroke="#82ca9d" />
-              </LineChart>
+              <CustomLineChart data={sampleProjections[selectedChart2]} />
             </ResponsiveContainer>
           </Card>
         </Col>

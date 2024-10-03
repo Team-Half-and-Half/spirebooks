@@ -1,53 +1,9 @@
 import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import React from 'react';
+import PropTypes from 'prop-types';
 
-/** CustomLineChart component to display a line chart of fake data for the time being. Will eventually replace with actual data
-  * from the database. */
-const data = [
-  {
-    name: 'Year 1',
-    actual: 4000,
-    edited: 2400,
-    amt: 2400,
-  },
-  {
-    name: 'Year 2',
-    actual: 3000,
-    edited: 1398,
-    amt: 2210,
-  },
-  {
-    name: 'Year 3',
-    actual: 2000,
-    edited: 9800,
-    amt: 2290,
-  },
-  {
-    name: 'Year 4',
-    actual: 2780,
-    edited: 3908,
-    amt: 2000,
-  },
-  {
-    name: 'Year 5',
-    actual: 1890,
-    edited: 4800,
-    amt: 2181,
-  },
-  {
-    name: 'Year 6',
-    actual: 2390,
-    edited: 3800,
-    amt: 2500,
-  },
-  {
-    name: 'Year 7',
-    actual: 3490,
-    edited: 4300,
-    amt: 2100,
-  },
-];
-const CustomLineChart = () => (
+/** CustomLineChart component to display a line chart of data. Currently displays two lines: actual data and edited data */
+const CustomLineChart = ({ data }) => (
   <ResponsiveContainer width="100%" height={300}>
     <LineChart
       width={500}
@@ -67,5 +23,17 @@ const CustomLineChart = () => (
     </LineChart>
   </ResponsiveContainer>
 );
+
+// Require data to be passed to this component
+CustomLineChart.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      actual: PropTypes.number,
+      edited: PropTypes.number,
+      amt: PropTypes.number,
+    }),
+  ).isRequired,
+};
 
 export default CustomLineChart;

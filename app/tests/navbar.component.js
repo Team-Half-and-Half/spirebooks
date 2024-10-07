@@ -94,6 +94,17 @@ class NavBar {
     await t.click(`#${COMPONENT_IDS.NAVBAR_AUDIT_DROPDOWN}`);
     await t.click(`#${COMPONENT_IDS.NAVBAR_AUDIT_DROPDOWN_IMPORT}`);
   }
+
+  async gotoUserSettingsPage() {
+    const visible = await Selector(`#${COMPONENT_IDS.NAVBAR_COLLAPSE}`).visible;
+    if (!visible) {
+      await t.click('button.navbar-toggler');
+    }
+    await t.expect(Selector(`#${COMPONENT_IDS.NAVBAR_CURRENT_USER}`).exists).ok();
+    await t.click(`#${COMPONENT_IDS.NAVBAR_CURRENT_USER}`);
+    await t.click(`#${COMPONENT_IDS.NAVBAR_USER_SETTINGS}`);
+    await t.click(`#${COMPONENT_IDS.USER_SETTINGS_SUBMIT}`);
+  }
 }
 
 export const navBar = new NavBar();

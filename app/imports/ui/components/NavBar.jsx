@@ -71,7 +71,7 @@ const NavBar = () => {
               </NavDropdown>
             ) : (
               <NavDropdown className="basic-nav-dropdown" id={COMPONENT_IDS.NAVBAR_CURRENT_USER} title={currentUser}>
-                <NavDropdown.Item className="basic-nav" as={NavLink} to="/user-settings"><Gear /> User Settings</NavDropdown.Item>
+                <NavDropdown.Item className="basic-nav" id={COMPONENT_IDS.NAVBAR_USER_SETTINGS} as={NavLink} to="/user-settings"><Gear /> User Settings</NavDropdown.Item>
                 <NavDropdown.Item className="basic-nav" id={COMPONENT_IDS.NAVBAR_SIGN_OUT} as={NavLink} to="/signout"><BoxArrowRight /> Sign out</NavDropdown.Item>
               </NavDropdown>
             )}

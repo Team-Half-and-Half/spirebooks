@@ -16,4 +16,5 @@ export const PAGE_IDS = {
   IMPORT: 'import',
   VERIFICATION_TABLE: 'verification-table',
   COMPARE_PROJECTIONS: 'compare-projections',
+  USER_SETTINGS: 'user-settings',
 };

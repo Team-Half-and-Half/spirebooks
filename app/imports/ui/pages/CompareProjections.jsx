@@ -5,39 +5,9 @@ import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { PAGE_IDS } from '../utilities/PageIDs';
 import CustomLineChart from '../components/CustomLineChart';
+import { multipleChartData } from '../utilities/TemporaryData'; // replace later when using real data
 
-/* Compare projection graphs using dropdown menus */
-// sample data to test that the dropdown menu changes the charts, replace later with real projections
-const sampleProjections = {
-  chart1: [
-    { name: 'Year 1', actual: 10, edited: 25, amt: 15 },
-    { name: 'Year 2', actual: 30, edited: 18, amt: 22 },
-    { name: 'Year 3', actual: 22, edited: 45, amt: 33 },
-    { name: 'Year 4', actual: 17, edited: 40, amt: 28 },
-    { name: 'Year 5', actual: 12, edited: 55, amt: 35 },
-    { name: 'Year 6', actual: 27, edited: 20, amt: 23 },
-    { name: 'Year 7', actual: 35, edited: 32, amt: 27 },
-  ],
-  chart2: [
-    { name: 'Year 1', actual: 15, edited: 30, amt: 20 },
-    { name: 'Year 2', actual: 20, edited: 22, amt: 18 },
-    { name: 'Year 3', actual: 12, edited: 50, amt: 40 },
-    { name: 'Year 4', actual: 25, edited: 38, amt: 32 },
-    { name: 'Year 5', actual: 28, edited: 55, amt: 37 },
-    { name: 'Year 6', actual: 18, edited: 25, amt: 30 },
-    { name: 'Year 7', actual: 30, edited: 40, amt: 28 },
-  ],
-  chart3: [
-    { name: 'Year 1', actual: 20, edited: 35, amt: 25 },
-    { name: 'Year 2', actual: 12, edited: 28, amt: 20 },
-    { name: 'Year 3', actual: 18, edited: 48, amt: 35 },
-    { name: 'Year 4', actual: 30, edited: 40, amt: 33 },
-    { name: 'Year 5', actual: 24, edited: 52, amt: 39 },
-    { name: 'Year 6', actual: 15, edited: 30, amt: 32 },
-    { name: 'Year 7', actual: 33, edited: 45, amt: 29 },
-  ],
-};
-
+/** Compare projection graphs using dropdown menus */
 const CompareProjections = () => {
   const { currentUser } = useTracker(() => ({
     currentUser: Meteor.user(),
@@ -81,7 +51,7 @@ const CompareProjections = () => {
                 <Dropdown.Menu>
                   {
                     // maps chart data to dropdown menu items
-                    Object.keys(sampleProjections).map((chartKey) => (
+                    Object.keys(multipleChartData).map((chartKey) => (
                       <Dropdown.Item key={chartKey} onClick={() => handleChartSelect1(chartKey)}>
                         {chartKey.charAt(0).toUpperCase() + chartKey.slice(1)}
                       </Dropdown.Item>
@@ -91,7 +61,7 @@ const CompareProjections = () => {
               </Dropdown>
             </CardHeader>
             <ResponsiveContainer width="100%" height={300}>
-              <CustomLineChart data={sampleProjections[selectedChart1]} />
+              <CustomLineChart data={multipleChartData[selectedChart1]} />
             </ResponsiveContainer>
           </Card>
         </Col>
@@ -106,7 +76,7 @@ const CompareProjections = () => {
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                   { // maps chart data to dropdown menu items
-                    Object.keys(sampleProjections).map((chartKey) => (
+                    Object.keys(multipleChartData).map((chartKey) => (
                       <Dropdown.Item key={chartKey} onClick={() => handleChartSelect2(chartKey)}>
                         {chartKey.charAt(0).toUpperCase() + chartKey.slice(1)}
                       </Dropdown.Item>
@@ -116,7 +86,7 @@ const CompareProjections = () => {
               </Dropdown>
             </CardHeader>
             <ResponsiveContainer width="100%" height={300}>
-              <CustomLineChart data={sampleProjections[selectedChart2]} />
+              <CustomLineChart data={multipleChartData[selectedChart2]} />
             </ResponsiveContainer>
           </Card>
         </Col>

@@ -2,31 +2,17 @@
 
 // temporary data for CustomLineChart, replace with subscriptions to correct databases
 export const singleChartData = [
-  {
-    name: 'Year 1', actual: 4000, edited: 2400, amt: 2400,
-  },
-  {
-    name: 'Year 2', actual: 3000, edited: 1398, amt: 2210,
-  },
-  {
-    name: 'Year 3', actual: 2000, edited: 9800, amt: 2290,
-  },
-  {
-    name: 'Year 4', actual: 2780, edited: 3908, amt: 2000,
-  },
-  {
-    name: 'Year 5', actual: 1890, edited: 4800, amt: 2181,
-  },
-  {
-    name: 'Year 6', actual: 2390, edited: 3800, amt: 2500,
-  },
-  {
-    name: 'Year 7', actual: 3490, edited: 4300, amt: 2100,
-  },
+  { name: 'Year 1', actual: 4000, edited: 2400, amt: 2400 },
+  { name: 'Year 2', actual: 3000, edited: 1398, amt: 2210 },
+  { name: 'Year 3', actual: 2000, edited: 9800, amt: 2290 },
+  { name: 'Year 4', actual: 2780, edited: 3908, amt: 2000 },
+  { name: 'Year 5', actual: 1890, edited: 4800, amt: 2181 },
+  { name: 'Year 6', actual: 2390, edited: 3800, amt: 2500 },
+  { name: 'Year 7', actual: 3490, edited: 4300, amt: 2100 },
 ];
 
 // sample data to test that the dropdown menu changes the charts in CompareProjections
-export const sampleProjections = {
+export const multipleChartData = {
   chart1: [
     { name: 'Year 1', actual: 10, edited: 25, amt: 15 },
     { name: 'Year 2', actual: 30, edited: 18, amt: 22 },

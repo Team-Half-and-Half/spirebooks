@@ -179,3 +179,10 @@ html, body {
   background-color: #ffffff;
   color: #8884d8;
 }
+
+/* Styling for CustomLineChart */
+.line-chart {
+  width: 500px;
+  height: 300px;
+  margin: 5px 30px 20px 5px;
+}

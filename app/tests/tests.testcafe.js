@@ -1,3 +1,4 @@
+import { t } from 'testcafe';
 import { signOutPage, addMoneyPage } from './simple.page';
 import { landingPage } from './landing.page';
 import { signInPage } from './signin.page';
@@ -6,6 +7,7 @@ import { navBar } from './navbar.component';
 import { dashboardPage } from './dashboard.page';
 import { importPage } from './import.page';
 import { userSettingsPage } from './usersettings';
+import { notfoundPage } from './notfound';
 
 /* global fixture:false, test:false */
 
@@ -69,4 +71,9 @@ test('Test that User Settings page works', async () => {
   await userSettingsPage.isDisplayed();
   await userSettingsPage.usersettings('New Company Name', 'new password');
   await signOutPage.isDisplayed();
+});
+
+test('Test that Not Found page works for invalid urls', async () => {
+  await t.navigateTo('http://localhost:3000/invalid-url');
+  await notfoundPage.isDisplayed(t);
 });

@@ -34,10 +34,9 @@ const UserSettings = () => {
       if (error) {
         swal('Error!', error.reason, 'error');
       } else {
-        // eslint-disable-next-line no-shadow
-        Meteor.call('UserProfiles.UpdatePassword', { password }, (error) => {
-          if (error) {
-            swal('Error!', error.reason, 'error');
+        Meteor.call('UserProfiles.UpdatePassword', { password }, (error1) => {
+          if (error1) {
+            swal('Error!', error1.reason, 'error');
           } else {
             swal({
               title: 'Success!',

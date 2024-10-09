@@ -8,6 +8,7 @@ import { dashboardPage } from './dashboard.page';
 import { importPage } from './import.page';
 import { userSettingsPage } from './usersettings';
 import { notfoundPage } from './notfound';
+import { notauthorizedPage } from './notauthorized';
 
 /* global fixture:false, test:false */
 
@@ -76,4 +77,10 @@ test('Test that User Settings page works', async () => {
 test('Test that Not Found page works for invalid urls', async () => {
   await t.navigateTo('http://localhost:3000/invalid-url');
   await notfoundPage.isDisplayed(t);
+});
+
+// TODO: Update Not Authorized tests in future development once roles are implemented
+test('Test that Not Authorized page appears', async () => {
+  await t.navigateTo('http://localhost:3000/notauthorized');
+  await notauthorizedPage.isDisplayed(t);
 });

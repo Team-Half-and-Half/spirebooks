@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Col, Container, Row, Card, CardHeader } from 'react-bootstrap';
+import DropdownButton from 'react-bootstrap/Dropdown';
+import { Col, Container, Row, Card, CardHeader, DropdownItem } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import CustomLineChart from '../components/CustomLineChart';
@@ -30,17 +31,21 @@ const Dashboard = () => {
           <div>
             <h1 className="company-title">{currentUser?.profile?.companyName || 'Company Name'}</h1>
           </div>
-          <h1>Equity Metrics</h1>
-          {/* Dropdown to select the number of years */}
-          <div style={{ marginBottom: '10px' }}>
-            <label htmlFor="year-select">Select number of years: </label>
-            <select id="year-select" value={years} onChange={handleYearChange}>
-              {singleChartData.map((item, index) => (
-                <option key={index} value={index + 1}>{`First ${index + 1} Year(s)`}</option>
-              ))}
-            </select>
-          </div>
+        </Col>
+      </Row>
+      <Row>
+        <DropdownButton id="dropdown-basic-button" title="Select Number of years">
+          <select id="year-select" value={years} onChange={handleYearChange}>
+            {singleChartData.map((item, index) => (
+              <DropdownItem key={index} value={index + 1}>{`First ${index + 1} Year(s)`}</DropdownItem>
+            ))}
+          </select>
+        </DropdownButton>
 
+      </Row>
+      <Row>
+        <Col>
+          <h1>Equity Metrics</h1>
           <Card>
             <CardHeader>Net Position</CardHeader>
             <CustomLineChart data={filteredData} />
@@ -51,7 +56,6 @@ const Dashboard = () => {
           </Card>
         </Col>
         <Col>
-          <h1>&nbsp;</h1>
           <h1>Cash Flow Metrics</h1>
           <Card>
             <CardHeader>Financing</CardHeader>
@@ -63,6 +67,7 @@ const Dashboard = () => {
           </Card>
         </Col>
       </Row>
+
     </Container>
   );
 };

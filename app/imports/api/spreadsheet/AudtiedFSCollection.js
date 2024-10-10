@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema from 'simpl-schema';
 import { check } from 'meteor/check';
-import { _ } from 'meteor/underscore';
 import { Roles } from 'meteor/alanning:roles';
 import BaseCollection from '../base/BaseCollection';
 import { ROLE } from '../role/Role';
@@ -301,11 +300,10 @@ class AuditedFSCollection extends BaseCollection {
   }
 
   /**
-   * Defines a new Stuff item.
-   * @param name the name of the item.
-   * @param quantity how many.
-   * @param owner the owner of the item.
-   * @param condition the condition of the item.
+   * Defines a new AuditedFS item.
+   * @param year Actual year number of column.
+   * @param owner  the owner of the item.
+   * @param green boolean indicating if column is a green year..
    * @return {String} the docID of the new document.
    */
   define({ year, owner, green, cashAndCashEquivalents, otherAssets, liabilities, netAssets, programRevenues, generalRevenues, expenditures, fundBalances }) {
@@ -326,9 +324,6 @@ class AuditedFSCollection extends BaseCollection {
   /**
    * Updates the given document.
    * @param docID the id of the document to update.
-   * @param name the new name (optional).
-   * @param quantity the new quantity (optional).
-   * @param condition the new condition (optional).
    */
   update(docID, { cashAndCashEquivalents, otherAssets, liabilities, netAssets, programRevenues, generalRevenues, expenditures, fundBalances }) {
     const updateData = {
@@ -357,7 +352,7 @@ class AuditedFSCollection extends BaseCollection {
 
   /**
    * Default publication method for entities.
-   * It publishes the entire collection for admin and just the stuff associated to an owner.
+   * It publishes the entire collection for admin and just the AuditedFS associated to an owner.
    */
   publish() {
     if (Meteor.isServer) {
@@ -383,9 +378,9 @@ class AuditedFSCollection extends BaseCollection {
   }
 
   /**
-   * Subscription method for stuff owned by the current user.
+   * Subscription method for AuditedFS owned by the current user.
    */
-  subscribeStuff() {
+  subscribeAuditedFS() {
     if (Meteor.isClient) {
       return Meteor.subscribe(auditedFSPublications.auditedFS);
     }
@@ -396,7 +391,7 @@ class AuditedFSCollection extends BaseCollection {
    * Subscription method for admin users.
    * It subscribes to the entire collection.
    */
-  subscribeStuffAdmin() {
+  subscribeAuditedFSAdmin() {
     if (Meteor.isClient) {
       return Meteor.subscribe(auditedFSPublications.auditedFSAdmin);
     }
@@ -416,7 +411,7 @@ class AuditedFSCollection extends BaseCollection {
   /**
    * Returns an object representing the definition of docID in a format appropriate to the restoreOne or define function.
    * @param docID
-   * @return {{owner: (*|number), condition: *, quantity: *, name}}
+   * @return
    */
   dumpOne(docID) {
     const doc = this.findDoc(docID);

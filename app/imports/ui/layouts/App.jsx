@@ -22,7 +22,7 @@ import InputClientInfo from '../pages/InputClientInfo';
 import UserSettings from '../pages/UserSettings';
 import VerificationTable from '../pages/VerificationTable';
 import CompareProjections from '../pages/CompareProjections';
-
+import EditClientInfo from '../pages/EditClientInfo';
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
   const { ready } = useTracker(() => {
@@ -48,6 +48,7 @@ const App = () => {
           <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="/balance-sheet" element={<ProtectedRoute><InputClientInfo /></ProtectedRoute>} />
           <Route path="/user-settings" element={<ProtectedRoute><UserSettings /></ProtectedRoute>} />
+          <Route path="/edit" element={<ProtectedRoute><EditClientInfo /></ProtectedRoute>} />
           <Route path="/verification-table" element={<AdminProtectedRoute ready={ready}><VerificationTable /></AdminProtectedRoute>} />
           <Route path="/manage-database" element={<AdminProtectedRoute ready={ready}><ManageDatabase /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />

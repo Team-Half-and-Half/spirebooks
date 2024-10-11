@@ -306,17 +306,18 @@ class AuditedFSCollection extends BaseCollection {
    * @param green boolean indicating if column is a green year..
    * @return {String} the docID of the new document.
    */
-  define({ year, owner, green, cashAndCashEquivalents, otherAssets, liabilities, netAssets, programRevenues, generalRevenues, expenditures, fundBalances }) {
+  // eslint-disable-next-line no-shadow
+  define({ year, owner, green, CashAndCashEquivalents, OtherAssets, Liabilities, NetAssets, ProgramRevenues, GeneralRevenues, Expenditures, FundBalances }) {
     const docID = this._collection.insert({
       year, owner, green,
-      CashAndCashEquivalents: cashAndCashEquivalents,
-      OtherAssets: otherAssets,
-      Liabilities: liabilities,
-      NetAssets: netAssets,
-      ProgramRevenues: programRevenues,
-      GeneralRevenues: generalRevenues,
-      Expenditures: expenditures,
-      FundBalances: fundBalances,
+      CashAndCashEquivalents,
+      OtherAssets,
+      Liabilities,
+      NetAssets,
+      ProgramRevenues,
+      GeneralRevenues,
+      Expenditures,
+      FundBalances,
     });
     return docID;
   }
@@ -325,16 +326,17 @@ class AuditedFSCollection extends BaseCollection {
    * Updates the given document.
    * @param docID the id of the document to update.
    */
-  update(docID, { cashAndCashEquivalents, otherAssets, liabilities, netAssets, programRevenues, generalRevenues, expenditures, fundBalances }) {
+  // eslint-disable-next-line no-shadow
+  update(docID, { CashAndCashEquivalents, OtherAssets, Liabilities, NetAssets, ProgramRevenues, GeneralRevenues, Expenditures, FundBalances }) {
     const updateData = {
-      CashAndCashEquivalents: cashAndCashEquivalents,
-      OtherAssets: otherAssets,
-      Liabilities: liabilities,
-      NetAssets: netAssets,
-      ProgramRevenues: programRevenues,
-      GeneralRevenues: generalRevenues,
-      Expenditures: expenditures,
-      FundBalances: fundBalances };
+      CashAndCashEquivalents,
+      OtherAssets,
+      Liabilities,
+      NetAssets,
+      ProgramRevenues,
+      GeneralRevenues,
+      Expenditures,
+      FundBalances };
     this._collection.update(docID, { $set: updateData });
   }
 

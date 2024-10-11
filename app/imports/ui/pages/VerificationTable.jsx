@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
+import swal from 'sweetalert';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Col, Container, Row, Table, Button } from 'react-bootstrap';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -19,13 +20,19 @@ const VerificationTable = () => {
   }, []);
 
   function verifyButton(user) {
-    Meteor.call('UserVerification.updateVerification', { user: user });
+    Meteor.call('UserVerification.updateVerification', { user: user }, (err, res) => {
+      if (err) {
+        alert(err);
+      } else {
+        // success
+      }
+    });
   }
 
   return (ready ? (
     <Container id={PAGE_IDS.VERIFICATION_TABLE} className="py-3">
       <Row className="justify-content-center">
-        <Col md={7}>
+        <Col md={8}>
           <Col className="text-center"><h2>Verification Statuses</h2></Col>
           <Table striped bordered hover>
             <thead>

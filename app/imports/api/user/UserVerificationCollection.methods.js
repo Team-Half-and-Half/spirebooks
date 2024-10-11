@@ -8,6 +8,9 @@ export const updateVerification = new ValidatedMethod({
   mixins: [CallPromiseMixin],
   validate: null,
   run({ user }) {
+    if (!user) {
+      throw new Meteor.Error('UserVerification.updateVerification.undefinedUser', 'User is undefined.');
+    }
     if (Meteor.isServer) {
       UserVerification.collection.update(user._id, { $set: { verification: !user.verification } });
     }

@@ -18,7 +18,7 @@ const EditStuff = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { doc, ready } = useTracker(() => {
     // Get access to Stuff documents.
-    const subscription = AuditedFS.subscribeAuditedFS();
+    const subscription = AuditedFS.subscribeAuditedFSAdmin();
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the document

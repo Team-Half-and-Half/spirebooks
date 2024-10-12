@@ -39,7 +39,7 @@ const Dashboard = () => {
               key={index}
               onClick={() => handleYearChange(index + 1)}
             >
-              First {index + 1} Year(s)
+              {index + 1} Year(s)
             </Dropdown.Item>
           ))}
         </DropdownButton>

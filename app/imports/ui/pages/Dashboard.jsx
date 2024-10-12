@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import DropdownButton from 'react-bootstrap/Dropdown';
-import { Col, Container, Row, Card, CardHeader, DropdownItem } from 'react-bootstrap';
+import { DropdownButton, Dropdown, Col, Container, Row, Card, CardHeader } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import CustomLineChart from '../components/CustomLineChart';
 import { PAGE_IDS } from '../utilities/PageIDs';
 import { singleChartData } from '../utilities/TemporaryData'; // replace later when using real data
 
-/** Renders graphs that render all the financial data */
+/** Renders graphs that show all the financial data */
 const Dashboard = () => {
   const { currentUser } = useTracker(() => ({
     currentUser: Meteor.user(),
@@ -17,8 +16,8 @@ const Dashboard = () => {
   const [years, setYears] = useState(singleChartData.length);
 
   // Handle year selection from dropdown
-  const handleYearChange = (event) => {
-    setYears(Number(event.target.value));
+  const handleYearChange = (yearsSelected) => {
+    setYears(yearsSelected);
   };
 
   // Filter data based on the selected number of years
@@ -34,14 +33,16 @@ const Dashboard = () => {
         </Col>
       </Row>
       <Row>
-        <DropdownButton id="dropdown-basic-button" title="Select Number of years">
-          <select id="year-select" value={years} onChange={handleYearChange}>
-            {singleChartData.map((item, index) => (
-              <DropdownItem key={index} value={index + 1}>{`First ${index + 1} Year(s)`}</DropdownItem>
-            ))}
-          </select>
+        <DropdownButton id="dropdown-basic-button" title="Select Number of Years">
+          {singleChartData.map((item, index) => (
+            <Dropdown.Item
+              key={index}
+              onClick={() => handleYearChange(index + 1)}
+            >
+              First {index + 1} Year(s)
+            </Dropdown.Item>
+          ))}
         </DropdownButton>
-
       </Row>
       <Row>
         <Col>
@@ -67,7 +68,6 @@ const Dashboard = () => {
           </Card>
         </Col>
       </Row>
-
     </Container>
   );
 };

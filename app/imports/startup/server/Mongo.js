@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { AuditedBalance } from '../../api/spreadsheet/AuditedBalanceCollection';
 import { BudgetPL } from '../../api/spreadsheet/BudgetPLCollection';
-import { AuditedFS } from '../../api/spreadsheet/AudtiedFSCollection';
+import { AuditedFS } from '../../api/spreadsheet/AuditedFSCollection';
 /* eslint-disable no-console */
 
 // Initialize the database with a default data document.

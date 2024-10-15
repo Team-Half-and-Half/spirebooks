@@ -8,7 +8,7 @@ import { Stuffs } from '../../api/stuff/StuffCollection';
 import { updateMethod } from '../../api/base/BaseCollection.methods';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { PAGE_IDS } from '../utilities/PageIDs';
-import { AuditedFS } from '../../api/spreadsheet/AudtiedFSCollection';
+import { AuditedFS } from '../../api/spreadsheet/AuditedFSCollection';
 
 const bridge = new SimpleSchema2Bridge(Stuffs._schema);
 
@@ -18,7 +18,7 @@ const EditStuff = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { doc, ready } = useTracker(() => {
     // Get access to Stuff documents.
-    const subscription = AuditedFS.subscribeAuditedFSAdmin();
+    const subscription = AuditedFS.subscribeAuditedFS();
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the document

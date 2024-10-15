@@ -147,30 +147,18 @@ class AuditedFSCollection extends BaseCollection {
    * @param docID
    * @return {{
    *   year: number, owner: string, green: boolean,
-   *   CashAndCashEquivalents: Object,
-   *   OtherAssets: Object,
-   *   Liabilities: Object,
-   *   NetAssets: Object,
-   *   ProgramRevenues: Object,
-   *   GeneralRevenues: Object,
-   *   Expenditures: Object,
-   *   FundBalances: Object
+   *   CashAndCashEquivalents: Object, OtherAssets: Object, Liabilities: Object, NetAssets: Object,
+   *   ProgramRevenues: Object, GeneralRevenues: Object, Expenditures: Object, FundBalances: Object
    * }}
    */
   dumpOne(docID) {
-    const doc = this.findDoc(docID);
-    const year = doc.year;
-    const owner = doc.owner;
-    const green = doc.green;
-    const cashAndCashEquivalents = doc.CashAndCashEquivalents;
-    const otherAssets = doc.OtherAssets;
-    const liabilities = doc.Liabilities;
-    const netAssets = doc.NetAssets;
-    const programRevenues = doc.ProgramRevenues;
-    const generalRevenues = doc.GeneralRevenues;
-    const expenditures = doc.Expenditures;
-    const fundBalances = doc.FundBalances;
-    return { year, owner, green, cashAndCashEquivalents, otherAssets, liabilities, netAssets, programRevenues, generalRevenues, expenditures, fundBalances };
+    const {
+      year, owner, green,
+      CashAndCashEquivalents, OtherAssets, Liabilities, NetAssets,
+      ProgramRevenues, GeneralRevenues, Expenditures, FundBalances,
+    } = this.findDoc(docID);
+    return { year, owner, green, CashAndCashEquivalents, OtherAssets, Liabilities,
+      NetAssets, ProgramRevenues, GeneralRevenues, Expenditures, FundBalances };
   }
 }
 

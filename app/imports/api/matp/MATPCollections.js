@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { AdminProfiles } from '../user/AdminProfileCollection';
 import { UserProfiles } from '../user/UserProfileCollection';
-import { AuditedFS } from '../spreadsheet/AudtiedFSCollection';
+import { AuditedFS } from '../spreadsheet/AuditedFSCollection';
 
 class MATPClass {
   collections;

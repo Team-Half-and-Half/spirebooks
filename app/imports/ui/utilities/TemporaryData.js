@@ -11,6 +11,56 @@ export const singleChartData = [
   { name: 'Year 7', test: 3490, edited: 4300, amt: 2100 },
 ];
 
+// Hard coded snapshot data for the dashboard:
+export const snapshotData = [
+  { year: 'Year 1', assets: 689525419, liabilities: 141198656.857143, cash_on_hand: 20091667,
+    investment: 343726298, debt: 66193142.8571429, revenues: 35693705, opex: 35603263,
+    cash_inflow: 35693705, inflows: 506857.142857143, admin: 1002981.07542109, mgmt_staff: 238655.377862348, mgmt: 94377.1433807999 },
+  { year: 'Year 2', assets: 698716700, liabilities: 117607299.714286, cash_on_hand: 22647878,
+    investment: 410021540, debt: 41686285.7142857, revenues: 35567019, opex: 36014771,
+    cash_inflow: 35567019, inflows: 506857.142857143, admin: 1315573.0097281, mgmt_staff: 214997.452815937, mgmt: 104657.735304653 },
+  { year: 'Year 3', assets: 691355316.751259, liabilities: 116810541.238095, cash_on_hand: 18695599.0793702,
+    investment: 409541917.905223, debt: 41179428.5714286, revenues: 35914282.09008, opex: 36803492.8678527,
+    cash_inflow: 35914282.09008, inflows: 506857.142857143, admin: 1589642.40324241, mgmt_staff: 393059.771843168, mgmt: 115232.1724 },
+  { year: 'Year 4', assets: 700301818.643744, liabilities: 113248352.984127, cash_on_hand: 21592948.2770016,
+    investment: 418441322.033409, debt: 37672571.4285714, revenues: 36670341.0360191, opex: 37218413.6161603,
+    cash_inflow: 36670341.0360191, inflows: 506857.142857143, admin: 1810733.61125723, mgmt_staff: 454060.519247739, mgmt: 122651.684292142 },
+];
+
+// Calculate financial metrics and convert everything to millions afterward
+snapshotData.forEach(year => {
+  year.net_position = year.assets - year.liabilities;
+  year.liquidity = year.cash_on_hand + year.investment;
+  year.net_income = year.revenues - year.opex;
+  year.cash_outflow = year.opex - year.inflows;
+  year.net_cashflow = year.cash_inflow - year.cash_outflow;
+  year.incremental_fringe_benefits = year.admin + year.mgmt_staff + year.mgmt;
+});
+
+// Now convert all relevant metrics to millions
+snapshotData.forEach(year => {
+  year.assets = year.assets / 1000000; // Convert to millions
+  year.liabilities = year.liabilities / 1000000;
+  year.cash_on_hand = year.cash_on_hand / 1000000;
+  year.investment = year.investment / 1000000;
+  year.debt = year.debt / 1000000;
+  year.revenues = year.revenues / 1000000;
+  year.opex = year.opex / 1000000;
+  year.cash_inflow = year.cash_inflow / 1000000;
+  year.inflows = year.inflows / 1000000;
+  year.admin = year.admin / 1000000;
+  year.mgmt_staff = year.mgmt_staff / 1000000;
+  year.mgmt = year.mgmt / 1000000;
+
+  // Convert calculated metrics to millions as well
+  year.net_position /= 1000000;
+  year.liquidity /= 1000000;
+  year.net_income /= 1000000;
+  year.cash_outflow /= 1000000;
+  year.net_cashflow /= 1000000;
+  year.incremental_fringe_benefits /= 1000000;
+});
+
 // sample data to test that the dropdown menu changes the charts in CompareProjections
 export const multipleChartData = {
   chart1: [

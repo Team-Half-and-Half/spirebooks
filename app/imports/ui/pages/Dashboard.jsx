@@ -4,7 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import CustomLineChart from '../components/CustomLineChart';
 import { PAGE_IDS } from '../utilities/PageIDs';
-import { singleChartData } from '../utilities/TemporaryData'; // replace later when using real data
+import { snapshotData } from '../utilities/TemporaryData'; // replace later when using real data
 
 /** Renders graphs that show all the financial data */
 const Dashboard = () => {
@@ -13,7 +13,7 @@ const Dashboard = () => {
   }), []);
 
   // State to manage number of years for filtering
-  const [years, setYears] = useState(singleChartData.length);
+  const [years, setYears] = useState(snapshotData.length);
 
   // Handle year selection from dropdown
   const handleYearChange = (yearsSelected) => {
@@ -21,7 +21,13 @@ const Dashboard = () => {
   };
 
   // Filter data based on the selected number of years
-  const filteredData = singleChartData.slice(0, years);
+  const filteredData = snapshotData.slice(0, years);
+
+  // Assign data for specific metrics
+  const netPositionData = filteredData.map(year => ({
+    assets: year.assets,
+    liabilities: year.liabilities,
+  }));
 
   return (
     <Container fluid id={PAGE_IDS.DASHBOARD}>
@@ -34,7 +40,7 @@ const Dashboard = () => {
       </Row>
       <Row>
         <DropdownButton id="dropdown-basic-button" title="Select Number of Years">
-          {singleChartData.map((item, index) => (
+          {snapshotData.map((item, index) => (
             <Dropdown.Item
               key={index}
               onClick={() => handleYearChange(index + 1)}
@@ -49,7 +55,7 @@ const Dashboard = () => {
           <h1>Equity Metrics</h1>
           <Card>
             <CardHeader>Net Position</CardHeader>
-            <CustomLineChart data={filteredData} />
+            <CustomLineChart data={netPositionData} />
             <CardHeader>Years of Solvency</CardHeader>
             <CustomLineChart data={filteredData} />
             <CardHeader>Demand for Capital</CardHeader>

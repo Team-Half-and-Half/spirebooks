@@ -11,7 +11,7 @@ const CustomLineChart = ({ data }) => {
     <ResponsiveContainer width="100%" height={300}>
       <LineChart className="line-chart" data={data}>
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
+        <XAxis dataKey="year" />
         <YAxis />
         <Tooltip />
         <Legend formatter={(value) => value.charAt(0).toUpperCase() + value.slice(1)} />

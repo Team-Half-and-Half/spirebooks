@@ -85,6 +85,11 @@ class NavBar {
     await t.click(`#${COMPONENT_IDS.NAVBAR_DASHBOARD}`);
   }
 
+  async gotoTermsAndConditionsPage() {
+    await t.expect(Selector(`#${COMPONENT_IDS.NAVBAR_CURRENT_USER}`).exists).ok();
+    await t.click(`#${COMPONENT_IDS.FOOTER_TOS}`);
+  }
+
   async gotoImportPage() {
     const visible = await Selector(`#${COMPONENT_IDS.NAVBAR_COLLAPSE}`).visible;
     if (!visible) {

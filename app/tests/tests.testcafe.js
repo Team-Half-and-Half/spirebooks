@@ -5,6 +5,7 @@ import { signInPage } from './signin.page';
 import { signUpPage } from './signup.page';
 import { navBar } from './navbar.component';
 import { dashboardPage } from './dashboard.page';
+import { termsandconditionsPage } from './termsandconditions.page';
 import { importPage } from './import.page';
 import { userSettingsPage } from './usersettings';
 import { notfoundPage } from './notfound';
@@ -40,6 +41,16 @@ test('Test that dashboard page shows up', async () => {
   await navBar.isLoggedIn(adminCredentials.username);
   await navBar.gotoDashboardPage();
   await dashboardPage.isDisplayed();
+  await navBar.logout();
+  await signOutPage.isDisplayed();
+});
+
+test('Test that termsandconditions page shows up', async () => {
+  await navBar.gotoSignInPage();
+  await signInPage.signin(adminCredentials.username, adminCredentials.password);
+  await navBar.isLoggedIn(adminCredentials.username);
+  await navBar.gotoTermsAndConditionsPage();
+  await termsandconditionsPage.isDisplayed();
   await navBar.logout();
   await signOutPage.isDisplayed();
 });

@@ -1,6 +1,5 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
-import swal from 'sweetalert';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Col, Container, Row, Table, Button } from 'react-bootstrap';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -24,6 +23,7 @@ const VerificationTable = () => {
       if (err) {
         alert(err);
       } else {
+        console.log(res);
         // success
       }
     });

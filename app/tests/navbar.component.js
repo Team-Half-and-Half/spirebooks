@@ -62,30 +62,10 @@ class NavBar {
     }
     await t.expect(Selector(`#${COMPONENT_IDS.NAVBAR_CURRENT_USER}`).exists).ok();
     await t.click(`#${COMPONENT_IDS.NAVBAR_FINANCING_DROPDOWN}`);
-    await t.click(`#${COMPONENT_IDS.NAVBAR_ADD_MONEY}`);
+    await t.click(`#${COMPONENT_IDS.NAVBAR_BALANCE_SHEET}`);
   }
 
-  /* Go to the list stuff page. */
-  async gotoListStuffPage() {
-    const visible = await Selector(`#${COMPONENT_IDS.NAVBAR_COLLAPSE}`).visible;
-    if (!visible) {
-      await t.click('button.navbar-toggler');
-    }
-    await t.expect(Selector(`#${COMPONENT_IDS.NAVBAR_CURRENT_USER}`).exists).ok();
-    await t.click(`#${COMPONENT_IDS.NAVBAR_LIST_STUFF}`);
-  }
-
-  /* Go to the list stuff admin page. */
-  async gotoListStuffAdminPage() {
-    const visible = await Selector(`#${COMPONENT_IDS.NAVBAR_COLLAPSE}`).visible;
-    if (!visible) {
-      await t.click('button.navbar-toggler');
-    }
-    await t.expect(Selector(`#${COMPONENT_IDS.NAVBAR_CURRENT_USER}`).exists).ok();
-    await t.click(`#${COMPONENT_IDS.NAVBAR_LIST_STUFF_ADMIN}`);
-  }
-
-  /* Go to the manage database page. Must be adimin. */
+  /* Go to the manage database page. Must be admin. */
   async gotoManageDatabasePage() {
     const visible = await Selector(`#${COMPONENT_IDS.NAVBAR_COLLAPSE}`).visible;
     if (!visible) {
@@ -105,6 +85,11 @@ class NavBar {
     await t.click(`#${COMPONENT_IDS.NAVBAR_DASHBOARD}`);
   }
 
+  async gotoTermsAndConditionsPage() {
+    await t.expect(Selector(`#${COMPONENT_IDS.NAVBAR_CURRENT_USER}`).exists).ok();
+    await t.click(`#${COMPONENT_IDS.FOOTER_TOS}`);
+  }
+
   async gotoImportPage() {
     const visible = await Selector(`#${COMPONENT_IDS.NAVBAR_COLLAPSE}`).visible;
     if (!visible) {
@@ -113,6 +98,17 @@ class NavBar {
     await t.expect(Selector(`#${COMPONENT_IDS.NAVBAR_CURRENT_USER}`).exists).ok();
     await t.click(`#${COMPONENT_IDS.NAVBAR_AUDIT_DROPDOWN}`);
     await t.click(`#${COMPONENT_IDS.NAVBAR_AUDIT_DROPDOWN_IMPORT}`);
+  }
+
+  async gotoUserSettingsPage() {
+    const visible = await Selector(`#${COMPONENT_IDS.NAVBAR_COLLAPSE}`).visible;
+    if (!visible) {
+      await t.click('button.navbar-toggler');
+    }
+    await t.expect(Selector(`#${COMPONENT_IDS.NAVBAR_CURRENT_USER}`).exists).ok();
+    await t.click(`#${COMPONENT_IDS.NAVBAR_CURRENT_USER}`);
+    await t.click(`#${COMPONENT_IDS.NAVBAR_USER_SETTINGS}`);
+    await t.click(`#${COMPONENT_IDS.USER_SETTINGS_SUBMIT}`);
   }
 }
 

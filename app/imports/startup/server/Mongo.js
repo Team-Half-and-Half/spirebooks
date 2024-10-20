@@ -1,21 +1,20 @@
 import { Meteor } from 'meteor/meteor';
-import { Stuffs } from '../../api/stuff/StuffCollection';
 import { AuditedBalance } from '../../api/spreadsheet/AuditedBalanceCollection';
 import { BudgetPL } from '../../api/spreadsheet/BudgetPLCollection';
-import { AuditedFS } from '../../api/spreadsheet/AudtiedFSCollection';
+import { AuditedFS } from '../../api/spreadsheet/AuditedFSCollection';
 /* eslint-disable no-console */
 
 // Initialize the database with a default data document.
 function addData(data) {
-  console.log(`  Adding: ${data.name} (${data.owner})`);
-  Stuffs.define(data);
+  console.log(`  Adding year: ${data.year} (${data.owner})`);
+  AuditedFS.define(data);
 }
 
 // Initialize the StuffsCollection if empty.
-if (Stuffs.count() === 0) {
-  if (Meteor.settings.defaultData) {
-    console.log('Creating default data.');
-    Meteor.settings.defaultData.forEach(data => addData(data));
+if (AuditedFS.count() === 0) {
+  if (Meteor.settings.defaultAFS) {
+    console.log('Creating default AFS.');
+    Meteor.settings.defaultAFS.forEach(data => addData(data));
   }
 }
 function addABS({ owner, ActualYear, ActualYearGreen }) {
@@ -43,18 +42,5 @@ if (BudgetPL.collection.find().count() === 0) {
     Meteor.settings.defaultBPL.forEach(bpl => addBPL(bpl));
   } else {
     console.log('Cannot initialize the BPL!  Please invoke meteor with a settings file.');
-  }
-}
-function addAFS({ owner, ActualYear, ActualYearGreen }) {
-  console.log(`Defining AuditedFS Sheet ${owner}`);
-  AuditedFS.collection.insert({ owner, ActualYear, ActualYearGreen });
-}
-
-if (AuditedFS.collection.find().count() === 0) {
-  if (Meteor.settings.defaultAFS) {
-    console.log('Creating the default AFS');
-    Meteor.settings.defaultAFS.forEach(afs => addAFS(afs));
-  } else {
-    console.log('Cannot initialize the AFS!  Please invoke meteor with a settings file.');
   }
 }

@@ -1,9 +1,9 @@
 export const COMPONENT_IDS = {
   LIST_STUFF_EDIT: 'list-stuff-edit',
-  MANGAGE_DATABASE_DUMP: 'manage-database-dump',
+  MANAGE_DATABASE_DUMP: 'manage-database-dump',
   NAVBAR_DASHBOARD: 'navbar-dashboard',
   NAVBAR_ADD_STUFF: 'navbar-add-stuff',
-  NAVBAR_ADD_MONEY: 'navbar-add-money',
+  NAVBAR_BALANCE_SHEET: 'navbar-balance-sheet',
   NAVBAR_LIST_STUFF: 'navbar-list-stuff',
   NAVBAR_LIST_STUFF_ADMIN: 'navbar-list-stuff-admin',
   NAVBAR_CURRENT_USER: 'navbar-current-user',
@@ -17,6 +17,7 @@ export const COMPONENT_IDS = {
   NAVBAR_LOGIN_DROPDOWN_SIGN_UP: 'navbar-login-dropdown-sign-up',
   NAVBAR_MANAGE_DROPDOWN: 'navbar-manage-dropdown',
   NAVBAR_MANAGE_DROPDOWN_DATABASE: 'navbar-manage-dropdown-database',
+  NAVBAR_USER_SETTINGS: 'user-settings-dropdown-user-settings',
   NAVBAR_SIGN_OUT: 'navbar-sign-out',
   SIGN_IN_FORM_EMAIL: 'sign-in-form-email',
   SIGN_IN_FORM_PASSWORD: 'sign-in-form-password',
@@ -26,4 +27,8 @@ export const COMPONENT_IDS = {
   SIGN_UP_FORM_EMAIL: 'sign-up-form-email',
   SIGN_UP_FORM_PASSWORD: 'sign-up-form-password',
   SIGN_UP_FORM_SUBMIT: 'sign-up-form-submit',
+  USER_SETTINGS_COMPANY_NAME: 'user-settings-company-name',
+  USER_SETTINGS_PASSWORD: 'user-settings-password',
+  USER_SETTINGS_SUBMIT: 'user-settings-submit',
+  FOOTER_TOS: 'footer-tos',
 };

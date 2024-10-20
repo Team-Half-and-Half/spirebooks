@@ -765,650 +765,652 @@
   ],
   "defaultAFS": [
     {
+      "year": 6,
       "owner": "accountant@spirebooks.com",
-      "ActualYear": [
-        {
-          "year": 6,
-          "CashAndCashEquivalents": {
-            "pettyCash": 800,
-            "cash": 8047307,
-            "cashInBank": 17643599,
-            "cashHeldInvestmentManager": 9380389,
-            "restrictedCash": 184230,
-            "CashAndCashEquivalentsSum": 35256325
-          },
-          "OtherAssets": {
-            "accountsReceivable": 4771991,
-            "dueFromOtherFund": null,
-            "interestDividendsReceivable": 41741,
-            "inventoryPrepaidOtherAssets": 1295094,
-            "notesWithinOneYear": 2524267,
-            "notesAfterOneYear": 6688754,
-            "securityDeposits": null,
-            "investments": 334345909,
-            "capitalAssetNet": 252871530,
-            "totalOtherAssets": 637795611,
-            "deferredOutflows": 3070777,
-            "totalAssetsDeferred": 640866388
-          },
-          "Liabilities": {
-            "accountPayableAccrued": 6653737,
-            "dueToFund": 3359468,
-            "dueToOther": null,
-            "longTermWithin": 2009067,
-            "longTermAfter": 52625146,
-            "totalLiabilities": 64647418,
-            "deferredInflowsResources": 1413791,
-            "deferredInflowsOPED": null,
-            "totalLiabilitiesDeferredInflows": 66061209
-          },
-          "NetAssets": {
-            "investedCapitalAssets": 225290261,
-            "restrictedFederal": 26690007,
-            "unrestricted": 322824911,
-            "totalNetAssets": 574805179,
-            "totalLiabilitiesNetAssets": 640866388
-          },
-          "ProgramRevenues": {
-            "chargesForServices": 9899686,
-            "operatingGrants": 1164361,
-            "interestInvestmentsEarnings": null,
-            "totalProgramRevenues": 11064047
-          },
-          "GeneralRevenues": {
-            "appropriations": 3217099,
-            "trust": 15100000,
-            "interestInvestmentLossesEarnings": -3759322,
-            "newspaperAds": null,
-            "donationsAndOther": 331028,
-            "limitedLiabilityB": null,
-            "nonImposedFringeBenefits": 213008,
-            "totalGeneralRevenue": 15101813,
-            "totalRevenue": 26165860
-          },
-          "Expenditures": {
-            "management": 2721390,
-            "supportServices": 18215811,
-            "beneficiaryAdvocacy": 25906661,
-            "depreciation": 2298698,
-            "limitedLiabilityA": 363014,
-            "limitedLiabilityB": 5010868,
-            "totalExpenses": 54516442,
-            "excessOfRevenue": -28350582,
-            "proceedsFromDebt": null,
-            "proceedsFromCapitalLease": null,
-            "netTransfersOtherFunds": 350316,
-            "changeInNetAssets": -28000266
-          },
-          "FundBalances": {
-            "beginningOfYear": 602805445,
-            "restatementAdjustment": null,
-            "netPositionEndOfYear": 574805179
-          }
-        },
-        {
-          "year": 7,
-          "CashAndCashEquivalents": {
-            "pettyCash": 800,
-            "cash": 5794491,
-            "cashInBank": 22754877,
-            "cashHeldInvestmentManager": 4498433,
-            "restrictedCash": 365259,
-            "CashAndCashEquivalentsSum": 33413860
-          },
-          "OtherAssets": {
-            "accountsReceivable": 364228,
-            "dueFromOtherFund": null,
-            "interestDividendsReceivable": 69291,
-            "inventoryPrepaidOtherAssets": 1120233,
-            "notesWithinOneYear": 2146507,
-            "notesAfterOneYear": 4136100,
-            "securityDeposits": null,
-            "investments": 370321707,
-            "capitalAssetNet": 250931473,
-            "totalOtherAssets": 662503399,
-            "deferredOutflows": 10362562,
-            "totalAssetsDeferred": 672865961
-          },
-          "Liabilities": {
-            "accountPayableAccrued": 5386031,
-            "dueToFund": 1138542,
-            "dueToOther": null,
-            "longTermWithin": 3217912,
-            "longTermAfter": 61821427,
-            "totalLiabilities": 71563912,
-            "deferredInflowsResources": 575904,
-            "deferredInflowsOPED": null,
-            "totalLiabilitiesDeferredInflows": 72139816
-          },
-          "NetAssets": {
-            "investedCapitalAssets": 220222616,
-            "restrictedFederal": 25498353,
-            "unrestricted": 355005176,
-            "totalNetAssets": 600726145,
-            "totalLiabilitiesNetAssets": 672865961
-          },
-          "ProgramRevenues": {
-            "chargesForServices": 12500418,
-            "operatingGrants": 730421,
-            "interestInvestmentsEarnings": null,
-            "totalProgramRevenues": 13230839
-          },
-          "GeneralRevenues": {
-            "appropriations": 2990908,
-            "trust": 15100000,
-            "interestInvestmentLossesEarnings": 39560405,
-            "newspaperAds": null,
-            "donationsAndOther": 635326,
-            "limitedLiabilityB": null,
-            "nonImposedFringeBenefits": 235135,
-            "totalGeneralRevenue": 58521774,
-            "totalRevenue": 71752613
-          },
-          "Expenditures": {
-            "management": 2766255,
-            "supportServices": 19554828,
-            "beneficiaryAdvocacy": 14911396,
-            "depreciation": 2412043,
-            "limitedLiabilityA": 314077,
-            "limitedLiabilityB": 5214852,
-            "totalExpenses": 45173451,
-            "excessOfRevenue": 26579162,
-            "proceedsFromDebt": null,
-            "proceedsFromCapitalLease": null,
-            "netTransfersOtherFunds": -31085,
-            "changeInNetAssets": 26548077
-          },
-          "FundBalances": {
-            "beginningOfYear": 574805179,
-            "restatementAdjustment": -627111,
-            "netPositionEndOfYear": 600726145
-          }
-        },
-        {
-          "year": 8,
-          "CashAndCashEquivalents": {
-            "pettyCash": 700,
-            "cash": 5118284,
-            "cashInBank": 17528894,
-            "cashHeldInvestmentManager": 3925659,
-            "restrictedCash": 284790,
-            "CashAndCashEquivalentsSum": 26858327
-          },
-          "OtherAssets": {
-            "accountsReceivable": 2253707,
-            "dueFromOtherFund": null,
-            "interestDividendsReceivable": 172599,
-            "inventoryPrepaidOtherAssets": 1181746,
-            "notesWithinOneYear": 1477076,
-            "notesAfterOneYear": 4977748,
-            "securityDeposits": null,
-            "investments": 406095881,
-            "capitalAssetNet": 247480101,
-            "totalOtherAssets": 690497185,
-            "deferredOutflows": 8219515,
-            "totalAssetsDeferred": 698716700
-          },
-          "Liabilities": {
-            "accountPayableAccrued": 6730596,
-            "dueToFund": 300000,
-            "dueToOther": null,
-            "longTermWithin": 3288859,
-            "longTermAfter": 90399400,
-            "totalLiabilities": 100718855,
-            "deferredInflowsResources": 528581,
-            "deferredInflowsOPED": 521102,
-            "totalLiabilitiesDeferredInflows": 101768538
-          },
-          "NetAssets": {
-            "investedCapitalAssets": 221500308,
-            "restrictedFederal": 25335251,
-            "unrestricted": 350112603,
-            "totalNetAssets": 596948162,
-            "totalLiabilitiesNetAssets": 698716700
-          },
-          "ProgramRevenues": {
-            "chargesForServices": 14501281,
-            "operatingGrants": 1281115,
-            "interestInvestmentsEarnings": null,
-            "totalProgramRevenues": 15782396
-          },
-          "GeneralRevenues": {
-            "appropriations": 3018899,
-            "trust": 15100000,
-            "interestInvestmentLossesEarnings": 24595989,
-            "newspaperAds": null,
-            "donationsAndOther": 468624,
-            "limitedLiabilityB": null,
-            "nonImposedFringeBenefits": 594067,
-            "totalGeneralRevenue": 43777579,
-            "totalRevenue": 59559975
-          },
-          "Expenditures": {
-            "management": 3111437,
-            "supportServices": 20292212,
-            "beneficiaryAdvocacy": 17892353,
-            "depreciation": 1985592,
-            "limitedLiabilityA": 478849,
-            "limitedLiabilityB": 6248529,
-            "totalExpenses": 50008972,
-            "excessOfRevenue": 9551003,
-            "proceedsFromDebt": null,
-            "proceedsFromCapitalLease": null,
-            "netTransfersOtherFunds": 937326,
-            "changeInNetAssets": 10488329
-          },
-          "FundBalances": {
-            "beginningOfYear": 586459833,
-            "restatementAdjustment": null,
-            "netPositionEndOfYear": 596948162
-          }
-        },
-        {
-          "year": 9,
-          "CashAndCashEquivalents": {
-            "pettyCash": 700,
-            "cash": 5118284,
-            "cashInBank": 17528894,
-            "cashHeldInvestmentManager": 3925659,
-            "restrictedCash": 284790,
-            "CashAndCashEquivalentsSum": 26858327
-          },
-          "OtherAssets": {
-            "accountsReceivable": 2253707,
-            "dueFromOtherFund": null,
-            "interestDividendsReceivable": 172599,
-            "inventoryPrepaidOtherAssets": 1181746,
-            "notesWithinOneYear": 1477076,
-            "notesAfterOneYear": 4977748,
-            "securityDeposits": null,
-            "investments": 406095881,
-            "capitalAssetNet": 247480101,
-            "totalOtherAssets": 690497185,
-            "deferredOutflows": 8219515,
-            "totalAssetsDeferred": 698716700
-          },
-          "Liabilities": {
-            "accountPayableAccrued": 6730596,
-            "dueToFund": 300000,
-            "dueToOther": null,
-            "longTermWithin": 3288859,
-            "longTermAfter": 90399400,
-            "totalLiabilities": 100718855,
-            "deferredInflowsResources": 528581,
-            "deferredInflowsOPED": 521102,
-            "totalLiabilitiesDeferredInflows": 101768538
-          },
-          "NetAssets": {
-            "investedCapitalAssets": 221500308,
-            "restrictedFederal": 25335251,
-            "unrestricted": 350112603,
-            "totalNetAssets": 596948162,
-            "totalLiabilitiesNetAssets": 698716700
-          },
-          "ProgramRevenues": {
-            "chargesForServices": 14501281,
-            "operatingGrants": 1281115,
-            "interestInvestmentsEarnings": null,
-            "totalProgramRevenues": 15782396
-          },
-          "GeneralRevenues": {
-            "appropriations": 3018899,
-            "trust": 15100000,
-            "interestInvestmentLossesEarnings": 24595989,
-            "newspaperAds": null,
-            "donationsAndOther": 468624,
-            "limitedLiabilityB": null,
-            "nonImposedFringeBenefits": 594067,
-            "totalGeneralRevenue": 43777579,
-            "totalRevenue": 59559975
-          },
-          "Expenditures": {
-            "management": 3111437,
-            "supportServices": 20292212,
-            "beneficiaryAdvocacy": 17892353,
-            "depreciation": 1985592,
-            "limitedLiabilityA": 478849,
-            "limitedLiabilityB": 6248529,
-            "totalExpenses": 50008972,
-            "excessOfRevenue": 9551003,
-            "proceedsFromDebt": null,
-            "proceedsFromCapitalLease": null,
-            "netTransfersOtherFunds": 937326,
-            "changeInNetAssets": 10488329
-          },
-          "FundBalances": {
-            "beginningOfYear": 586459833,
-            "restatementAdjustment": null,
-            "netPositionEndOfYear": 596948162
-          }
-        }
-      ],
-      "ActualYearGreen": [
-      ]
+      "green": false,
+      "CashAndCashEquivalents": {
+        "pettyCash": 800,
+        "cash": 8047307,
+        "cashInBank": 17643599,
+        "cashHeldInvestmentManager": 9380389,
+        "restrictedCash": 184230,
+        "CashAndCashEquivalentsSum": 35256325
+      },
+      "OtherAssets": {
+        "accountsReceivable": 4771991,
+        "dueFromOtherFund": null,
+        "interestDividendsReceivable": 41741,
+        "inventoryPrepaidOtherAssets": 1295094,
+        "notesWithinOneYear": 2524267,
+        "notesAfterOneYear": 6688754,
+        "securityDeposits": null,
+        "investments": 334345909,
+        "capitalAssetNet": 252871530,
+        "totalOtherAssets": 637795611,
+        "deferredOutflows": 3070777,
+        "totalAssetsDeferred": 640866388
+      },
+      "Liabilities": {
+        "accountPayableAccrued": 6653737,
+        "dueToFund": 3359468,
+        "dueToOther": null,
+        "longTermWithin": 2009067,
+        "longTermAfter": 52625146,
+        "totalLiabilities": 64647418,
+        "deferredInflowsResources": 1413791,
+        "deferredInflowsOPED": null,
+        "totalLiabilitiesDeferredInflows": 66061209
+      },
+      "NetAssets": {
+        "investedCapitalAssets": 225290261,
+        "restrictedFederal": 26690007,
+        "unrestricted": 322824911,
+        "totalNetAssets": 574805179,
+        "totalLiabilitiesNetAssets": 640866388
+      },
+      "ProgramRevenues": {
+        "chargesForServices": 9899686,
+        "operatingGrants": 1164361,
+        "interestInvestmentsEarnings": null,
+        "totalProgramRevenues": 11064047
+      },
+      "GeneralRevenues": {
+        "appropriations": 3217099,
+        "trust": 15100000,
+        "interestInvestmentLossesEarnings": -3759322,
+        "newspaperAds": null,
+        "donationsAndOther": 331028,
+        "limitedLiabilityB": null,
+        "nonImposedFringeBenefits": 213008,
+        "totalGeneralRevenue": 15101813,
+        "totalRevenue": 26165860
+      },
+      "Expenditures": {
+        "management": 2721390,
+        "supportServices": 18215811,
+        "beneficiaryAdvocacy": 25906661,
+        "depreciation": 2298698,
+        "limitedLiabilityA": 363014,
+        "limitedLiabilityB": 5010868,
+        "totalExpenses": 54516442,
+        "excessOfRevenue": -28350582,
+        "proceedsFromDebt": null,
+        "proceedsFromCapitalLease": null,
+        "netTransfersOtherFunds": 350316,
+        "changeInNetAssets": -28000266
+      },
+      "FundBalances": {
+        "beginningOfYear": 602805445,
+        "restatementAdjustment": null,
+        "netPositionEndOfYear": 574805179
+      }
     },
     {
+      "year": 7,
+      "owner": "accountant@spirebooks.com",
+      "green": false,
+      "CashAndCashEquivalents": {
+        "pettyCash": 800,
+        "cash": 5794491,
+        "cashInBank": 22754877,
+        "cashHeldInvestmentManager": 4498433,
+        "restrictedCash": 365259,
+        "CashAndCashEquivalentsSum": 33413860
+      },
+      "OtherAssets": {
+        "accountsReceivable": 364228,
+        "dueFromOtherFund": null,
+        "interestDividendsReceivable": 69291,
+        "inventoryPrepaidOtherAssets": 1120233,
+        "notesWithinOneYear": 2146507,
+        "notesAfterOneYear": 4136100,
+        "securityDeposits": null,
+        "investments": 370321707,
+        "capitalAssetNet": 250931473,
+        "totalOtherAssets": 662503399,
+        "deferredOutflows": 10362562,
+        "totalAssetsDeferred": 672865961
+      },
+      "Liabilities": {
+        "accountPayableAccrued": 5386031,
+        "dueToFund": 1138542,
+        "dueToOther": null,
+        "longTermWithin": 3217912,
+        "longTermAfter": 61821427,
+        "totalLiabilities": 71563912,
+        "deferredInflowsResources": 575904,
+        "deferredInflowsOPED": null,
+        "totalLiabilitiesDeferredInflows": 72139816
+      },
+      "NetAssets": {
+        "investedCapitalAssets": 220222616,
+        "restrictedFederal": 25498353,
+        "unrestricted": 355005176,
+        "totalNetAssets": 600726145,
+        "totalLiabilitiesNetAssets": 672865961
+      },
+      "ProgramRevenues": {
+        "chargesForServices": 12500418,
+        "operatingGrants": 730421,
+        "interestInvestmentsEarnings": null,
+        "totalProgramRevenues": 13230839
+      },
+      "GeneralRevenues": {
+        "appropriations": 2990908,
+        "trust": 15100000,
+        "interestInvestmentLossesEarnings": 39560405,
+        "newspaperAds": null,
+        "donationsAndOther": 635326,
+        "limitedLiabilityB": null,
+        "nonImposedFringeBenefits": 235135,
+        "totalGeneralRevenue": 58521774,
+        "totalRevenue": 71752613
+      },
+      "Expenditures": {
+        "management": 2766255,
+        "supportServices": 19554828,
+        "beneficiaryAdvocacy": 14911396,
+        "depreciation": 2412043,
+        "limitedLiabilityA": 314077,
+        "limitedLiabilityB": 5214852,
+        "totalExpenses": 45173451,
+        "excessOfRevenue": 26579162,
+        "proceedsFromDebt": null,
+        "proceedsFromCapitalLease": null,
+        "netTransfersOtherFunds": -31085,
+        "changeInNetAssets": 26548077
+      },
+      "FundBalances": {
+        "beginningOfYear": 574805179,
+        "restatementAdjustment": -627111,
+        "netPositionEndOfYear": 600726145
+      }
+    },
+    {
+      "year": 8,
+      "owner": "accountant@spirebooks.com",
+      "green": false,
+      "CashAndCashEquivalents": {
+        "pettyCash": 700,
+        "cash": 5118284,
+        "cashInBank": 17528894,
+        "cashHeldInvestmentManager": 3925659,
+        "restrictedCash": 284790,
+        "CashAndCashEquivalentsSum": 26858327
+      },
+      "OtherAssets": {
+        "accountsReceivable": 2253707,
+        "dueFromOtherFund": null,
+        "interestDividendsReceivable": 172599,
+        "inventoryPrepaidOtherAssets": 1181746,
+        "notesWithinOneYear": 1477076,
+        "notesAfterOneYear": 4977748,
+        "securityDeposits": null,
+        "investments": 406095881,
+        "capitalAssetNet": 247480101,
+        "totalOtherAssets": 690497185,
+        "deferredOutflows": 8219515,
+        "totalAssetsDeferred": 698716700
+      },
+      "Liabilities": {
+        "accountPayableAccrued": 6730596,
+        "dueToFund": 300000,
+        "dueToOther": null,
+        "longTermWithin": 3288859,
+        "longTermAfter": 90399400,
+        "totalLiabilities": 100718855,
+        "deferredInflowsResources": 528581,
+        "deferredInflowsOPED": 521102,
+        "totalLiabilitiesDeferredInflows": 101768538
+      },
+      "NetAssets": {
+        "investedCapitalAssets": 221500308,
+        "restrictedFederal": 25335251,
+        "unrestricted": 350112603,
+        "totalNetAssets": 596948162,
+        "totalLiabilitiesNetAssets": 698716700
+      },
+      "ProgramRevenues": {
+        "chargesForServices": 14501281,
+        "operatingGrants": 1281115,
+        "interestInvestmentsEarnings": null,
+        "totalProgramRevenues": 15782396
+      },
+      "GeneralRevenues": {
+        "appropriations": 3018899,
+        "trust": 15100000,
+        "interestInvestmentLossesEarnings": 24595989,
+        "newspaperAds": null,
+        "donationsAndOther": 468624,
+        "limitedLiabilityB": null,
+        "nonImposedFringeBenefits": 594067,
+        "totalGeneralRevenue": 43777579,
+        "totalRevenue": 59559975
+      },
+      "Expenditures": {
+        "management": 3111437,
+        "supportServices": 20292212,
+        "beneficiaryAdvocacy": 17892353,
+        "depreciation": 1985592,
+        "limitedLiabilityA": 478849,
+        "limitedLiabilityB": 6248529,
+        "totalExpenses": 50008972,
+        "excessOfRevenue": 9551003,
+        "proceedsFromDebt": null,
+        "proceedsFromCapitalLease": null,
+        "netTransfersOtherFunds": 937326,
+        "changeInNetAssets": 10488329
+      },
+      "FundBalances": {
+        "beginningOfYear": 586459833,
+        "restatementAdjustment": null,
+        "netPositionEndOfYear": 596948162
+      }
+    },
+    {
+      "year": 9,
+      "owner": "accountant@spirebooks.com",
+      "green": false,
+      "CashAndCashEquivalents": {
+        "pettyCash": 700,
+        "cash": 5118284,
+        "cashInBank": 17528894,
+        "cashHeldInvestmentManager": 3925659,
+        "restrictedCash": 284790,
+        "CashAndCashEquivalentsSum": 26858327
+      },
+      "OtherAssets": {
+        "accountsReceivable": 2253707,
+        "dueFromOtherFund": null,
+        "interestDividendsReceivable": 172599,
+        "inventoryPrepaidOtherAssets": 1181746,
+        "notesWithinOneYear": 1477076,
+        "notesAfterOneYear": 4977748,
+        "securityDeposits": null,
+        "investments": 406095881,
+        "capitalAssetNet": 247480101,
+        "totalOtherAssets": 690497185,
+        "deferredOutflows": 8219515,
+        "totalAssetsDeferred": 698716700
+      },
+      "Liabilities": {
+        "accountPayableAccrued": 6730596,
+        "dueToFund": 300000,
+        "dueToOther": null,
+        "longTermWithin": 3288859,
+        "longTermAfter": 90399400,
+        "totalLiabilities": 100718855,
+        "deferredInflowsResources": 528581,
+        "deferredInflowsOPED": 521102,
+        "totalLiabilitiesDeferredInflows": 101768538
+      },
+      "NetAssets": {
+        "investedCapitalAssets": 221500308,
+        "restrictedFederal": 25335251,
+        "unrestricted": 350112603,
+        "totalNetAssets": 596948162,
+        "totalLiabilitiesNetAssets": 698716700
+      },
+      "ProgramRevenues": {
+        "chargesForServices": 14501281,
+        "operatingGrants": 1281115,
+        "interestInvestmentsEarnings": null,
+        "totalProgramRevenues": 15782396
+      },
+      "GeneralRevenues": {
+        "appropriations": 3018899,
+        "trust": 15100000,
+        "interestInvestmentLossesEarnings": 24595989,
+        "newspaperAds": null,
+        "donationsAndOther": 468624,
+        "limitedLiabilityB": null,
+        "nonImposedFringeBenefits": 594067,
+        "totalGeneralRevenue": 43777579,
+        "totalRevenue": 59559975
+      },
+      "Expenditures": {
+        "management": 3111437,
+        "supportServices": 20292212,
+        "beneficiaryAdvocacy": 17892353,
+        "depreciation": 1985592,
+        "limitedLiabilityA": 478849,
+        "limitedLiabilityB": 6248529,
+        "totalExpenses": 50008972,
+        "excessOfRevenue": 9551003,
+        "proceedsFromDebt": null,
+        "proceedsFromCapitalLease": null,
+        "netTransfersOtherFunds": 937326,
+        "changeInNetAssets": 10488329
+      },
+      "FundBalances": {
+        "beginningOfYear": 586459833,
+        "restatementAdjustment": null,
+        "netPositionEndOfYear": 596948162
+      }
+    },
+    {
+      "year": 6,
       "owner": "customer@spirebooks.com",
-      "ActualYear": [
-        {
-          "year": 6,
-          "CashAndCashEquivalents": {
-            "pettyCash": 800,
-            "cash": 8047307,
-            "cashInBank": 17643599,
-            "cashHeldInvestmentManager": 9380389,
-            "restrictedCash": 184230,
-            "CashAndCashEquivalentsSum": 35256325
-          },
-          "OtherAssets": {
-            "accountsReceivable": 4771991,
-            "dueFromOtherFund": null,
-            "interestDividendsReceivable": 41741,
-            "inventoryPrepaidOtherAssets": 1295094,
-            "notesWithinOneYear": 2524267,
-            "notesAfterOneYear": 6688754,
-            "securityDeposits": null,
-            "investments": 334345909,
-            "capitalAssetNet": 252871530,
-            "totalOtherAssets": 637795611,
-            "deferredOutflows": 3070777,
-            "totalAssetsDeferred": 640866388
-          },
-          "Liabilities": {
-            "accountPayableAccrued": 6653737,
-            "dueToFund": 3359468,
-            "dueToOther": null,
-            "longTermWithin": 2009067,
-            "longTermAfter": 52625146,
-            "totalLiabilities": 64647418,
-            "deferredInflowsResources": 1413791,
-            "deferredInflowsOPED": null,
-            "totalLiabilitiesDeferredInflows": 66061209
-          },
-          "NetAssets": {
-            "investedCapitalAssets": 225290261,
-            "restrictedFederal": 26690007,
-            "unrestricted": 322824911,
-            "totalNetAssets": 574805179,
-            "totalLiabilitiesNetAssets": 640866388
-          },
-          "ProgramRevenues": {
-            "chargesForServices": 9899686,
-            "operatingGrants": 1164361,
-            "interestInvestmentsEarnings": null,
-            "totalProgramRevenues": 11064047
-          },
-          "GeneralRevenues": {
-            "appropriations": 3217099,
-            "trust": 15100000,
-            "interestInvestmentLossesEarnings": -3759322,
-            "newspaperAds": null,
-            "donationsAndOther": 331028,
-            "limitedLiabilityB": null,
-            "nonImposedFringeBenefits": 213008,
-            "totalGeneralRevenue": 15101813,
-            "totalRevenue": 26165860
-          },
-          "Expenditures": {
-            "management": 2721390,
-            "supportServices": 18215811,
-            "beneficiaryAdvocacy": 25906661,
-            "depreciation": 2298698,
-            "limitedLiabilityA": 363014,
-            "limitedLiabilityB": 5010868,
-            "totalExpenses": 54516442,
-            "excessOfRevenue": -28350582,
-            "proceedsFromDebt": null,
-            "proceedsFromCapitalLease": null,
-            "netTransfersOtherFunds": 350316,
-            "changeInNetAssets": -28000266
-          },
-          "FundBalances": {
-            "beginningOfYear": 602805445,
-            "restatementAdjustment": null,
-            "netPositionEndOfYear": 574805179
-          }
-        },
-        {
-          "year": 7,
-          "CashAndCashEquivalents": {
-            "pettyCash": 800,
-            "cash": 5794491,
-            "cashInBank": 22754877,
-            "cashHeldInvestmentManager": 4498433,
-            "restrictedCash": 365259,
-            "CashAndCashEquivalentsSum": 33413860
-          },
-          "OtherAssets": {
-            "accountsReceivable": 364228,
-            "dueFromOtherFund": null,
-            "interestDividendsReceivable": 69291,
-            "inventoryPrepaidOtherAssets": 1120233,
-            "notesWithinOneYear": 2146507,
-            "notesAfterOneYear": 4136100,
-            "securityDeposits": null,
-            "investments": 370321707,
-            "capitalAssetNet": 250931473,
-            "totalOtherAssets": 662503399,
-            "deferredOutflows": 10362562,
-            "totalAssetsDeferred": 672865961
-          },
-          "Liabilities": {
-            "accountPayableAccrued": 5386031,
-            "dueToFund": 1138542,
-            "dueToOther": null,
-            "longTermWithin": 3217912,
-            "longTermAfter": 61821427,
-            "totalLiabilities": 71563912,
-            "deferredInflowsResources": 575904,
-            "deferredInflowsOPED": null,
-            "totalLiabilitiesDeferredInflows": 72139816
-          },
-          "NetAssets": {
-            "investedCapitalAssets": 220222616,
-            "restrictedFederal": 25498353,
-            "unrestricted": 355005176,
-            "totalNetAssets": 600726145,
-            "totalLiabilitiesNetAssets": 672865961
-          },
-          "ProgramRevenues": {
-            "chargesForServices": 12500418,
-            "operatingGrants": 730421,
-            "interestInvestmentsEarnings": null,
-            "totalProgramRevenues": 13230839
-          },
-          "GeneralRevenues": {
-            "appropriations": 2990908,
-            "trust": 15100000,
-            "interestInvestmentLossesEarnings": 39560405,
-            "newspaperAds": null,
-            "donationsAndOther": 635326,
-            "limitedLiabilityB": null,
-            "nonImposedFringeBenefits": 235135,
-            "totalGeneralRevenue": 58521774,
-            "totalRevenue": 71752613
-          },
-          "Expenditures": {
-            "management": 2766255,
-            "supportServices": 19554828,
-            "beneficiaryAdvocacy": 14911396,
-            "depreciation": 2412043,
-            "limitedLiabilityA": 314077,
-            "limitedLiabilityB": 5214852,
-            "totalExpenses": 45173451,
-            "excessOfRevenue": 26579162,
-            "proceedsFromDebt": null,
-            "proceedsFromCapitalLease": null,
-            "netTransfersOtherFunds": -31085,
-            "changeInNetAssets": 26548077
-          },
-          "FundBalances": {
-            "beginningOfYear": 574805179,
-            "restatementAdjustment": -627111,
-            "netPositionEndOfYear": 600726145
-          }
-        },
-        {
-          "year": 8,
-          "CashAndCashEquivalents": {
-            "pettyCash": 700,
-            "cash": 5118284,
-            "cashInBank": 17528894,
-            "cashHeldInvestmentManager": 3925659,
-            "restrictedCash": 284790,
-            "CashAndCashEquivalentsSum": 26858327
-          },
-          "OtherAssets": {
-            "accountsReceivable": 2253707,
-            "dueFromOtherFund": null,
-            "interestDividendsReceivable": 172599,
-            "inventoryPrepaidOtherAssets": 1181746,
-            "notesWithinOneYear": 1477076,
-            "notesAfterOneYear": 4977748,
-            "securityDeposits": null,
-            "investments": 406095881,
-            "capitalAssetNet": 247480101,
-            "totalOtherAssets": 690497185,
-            "deferredOutflows": 8219515,
-            "totalAssetsDeferred": 698716700
-          },
-          "Liabilities": {
-            "accountPayableAccrued": 6730596,
-            "dueToFund": 300000,
-            "dueToOther": null,
-            "longTermWithin": 3288859,
-            "longTermAfter": 90399400,
-            "totalLiabilities": 100718855,
-            "deferredInflowsResources": 528581,
-            "deferredInflowsOPED": 521102,
-            "totalLiabilitiesDeferredInflows": 101768538
-          },
-          "NetAssets": {
-            "investedCapitalAssets": 221500308,
-            "restrictedFederal": 25335251,
-            "unrestricted": 350112603,
-            "totalNetAssets": 596948162,
-            "totalLiabilitiesNetAssets": 698716700
-          },
-          "ProgramRevenues": {
-            "chargesForServices": 14501281,
-            "operatingGrants": 1281115,
-            "interestInvestmentsEarnings": null,
-            "totalProgramRevenues": 15782396
-          },
-          "GeneralRevenues": {
-            "appropriations": 3018899,
-            "trust": 15100000,
-            "interestInvestmentLossesEarnings": 24595989,
-            "newspaperAds": null,
-            "donationsAndOther": 468624,
-            "limitedLiabilityB": null,
-            "nonImposedFringeBenefits": 594067,
-            "totalGeneralRevenue": 43777579,
-            "totalRevenue": 59559975
-          },
-          "Expenditures": {
-            "management": 3111437,
-            "supportServices": 20292212,
-            "beneficiaryAdvocacy": 17892353,
-            "depreciation": 1985592,
-            "limitedLiabilityA": 478849,
-            "limitedLiabilityB": 6248529,
-            "totalExpenses": 50008972,
-            "excessOfRevenue": 9551003,
-            "proceedsFromDebt": null,
-            "proceedsFromCapitalLease": null,
-            "netTransfersOtherFunds": 937326,
-            "changeInNetAssets": 10488329
-          },
-          "FundBalances": {
-            "beginningOfYear": 586459833,
-            "restatementAdjustment": null,
-            "netPositionEndOfYear": 596948162
-          }
-        },
-        {
-          "year": 9,
-          "CashAndCashEquivalents": {
-            "pettyCash": 700,
-            "cash": 5118284,
-            "cashInBank": 17528894,
-            "cashHeldInvestmentManager": 3925659,
-            "restrictedCash": 284790,
-            "CashAndCashEquivalentsSum": 26858327
-          },
-          "OtherAssets": {
-            "accountsReceivable": 2253707,
-            "dueFromOtherFund": null,
-            "interestDividendsReceivable": 172599,
-            "inventoryPrepaidOtherAssets": 1181746,
-            "notesWithinOneYear": 1477076,
-            "notesAfterOneYear": 4977748,
-            "securityDeposits": null,
-            "investments": 406095881,
-            "capitalAssetNet": 247480101,
-            "totalOtherAssets": 690497185,
-            "deferredOutflows": 8219515,
-            "totalAssetsDeferred": 698716700
-          },
-          "Liabilities": {
-            "accountPayableAccrued": 6730596,
-            "dueToFund": 300000,
-            "dueToOther": null,
-            "longTermWithin": 3288859,
-            "longTermAfter": 90399400,
-            "totalLiabilities": 100718855,
-            "deferredInflowsResources": 528581,
-            "deferredInflowsOPED": 521102,
-            "totalLiabilitiesDeferredInflows": 101768538
-          },
-          "NetAssets": {
-            "investedCapitalAssets": 221500308,
-            "restrictedFederal": 25335251,
-            "unrestricted": 350112603,
-            "totalNetAssets": 596948162,
-            "totalLiabilitiesNetAssets": 698716700
-          },
-          "ProgramRevenues": {
-            "chargesForServices": 14501281,
-            "operatingGrants": 1281115,
-            "interestInvestmentsEarnings": null,
-            "totalProgramRevenues": 15782396
-          },
-          "GeneralRevenues": {
-            "appropriations": 3018899,
-            "trust": 15100000,
-            "interestInvestmentLossesEarnings": 24595989,
-            "newspaperAds": null,
-            "donationsAndOther": 468624,
-            "limitedLiabilityB": null,
-            "nonImposedFringeBenefits": 594067,
-            "totalGeneralRevenue": 43777579,
-            "totalRevenue": 59559975
-          },
-          "Expenditures": {
-            "management": 3111437,
-            "supportServices": 20292212,
-            "beneficiaryAdvocacy": 17892353,
-            "depreciation": 1985592,
-            "limitedLiabilityA": 478849,
-            "limitedLiabilityB": 6248529,
-            "totalExpenses": 50008972,
-            "excessOfRevenue": 9551003,
-            "proceedsFromDebt": null,
-            "proceedsFromCapitalLease": null,
-            "netTransfersOtherFunds": 937326,
-            "changeInNetAssets": 10488329
-          },
-          "FundBalances": {
-            "beginningOfYear": 586459833,
-            "restatementAdjustment": null,
-            "netPositionEndOfYear": 596948162
-          }
-        }
-      ],
-      "ActualYearGreen": [
-      ]
+      "green": false,
+      "CashAndCashEquivalents": {
+        "pettyCash": 800,
+        "cash": 8047307,
+        "cashInBank": 17643599,
+        "cashHeldInvestmentManager": 9380389,
+        "restrictedCash": 184230,
+        "CashAndCashEquivalentsSum": 35256325
+      },
+      "OtherAssets": {
+        "accountsReceivable": 4771991,
+        "dueFromOtherFund": null,
+        "interestDividendsReceivable": 41741,
+        "inventoryPrepaidOtherAssets": 1295094,
+        "notesWithinOneYear": 2524267,
+        "notesAfterOneYear": 6688754,
+        "securityDeposits": null,
+        "investments": 334345909,
+        "capitalAssetNet": 252871530,
+        "totalOtherAssets": 637795611,
+        "deferredOutflows": 3070777,
+        "totalAssetsDeferred": 640866388
+      },
+      "Liabilities": {
+        "accountPayableAccrued": 6653737,
+        "dueToFund": 3359468,
+        "dueToOther": null,
+        "longTermWithin": 2009067,
+        "longTermAfter": 52625146,
+        "totalLiabilities": 64647418,
+        "deferredInflowsResources": 1413791,
+        "deferredInflowsOPED": null,
+        "totalLiabilitiesDeferredInflows": 66061209
+      },
+      "NetAssets": {
+        "investedCapitalAssets": 225290261,
+        "restrictedFederal": 26690007,
+        "unrestricted": 322824911,
+        "totalNetAssets": 574805179,
+        "totalLiabilitiesNetAssets": 640866388
+      },
+      "ProgramRevenues": {
+        "chargesForServices": 9899686,
+        "operatingGrants": 1164361,
+        "interestInvestmentsEarnings": null,
+        "totalProgramRevenues": 11064047
+      },
+      "GeneralRevenues": {
+        "appropriations": 3217099,
+        "trust": 15100000,
+        "interestInvestmentLossesEarnings": -3759322,
+        "newspaperAds": null,
+        "donationsAndOther": 331028,
+        "limitedLiabilityB": null,
+        "nonImposedFringeBenefits": 213008,
+        "totalGeneralRevenue": 15101813,
+        "totalRevenue": 26165860
+      },
+      "Expenditures": {
+        "management": 2721390,
+        "supportServices": 18215811,
+        "beneficiaryAdvocacy": 25906661,
+        "depreciation": 2298698,
+        "limitedLiabilityA": 363014,
+        "limitedLiabilityB": 5010868,
+        "totalExpenses": 54516442,
+        "excessOfRevenue": -28350582,
+        "proceedsFromDebt": null,
+        "proceedsFromCapitalLease": null,
+        "netTransfersOtherFunds": 350316,
+        "changeInNetAssets": -28000266
+      },
+      "FundBalances": {
+        "beginningOfYear": 602805445,
+        "restatementAdjustment": null,
+        "netPositionEndOfYear": 574805179
+      }
+    },
+    {
+      "year": 7,
+      "owner": "customer@spirebooks.com",
+      "green": false,
+      "CashAndCashEquivalents": {
+        "pettyCash": 800,
+        "cash": 5794491,
+        "cashInBank": 22754877,
+        "cashHeldInvestmentManager": 4498433,
+        "restrictedCash": 365259,
+        "CashAndCashEquivalentsSum": 33413860
+      },
+      "OtherAssets": {
+        "accountsReceivable": 364228,
+        "dueFromOtherFund": null,
+        "interestDividendsReceivable": 69291,
+        "inventoryPrepaidOtherAssets": 1120233,
+        "notesWithinOneYear": 2146507,
+        "notesAfterOneYear": 4136100,
+        "securityDeposits": null,
+        "investments": 370321707,
+        "capitalAssetNet": 250931473,
+        "totalOtherAssets": 662503399,
+        "deferredOutflows": 10362562,
+        "totalAssetsDeferred": 672865961
+      },
+      "Liabilities": {
+        "accountPayableAccrued": 5386031,
+        "dueToFund": 1138542,
+        "dueToOther": null,
+        "longTermWithin": 3217912,
+        "longTermAfter": 61821427,
+        "totalLiabilities": 71563912,
+        "deferredInflowsResources": 575904,
+        "deferredInflowsOPED": null,
+        "totalLiabilitiesDeferredInflows": 72139816
+      },
+      "NetAssets": {
+        "investedCapitalAssets": 220222616,
+        "restrictedFederal": 25498353,
+        "unrestricted": 355005176,
+        "totalNetAssets": 600726145,
+        "totalLiabilitiesNetAssets": 672865961
+      },
+      "ProgramRevenues": {
+        "chargesForServices": 12500418,
+        "operatingGrants": 730421,
+        "interestInvestmentsEarnings": null,
+        "totalProgramRevenues": 13230839
+      },
+      "GeneralRevenues": {
+        "appropriations": 2990908,
+        "trust": 15100000,
+        "interestInvestmentLossesEarnings": 39560405,
+        "newspaperAds": null,
+        "donationsAndOther": 635326,
+        "limitedLiabilityB": null,
+        "nonImposedFringeBenefits": 235135,
+        "totalGeneralRevenue": 58521774,
+        "totalRevenue": 71752613
+      },
+      "Expenditures": {
+        "management": 2766255,
+        "supportServices": 19554828,
+        "beneficiaryAdvocacy": 14911396,
+        "depreciation": 2412043,
+        "limitedLiabilityA": 314077,
+        "limitedLiabilityB": 5214852,
+        "totalExpenses": 45173451,
+        "excessOfRevenue": 26579162,
+        "proceedsFromDebt": null,
+        "proceedsFromCapitalLease": null,
+        "netTransfersOtherFunds": -31085,
+        "changeInNetAssets": 26548077
+      },
+      "FundBalances": {
+        "beginningOfYear": 574805179,
+        "restatementAdjustment": -627111,
+        "netPositionEndOfYear": 600726145
+      }
+    },
+    {
+      "year": 8,
+      "owner": "customer@spirebooks.com",
+      "green": false,
+      "CashAndCashEquivalents": {
+        "pettyCash": 700,
+        "cash": 5118284,
+        "cashInBank": 17528894,
+        "cashHeldInvestmentManager": 3925659,
+        "restrictedCash": 284790,
+        "CashAndCashEquivalentsSum": 26858327
+      },
+      "OtherAssets": {
+        "accountsReceivable": 2253707,
+        "dueFromOtherFund": null,
+        "interestDividendsReceivable": 172599,
+        "inventoryPrepaidOtherAssets": 1181746,
+        "notesWithinOneYear": 1477076,
+        "notesAfterOneYear": 4977748,
+        "securityDeposits": null,
+        "investments": 406095881,
+        "capitalAssetNet": 247480101,
+        "totalOtherAssets": 690497185,
+        "deferredOutflows": 8219515,
+        "totalAssetsDeferred": 698716700
+      },
+      "Liabilities": {
+        "accountPayableAccrued": 6730596,
+        "dueToFund": 300000,
+        "dueToOther": null,
+        "longTermWithin": 3288859,
+        "longTermAfter": 90399400,
+        "totalLiabilities": 100718855,
+        "deferredInflowsResources": 528581,
+        "deferredInflowsOPED": 521102,
+        "totalLiabilitiesDeferredInflows": 101768538
+      },
+      "NetAssets": {
+        "investedCapitalAssets": 221500308,
+        "restrictedFederal": 25335251,
+        "unrestricted": 350112603,
+        "totalNetAssets": 596948162,
+        "totalLiabilitiesNetAssets": 698716700
+      },
+      "ProgramRevenues": {
+        "chargesForServices": 14501281,
+        "operatingGrants": 1281115,
+        "interestInvestmentsEarnings": null,
+        "totalProgramRevenues": 15782396
+      },
+      "GeneralRevenues": {
+        "appropriations": 3018899,
+        "trust": 15100000,
+        "interestInvestmentLossesEarnings": 24595989,
+        "newspaperAds": null,
+        "donationsAndOther": 468624,
+        "limitedLiabilityB": null,
+        "nonImposedFringeBenefits": 594067,
+        "totalGeneralRevenue": 43777579,
+        "totalRevenue": 59559975
+      },
+      "Expenditures": {
+        "management": 3111437,
+        "supportServices": 20292212,
+        "beneficiaryAdvocacy": 17892353,
+        "depreciation": 1985592,
+        "limitedLiabilityA": 478849,
+        "limitedLiabilityB": 6248529,
+        "totalExpenses": 50008972,
+        "excessOfRevenue": 9551003,
+        "proceedsFromDebt": null,
+        "proceedsFromCapitalLease": null,
+        "netTransfersOtherFunds": 937326,
+        "changeInNetAssets": 10488329
+      },
+      "FundBalances": {
+        "beginningOfYear": 586459833,
+        "restatementAdjustment": null,
+        "netPositionEndOfYear": 596948162
+      }
+    },
+    {
+      "year": 9,
+      "owner": "customer@spirebooks.com",
+      "green": false,
+      "CashAndCashEquivalents": {
+        "pettyCash": 700,
+        "cash": 5118284,
+        "cashInBank": 17528894,
+        "cashHeldInvestmentManager": 3925659,
+        "restrictedCash": 284790,
+        "CashAndCashEquivalentsSum": 26858327
+      },
+      "OtherAssets": {
+        "accountsReceivable": 2253707,
+        "dueFromOtherFund": null,
+        "interestDividendsReceivable": 172599,
+        "inventoryPrepaidOtherAssets": 1181746,
+        "notesWithinOneYear": 1477076,
+        "notesAfterOneYear": 4977748,
+        "securityDeposits": null,
+        "investments": 406095881,
+        "capitalAssetNet": 247480101,
+        "totalOtherAssets": 690497185,
+        "deferredOutflows": 8219515,
+        "totalAssetsDeferred": 698716700
+      },
+      "Liabilities": {
+        "accountPayableAccrued": 6730596,
+        "dueToFund": 300000,
+        "dueToOther": null,
+        "longTermWithin": 3288859,
+        "longTermAfter": 90399400,
+        "totalLiabilities": 100718855,
+        "deferredInflowsResources": 528581,
+        "deferredInflowsOPED": 521102,
+        "totalLiabilitiesDeferredInflows": 101768538
+      },
+      "NetAssets": {
+        "investedCapitalAssets": 221500308,
+        "restrictedFederal": 25335251,
+        "unrestricted": 350112603,
+        "totalNetAssets": 596948162,
+        "totalLiabilitiesNetAssets": 698716700
+      },
+      "ProgramRevenues": {
+        "chargesForServices": 14501281,
+        "operatingGrants": 1281115,
+        "interestInvestmentsEarnings": null,
+        "totalProgramRevenues": 15782396
+      },
+      "GeneralRevenues": {
+        "appropriations": 3018899,
+        "trust": 15100000,
+        "interestInvestmentLossesEarnings": 24595989,
+        "newspaperAds": null,
+        "donationsAndOther": 468624,
+        "limitedLiabilityB": null,
+        "nonImposedFringeBenefits": 594067,
+        "totalGeneralRevenue": 43777579,
+        "totalRevenue": 59559975
+      },
+      "Expenditures": {
+        "management": 3111437,
+        "supportServices": 20292212,
+        "beneficiaryAdvocacy": 17892353,
+        "depreciation": 1985592,
+        "limitedLiabilityA": 478849,
+        "limitedLiabilityB": 6248529,
+        "totalExpenses": 50008972,
+        "excessOfRevenue": 9551003,
+        "proceedsFromDebt": null,
+        "proceedsFromCapitalLease": null,
+        "netTransfersOtherFunds": 937326,
+        "changeInNetAssets": 10488329
+      },
+      "FundBalances": {
+        "beginningOfYear": 586459833,
+        "restatementAdjustment": null,
+        "netPositionEndOfYear": 596948162
+      }
     }
   ]
 }

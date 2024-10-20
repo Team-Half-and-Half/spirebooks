@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Col, Row, Image } from 'react-bootstrap';
 import { GeoAlt, Telephone, EnvelopeAt } from 'react-bootstrap-icons';
+import { COMPONENT_IDS } from '../utilities/ComponentIDs';
 
 /** Spire Footer columns for Financing, Audit, Visualize, and Contact */
 const Footer = () => (
@@ -96,7 +97,7 @@ const Footer = () => (
           </a>
           <br />
           <br />
-          <a href="/tos" className="text-style link">
+          <a href="/tos" className="text-style link" id={COMPONENT_IDS.FOOTER_TOS}>
             Terms of Service
           </a>
           {' '}

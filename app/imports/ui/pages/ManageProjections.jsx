@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { PencilSquare, Trash } from 'react-bootstrap-icons';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
-import { dummyData } from '../utilities/TemporaryData';
+import { multipleChartData } from '../utilities/TemporaryData';
 
 /* Renders a table containing all of the ProjectionGraphs documents. */
 const ManageProjections = () => {
@@ -37,7 +37,7 @@ const ManageProjections = () => {
               </tr>
             </thead>
             <tbody>
-              {dummyData.map((item) => (
+              {multipleChartData.map((item) => (
                 <tr key={item.id}>
                   <td>{item.name}</td>
                   <td className="text-center">

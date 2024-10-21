@@ -43,7 +43,7 @@ ProjectionGraph.propTypes = {
       amt: PropTypes.number,
     })).isRequired,
   }).isRequired,
-  setSelectedChart: PropTypes.func.isRequired, // Ensure this is included
+  setSelectedChart: PropTypes.func.isRequired,
   dropdownOpen: PropTypes.bool.isRequired,
   setDropdownOpen: PropTypes.func.isRequired,
   dropdownData: PropTypes.arrayOf(PropTypes.shape({

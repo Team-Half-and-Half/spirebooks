@@ -54,6 +54,7 @@ const NavBar = () => {
               </NavDropdown>,
               <NavDropdown className="nav-tabs" title="VISUALIZE">
                 <NavDropdown.Item className="basic-nav" as={NavLink} to="/compare-projections">Compare Projections</NavDropdown.Item>
+                <NavDropdown.Item className="basic-nav" as={NavLink} to="/manage-projections">Manage Projections</NavDropdown.Item>
               </NavDropdown>,
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), [ROLE.ADMIN]) ? (

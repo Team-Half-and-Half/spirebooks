@@ -1,5 +1,4 @@
 import { Card, CardHeader, Dropdown } from 'react-bootstrap';
-import { ResponsiveContainer } from 'recharts';
 import React from 'react';
 import PropTypes from 'prop-types';
 import CustomLineChart from './CustomLineChart';
@@ -25,9 +24,9 @@ const ProjectionGraph = ({ selectedChart, setSelectedChart, dropdownOpen, setDro
         </Dropdown.Menu>
       </Dropdown>
     </CardHeader>
-    <ResponsiveContainer width="100%" height={300}>
-      <CustomLineChart data={selectedChart.data} /> {/* Use selectedChart.data instead of chart.data */}
-    </ResponsiveContainer>
+    <Card.Body>
+      <CustomLineChart data={selectedChart.data} /> {/* render selected chart */}
+    </Card.Body>
   </Card>
 );
 

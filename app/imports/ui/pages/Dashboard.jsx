@@ -27,8 +27,37 @@ const Dashboard = () => {
   const netPositionData = filteredData.map(year => ({
     assets: year.assets,
     liabilities: year.liabilities,
+    year: year.year,
   }));
 
+  const yearsOfSolvencyData = filteredData.map(year => ({
+    liquidity: year.liquidity,
+    opex: year.opex,
+    year: year.year,
+  }));
+
+  const demandForCapitalData = filteredData.map(year => ({
+    liquidity: year.liquidity,
+    year: year.year,
+  }));
+
+  const financingData = filteredData.map(year => ({
+    Cash_on_hand: year.cash_on_hand,
+    Debt: year.debt,
+    year: year.year,
+  }));
+
+  const yearsOfSolvencyCashData = filteredData.map(year => ({
+    Cash_inflow: year.cash_inflow,
+    Cash_outflow: year.cash_outflow,
+    year: year.year,
+  }));
+
+  const budgetData = filteredData.map(year => ({
+    budget: year.budget,
+    actual_plus_encumbrance: year.actualPlusEncumbrance,
+    year: year.year,
+  }));
   return (
     <Container fluid id={PAGE_IDS.DASHBOARD}>
       <Row>
@@ -57,20 +86,20 @@ const Dashboard = () => {
             <CardHeader>Net Position</CardHeader>
             <CustomLineChart data={netPositionData} />
             <CardHeader>Years of Solvency</CardHeader>
-            <CustomLineChart data={filteredData} />
+            <CustomLineChart data={yearsOfSolvencyData} />
             <CardHeader>Demand for Capital</CardHeader>
-            <CustomLineChart data={filteredData} />
+            <CustomLineChart data={demandForCapitalData} />
           </Card>
         </Col>
         <Col>
           <h1>Cash Flow Metrics</h1>
           <Card>
             <CardHeader>Financing</CardHeader>
-            <CustomLineChart data={filteredData} />
+            <CustomLineChart data={financingData} />
             <CardHeader>Years of Solvency based on Cash Flow</CardHeader>
-            <CustomLineChart data={filteredData} />
+            <CustomLineChart data={yearsOfSolvencyCashData} />
             <CardHeader>Budget</CardHeader>
-            <CustomLineChart data={filteredData} />
+            <CustomLineChart data={budgetData} />
           </Card>
         </Col>
       </Row>

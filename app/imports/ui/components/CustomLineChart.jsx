@@ -8,7 +8,7 @@ const CustomLineChart = ({ data }) => {
   const dataKeys = Object.keys(data[0] || {}).filter(key => key !== 'year');
 
   return (
-    <ResponsiveContainer width="100%" height={300}>
+    <ResponsiveContainer className="px-3" width="100%" height={300}>
       <LineChart className="line-chart" data={data}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="year" />

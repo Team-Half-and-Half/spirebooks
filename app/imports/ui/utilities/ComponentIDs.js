@@ -30,4 +30,5 @@ export const COMPONENT_IDS = {
   USER_SETTINGS_COMPANY_NAME: 'user-settings-company-name',
   USER_SETTINGS_PASSWORD: 'user-settings-password',
   USER_SETTINGS_SUBMIT: 'user-settings-submit',
+  FOOTER_TOS: 'footer-tos',
 };

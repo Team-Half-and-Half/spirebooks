@@ -11,7 +11,8 @@ const DataInputSchema = new SimpleSchema({
     defaultValue: 1,
     min: 1,
   },
-  // Cash and Cash Equivalents
+});
+const CashAndCashEquivalents = new SimpleSchema({
   pettyCash: {
     type: Number,
     min: 0,
@@ -32,7 +33,8 @@ const DataInputSchema = new SimpleSchema({
     type: Number,
     min: 0,
   },
-  // Other Assets
+});
+const OtherAssets = new SimpleSchema({
   accountsReceivable: {
     type: Number,
     min: 0,
@@ -73,7 +75,8 @@ const DataInputSchema = new SimpleSchema({
     type: Number,
     min: 0,
   },
-  // Liabilities
+});
+const Liabilities = new SimpleSchema({
   accountPayableAccrued: {
     type: Number,
     min: 0,
@@ -102,7 +105,8 @@ const DataInputSchema = new SimpleSchema({
     type: Number,
     min: 0,
   },
-  // Net Assets
+});
+const NetAssets = new SimpleSchema({
   investedCapitalAssets: {
     type: Number,
     min: 0,
@@ -115,6 +119,8 @@ const DataInputSchema = new SimpleSchema({
     type: Number,
     min: 0,
   },
+});
+const Revenues = new SimpleSchema({
   // Revenues (Program Revenues)
   chargesForServices: {
     type: Number,
@@ -157,7 +163,8 @@ const DataInputSchema = new SimpleSchema({
     type: Number,
     min: 0,
   },
-  // Expenditures
+});
+const Expenditures = new SimpleSchema({
   management: {
     type: Number,
     min: 0,
@@ -194,7 +201,8 @@ const DataInputSchema = new SimpleSchema({
     type: Number,
     min: 0,
   },
-  // Fund Balances
+});
+const FundBalances = new SimpleSchema({
   beginningOfYear: {
     type: Number,
     min: 0,
@@ -204,5 +212,6 @@ const DataInputSchema = new SimpleSchema({
     min: 0,
   },
 });
-
+DataInputSchema.extend(CashAndCashEquivalents).extend(OtherAssets).extend(Liabilities).extend(NetAssets);
+DataInputSchema.extend(Revenues).extend(Expenditures).extend(FundBalances);
 export const DataInputBridge = new SimpleSchema2Bridge(DataInputSchema);

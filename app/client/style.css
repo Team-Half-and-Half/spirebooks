@@ -186,3 +186,23 @@ html, body {
   height: 300px;
   margin: 5px 30px 20px 5px;
 }
+
+/* Styling for input button */
+.drag-and-drop-area {
+  border: 2px dashed #007BFF;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer; /* Change cursor on hover */
+  transition: background-color 0.3s;
+}
+
+.drag-and-drop-area:hover {
+  background-color: #f0f8ff; /* Light blue on hover */
+}
+
+.spreadsheet-container {
+  width: 800px; /* Set the desired width */
+  height: 400px; /* Set the desired height */
+  overflow: auto; /* Enable scrolling if necessary */
+}

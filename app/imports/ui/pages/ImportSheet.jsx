@@ -1,19 +1,16 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { useTracker } from 'meteor/react-meteor-data';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import * as XLSX from 'xlsx';
 import swal from 'sweetalert';
+import { FaFileUpload } from 'react-icons/fa';
 import fileTypeChecker from 'file-type-checker';
 import Spreadsheet from 'react-spreadsheet';
-import { Container, Row } from 'react-bootstrap';
-import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-import { FileUploadDropZone } from '@trimbleinc/modus-react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import { PAGE_IDS } from '../utilities/PageIDs';
 import { UserVerification } from '../../api/user/UserVerificationCollection';
 import LoadingSpinner from '../components/LoadingSpinner';
-import '@trimbleinc/modus-react-bootstrap/css/dist/modus-react-bootstrap.min.css';
 
 const ImportSheet = () => {
   const currentUserID = Meteor.userId();
@@ -28,6 +25,7 @@ const ImportSheet = () => {
   }, []);
 
   const [data, setData] = useState(null);
+  const fileInputRef = useRef(null);
 
   // Transforms json data into a format used by react-spreadsheet
   const transformData = (tData) => {
@@ -36,10 +34,11 @@ const ImportSheet = () => {
     ));
     return newTDAta;
   };
-  const handleFileUpload = (upload) => {
-    console.log(upload);
+
+  const handleFileUpload = (e) => {
+    console.log(e);
+    const file = e[0];
     // const file = e.target.files[0];
-    const file = upload[0];
     const reader = new FileReader();
 
     // Converts xlsx into json file format
@@ -61,7 +60,27 @@ const ImportSheet = () => {
       }
     };
     reader.readAsArrayBuffer(file);
+  };
+
+  const handleChange = (e) => {
+    const files = e.target.files; // Get selected files
+    handleFileUpload(files); // Process files
+  };
+  function preventDefaults(e) {
+    e.preventDefault();
+    e.stopPropagation();
   }
+  const handleClick = () => {
+    fileInputRef.current.click(); // Trigger the file input click
+  };
+  const handleDrop = (e) => {
+    preventDefaults(e); // Prevent default behavior
+    const dt = e.dataTransfer;
+    const files = dt.files; // Get dropped files
+
+    handleFileUpload(files); // Process files
+  };
+
   if (ready) {
     return ((Roles.userIsInRole(currentUserID, 'ADMIN') || verificationStatus[0].verification) ? (
       <Container fluid id={PAGE_IDS.IMPORT}>
@@ -78,16 +97,23 @@ const ImportSheet = () => {
                   <Row className="p-2">
                     <Col className="col-3" />
                     <Col className="col-6">
-                      <FileUploadDropZone
-                        id="test1"
-                        maxFileCount={1}
-                        maxTotalFileSizeBytes={5242880}
-                        // type="file"
-                        accept=".xlsx,cvs/*"
-                        style={{ maxWidth: '400px', height: '250px' }}
-                        // onChange={handleFileUpload}
-                        onFiles={(files) => handleFileUpload(files)}
-                      />
+                      <Card.Body
+                        className="drag-and-drop-area"
+                        onClick={handleClick} // Click event to open file dialog
+                        onDragEnter={(e) => { preventDefaults(e); }}
+                        onDragOver={(e) => { preventDefaults(e); }}
+                        onDrop={handleDrop}
+                      >
+                        <input
+                          type="file"
+                          ref={fileInputRef}
+                          style={{ display: 'none' }} // Hide the file input
+                          multiple // Allow multiple file selection
+                          onChange={handleChange} // Handle file selection
+                        />
+                        <FaFileUpload size="100px" />
+                        <p>Drag & Drop your files here or click to upload</p>
+                      </Card.Body>
                     </Col>
                     <Col className="col-3" />
                   </Row>

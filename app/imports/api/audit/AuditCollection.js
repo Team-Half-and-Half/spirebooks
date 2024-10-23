@@ -9,7 +9,7 @@ class AuditCollection {
 
     /* In practice, this collection should save a copy of the document with who did it, when, and what they did */
     this.schema = new SimpleSchema({
-      BalanceCollectionAudit: {
+      AuditCollection: {
         collectionName: String,
         document: document,
         documentID: String,

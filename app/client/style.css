@@ -201,6 +201,8 @@ html, body {
   background-color: #f0f8ff; /* Light blue on hover */
 }
 
-.drag-and-drop-area.drag-over {
-  background-color: #e0f7fa; /* Light blue when dragging over */
+.spreadsheet-container {
+  width: 800px; /* Set the desired width */
+  height: 400px; /* Set the desired height */
+  overflow: auto; /* Enable scrolling if necessary */
 }

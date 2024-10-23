@@ -4,6 +4,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import React, { useState, useRef } from 'react';
 import * as XLSX from 'xlsx';
 import swal from 'sweetalert';
+import { FaFileUpload } from 'react-icons/fa';
 import fileTypeChecker from 'file-type-checker';
 import Spreadsheet from 'react-spreadsheet';
 import { Container, Row, Col, Card } from 'react-bootstrap';
@@ -35,7 +36,9 @@ const ImportSheet = () => {
   };
 
   const handleFileUpload = (e) => {
-    const file = e.target.files[0];
+    console.log(e);
+    const file = e[0];
+    // const file = e.target.files[0];
     const reader = new FileReader();
 
     // Converts xlsx into json file format
@@ -78,13 +81,6 @@ const ImportSheet = () => {
     handleFileUpload(files); // Process files
   };
 
-  const highlight = () => {
-    document.querySelector('.drag-and-drop-area').classList.add('drag-over');
-  };
-  const unhighlight = () => {
-    document.querySelector('.drag-and-drop-area').classList.remove('drag-over');
-  };
-
   if (ready) {
     return ((Roles.userIsInRole(currentUserID, 'ADMIN') || verificationStatus[0].verification) ? (
       <Container fluid id={PAGE_IDS.IMPORT}>
@@ -105,8 +101,7 @@ const ImportSheet = () => {
                         className="drag-and-drop-area"
                         onClick={handleClick} // Click event to open file dialog
                         onDragEnter={(e) => { preventDefaults(e); }}
-                        onDragOver={(e) => { preventDefaults(e); highlight(); }}
-                        onDragLeave={unhighlight}
+                        onDragOver={(e) => { preventDefaults(e); }}
                         onDrop={handleDrop}
                       >
                         <input
@@ -116,7 +111,7 @@ const ImportSheet = () => {
                           multiple // Allow multiple file selection
                           onChange={handleChange} // Handle file selection
                         />
-                        <img src="/images/upload-icon.png" alt="Upload" />
+                        <FaFileUpload size="100px" />
                         <p>Drag & Drop your files here or click to upload</p>
                       </Card.Body>
                     </Col>

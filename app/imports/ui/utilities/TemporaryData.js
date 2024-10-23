@@ -28,6 +28,7 @@ export const snapshotData = [
 ];
 
 // Calculate financial metrics and convert everything to millions afterward
+/* eslint no-param-reassign: "error" */
 snapshotData.forEach(year => {
   year.net_position = year.assets - year.liabilities;
   year.liquidity = year.cash_on_hand + year.investment;
@@ -40,19 +41,19 @@ snapshotData.forEach(year => {
 
 // Now convert all relevant metrics to millions
 snapshotData.forEach(year => {
-  year.assets = year.assets / 1000000; // Convert to millions
-  year.liabilities = year.liabilities / 1000000;
-  year.cash_on_hand = year.cash_on_hand / 1000000;
-  year.investment = year.investment / 1000000;
-  year.debt = year.debt / 1000000;
-  year.revenues = year.revenues / 1000000;
-  year.opex = year.opex / 1000000;
-  year.cash_inflow = year.cash_inflow / 1000000;
-  year.inflows = year.inflows / 1000000;
-  year.admin = year.admin / 1000000;
-  year.mgmt_staff = year.mgmt_staff / 1000000;
-  year.mgmt = year.mgmt / 1000000;
-  year.budget = year.budget / 1000000;
+  year.assets /= 1000000; // Convert to millions
+  year.liabilities /= 1000000;
+  year.cash_on_hand /= 1000000;
+  year.investment /= 1000000;
+  year.debt /= 1000000;
+  year.revenues /= 1000000;
+  year.opex /= 1000000;
+  year.cash_inflow /= 1000000;
+  year.inflows /= 1000000;
+  year.admin /= 1000000;
+  year.mgmt_staff /= 1000000;
+  year.mgmt /= 1000000;
+  year.budget /= 1000000;
 
   // Convert calculated metrics to millions as well
   year.net_position /= 1000000;

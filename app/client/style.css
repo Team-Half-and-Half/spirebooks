@@ -188,16 +188,19 @@ html, body {
 }
 
 /* Styling for input button */
-.custom-file-button {
-  display: inline-block;
-  width: 300px;
-  height: 450px;
-  background-image: url("images/landing.jpg");
-  background-size: cover;
-  border: none;
-  cursor: pointer;
+.drag-and-drop-area {
+  border: 2px dashed #007BFF;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer; /* Change cursor on hover */
+  transition: background-color 0.3s;
 }
 
-.custom-file-button:hover {
-  opacity: 0.8; /* Add hover effect */
+.drag-and-drop-area:hover {
+  background-color: #f0f8ff; /* Light blue on hover */
+}
+
+.drag-and-drop-area.drag-over {
+  background-color: #e0f7fa; /* Light blue when dragging over */
 }

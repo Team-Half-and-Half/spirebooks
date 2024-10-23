@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { useTracker } from 'meteor/react-meteor-data';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import * as XLSX from 'xlsx';
 import swal from 'sweetalert';
 import fileTypeChecker from 'file-type-checker';
@@ -24,6 +24,7 @@ const ImportSheet = () => {
   }, []);
 
   const [data, setData] = useState(null);
+  const fileInputRef = useRef(null);
 
   // Transforms json data into a format used by react-spreadsheet
   const transformData = (tData) => {
@@ -58,6 +59,32 @@ const ImportSheet = () => {
     reader.readAsArrayBuffer(file);
   };
 
+  const handleChange = (e) => {
+    const files = e.target.files; // Get selected files
+    handleFileUpload(files); // Process files
+  };
+  function preventDefaults(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+  const handleClick = () => {
+    fileInputRef.current.click(); // Trigger the file input click
+  };
+  const handleDrop = (e) => {
+    preventDefaults(e); // Prevent default behavior
+    const dt = e.dataTransfer;
+    const files = dt.files; // Get dropped files
+
+    handleFileUpload(files); // Process files
+  };
+
+  const highlight = () => {
+    document.querySelector('.drag-and-drop-area').classList.add('drag-over');
+  };
+  const unhighlight = () => {
+    document.querySelector('.drag-and-drop-area').classList.remove('drag-over');
+  };
+
   if (ready) {
     return ((Roles.userIsInRole(currentUserID, 'ADMIN') || verificationStatus[0].verification) ? (
       <Container fluid id={PAGE_IDS.IMPORT}>
@@ -74,10 +101,24 @@ const ImportSheet = () => {
                   <Row className="p-2">
                     <Col className="col-3" />
                     <Col className="col-6">
-                      <form>
-                        <input type="file" id="file-input" style={{ display: 'none' }} />
-                        <label htmlFor="file-input" className="custom-file-button" aria-label="Upload a file" />
-                      </form>
+                      <Card.Body
+                        className="drag-and-drop-area"
+                        onClick={handleClick} // Click event to open file dialog
+                        onDragEnter={(e) => { preventDefaults(e); }}
+                        onDragOver={(e) => { preventDefaults(e); highlight(); }}
+                        onDragLeave={unhighlight}
+                        onDrop={handleDrop}
+                      >
+                        <input
+                          type="file"
+                          ref={fileInputRef}
+                          style={{ display: 'none' }} // Hide the file input
+                          multiple // Allow multiple file selection
+                          onChange={handleChange} // Handle file selection
+                        />
+                        <img src="/images/upload-icon.png" alt="Upload" />
+                        <p>Drag & Drop your files here or click to upload</p>
+                      </Card.Body>
                     </Col>
                     <Col className="col-3" />
                   </Row>

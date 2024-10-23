@@ -6,7 +6,7 @@ import * as XLSX from 'xlsx';
 import swal from 'sweetalert';
 import fileTypeChecker from 'file-type-checker';
 import Spreadsheet from 'react-spreadsheet';
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import { PAGE_IDS } from '../utilities/PageIDs';
 import { UserVerification } from '../../api/user/UserVerificationCollection';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -61,7 +61,32 @@ const ImportSheet = () => {
   if (ready) {
     return ((Roles.userIsInRole(currentUserID, 'ADMIN') || verificationStatus[0].verification) ? (
       <Container fluid id={PAGE_IDS.IMPORT}>
-        <input type="file" onChange={handleFileUpload} />
+        {!data && (
+          <Row className="p-4">
+            <Col className="col-3" />
+            <Col className="col-6">
+              <Card className="w-100 p-3">
+                <Card.Body>
+                  <Card.Title className="text-style text-center"><h2>Import File</h2></Card.Title>
+                  <Card.Subtitle className="mb-2 text-muted text-center text-style">Supported files: .xlsx or
+                    .csv
+                  </Card.Subtitle>
+                  <Row className="p-2">
+                    <Col className="col-3" />
+                    <Col className="col-6">
+                      <form>
+                        <input type="file" id="file-input" style={{ display: 'none' }} />
+                        <label htmlFor="file-input" className="custom-file-button" aria-label="Upload a file" />
+                      </form>
+                    </Col>
+                    <Col className="col-3" />
+                  </Row>
+                </Card.Body>
+              </Card>
+              <Col className="col-3" />
+            </Col>
+          </Row>
+        )}
         {data && (
           <div>
             <h3>Imported Data:</h3>

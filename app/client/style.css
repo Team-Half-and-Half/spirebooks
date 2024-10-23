@@ -186,3 +186,18 @@ html, body {
   height: 300px;
   margin: 5px 30px 20px 5px;
 }
+
+/* Styling for input button */
+.custom-file-button {
+  display: inline-block;
+  width: 300px;
+  height: 450px;
+  background-image: url("images/landing.jpg");
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+}
+
+.custom-file-button:hover {
+  opacity: 0.8; /* Add hover effect */
+}

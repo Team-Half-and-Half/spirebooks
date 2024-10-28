@@ -1,6 +1,5 @@
 import { Meteor } from 'meteor/meteor';
 import { MATPCollections } from '../../api/matp/MATPCollections';
-import { BudgetPL } from '../../api/spreadsheet/BudgetPLCollection';
 import { UserVerification } from '../../api/user/UserVerificationCollection';
 
 // Call publish for all the collections.
@@ -9,7 +8,6 @@ MATPCollections.collections.forEach(c => c.publish());
 // alanning:roles publication
 // Recommended code to publish roles for each user.
 // eslint-disable-next-line consistent-return
-Meteor.publish(BudgetPL.userPublicationName, () => BudgetPL.collection.find());
 Meteor.publish(UserVerification.userPublicationName, () => UserVerification.collection.find());
 
 Meteor.publish(null, function () {

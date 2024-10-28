@@ -35,8 +35,20 @@ const ImportSheet = () => {
     return newTDAta;
   };
 
+  // Data Collection
+  const collectData = (sheetData) => {
+    // Clears empty slots caused by spaces in cells
+    const innerEmptyRemoved = sheetData.map(innerArray => innerArray.filter(item => item != null && item !== ''));
+    const emptyRemoved = innerEmptyRemoved.filter(innerArray => innerArray.length > 0);
+
+    // Removes unnecessary data caused by xlsx formatting
+    const unnecessaryData = ['Audited FS, Statement of Net Position', 'Audited FS, Investment Footnote', 'Audited FS, Capital Assets Footnote', 'Audited FS, Long-Term Liabilities Footnote'];
+    const unnecessaryDataRemoved = emptyRemoved.map(innerArray => innerArray.filter(item => !unnecessaryData.includes(item)));
+
+    console.log(unnecessaryDataRemoved);
+  };
+
   const handleFileUpload = (e) => {
-    console.log(e);
     const file = e[0];
     // const file = e.target.files[0];
     const reader = new FileReader();
@@ -57,6 +69,7 @@ const ImportSheet = () => {
         const sheetData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
 
         setData(transformData(sheetData));
+        collectData(sheetData);
       }
     };
     reader.readAsArrayBuffer(file);

@@ -10,6 +10,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import { PAGE_IDS } from '../utilities/PageIDs';
 import { AuditedFS } from '../../api/spreadsheet/AuditedFSCollection';
 import { AuditedBalance } from '../../api/spreadsheet/AuditedBalanceCollection';
+import { BudgetPL } from '../../api/spreadsheet/BudgetPLCollection';
 
 const bridge = new SimpleSchema2Bridge(Stuffs._schema);
 
@@ -21,10 +22,12 @@ const EditStuff = () => {
     // Get access to Stuff documents.
     const AFS = AuditedFS.subscribeAuditedFS();
     const ABS = AuditedBalance.subscribeAuditedBalance();
+    const BPL = BudgetPL.subscribeBudgetPL();
     const AFSAdmin = AuditedFS.subscribeAuditedFSAdmin();
+    const BPLAdmin = BudgetPL.subscribeBudgetPLAdmin();
     const ABSAdmin = AuditedBalance.subscribeAuditedBalanceAdmin();
     // Determine if the subscription is ready
-    const rdy = AFS.ready() && ABS.ready() && AFSAdmin.ready() && ABSAdmin.ready();
+    const rdy = AFS.ready() && BPL.ready() && ABS.ready() && AFSAdmin.ready() && BPLAdmin.ready() && ABSAdmin.ready();
     // Get the document
     return {
       ready: rdy,

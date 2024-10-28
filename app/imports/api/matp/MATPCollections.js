@@ -3,6 +3,7 @@ import { AdminProfiles } from '../user/AdminProfileCollection';
 import { UserProfiles } from '../user/UserProfileCollection';
 import { AuditedFS } from '../spreadsheet/AuditedFSCollection';
 import { AuditedBalance } from '../spreadsheet/AuditedBalanceCollection';
+import { BudgetPL } from '../spreadsheet/BudgetPLCollection';
 
 class MATPClass {
   collections;
@@ -18,6 +19,7 @@ class MATPClass {
       UserProfiles,
       AuditedFS,
       AuditedBalance,
+      BudgetPL,
     ];
     /*
      * A list of collection class instances in the order required for them to be sequentially loaded from a file.
@@ -27,6 +29,7 @@ class MATPClass {
       UserProfiles,
       AuditedFS,
       AuditedBalance,
+      BudgetPL,
     ];
 
     /*

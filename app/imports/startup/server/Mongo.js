@@ -5,29 +5,25 @@ import { AuditedFS } from '../../api/spreadsheet/AuditedFSCollection';
 /* eslint-disable no-console */
 
 // Initialize the database with a default data document.
-function addData(data) {
+function addABSData(data) {
+  console.log(`  Adding year: ${data.year} (${data.owner})`);
+  AuditedBalance.define(data);
+}
+function addAFSData(data) {
   console.log(`  Adding year: ${data.year} (${data.owner})`);
   AuditedFS.define(data);
 }
 
-// Initialize the StuffsCollection if empty.
+if (AuditedBalance.count() === 0) {
+  if (Meteor.settings.defaultABS) {
+    console.log('Creating default ABS.');
+    Meteor.settings.defaultABS.forEach(data => addABSData(data));
+  }
+}
 if (AuditedFS.count() === 0) {
   if (Meteor.settings.defaultAFS) {
     console.log('Creating default AFS.');
-    Meteor.settings.defaultAFS.forEach(data => addData(data));
-  }
-}
-function addABS({ owner, ActualYear, ActualYearGreen }) {
-  console.log(`Defining Audited Balance Sheet ${owner}`);
-  AuditedBalance.collection.insert({ owner, ActualYear, ActualYearGreen });
-}
-
-if (AuditedBalance.collection.find().count() === 0) {
-  if (Meteor.settings.defaultABS) {
-    console.log('Creating the default ABS');
-    Meteor.settings.defaultABS.map(abs => addABS(abs));
-  } else {
-    console.log('Cannot initialize the ABS!  Please invoke meteor with a settings file.');
+    Meteor.settings.defaultAFS.forEach(data => addAFSData(data));
   }
 }
 

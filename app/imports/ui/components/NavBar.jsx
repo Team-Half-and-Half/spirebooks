@@ -52,9 +52,9 @@ const NavBar = () => {
               <NavDropdown className="nav-tabs" title="AUDIT" id={COMPONENT_IDS.NAVBAR_AUDIT_DROPDOWN}>
                 <NavDropdown.Item className="basic-nav" id={COMPONENT_IDS.NAVBAR_AUDIT_DROPDOWN_IMPORT} as={NavLink} to="/import"><CloudArrowUp /> Upload</NavDropdown.Item>
               </NavDropdown>,
-              <NavDropdown className="nav-tabs" title="VISUALIZE">
-                <NavDropdown.Item className="basic-nav" as={NavLink} to="/compare-projections"><GraphUpArrow /> Compare Projections</NavDropdown.Item>
-                <NavDropdown.Item className="basic-nav" as={NavLink} to="/manage-projections"><PencilSquare /> Manage Projections</NavDropdown.Item>
+              <NavDropdown className="nav-tabs" title="VISUALIZE" id={COMPONENT_IDS.NAVBAR_VISUALIZE_DROPDOWN}>
+                <NavDropdown.Item className="basic-nav" id={COMPONENT_IDS.NAVBAR_COMPARE_PROJECTIONS} as={NavLink} to="/compare-projections"><GraphUpArrow /> Compare Projections</NavDropdown.Item>
+                <NavDropdown.Item className="basic-nav" id={COMPONENT_IDS.NAVBAR_MANAGE_PROJECTIONS} as={NavLink} to="/manage-projections"><PencilSquare /> Manage Projections</NavDropdown.Item>
               </NavDropdown>,
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), [ROLE.ADMIN]) ? (

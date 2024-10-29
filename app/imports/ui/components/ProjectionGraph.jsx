@@ -2,6 +2,7 @@ import { Card, CardHeader, Dropdown } from 'react-bootstrap';
 import React from 'react';
 import PropTypes from 'prop-types';
 import CustomLineChart from './CustomLineChart';
+import { COMPONENT_IDS } from '../utilities/ComponentIDs';
 
 /** ProjectionGraph component to display a graph to compare projections. */
 const ProjectionGraph = ({ selectedChart, setSelectedChart, dropdownOpen, setDropdownOpen, dropdownData }) => (
@@ -9,14 +10,14 @@ const ProjectionGraph = ({ selectedChart, setSelectedChart, dropdownOpen, setDro
     <CardHeader>
       {selectedChart.name} {/* Display the name of the selected chart */}
       <Dropdown isOpen={dropdownOpen} toggle={() => setDropdownOpen(prevState => !prevState)} style={{ display: 'inline-block', marginLeft: '10px' }}>
-        <Dropdown.Toggle caret>
+        <Dropdown.Toggle id={COMPONENT_IDS.PROJECTION_GRAPH_SELECT_CHART} caret>
           Select Chart
         </Dropdown.Toggle>
         <Dropdown.Menu>
           {
             // Use the passed dropdownData for the dropdown menu items
             dropdownData.map((item) => (
-              <Dropdown.Item key={item.id} onClick={() => setSelectedChart(item)}>
+              <Dropdown.Item key={item.id} onClick={() => setSelectedChart(item)} id={`${COMPONENT_IDS.PROJECTION_GRAPH_DROPDOWN_ITEM}-${item.id}`}>
                 {item.name}
               </Dropdown.Item>
             ))

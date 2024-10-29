@@ -10,6 +10,7 @@ import { importPage } from './import.page';
 import { userSettingsPage } from './usersettings';
 import { notfoundPage } from './notfound';
 import { notauthorizedPage } from './notauthorized';
+import { projectionGraph } from './projectiongraph.component';
 
 /* global fixture:false, test:false */
 
@@ -94,4 +95,12 @@ test('Test that Not Found page works for invalid urls', async () => {
 test('Test that Not Authorized page appears', async () => {
   await t.navigateTo('http://localhost:3000/notauthorized');
   await notauthorizedPage.isDisplayed(t);
+});
+
+test('Test that Projection Graph Component works', async () => {
+  await navBar.gotoSignInPage();
+  await signInPage.signin(adminCredentials.username, adminCredentials.password);
+  await navBar.isLoggedIn(adminCredentials.username);
+  await navBar.gotoCompareProjectionsPage();
+  await projectionGraph.selectChart();
 });

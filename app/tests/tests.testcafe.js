@@ -97,6 +97,8 @@ test('Test that Not Authorized page appears', async () => {
   await notauthorizedPage.isDisplayed(t);
 });
 
+// TODO: Tests past this point have not been tested due to chrome issue with testcafe
+
 test('Test that Projection Graph Component works', async () => {
   await navBar.gotoSignInPage();
   await signInPage.signin(adminCredentials.username, adminCredentials.password);

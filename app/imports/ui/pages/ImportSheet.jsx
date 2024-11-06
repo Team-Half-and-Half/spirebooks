@@ -35,6 +35,16 @@ const ImportSheet = () => {
     ));
     return newTDAta;
   };
+  // Pad Arrays to Length
+  const padAllArraysToLength = (obj, targetLength) => {
+    Object.keys(obj).forEach(key => {
+      if (Array.isArray(obj[key])) {
+        while (obj[key].length < targetLength) {
+          obj[key].push(0);
+        }
+      }
+    });
+  };
   // New Data Collection
   const collectData = (sheetData) => {
     console.log(sheetData);

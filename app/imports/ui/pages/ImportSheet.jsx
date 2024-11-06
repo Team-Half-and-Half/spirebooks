@@ -38,7 +38,7 @@ const ImportSheet = () => {
   // Pad Arrays to Length
   const padAllArraysToLength = (obj, targetLength) => {
     Object.keys(obj).forEach(key => {
-      if (Array.isArray(obj[key])) {
+      if (obj[key] && Array.isArray(obj[key])) {
         while (obj[key].length < targetLength) {
           obj[key].push(0);
         }
@@ -64,7 +64,7 @@ const ImportSheet = () => {
       totalNetPosition: unnecessaryData[108],
       totalLiabilitiesInflowsNetPosition: unnecessaryData[109],
     };
-    const LongTermLiabilities = {
+    const LongTermLiabilitiesWithinYear = {
       accruedVacation: unnecessaryData[70],
       workersCompensation: unnecessaryData[71],
       accruedRetirement: unnecessaryData[72],
@@ -78,12 +78,26 @@ const ImportSheet = () => {
       debtService: unnecessaryData[82],
       longTermWithinSum: unnecessaryData[83],
     };
+    const LongTermLiabilitiesAfterYear = {
+      accruedVacation: unnecessaryData[85],
+      workersCompensation: unnecessaryData[86],
+      accruedRetirement: unnecessaryData[87],
+      accruedLease: unnecessaryData[88],
+      capitalLease: unnecessaryData[89],
+      notesPayableA: unnecessaryData[90],
+      netPensionLiability: unnecessaryData[91],
+      netOPEDLiability: unnecessaryData[92],
+      lineOfCreditA: unnecessaryData[94],
+      lineOfCreditB: unnecessaryData[95],
+      debtService: unnecessaryData[97],
+      longTermWithinSum: unnecessaryData[98],
+    };
     const Liabilities = {
       accountPayableAccrued: unnecessaryData[65],
       dueToFund: unnecessaryData[66],
       dueToOther: unnecessaryData[67],
-      LongTermWithin: unnecessaryData[83],
-      LongTermAfter: unnecessaryData[98],
+      LongTermWithin: LongTermLiabilitiesWithinYear,
+      LongTermAfter: LongTermLiabilitiesAfterYear,
       totalLiabilities: unnecessaryData[99],
       deferredInflowsPension: unnecessaryData[100],
       deferredInflowsOPED: unnecessaryData[101],

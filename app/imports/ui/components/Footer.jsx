@@ -1,7 +1,10 @@
 import React from 'react';
 import { Container, Col, Row, Image } from 'react-bootstrap';
 import { GeoAlt, Telephone, EnvelopeAt } from 'react-bootstrap-icons';
+import { Meteor } from 'meteor/meteor';
+import { Roles } from 'meteor/alanning:roles';
 import { COMPONENT_IDS } from '../utilities/ComponentIDs';
+import { ROLE } from '../../api/role/Role';
 
 /** Spire Footer columns for Financing, Audit, Visualize, and Contact */
 const Footer = () => (
@@ -9,16 +12,9 @@ const Footer = () => (
     <Container className="div-style">
       <Row className="text-center">
         <Col className="text-center">
-          <h5 className="text-style">FINANCING</h5>
-          {' '}
-          <br />
+          <h5 className="text-style footer-spacing">FINANCING</h5>
           <a href="/add-money" className="text-style link">
             Balance Sheet
-          </a>
-          <br />
-          <br />
-          <a href="/" className="text-style link">
-            Ratios
           </a>
           <br />
           <br />
@@ -32,45 +28,43 @@ const Footer = () => (
           </a>
         </Col>
         <Col className="text-center">
-          <h5 className="text-style">AUDIT</h5>
-          {' '}
-          <br />
-          <a href="/" className="text-style link">
-            Company Audit
-          </a>
-          <br />
-          <br />
-          <a href="/" className="text-style link">
-            History
-          </a>
-          <br />
-          <br />
+          <h5 className="text-style footer-spacing">AUDIT</h5>
           <a href="/import" className="text-style link">
             Upload
           </a>
+          <br />
+          <br />
+          {Roles.userIsInRole(Meteor.userId(), [ROLE.ADMIN]) && (
+            <>
+              <a href="/verification-table" className="text-style link">
+                Verification Table
+              </a>
+              <br />
+              <br />
+              <a href="/manage-database" className="text-style link">
+                Manage Database
+              </a>
+            </>
+          )}
         </Col>
         <Col className="text-center">
-          <h5 className="text-style">VISUALIZE</h5>
-          {' '}
-          <br />
+          <h5 className="text-style footer-spacing">VISUALIZE</h5>
           <a href="/list" className="text-style link">
             Dashboard
           </a>
           <br />
           <br />
-          <a href="/" className="text-style link">
-            Chart View
+          <a href="/compare-projections" className="text-style link">
+            Compare Projections
           </a>
           <br />
           <br />
-          <a href="/" className="text-style link">
-            Metrics
+          <a href="/manage-projections" className="text-style link">
+            Manage Projections
           </a>
         </Col>
         <Col className="text-center">
-          <h5 className="text-style">CONTACT</h5>
-          {' '}
-          <br />
+          <h5 className="text-style footer-spacing">CONTACT</h5>
           <a
             href="https://www.google.com/search?q=700+Bishop+Street+Suite+2001+Honolulu+Hawaii+96813"
             className="text-style link"
@@ -91,11 +85,9 @@ const Footer = () => (
         </Col>
         <Col className="text-center">
           <br />
-          {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
           <a href="/home">
             <Image className="logo-footer" src="/images/spirebooks-logo.png" />
           </a>
-          <br />
           <br />
           <a href="/tos" className="text-style link" id={COMPONENT_IDS.FOOTER_TOS}>
             Terms of Service

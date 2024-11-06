@@ -4,7 +4,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { NavLink } from 'react-router-dom';
 import { Roles } from 'meteor/alanning:roles';
 import { Container, Navbar, Nav, NavDropdown, Image } from 'react-bootstrap';
-import { BoxArrowRight, CloudDownload, PersonFill, PersonPlusFill, Gear } from 'react-bootstrap-icons';
+import { BoxArrowRight, CloudDownload, PersonCheckFill, CloudArrowUp, PersonFill, PersonPlusFill, Gear, PersonRaisedHand, FileEarmarkSpreadsheet, GraphUpArrow, PencilSquare } from 'react-bootstrap-icons';
 import { ROLE } from '../../api/role/Role';
 import { COMPONENT_IDS } from '../utilities/ComponentIDs';
 
@@ -39,28 +39,28 @@ const NavBar = () => {
             {currentUser ? ([
               <Nav.Link className="nav-tabs" as={NavLink} to="/dashboard" key="dashboard" id={COMPONENT_IDS.NAVBAR_DASHBOARD}>DASHBOARD</Nav.Link>,
               <NavDropdown className="nav-tabs" title="FINANCING" id={COMPONENT_IDS.NAVBAR_FINANCING_DROPDOWN}>
-                <NavDropdown.Item className="basic-nav" as={NavLink} to="/balance-sheet" id={COMPONENT_IDS.NAVBAR_BALANCE_SHEET}>Balance Sheet</NavDropdown.Item>
+                <NavDropdown.Item className="basic-nav" as={NavLink} to="/balance-sheet" id={COMPONENT_IDS.NAVBAR_BALANCE_SHEET}><FileEarmarkSpreadsheet /> Balance Sheet</NavDropdown.Item>
                 <NavDropdown.Item
                   className="basic-nav"
                   as={NavLink}
                   to="https://www.spirehawaii.com/our-services"
                   target="_blank"
                   rel="noopener noreferrer"
-                >Services
+                ><PersonRaisedHand /> Services
                 </NavDropdown.Item>
               </NavDropdown>,
               <NavDropdown className="nav-tabs" title="AUDIT" id={COMPONENT_IDS.NAVBAR_AUDIT_DROPDOWN}>
-                <NavDropdown.Item className="basic-nav" id={COMPONENT_IDS.NAVBAR_AUDIT_DROPDOWN_IMPORT} as={NavLink} to="/import">Upload</NavDropdown.Item>
+                <NavDropdown.Item className="basic-nav" id={COMPONENT_IDS.NAVBAR_AUDIT_DROPDOWN_IMPORT} as={NavLink} to="/import"><CloudArrowUp /> Upload</NavDropdown.Item>
               </NavDropdown>,
-              <NavDropdown className="nav-tabs" title="VISUALIZE">
-                <NavDropdown.Item className="basic-nav" as={NavLink} to="/compare-projections">Compare Projections</NavDropdown.Item>
-                <NavDropdown.Item className="basic-nav" as={NavLink} to="/manage-projections">Manage Projections</NavDropdown.Item>
+              <NavDropdown className="nav-tabs" title="VISUALIZE" id={COMPONENT_IDS.NAVBAR_VISUALIZE_DROPDOWN}>
+                <NavDropdown.Item className="basic-nav" id={COMPONENT_IDS.NAVBAR_COMPARE_PROJECTIONS} as={NavLink} to="/compare-projections"><GraphUpArrow /> Compare Projections</NavDropdown.Item>
+                <NavDropdown.Item className="basic-nav" id={COMPONENT_IDS.NAVBAR_MANAGE_PROJECTIONS} as={NavLink} to="/manage-projections"><PencilSquare /> Manage Projections</NavDropdown.Item>
               </NavDropdown>,
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), [ROLE.ADMIN]) ? (
               <NavDropdown className="nav-tabs basic-nav" id={COMPONENT_IDS.NAVBAR_MANAGE_DROPDOWN} title="MANAGE" key="manage-dropdown">
                 <NavDropdown.Item className="basic-nav" id={COMPONENT_IDS.NAVBAR_MANAGE_DROPDOWN_DATABASE} key="manage-database" as={NavLink} to="/manage-database"><CloudDownload /> Database</NavDropdown.Item>
-                <NavDropdown.Item className="basic-nav" key="verification-table" as={NavLink} to="/verification-table"> Verification Table</NavDropdown.Item>
+                <NavDropdown.Item className="basic-nav" key="verification-table" as={NavLink} to="/verification-table"><PersonCheckFill /> Verification Table</NavDropdown.Item>
               </NavDropdown>
             ) : ''}
           </Nav>

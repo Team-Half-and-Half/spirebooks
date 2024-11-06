@@ -56,23 +56,25 @@ const ImportSheet = () => {
   };
   // Function to separate the data into their own object for single year
   const createArraysOfObjects = (inputObj) => {
-    const maxLength = Math.max(...Object.values(inputObj).map(arr => arr.length)) - 1;
+    const maxLength = Math.max(...Object.values(inputObj).map(arr => (Array.isArray(arr) ? arr.length : 0))) - 1;
     const resultArray = [];
 
-    for (let i = 1; i <= maxLength; i++) {
+    for (let i = 1; i <= maxLength; i++) { // Start at 1 to skip the first element
       const newObject = {};
-
       Object.keys(inputObj).forEach((key) => {
-        const array = inputObj[key];
-        if (array[i] !== undefined) {
-          newObject[key] = array[i];
+        const value = inputObj[key];
+        if (Array.isArray(value)) {
+          if (value[i] !== undefined) {
+            newObject[key] = value[i];
+          } else {
+            newObject[key] = null;
+          }
         } else {
-          newObject[key] = null;
+          newObject[key] = value;
         }
       });
       resultArray.push(newObject);
     }
-
     return resultArray;
   };
   // Data Collection
@@ -144,7 +146,6 @@ const ImportSheet = () => {
       deferredInflowsOPED: unnecessaryDataRemoved[101],
       totalLiabilitiesDeferredInflows: unnecessaryDataRemoved[102],
     };
-    console.log(padAllArraysToLength(Liabilities, 5));
     const LiabilitiesSingleYears = createArraysOfObjects(padAllArraysToLength(Liabilities, 5));
     console.log('Liabilities:');
     console.log(LiabilitiesSingleYears);

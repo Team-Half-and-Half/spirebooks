@@ -1,13 +1,13 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { useTracker } from 'meteor/react-meteor-data';
-import React, { useState, useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import * as XLSX from 'xlsx';
 import swal from 'sweetalert';
 import { FaFileUpload } from 'react-icons/fa';
 import fileTypeChecker from 'file-type-checker';
 import Spreadsheet from 'react-spreadsheet';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Card, Col, Container, Row } from 'react-bootstrap';
 import { PAGE_IDS } from '../utilities/PageIDs';
 import { UserVerification } from '../../api/user/UserVerificationCollection';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -28,45 +28,52 @@ const ImportSheet = () => {
   const fileInputRef = useRef(null);
 
   // Transforms json data into a format used by react-spreadsheet
-  const transformData = (tData) => {
-    const newTDAta = tData.map((row) => (
-      row.map((cell) => ({ value: cell }))
-    ));
-    return newTDAta;
-  };
-  // Pad Arrays to Length
+  const transformData = (tData) => tData.map((row) => (
+    row.map((cell) => ({ value: cell }))
+  ));
+  // Pad Arrays to Length (for empty data arrays)
   const padAllArraysToLength = (obj, targetLength) => {
-    Object.keys(obj).forEach(key => {
-      if (obj[key] && Array.isArray(obj[key])) {
-        while (obj[key].length < targetLength) {
-          obj[key].push(0);
+    // Create a new object to avoid mutating the original
+    const result = { ...obj };
+
+    // Iterate over each property in the object
+    Object.keys(result).forEach((key) => {
+      const array = result[key];
+
+      // Ensure the property is an array
+      if (Array.isArray(array)) {
+        // Slice the array to targetLength if it's longer
+        result[key] = array.slice(0, targetLength);
+
+        // Pad the array with 0s if it's shorter
+        if (result[key].length < targetLength) {
+          result[key] = [...result[key], ...Array(targetLength - result[key].length).fill(0)];
         }
       }
     });
-  };
-  // Function to separate the data into their own object for single year
-  const createArrayOfObjects = (obj) => {
-    // Determine the maximum length of array properties to iterate over, skipping the first item
-    const maxLength = Math.max(
-      ...Object.values(obj).map((value) => (Array.isArray(value) ? value.length : 0))
-    );
-
-    const result = [];
-
-    for (let i = 1; i < maxLength; i++) { // Start at index 1 to skip the first item
-      const newObj = {};
-      Object.keys(obj).forEach((key) => {
-        if (Array.isArray(obj[key])) {
-          // Assign the element at index i or null if undefined
-          newObj[key] = obj[key][i] !== undefined ? obj[key][i] : null;
-        } else {
-          newObj[key] = obj[key]; // Copy non-array properties as-is
-        }
-      });
-      result.push(newObj);
-    }
 
     return result;
+  };
+  // Function to separate the data into their own object for single year
+  const createArraysOfObjects = (inputObj) => {
+    const maxLength = Math.max(...Object.values(inputObj).map(arr => arr.length)) - 1;
+    const resultArray = [];
+
+    for (let i = 1; i <= maxLength; i++) {
+      const newObject = {};
+
+      Object.keys(inputObj).forEach((key) => {
+        const array = inputObj[key];
+        if (array[i] !== undefined) {
+          newObject[key] = array[i];
+        } else {
+          newObject[key] = null;
+        }
+      });
+      resultArray.push(newObject);
+    }
+
+    return resultArray;
   };
   // Data Collection
   const collectData = (sheetData) => {
@@ -77,9 +84,7 @@ const ImportSheet = () => {
     // Removes unnecessary data caused by xlsx formatting
     const unnecessaryData = ['Audited FS', 'Audited FS, Statement of Net Position', 'Audited FS, Investment Footnote', 'Audited FS, Capital Assets Footnote', 'Audited FS, Long-Term Liabilities Footnote'];
     const unnecessaryDataRemoved = emptyRemoved.map(innerArray => innerArray.filter(item => !unnecessaryData.includes(item)));
-    console.log('UnnecessaryData: ');
     console.log(unnecessaryDataRemoved);
-    console.log(unnecessaryDataRemoved[105]);
 
     const NetPosition = {
       netOfRelatedDebt: unnecessaryDataRemoved[105],
@@ -88,9 +93,10 @@ const ImportSheet = () => {
       totalNetPosition: unnecessaryDataRemoved[108],
       totalLiabilitiesInflowsNetPosition: unnecessaryDataRemoved[109],
     };
-    console.log(NetPosition.netOfRelatedDebt);
-    // padAllArraysToLength(NetPosition, 5);
-    const NetPositionSingleYears = createArrayOfObjects(NetPosition);
+    const NetPositionSingleYears = createArraysOfObjects(padAllArraysToLength(NetPosition, 5));
+    console.log('Net Position:');
+    console.log(NetPositionSingleYears);
+
     const LongTermLiabilitiesWithinYear = {
       accruedVacation: unnecessaryDataRemoved[70],
       workersCompensation: unnecessaryDataRemoved[71],
@@ -105,7 +111,10 @@ const ImportSheet = () => {
       debtService: unnecessaryDataRemoved[82],
       longTermWithinSum: unnecessaryDataRemoved[83],
     };
-    padAllArraysToLength(LongTermLiabilitiesWithinYear, 5);
+    const LongTermLiabilitiesWithinYearSingleYears = createArraysOfObjects(padAllArraysToLength(LongTermLiabilitiesWithinYear, 5));
+    console.log('Long Term Liabilities Within Year:');
+    console.log(LongTermLiabilitiesWithinYearSingleYears);
+
     const LongTermLiabilitiesAfterYear = {
       accruedVacation: unnecessaryDataRemoved[85],
       workersCompensation: unnecessaryDataRemoved[86],
@@ -120,7 +129,10 @@ const ImportSheet = () => {
       debtService: unnecessaryDataRemoved[97],
       longTermWithinSum: unnecessaryDataRemoved[98],
     };
-    padAllArraysToLength(LongTermLiabilitiesAfterYear, 5);
+    const LongTermLiabilitiesAfterYearSingleYears = createArraysOfObjects(padAllArraysToLength(LongTermLiabilitiesAfterYear, 5));
+    console.log('Long Term Liabilities After Year:');
+    console.log(LongTermLiabilitiesAfterYearSingleYears);
+
     const Liabilities = {
       accountPayableAccrued: unnecessaryDataRemoved[65],
       dueToFund: unnecessaryDataRemoved[66],
@@ -132,7 +144,11 @@ const ImportSheet = () => {
       deferredInflowsOPED: unnecessaryDataRemoved[101],
       totalLiabilitiesDeferredInflows: unnecessaryDataRemoved[102],
     };
-    padAllArraysToLength(Liabilities, 5);
+    console.log(padAllArraysToLength(Liabilities, 5));
+    const LiabilitiesSingleYears = createArraysOfObjects(padAllArraysToLength(Liabilities, 5));
+    console.log('Liabilities:');
+    console.log(LiabilitiesSingleYears);
+
     const LiabilityBAsset = {
       buildings: unnecessaryDataRemoved[48],
       leaseholdImprovements: unnecessaryDataRemoved[49],
@@ -143,7 +159,10 @@ const ImportSheet = () => {
       land: unnecessaryDataRemoved[55],
       subTotal: unnecessaryDataRemoved[57],
     };
-    padAllArraysToLength(LiabilityBAsset, 5);
+    const LiabilityBAssetSingleYears = createArraysOfObjects(padAllArraysToLength(LiabilityBAsset, 5));
+    console.log('Liability B Asset:');
+    console.log(LiabilityBAssetSingleYears);
+
     const Assets = {
       buildings: unnecessaryDataRemoved[35],
       leaseholdImprovements: unnecessaryDataRemoved[36],
@@ -155,13 +174,19 @@ const ImportSheet = () => {
       constructionInProgress: unnecessaryDataRemoved[45],
       subTotal: unnecessaryDataRemoved[46],
     };
-    padAllArraysToLength(Assets, 5);
+    const AssetsSingleYears = createArraysOfObjects(padAllArraysToLength(Assets, 5));
+    console.log('Assets:');
+    console.log(AssetsSingleYears);
+
     const CapitalAssetsNet = {
       Assets: Assets,
       LiabilityBAsset: LiabilityBAsset,
       capitalAssetsNetSum: unnecessaryDataRemoved[39],
     };
-    padAllArraysToLength(padAllArraysToLength, 5);
+    const CapitalAssetsNetSingleYears = createArraysOfObjects(padAllArraysToLength(CapitalAssetsNet, 5));
+    console.log('Capital Assets Net:');
+    console.log(CapitalAssetsNetSingleYears);
+
     const Investments = {
       mutualFunds: unnecessaryDataRemoved[20],
       commingledFunds: unnecessaryDataRemoved[21],
@@ -176,7 +201,10 @@ const ImportSheet = () => {
       agenciesUS: unnecessaryDataRemoved[30],
       subtotalLoanFund: unnecessaryDataRemoved[31],
     };
-    padAllArraysToLength(Investments, 5);
+    const InvestmentsSingleYears = createArraysOfObjects(padAllArraysToLength(Investments, 5));
+    console.log('Investments:');
+    console.log(InvestmentsSingleYears);
+
     const OtherAssets = {
       accountsReceivable: unnecessaryDataRemoved[11],
       dueFromOtherFund: unnecessaryDataRemoved[12],
@@ -195,14 +223,19 @@ const ImportSheet = () => {
       deferredOPEB: unnecessaryDataRemoved[62],
       totalAssetsDeferred: unnecessaryDataRemoved[63],
     };
-    padAllArraysToLength(OtherAssets, 5);
+    const OtherAssetsSingleYears = createArraysOfObjects(padAllArraysToLength(OtherAssets, 5));
+    console.log('Other Assets:');
+    console.log(OtherAssetsSingleYears);
+
     const CashAndCashEquivalents = {
       pettyCash: unnecessaryDataRemoved[6],
       cash: unnecessaryDataRemoved[7],
       cashInBank: unnecessaryDataRemoved[8],
       cashAndCashEquivalentsSum: unnecessaryDataRemoved[9],
     };
-    padAllArraysToLength(CashAndCashEquivalents, 5);
+    const CashAndCashEquivalentsSingleYears = createArraysOfObjects(padAllArraysToLength(CashAndCashEquivalents, 5));
+    console.log('Cash And Cash Equivalents:');
+    console.log(CashAndCashEquivalentsSingleYears);
   };
 
   const handleFileUpload = (e) => {

@@ -11,7 +11,6 @@ import { Container, Row, Col, Card } from 'react-bootstrap';
 import { PAGE_IDS } from '../utilities/PageIDs';
 import { UserVerification } from '../../api/user/UserVerificationCollection';
 import LoadingSpinner from '../components/LoadingSpinner';
-import {CashAndCashEquivalents} from "../../api/schemas/AuditedBalanceSchema";
 
 const ImportSheet = () => {
   const currentUserID = Meteor.userId();
@@ -45,9 +44,32 @@ const ImportSheet = () => {
       }
     });
   };
-  // New Data Collection
+  // Function to separate the data into their own object for single year
+  const createArrayOfObjects = (obj) => {
+    // Determine the maximum length of array properties to iterate over, skipping the first item
+    const maxLength = Math.max(
+      ...Object.values(obj).map((value) => (Array.isArray(value) ? value.length : 0))
+    );
+
+    const result = [];
+
+    for (let i = 1; i < maxLength; i++) { // Start at index 1 to skip the first item
+      const newObj = {};
+      Object.keys(obj).forEach((key) => {
+        if (Array.isArray(obj[key])) {
+          // Assign the element at index i or null if undefined
+          newObj[key] = obj[key][i] !== undefined ? obj[key][i] : null;
+        } else {
+          newObj[key] = obj[key]; // Copy non-array properties as-is
+        }
+      });
+      result.push(newObj);
+    }
+
+    return result;
+  };
+  // Data Collection
   const collectData = (sheetData) => {
-    console.log(sheetData);
     // Clears empty slots caused by spaces in cells
     const innerEmptyRemoved = sheetData.map(innerArray => innerArray.filter(item => item != null && item !== ''));
     const emptyRemoved = innerEmptyRemoved.filter(innerArray => innerArray.length > 0);
@@ -55,118 +77,132 @@ const ImportSheet = () => {
     // Removes unnecessary data caused by xlsx formatting
     const unnecessaryData = ['Audited FS', 'Audited FS, Statement of Net Position', 'Audited FS, Investment Footnote', 'Audited FS, Capital Assets Footnote', 'Audited FS, Long-Term Liabilities Footnote'];
     const unnecessaryDataRemoved = emptyRemoved.map(innerArray => innerArray.filter(item => !unnecessaryData.includes(item)));
+    console.log('UnnecessaryData: ');
     console.log(unnecessaryDataRemoved);
+    console.log(unnecessaryDataRemoved[105]);
 
     const NetPosition = {
-      netOfRelatedDebt: unnecessaryData[105],
-      restrictedFederal: unnecessaryData[106],
-      unrestricted: unnecessaryData[107],
-      totalNetPosition: unnecessaryData[108],
-      totalLiabilitiesInflowsNetPosition: unnecessaryData[109],
+      netOfRelatedDebt: unnecessaryDataRemoved[105],
+      restrictedFederal: unnecessaryDataRemoved[106],
+      unrestricted: unnecessaryDataRemoved[107],
+      totalNetPosition: unnecessaryDataRemoved[108],
+      totalLiabilitiesInflowsNetPosition: unnecessaryDataRemoved[109],
     };
+    console.log(NetPosition.netOfRelatedDebt);
+    // padAllArraysToLength(NetPosition, 5);
+    const NetPositionSingleYears = createArrayOfObjects(NetPosition);
     const LongTermLiabilitiesWithinYear = {
-      accruedVacation: unnecessaryData[70],
-      workersCompensation: unnecessaryData[71],
-      accruedRetirement: unnecessaryData[72],
-      accruedLease: unnecessaryData[73],
-      capitalLease: unnecessaryData[74],
-      notesPayableA: unnecessaryData[75],
-      netPensionLiability: unnecessaryData[76],
-      netOPEDLiability: unnecessaryData[77],
-      lineOfCreditA: unnecessaryData[79],
-      lineOfCreditB: unnecessaryData[80],
-      debtService: unnecessaryData[82],
-      longTermWithinSum: unnecessaryData[83],
+      accruedVacation: unnecessaryDataRemoved[70],
+      workersCompensation: unnecessaryDataRemoved[71],
+      accruedRetirement: unnecessaryDataRemoved[72],
+      accruedLease: unnecessaryDataRemoved[73],
+      capitalLease: unnecessaryDataRemoved[74],
+      notesPayableA: unnecessaryDataRemoved[75],
+      netPensionLiability: unnecessaryDataRemoved[76],
+      netOPEDLiability: unnecessaryDataRemoved[77],
+      lineOfCreditA: unnecessaryDataRemoved[79],
+      lineOfCreditB: unnecessaryDataRemoved[80],
+      debtService: unnecessaryDataRemoved[82],
+      longTermWithinSum: unnecessaryDataRemoved[83],
     };
+    padAllArraysToLength(LongTermLiabilitiesWithinYear, 5);
     const LongTermLiabilitiesAfterYear = {
-      accruedVacation: unnecessaryData[85],
-      workersCompensation: unnecessaryData[86],
-      accruedRetirement: unnecessaryData[87],
-      accruedLease: unnecessaryData[88],
-      capitalLease: unnecessaryData[89],
-      notesPayableA: unnecessaryData[90],
-      netPensionLiability: unnecessaryData[91],
-      netOPEDLiability: unnecessaryData[92],
-      lineOfCreditA: unnecessaryData[94],
-      lineOfCreditB: unnecessaryData[95],
-      debtService: unnecessaryData[97],
-      longTermWithinSum: unnecessaryData[98],
+      accruedVacation: unnecessaryDataRemoved[85],
+      workersCompensation: unnecessaryDataRemoved[86],
+      accruedRetirement: unnecessaryDataRemoved[87],
+      accruedLease: unnecessaryDataRemoved[88],
+      capitalLease: unnecessaryDataRemoved[89],
+      notesPayableA: unnecessaryDataRemoved[90],
+      netPensionLiability: unnecessaryDataRemoved[91],
+      netOPEDLiability: unnecessaryDataRemoved[92],
+      lineOfCreditA: unnecessaryDataRemoved[94],
+      lineOfCreditB: unnecessaryDataRemoved[95],
+      debtService: unnecessaryDataRemoved[97],
+      longTermWithinSum: unnecessaryDataRemoved[98],
     };
+    padAllArraysToLength(LongTermLiabilitiesAfterYear, 5);
     const Liabilities = {
-      accountPayableAccrued: unnecessaryData[65],
-      dueToFund: unnecessaryData[66],
-      dueToOther: unnecessaryData[67],
+      accountPayableAccrued: unnecessaryDataRemoved[65],
+      dueToFund: unnecessaryDataRemoved[66],
+      dueToOther: unnecessaryDataRemoved[67],
       LongTermWithin: LongTermLiabilitiesWithinYear,
       LongTermAfter: LongTermLiabilitiesAfterYear,
-      totalLiabilities: unnecessaryData[99],
-      deferredInflowsPension: unnecessaryData[100],
-      deferredInflowsOPED: unnecessaryData[101],
-      totalLiabilitiesDeferredInflows: unnecessaryData[102],
+      totalLiabilities: unnecessaryDataRemoved[99],
+      deferredInflowsPension: unnecessaryDataRemoved[100],
+      deferredInflowsOPED: unnecessaryDataRemoved[101],
+      totalLiabilitiesDeferredInflows: unnecessaryDataRemoved[102],
     };
+    padAllArraysToLength(Liabilities, 5);
     const LiabilityBAsset = {
-      buildings: unnecessaryData[48],
-      leaseholdImprovements: unnecessaryData[49],
-      furnitureFixturesEquipment: unnecessaryData[50],
-      vehicles: unnecessaryData[51],
-      lessAccumulatedDepreciation: unnecessaryData[52],
-      net: unnecessaryData[53],
-      land: unnecessaryData[55],
-      subTotal: unnecessaryData[57],
+      buildings: unnecessaryDataRemoved[48],
+      leaseholdImprovements: unnecessaryDataRemoved[49],
+      furnitureFixturesEquipment: unnecessaryDataRemoved[50],
+      vehicles: unnecessaryDataRemoved[51],
+      lessAccumulatedDepreciation: unnecessaryDataRemoved[52],
+      net: unnecessaryDataRemoved[53],
+      land: unnecessaryDataRemoved[55],
+      subTotal: unnecessaryDataRemoved[57],
     };
+    padAllArraysToLength(LiabilityBAsset, 5);
     const Assets = {
-      buildings: unnecessaryData[35],
-      leaseholdImprovements: unnecessaryData[36],
-      furnitureFixturesEquipment: unnecessaryData[37],
-      lessAccumulatedDepreciation: unnecessaryData[38],
-      net: unnecessaryData[39],
-      landA: unnecessaryData[41],
-      landB: unnecessaryData[43],
-      constructionInProgress: unnecessaryData[45],
-      subTotal: unnecessaryData[46],
+      buildings: unnecessaryDataRemoved[35],
+      leaseholdImprovements: unnecessaryDataRemoved[36],
+      furnitureFixturesEquipment: unnecessaryDataRemoved[37],
+      lessAccumulatedDepreciation: unnecessaryDataRemoved[38],
+      net: unnecessaryDataRemoved[39],
+      landA: unnecessaryDataRemoved[41],
+      landB: unnecessaryDataRemoved[43],
+      constructionInProgress: unnecessaryDataRemoved[45],
+      subTotal: unnecessaryDataRemoved[46],
     };
+    padAllArraysToLength(Assets, 5);
     const CapitalAssetsNet = {
       Assets: Assets,
       LiabilityBAsset: LiabilityBAsset,
-      capitalAssetsNetSum: unnecessaryData[39],
+      capitalAssetsNetSum: unnecessaryDataRemoved[39],
     };
+    padAllArraysToLength(padAllArraysToLength, 5);
     const Investments = {
-      mutualFunds: unnecessaryData[20],
-      commingledFunds: unnecessaryData[21],
-      hedgeFunds: unnecessaryData[22],
-      privateEquity: unnecessaryData[23],
-      commonTrustFund: unnecessaryData[24],
-      commonPreferredStock: unnecessaryData[25],
-      privateDebt: unnecessaryData[26],
-      other: unnecessaryData[27],
-      subTotalInvestments: unnecessaryData[28],
-      treasuriesUS: unnecessaryData[29],
-      agenciesUS: unnecessaryData[30],
-      subtotalLoanFund: unnecessaryData[31],
+      mutualFunds: unnecessaryDataRemoved[20],
+      commingledFunds: unnecessaryDataRemoved[21],
+      hedgeFunds: unnecessaryDataRemoved[22],
+      privateEquity: unnecessaryDataRemoved[23],
+      commonTrustFund: unnecessaryDataRemoved[24],
+      commonPreferredStock: unnecessaryDataRemoved[25],
+      privateDebt: unnecessaryDataRemoved[26],
+      other: unnecessaryDataRemoved[27],
+      subTotalInvestments: unnecessaryDataRemoved[28],
+      treasuriesUS: unnecessaryDataRemoved[29],
+      agenciesUS: unnecessaryDataRemoved[30],
+      subtotalLoanFund: unnecessaryDataRemoved[31],
     };
+    padAllArraysToLength(Investments, 5);
     const OtherAssets = {
-      accountsReceivable: unnecessaryData[11],
-      dueFromOtherFund: unnecessaryData[12],
-      interestDividendsReceivable: unnecessaryData[13],
-      inventoryPrepaidOtherAssets: unnecessaryData[14],
-      notesWithinOneYear: unnecessaryData[15],
-      notesAfterOneYear: unnecessaryData[16],
-      securityDeposits: unnecessaryData[17],
-      cashHeldInvestmentManager: unnecessaryData[18],
+      accountsReceivable: unnecessaryDataRemoved[11],
+      dueFromOtherFund: unnecessaryDataRemoved[12],
+      interestDividendsReceivable: unnecessaryDataRemoved[13],
+      inventoryPrepaidOtherAssets: unnecessaryDataRemoved[14],
+      notesWithinOneYear: unnecessaryDataRemoved[15],
+      notesAfterOneYear: unnecessaryDataRemoved[16],
+      securityDeposits: unnecessaryDataRemoved[17],
+      cashHeldInvestmentManager: unnecessaryDataRemoved[18],
       Investments: Investments,
-      investmentSum: unnecessaryData[28],
+      investmentSum: unnecessaryDataRemoved[28],
       CapitalAssetsNet: CapitalAssetsNet,
-      restrictedCash: unnecessaryData[59],
-      totalOtherAssets: unnecessaryData[60],
-      deferredPensions: unnecessaryData[61],
-      deferredOPEB: unnecessaryData[62],
-      totalAssetsDeferred: unnecessaryData[63],
+      restrictedCash: unnecessaryDataRemoved[59],
+      totalOtherAssets: unnecessaryDataRemoved[60],
+      deferredPensions: unnecessaryDataRemoved[61],
+      deferredOPEB: unnecessaryDataRemoved[62],
+      totalAssetsDeferred: unnecessaryDataRemoved[63],
     };
+    padAllArraysToLength(OtherAssets, 5);
     const CashAndCashEquivalents = {
-      pettyCash: unnecessaryData[6],
-      cash: unnecessaryData[7],
-      cashInBank: unnecessaryData[8],
-      cashAndCashEquivalentsSum: unnecessaryData[9],
+      pettyCash: unnecessaryDataRemoved[6],
+      cash: unnecessaryDataRemoved[7],
+      cashInBank: unnecessaryDataRemoved[8],
+      cashAndCashEquivalentsSum: unnecessaryDataRemoved[9],
     };
+    padAllArraysToLength(CashAndCashEquivalents, 5);
   };
 
   const handleFileUpload = (e) => {

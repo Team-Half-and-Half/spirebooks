@@ -16,21 +16,31 @@ const CustomLineChart = ({ data }) => {
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="year" />
 
-        {/* Left Y-Axis with dynamic scaling */}
+        {/* Left Y-Axis with centered label and offset to avoid tick overlap */}
         <YAxis
           yAxisId="left"
           stroke="#0073e6"
           domain={['auto', 'auto']}
-          label={{ value: 'Millions', angle: -90, position: 'insideLeft', offset: 10 }}
+          label={{
+            value: 'Millions',
+            angle: -90,
+            position: 'center', // Center the label vertically along the axis
+            dx: -30, // Adjust this negative value to move the label away from ticks
+          }}
         />
 
-        {/* Right Y-Axis with dynamic scaling */}
+        {/* Right Y-Axis with centered label and offset to avoid tick overlap */}
         <YAxis
           yAxisId="right"
           orientation="right"
           stroke="#8b0000"
           domain={['auto', 'auto']}
-          label={{ value: 'Millions', angle: -90, position: 'insideRight', offset: 10 }}
+          label={{
+            value: 'Millions',
+            angle: -90,
+            position: 'center', // Center the label vertically along the axis
+            dx: 30, // Adjust this negative value for desired spacing from ticks
+          }}
         />
 
         <Tooltip formatter={tooltipFormatter} />

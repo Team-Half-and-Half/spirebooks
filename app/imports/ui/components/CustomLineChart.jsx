@@ -8,7 +8,6 @@ const CustomLineChart = ({ data }) => {
   const dataKeys = Object.keys(data[0] || {}).filter(key => key !== 'year');
 
   // Custom tooltip formatter to round to two decimal places and append 'M'
-  const tooltipFormatter = (value) => `${value.toFixed(2)}M`;
 
   return (
     <ResponsiveContainer className="px-3" width="100%" height={300}>
@@ -43,7 +42,7 @@ const CustomLineChart = ({ data }) => {
           }}
         />
 
-        <Tooltip formatter={tooltipFormatter} />
+        <Tooltip />
         <Legend formatter={(value) => value.charAt(0).toUpperCase() + value.slice(1)} />
 
         {/* Assign the first dataKey to the left axis and the second to the right axis */}

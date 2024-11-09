@@ -1,9 +1,13 @@
 import { Meteor } from 'meteor/meteor';
 import { MATPCollections } from '../../api/matp/MATPCollections';
 import { UserVerification } from '../../api/user/UserVerificationCollection';
+import { DatabaseConfiguration } from '../../api/dbconfig/DatabaseConfigurationCollection';
 
-// Call publish for all the collections.
+// Call publish for all the relevant collections.
 MATPCollections.collections.forEach(c => c.publish());
+
+// Call publish to configuration settings for the database collection.
+Meteor.publish(DatabaseConfiguration.userPublicationName, () => DatabaseConfiguration.collection.find());
 
 // alanning:roles publication
 // Recommended code to publish roles for each user.

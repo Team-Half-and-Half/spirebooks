@@ -4,12 +4,8 @@
     },
     { "email": "customer@spirebooks.com", "password": "spirebookscustomer", "role": "USER" , "firstName": "first_name_customer", "lastName": "last_name_customer" }
   ],
-
-  "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  "databaseConfigurationSettings": [  
+    {"databaseFileDateFormat": "YYYY-MM-DD-HH-mm-ss"}
   ],
   "public": {
     "development": true

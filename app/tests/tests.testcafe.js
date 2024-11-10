@@ -104,5 +104,5 @@ test('Test that Projection Graph Component works', async () => {
   await signInPage.signin(adminCredentials.username, adminCredentials.password);
   await navBar.isLoggedIn(adminCredentials.username);
   await navBar.gotoCompareProjectionsPage();
-  await projectionGraph.selectChart();
+  await projectionGraph.selectChart(1);
 });

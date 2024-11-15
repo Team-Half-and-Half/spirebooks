@@ -1,18 +1,15 @@
 import React from 'react';
 import swal from 'sweetalert';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, HiddenField, NumField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, HiddenField, NumField, SubmitField } from 'uniforms-bootstrap5';
 import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { Stuffs } from '../../api/stuff/StuffCollection';
 import { updateMethod } from '../../api/base/BaseCollection.methods';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { PAGE_IDS } from '../utilities/PageIDs';
-import { AuditedFS } from '../../api/spreadsheet/AuditedFSCollection';
 import { AuditedBalance } from '../../api/spreadsheet/AuditedBalanceCollection';
-import { BudgetPL } from '../../api/spreadsheet/BudgetPLCollection';
 
-const bridge = new SimpleSchema2Bridge(Stuffs._schema);
+const bridge = new SimpleSchema2Bridge(AuditedBalance._schema);
 
 /* Renders the EditStuff page for editing a single document. */
 const EditStuff = () => {
@@ -20,28 +17,37 @@ const EditStuff = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { doc, ready } = useTracker(() => {
     // Get access to Stuff documents.
-    const AFS = AuditedFS.subscribeAuditedFS();
-    const ABS = AuditedBalance.subscribeAuditedBalance();
-    const BPL = BudgetPL.subscribeBudgetPL();
-    const AFSAdmin = AuditedFS.subscribeAuditedFSAdmin();
-    const BPLAdmin = BudgetPL.subscribeBudgetPLAdmin();
+    // const AFS = AuditedFS.subscribeAuditedFS();
+    // const BPL = BudgetPL.subscribeBudgetPL();
+    // const AFSAdmin = AuditedFS.subscribeAuditedFSAdmin();
+    // const BPLAdmin = BudgetPL.subscribeBudgetPLAdmin();
     const ABSAdmin = AuditedBalance.subscribeAuditedBalanceAdmin();
     // Determine if the subscription is ready
-    const rdy = AFS.ready() && BPL.ready() && ABS.ready() && AFSAdmin.ready() && BPLAdmin.ready() && ABSAdmin.ready();
+    const rdy2 = ABSAdmin.ready();
     // Get the document
+    const document = AuditedBalance.findOne({ year: 6 });
+
     return {
-      ready: rdy,
+      doc: document,
+      ready: rdy2,
     };
   }, []);
 
   // On successful submit, insert the data.
   const submit = (data) => {
-    const { name, quantity, condition } = data;
-    const collectionName = Stuffs.getCollectionName();
-    const updateData = { name, quantity, condition };
+    const { CashAndCashEquivalents,
+      OtherAssets,
+      Liabilities,
+      NetPosition } = data;
+    const collectionName = AuditedBalance.getCollectionName();
+    const updateData = { id: doc._id, CashAndCashEquivalents,
+      OtherAssets,
+      Liabilities,
+      NetPosition };
     updateMethod.callPromise({ collectionName, updateData })
       .catch(error => swal('Error', error.message, 'error'))
       .then(() => swal('Success', 'Item updated successfully', 'success'));
+    console.log(CashAndCashEquivalents);
   };
 
   return ready ? (
@@ -52,9 +58,10 @@ const EditStuff = () => {
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
             <Card>
               <Card.Body>
-                <TextField name="name" />
-                <NumField name="quantity" decimal={null} />
-                <SelectField name="condition" />
+                <NumField name="CashAndCashEquivalents.pettyCash" decimal={null} />
+                <NumField name="CashAndCashEquivalents.cash" decimal={null} />
+                <NumField name="CashAndCashEquivalents.cashInBank" decimal={null} />
+                <NumField name="CashAndCashEquivalents.totalCashAndCashEquivalents" decimal={null} />
                 <SubmitField value="Submit" />
                 <ErrorsField />
                 <HiddenField name="owner" />

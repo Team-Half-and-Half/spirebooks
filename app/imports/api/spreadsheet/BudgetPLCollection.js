@@ -1,9 +1,9 @@
-import {Meteor} from 'meteor/meteor';
-import {check} from 'meteor/check';
-import {Roles} from 'meteor/alanning:roles';
+import { Meteor } from 'meteor/meteor';
+import { check } from 'meteor/check';
+import { Roles } from 'meteor/alanning:roles';
 import BaseCollection from '../base/BaseCollection';
-import {ROLE} from '../role/Role';
-import {BudgetPLSchema} from '../schemas/BudgetPLSchema';
+import { ROLE } from '../role/Role';
+import { BudgetPLSchema } from '../schemas/BudgetPLSchema';
 
 export const budgetPLPublications = {
   budgetPL: 'budgetPL',

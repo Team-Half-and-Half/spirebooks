@@ -26,11 +26,17 @@ class BudgetPLCollection extends BaseCollection {
    * @return {String} the docID of the new document.
    */
   define({ year, owner, green, Revenue, Expenses, surplus, ExpenditurePerAudited }) {
-    const docID = this._collection.insert({
-      year, owner, green,
-      Revenue, Expenses, surplus, ExpenditurePerAudited,
-    });
-    return docID;
+    try {
+      if (!year || !owner) {
+        throw new Meteor.Error('invalid-arguments', 'Missing crucial fields for defining BudgetPLCollection.');
+      }
+      return this._collection.insert({
+        year, owner, green,
+        Revenue, Expenses, surplus, ExpenditurePerAudited,
+      });
+    } catch (e) {
+      throw new Meteor.Error('BudgetPLCollection.define', e.message || 'Define BudgetPLCollection failed.');
+    }
   }
 
   /**
@@ -43,9 +49,16 @@ class BudgetPLCollection extends BaseCollection {
    * @return {String} the docID of the new document.
    */
   update(docID, { Revenue, Expenses, surplus, ExpenditurePerAudited }) {
-    const updateData = {
-      Revenue, Expenses, surplus, ExpenditurePerAudited };
-    this._collection.update(docID, { $set: updateData });
+    try {
+      if (!docID) {
+        throw new Meteor.Error('invalid-argument', 'Missing crucial field for updating BudgetPLCollection');
+      }
+      const updateData = {
+        Revenue, Expenses, surplus, ExpenditurePerAudited };
+      this._collection.update(docID, { $set: updateData });
+    } catch (e) {
+      throw new Meteor.Error('BudgetPLCollection.update', e.message || 'Update BudgetPLCollection failed.');
+    }
   }
 
   /**
@@ -54,10 +67,14 @@ class BudgetPLCollection extends BaseCollection {
    * @returns true
    */
   removeIt(name) {
-    const doc = this.findDoc(name);
-    check(doc, Object);
-    this._collection.remove(doc._id);
-    return true;
+    try {
+      const doc = this.findDoc(name);
+      check(doc, Object);
+      this._collection.remove(doc._id);
+      return true;
+    } catch (e) {
+      throw new Meteor.Error('BudgetPLCollection.removeIt', e.message || 'removeIt BudgetPLCollection failed.');
+    }
   }
 
   /**

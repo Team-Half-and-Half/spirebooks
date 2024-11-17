@@ -23,13 +23,33 @@ class AuditedBalanceCollection extends BaseCollection {
    * @param NetPosition Sub document for net position values.
    * @return {String} the docID of the new document.
    */
-  define({ year, owner, green, CashAndCashEquivalents, OtherAssets, Liabilities, NetPosition }) {
+  define({ year, owner, green, CashAndCashEquivalents, OtherAssets, Liabilities, NetPosition, totalCashAndCashEquivalents, subTotalInvestments, subtotalLoanFund, investmentSum, netAssets,
+    subTotalCapitalAssetNet, netCompanyBAsset, subTotalCompanyBAssets, capitalAssetsNetSum,
+    totalOtherAssets, totalAssetsDeferred, dueWithinOneYearSum, dueAfterOneYearSum,
+    totalLiabilities, totalLiabilitiesDeferredInflows, totalNetPosition, totalLiabilitiesInflowsNetPosition }) {
     const docID = this._collection.insert({
       year, owner, green,
       CashAndCashEquivalents,
       OtherAssets,
       Liabilities,
       NetPosition,
+      totalCashAndCashEquivalents,
+      subTotalInvestments,
+      subtotalLoanFund,
+      investmentSum,
+      netAssets,
+      subTotalCapitalAssetNet,
+      netCompanyBAsset,
+      subTotalCompanyBAssets,
+      capitalAssetsNetSum,
+      totalOtherAssets,
+      totalAssetsDeferred,
+      dueWithinOneYearSum,
+      dueAfterOneYearSum,
+      totalLiabilities,
+      totalLiabilitiesDeferredInflows,
+      totalNetPosition,
+      totalLiabilitiesInflowsNetPosition,
     });
     return docID;
   }

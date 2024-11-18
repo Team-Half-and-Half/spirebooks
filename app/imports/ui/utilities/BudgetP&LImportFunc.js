@@ -6,7 +6,9 @@ export const budgetPLImport = (sheetData) => {
     supportServices: [...sheetData[70].slice(0, 0), ...sheetData[70].slice(6, 9)],
     beneficiaryAdvocacy: [...sheetData[71].slice(0, 0), ...sheetData[71].slice(6, 9)],
   };
-  console.log(ExpenditurePerAudited);
+  const ExpenditurePerAuditedSingleYears = createArraysOfObjects(padAllArraysToLength(ExpenditurePerAudited, 5));
+  console.log('Expenditure Per Audited:');
+  console.log(ExpenditurePerAuditedSingleYears);
 
   const FringeBenefitsAdmin = {
     pensionAccumulation: [...sheetData[15].slice(0, 0), ...sheetData[15].slice(7, 10)],

@@ -95,8 +95,7 @@ const ImportSheet = () => {
               <Card className="w-100 p-3">
                 <Card.Body>
                   <Card.Title className="text-style text-center"><h2>Import File</h2></Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted text-center text-style">Supported files: .xlsx or
-                    .csv
+                  <Card.Subtitle className="mb-2 text-muted text-center text-style">Supported file: .xlsm
                   </Card.Subtitle>
                   <Row className="p-2">
                     <Col className="col-3" />
@@ -116,7 +115,7 @@ const ImportSheet = () => {
                           onChange={handleChange} // Handle file selection
                         />
                         <FaFileUpload size="100px" />
-                        <p>Drag & Drop your files here or click to upload</p>
+                        <p>Drag & Drop your Financial Model Spreadsheet</p>
                       </Card.Body>
                     </Col>
                     <Col className="col-3" />

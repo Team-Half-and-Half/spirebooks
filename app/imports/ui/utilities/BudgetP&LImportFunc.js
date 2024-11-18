@@ -1,3 +1,5 @@
+import { createArraysOfObjects, padAllArraysToLength } from './ImportFunctions';
+
 export const budgetPLImport = (sheetData) => {
   const ExpenditurePerAudited = {
     management: [...sheetData[69].slice(0, 0), ...sheetData[69].slice(6, 9)],
@@ -18,14 +20,18 @@ export const budgetPLImport = (sheetData) => {
     pensionCompensation: [...sheetData[23].slice(0, 0), ...sheetData[23].slice(7, 10)],
     fringeBenefitsSum: [...sheetData[24].slice(0, 0), ...sheetData[24].slice(6, 9)],
   };
-  console.log(FringeBenefitsAdmin);
+  const FringeBenefitsAdminSingleYears = createArraysOfObjects(padAllArraysToLength(FringeBenefitsAdmin, 5));
+  console.log('Fringe Benefits Admin:');
+  console.log(FringeBenefitsAdminSingleYears);
 
   const PersonnelFringeAdmin = {
     salary: [...sheetData[13].slice(0, 0), ...sheetData[13].slice(7, 10)],
     FringeBenefits: FringeBenefitsAdmin,
     personnelFringeSum: [...sheetData[26].slice(0, 0), ...sheetData[26].slice(6, 9)],
   };
-  console.log(PersonnelFringeAdmin);
+  const PersonnelFringeAdminSingleYears = createArraysOfObjects(padAllArraysToLength(PersonnelFringeAdmin, 5));
+  console.log('Personnel Fringe Admin:');
+  console.log(PersonnelFringeAdminSingleYears);
 
   const FringeBenefitsAdminStaff = {
     pensionAccumulation: [...sheetData[30].slice(0, 0), ...sheetData[30].slice(7, 10)],
@@ -39,14 +45,18 @@ export const budgetPLImport = (sheetData) => {
     pensionCompensation: [...sheetData[38].slice(0, 0), ...sheetData[38].slice(7, 10)],
     fringeBenefitsSum: [...sheetData[39].slice(0, 0), ...sheetData[39].slice(6, 9)],
   };
-  console.log(FringeBenefitsAdminStaff);
+  const FringeBenefitsAdminStaffSingleYears = createArraysOfObjects(padAllArraysToLength(FringeBenefitsAdminStaff, 5));
+  console.log('Fringe Benefits Admin Staff:');
+  console.log(FringeBenefitsAdminStaffSingleYears);
 
   const PersonnelFringeAdminStaff = {
     salary: [...sheetData[28].slice(0, 0), ...sheetData[28].slice(7, 10)],
     FringeBenefits: FringeBenefitsAdminStaff,
     personnelFringeSum: [...sheetData[41].slice(0, 0), ...sheetData[41].slice(6, 9)],
   };
-  console.log(PersonnelFringeAdminStaff);
+  const PersonnelFringeAdminStaffSingleYears = createArraysOfObjects(padAllArraysToLength(PersonnelFringeAdminStaff, 5));
+  console.log('Personnel Fringe Admin Staff:');
+  console.log(PersonnelFringeAdminStaffSingleYears);
 
   const FringeBenefitsManagement = {
     pensionAccumulation: [...sheetData[45].slice(0, 0), ...sheetData[45].slice(7, 10)],
@@ -60,14 +70,18 @@ export const budgetPLImport = (sheetData) => {
     pensionCompensation: [...sheetData[53].slice(0, 0), ...sheetData[53].slice(7, 10)],
     fringeBenefitsSum: [...sheetData[54].slice(0, 0), ...sheetData[54].slice(6, 9)],
   };
-  console.log(FringeBenefitsManagement);
+  const FringeBenefitsManagementSingleYears = createArraysOfObjects(padAllArraysToLength(FringeBenefitsManagement, 5));
+  console.log('Fringe Benefits Management:');
+  console.log(FringeBenefitsManagementSingleYears);
 
   const PersonnelFringeManagement = {
     salary: [...sheetData[43].slice(0, 0), ...sheetData[43].slice(6, 9)],
     FringeBenefits: FringeBenefitsManagement,
     personnelFringeSum: [...sheetData[56].slice(0, 0), ...sheetData[56].slice(6, 9)],
   };
-  console.log(PersonnelFringeManagement);
+  const PersonnelFringeManagementSingleYears = createArraysOfObjects(padAllArraysToLength(PersonnelFringeManagement, 5));
+  console.log('Personnel Fringe Management:');
+  console.log(PersonnelFringeManagementSingleYears);
 
   const Expenses = {
     personnel: [...sheetData[11].slice(0, 0), ...sheetData[11].slice(7, 10)],
@@ -85,7 +99,9 @@ export const budgetPLImport = (sheetData) => {
     other: [...sheetData[65].slice(0, 0), ...sheetData[65].slice(7, 10)],
     totalExpenses: [...sheetData[66].slice(0, 0), ...sheetData[66].slice(7, 10)],
   };
-  console.log(Expenses);
+  const ExpensesSingleYears = createArraysOfObjects(padAllArraysToLength(Expenses, 5));
+  console.log('Expenses:');
+  console.log(ExpensesSingleYears);
 
   const Revenue = {
     investmentPortfolio: [...sheetData[5].slice(0, 0), ...sheetData[5].slice(7, 10)],
@@ -94,5 +110,7 @@ export const budgetPLImport = (sheetData) => {
     coreBudget: [...sheetData[8].slice(0, 3), ...sheetData[8].slice(5, 6)],
     totalRevenue: [...sheetData[9].slice(0, 0), ...sheetData[9].slice(7, 10)],
   };
-  console.log(Revenue);
+  const RevenueSingleYears = createArraysOfObjects(padAllArraysToLength(Revenue, 5));
+  console.log('Revenue:');
+  console.log(RevenueSingleYears);
 };

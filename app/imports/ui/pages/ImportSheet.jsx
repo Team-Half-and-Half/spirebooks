@@ -11,7 +11,7 @@ import { Card, Col, Container, Row } from 'react-bootstrap';
 import { PAGE_IDS } from '../utilities/PageIDs';
 import { UserVerification } from '../../api/user/UserVerificationCollection';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { cleanData, transformData } from '../utilities/ImportFunctions';
+import { cleanData, createArraysOfObjects, padAllArraysToLength, transformData } from '../utilities/ImportFunctions';
 
 const ImportSheet = () => {
   const currentUserID = Meteor.userId();
@@ -38,7 +38,9 @@ const ImportSheet = () => {
       restatementAdjustment: [...cleanedData[76].slice(0, 0), ...cleanedData[76].slice(4, 7)],
       netPositionEndOfYear: [...cleanedData[77].slice(0, 0), ...cleanedData[77].slice(7, 10)],
     };
-    console.log(FundBalances);
+    const FundBalancesSingleYears = createArraysOfObjects(padAllArraysToLength(FundBalances, 5));
+    console.log('Fund Balances:');
+    console.log(FundBalancesSingleYears);
 
     const Expenditures = {
       management: [...cleanedData[62].slice(0, 0), ...cleanedData[62].slice(6, 9)],
@@ -54,7 +56,9 @@ const ImportSheet = () => {
       netTransfersOtherFunds: [...cleanedData[72].slice(0, 0), ...cleanedData[72].slice(6, 9)],
       changeInNetAssets: [...cleanedData[73].slice(0, 0), ...cleanedData[73].slice(6, 9)],
     };
-    console.log(Expenditures);
+    const ExpendituresSingleYears = createArraysOfObjects(padAllArraysToLength(Expenditures, 5));
+    console.log('Expenditures:');
+    console.log(ExpendituresSingleYears);
 
     const GeneralRevenues = {
       appropriations: [...cleanedData[52].slice(0, 0), ...cleanedData[52].slice(6, 9)],
@@ -67,7 +71,9 @@ const ImportSheet = () => {
       totalGeneralRevenue: [...cleanedData[59].slice(0, 0), ...cleanedData[59].slice(6, 9)],
       totalRevenue: [...cleanedData[60].slice(0, 0), ...cleanedData[60].slice(6, 9)],
     };
-    console.log(GeneralRevenues);
+    const GeneralRevenuesSingleYears = createArraysOfObjects(padAllArraysToLength(GeneralRevenues, 5));
+    console.log('General Revenues:');
+    console.log(GeneralRevenuesSingleYears);
 
     const ProgramRevenues = {
       chargesForServices: [...cleanedData[47].slice(0, 0), ...cleanedData[47].slice(6, 9)],
@@ -75,7 +81,9 @@ const ImportSheet = () => {
       interestInvestmentsEarnings: [...cleanedData[49].slice(0, 0), ...cleanedData[49].slice(6, 9)],
       totalProgramRevenues: [...cleanedData[50].slice(0, 0), ...cleanedData[50].slice(6, 9)],
     };
-    console.log(ProgramRevenues);
+    const ProgramRevenuesSingleYears = createArraysOfObjects(padAllArraysToLength(ProgramRevenues, 5));
+    console.log('Program Revenues:');
+    console.log(ProgramRevenuesSingleYears);
 
     const NetAssets = {
       investedCapitalAssets: [...cleanedData[38].slice(0, 0), ...cleanedData[38].slice(6, 9)],
@@ -84,7 +92,9 @@ const ImportSheet = () => {
       totalNetAssets: [...cleanedData[41].slice(0, 0), ...cleanedData[41].slice(6, 9)],
       totalLiabilitiesNetAssets: [...cleanedData[42].slice(0, 0), ...cleanedData[42].slice(6, 9)],
     };
-    console.log(NetAssets);
+    const NetAssetsSingleYears = createArraysOfObjects(padAllArraysToLength(NetAssets, 5));
+    console.log('Net Assets:');
+    console.log(NetAssetsSingleYears);
 
     const Liabilities = {
       accountPayableAccrued: [...cleanedData[28].slice(0, 0), ...cleanedData[28].slice(6, 9)],
@@ -97,7 +107,9 @@ const ImportSheet = () => {
       deferredInflowsOPED: [...cleanedData[35].slice(0, 0), ...cleanedData[35].slice(6, 9)],
       totalLiabilitiesDeferredInflows: [...cleanedData[36].slice(0, 0), ...cleanedData[36].slice(6, 9)],
     };
-    console.log(Liabilities);
+    const LiabilitiesSingleYears = createArraysOfObjects(padAllArraysToLength(Liabilities, 5));
+    console.log('Liabilities:');
+    console.log(LiabilitiesSingleYears);
 
     const OtherAssets = {
       accountsReceivable: [...cleanedData[15].slice(0, 0), ...cleanedData[15].slice(6, 9)],
@@ -113,7 +125,9 @@ const ImportSheet = () => {
       deferredOutflows: [...cleanedData[25].slice(0, 0), ...cleanedData[25].slice(6, 9)],
       totalAssetsDeferred: [...cleanedData[26].slice(0, 0), ...cleanedData[26].slice(6, 9)],
     };
-    console.log(OtherAssets);
+    const OtherAssetsSingleYears = createArraysOfObjects(padAllArraysToLength(OtherAssets, 5));
+    console.log('Other Assets:');
+    console.log(OtherAssetsSingleYears);
 
     const CashAndCashEquivalents = {
       pettyCash: [...cleanedData[8].slice(0, 0), ...cleanedData[8].slice(6, 9)],
@@ -123,7 +137,9 @@ const ImportSheet = () => {
       restrictedCash: [...cleanedData[12].slice(0, 0), ...cleanedData[12].slice(6, 9)],
       CashAndCashEquivalentsSum: [...cleanedData[13].slice(0, 0), ...cleanedData[13].slice(6, 9)],
     };
-    console.log(CashAndCashEquivalents);
+    const CashAndCashEquivalentsSingleYears = createArraysOfObjects(padAllArraysToLength(CashAndCashEquivalents, 5));
+    console.log('Cash And Cash Equivalents:');
+    console.log(CashAndCashEquivalentsSingleYears);
 
     return cleanedData;
   };

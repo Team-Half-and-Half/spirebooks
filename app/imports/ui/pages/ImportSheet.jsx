@@ -371,6 +371,7 @@ const ImportSheet = () => {
 
         setData(transformData(sheetData));
         collectData(sheetData);
+        console.log(auditedBalanceImport(sheetData));
       }
     };
     reader.readAsArrayBuffer(file);

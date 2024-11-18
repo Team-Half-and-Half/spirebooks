@@ -31,6 +31,7 @@ const ImportSheet = () => {
   const transformData = (tData) => tData.map((row) => (
     row.map((cell) => ({ value: cell }))
   ));
+
   // Pad Arrays to Length (for empty data arrays)
   const padAllArraysToLength = (obj, targetLength) => {
     // Create a new object to avoid mutating the original
@@ -40,9 +41,8 @@ const ImportSheet = () => {
     Object.keys(result).forEach((key) => {
       const array = result[key];
 
-      // Ensure the property is an array
+      // Check property is array
       if (Array.isArray(array)) {
-        // Slice the array to targetLength if it's longer
         result[key] = array.slice(0, targetLength);
 
         // Pad the array with 0s if it's shorter
@@ -59,10 +59,11 @@ const ImportSheet = () => {
     const maxLength = Math.max(...Object.values(inputObj).map(arr => (Array.isArray(arr) ? arr.length : 0))) - 1;
     const resultArray = [];
 
-    for (let i = 1; i <= maxLength; i++) { // Start at 1 to skip the first element
+    for (let i = 1; i <= maxLength; i++) { // Start at 1 to skip the first element (name)
       const newObject = {};
       Object.keys(inputObj).forEach((key) => {
         const value = inputObj[key];
+        // Check property is array (some properties are objects)
         if (Array.isArray(value)) {
           if (value[i] !== undefined) {
             newObject[key] = value[i];
@@ -77,8 +78,8 @@ const ImportSheet = () => {
     }
     return resultArray;
   };
-  // Data Collection
-  const collectData = (sheetData) => {
+
+  const auditedBalanceImport = (sheetData) => {
     // Clears empty slots caused by spaces in cells
     const innerEmptyRemoved = sheetData.map(innerArray => innerArray.filter(item => item != null && item !== ''));
     const emptyRemoved = innerEmptyRemoved.filter(innerArray => innerArray.length > 0);
@@ -239,6 +240,115 @@ const ImportSheet = () => {
     console.log(CashAndCashEquivalentsSingleYears);
   };
 
+  // Data Collection
+  const collectData = (sheetData) => {
+    // Clears empty slots caused by spaces in cells
+    const innerEmptyRemoved = sheetData.map(innerArray => innerArray.filter(item => item != null && item !== ''));
+    const emptyRemoved = innerEmptyRemoved.filter(innerArray => innerArray.length > 0);
+
+    // Removes unnecessary data caused by xlsx formatting
+    const unnecessaryData = ['Audited FS', 'Audited FS, Statement of Net Position', 'Audited FS, Investment Footnote', 'Audited FS, Capital Assets Footnote', 'Audited FS, Long-Term Liabilities Footnote', 'Operating'];
+    const unnecessaryDataRemoved = emptyRemoved.map(innerArray => innerArray.filter(item => !unnecessaryData.includes(item)));
+    console.log(unnecessaryDataRemoved);
+
+    const ExpenditurePerAudited = {
+      management: [...unnecessaryDataRemoved[69].slice(0, 0), ...unnecessaryDataRemoved[69].slice(6, 9)],
+      supportServices: [...unnecessaryDataRemoved[70].slice(0, 0), ...unnecessaryDataRemoved[70].slice(6, 9)],
+      beneficiaryAdvocacy: [...unnecessaryDataRemoved[71].slice(0, 0), ...unnecessaryDataRemoved[71].slice(6, 9)],
+    };
+    console.log(ExpenditurePerAudited);
+
+    const FringeBenefitsAdmin = {
+      pensionAccumulation: [...unnecessaryDataRemoved[15].slice(0, 0), ...unnecessaryDataRemoved[15].slice(7, 10)],
+      retireeHealthInsurance: [...unnecessaryDataRemoved[16].slice(0, 0), ...unnecessaryDataRemoved[16].slice(7, 10)],
+      otherBenefits: [...unnecessaryDataRemoved[17].slice(0, 0), ...unnecessaryDataRemoved[17].slice(7, 10)],
+      healthFund: [...unnecessaryDataRemoved[18].slice(0, 0), ...unnecessaryDataRemoved[18].slice(7, 10)],
+      socialSecurity: [...unnecessaryDataRemoved[19].slice(0, 0), ...unnecessaryDataRemoved[19].slice(7, 10)],
+      medicare: [...unnecessaryDataRemoved[20].slice(0, 0), ...unnecessaryDataRemoved[20].slice(7, 10)],
+      workersCompensation: [...unnecessaryDataRemoved[21].slice(0, 0), ...unnecessaryDataRemoved[21].slice(7, 10)],
+      unemploymentCompensation: [...unnecessaryDataRemoved[22].slice(0, 0), ...unnecessaryDataRemoved[22].slice(7, 10)],
+      pensionCompensation: [...unnecessaryDataRemoved[23].slice(0, 0), ...unnecessaryDataRemoved[23].slice(7, 10)],
+      fringeBenefitsSum: [...unnecessaryDataRemoved[24].slice(0, 0), ...unnecessaryDataRemoved[24].slice(6, 9)],
+    };
+    console.log(FringeBenefitsAdmin);
+
+    const PersonnelFringeAdmin = {
+      salary: [...unnecessaryDataRemoved[13].slice(0, 0), ...unnecessaryDataRemoved[13].slice(7, 10)],
+      FringeBenefits: FringeBenefitsAdmin,
+      personnelFringeSum: [...unnecessaryDataRemoved[26].slice(0, 0), ...unnecessaryDataRemoved[26].slice(6, 9)],
+    };
+    console.log(PersonnelFringeAdmin);
+
+    const FringeBenefitsAdminStaff = {
+      pensionAccumulation: [...unnecessaryDataRemoved[30].slice(0, 0), ...unnecessaryDataRemoved[30].slice(7, 10)],
+      retireeHealthInsurance: [...unnecessaryDataRemoved[31].slice(0, 0), ...unnecessaryDataRemoved[31].slice(7, 10)],
+      otherBenefits: [...unnecessaryDataRemoved[32].slice(0, 0), ...unnecessaryDataRemoved[32].slice(7, 10)],
+      healthFund: [...unnecessaryDataRemoved[33].slice(0, 0), ...unnecessaryDataRemoved[33].slice(7, 10)],
+      socialSecurity: [...unnecessaryDataRemoved[34].slice(0, 0), ...unnecessaryDataRemoved[34].slice(7, 10)],
+      medicare: [...unnecessaryDataRemoved[35].slice(0, 0), ...unnecessaryDataRemoved[35].slice(7, 10)],
+      workersCompensation: [...unnecessaryDataRemoved[36].slice(0, 0), ...unnecessaryDataRemoved[36].slice(7, 10)],
+      unemploymentCompensation: [...unnecessaryDataRemoved[37].slice(0, 0), ...unnecessaryDataRemoved[37].slice(7, 10)],
+      pensionCompensation: [...unnecessaryDataRemoved[38].slice(0, 0), ...unnecessaryDataRemoved[38].slice(7, 10)],
+      fringeBenefitsSum: [...unnecessaryDataRemoved[39].slice(0, 0), ...unnecessaryDataRemoved[39].slice(6, 9)],
+    };
+    console.log(FringeBenefitsAdminStaff);
+
+    const PersonnelFringeAdminStaff = {
+      salary: [...unnecessaryDataRemoved[28].slice(0, 0), ...unnecessaryDataRemoved[28].slice(7, 10)],
+      FringeBenefits: FringeBenefitsAdminStaff,
+      personnelFringeSum: [...unnecessaryDataRemoved[41].slice(0, 0), ...unnecessaryDataRemoved[41].slice(6, 9)],
+    };
+    console.log(PersonnelFringeAdminStaff);
+
+    const FringeBenefitsManagement = {
+      pensionAccumulation: [...unnecessaryDataRemoved[45].slice(0, 0), ...unnecessaryDataRemoved[45].slice(7, 10)],
+      retireeHealthInsurance: [...unnecessaryDataRemoved[46].slice(0, 0), ...unnecessaryDataRemoved[46].slice(7, 10)],
+      otherBenefits: [...unnecessaryDataRemoved[47].slice(0, 0), ...unnecessaryDataRemoved[47].slice(7, 10)],
+      healthFund: [...unnecessaryDataRemoved[48].slice(0, 0), ...unnecessaryDataRemoved[48].slice(7, 10)],
+      socialSecurity: [...unnecessaryDataRemoved[49].slice(0, 0), ...unnecessaryDataRemoved[49].slice(7, 10)],
+      medicare: [...unnecessaryDataRemoved[50].slice(0, 0), ...unnecessaryDataRemoved[50].slice(7, 10)],
+      workersCompensation: [...unnecessaryDataRemoved[51].slice(0, 0), ...unnecessaryDataRemoved[51].slice(7, 10)],
+      unemploymentCompensation: [...unnecessaryDataRemoved[52].slice(0, 0), ...unnecessaryDataRemoved[52].slice(7, 10)],
+      pensionCompensation: [...unnecessaryDataRemoved[53].slice(0, 0), ...unnecessaryDataRemoved[53].slice(7, 10)],
+      fringeBenefitsSum: [...unnecessaryDataRemoved[54].slice(0, 0), ...unnecessaryDataRemoved[54].slice(6, 9)],
+    };
+    console.log(FringeBenefitsManagement);
+
+    const PersonnelFringeManagement = {
+      salary: [...unnecessaryDataRemoved[43].slice(0, 0), ...unnecessaryDataRemoved[43].slice(6, 9)],
+      FringeBenefits: FringeBenefitsManagement,
+      personnelFringeSum: [...unnecessaryDataRemoved[56].slice(0, 0), ...unnecessaryDataRemoved[56].slice(6, 9)],
+    };
+    console.log(PersonnelFringeManagement);
+
+    const Expenses = {
+      personnel: [...unnecessaryDataRemoved[11].slice(0, 0), ...unnecessaryDataRemoved[11].slice(7, 10)],
+      PersonnelFringeAdmin: PersonnelFringeManagement,
+      PersonnelFringeAdminStaff: PersonnelFringeAdminStaff,
+      FringeAdminManagement: PersonnelFringeManagement,
+      personnelFringeSum: null, // ask brandon about it later
+      program: [...unnecessaryDataRemoved[58].slice(0, 0), ...unnecessaryDataRemoved[58].slice(7, 10)],
+      contracts: [...unnecessaryDataRemoved[59].slice(0, 0), ...unnecessaryDataRemoved[59].slice(7, 10)],
+      grants: [...unnecessaryDataRemoved[60].slice(0, 0), ...unnecessaryDataRemoved[60].slice(7, 10)],
+      travel: [...unnecessaryDataRemoved[61].slice(0, 0), ...unnecessaryDataRemoved[61].slice(7, 10)],
+      equipment: [...unnecessaryDataRemoved[62].slice(0, 0), ...unnecessaryDataRemoved[62].slice(7, 10)],
+      overhead: [...unnecessaryDataRemoved[63].slice(0, 0), ...unnecessaryDataRemoved[63].slice(7, 10)],
+      debutService: unnecessaryDataRemoved[64], // ask brandon about name
+      other: [...unnecessaryDataRemoved[65].slice(0, 0), ...unnecessaryDataRemoved[65].slice(7, 10)],
+      totalExpenses: [...unnecessaryDataRemoved[66].slice(0, 0), ...unnecessaryDataRemoved[66].slice(7, 10)],
+    };
+    console.log(Expenses);
+
+    const Revenue = {
+      investmentPortfolio: [...unnecessaryDataRemoved[5].slice(0, 0), ...unnecessaryDataRemoved[5].slice(7, 10)],
+      revenues: [...unnecessaryDataRemoved[6].slice(0, 0), ...unnecessaryDataRemoved[6].slice(7, 10)],
+      generalFunds: [...unnecessaryDataRemoved[7].slice(0, 0), ...unnecessaryDataRemoved[7].slice(7, 10)],
+      coreBudget: [...unnecessaryDataRemoved[8].slice(0, 3), ...unnecessaryDataRemoved[8].slice(5, 6)],
+      totalRevenue: [...unnecessaryDataRemoved[9].slice(0, 0), ...unnecessaryDataRemoved[9].slice(7, 10)],
+    };
+    console.log(Revenue);
+  };
+
   const handleFileUpload = (e) => {
     const file = e[0];
     // const file = e.target.files[0];
@@ -255,7 +365,7 @@ const ImportSheet = () => {
         swal('Success!', 'File uploaded successfully', 'success');
         const fileData = new Uint8Array(event.target.result);
         const workbook = XLSX.read(fileData, { type: 'array' });
-        const sheetName = workbook.SheetNames[0];
+        const sheetName = workbook.SheetNames[5];
         const sheet = workbook.Sheets[sheetName];
         const sheetData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
 

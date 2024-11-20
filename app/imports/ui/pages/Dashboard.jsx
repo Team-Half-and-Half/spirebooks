@@ -59,6 +59,14 @@ const Dashboard = () => {
     actual_plus_encumbrance: year.actualPlusEncumbrance,
     year: year.year,
   }));
+
+  // states to manage show/hide table view button
+  const [showTable, setShowTable] = useState(false);
+
+  const toggleTableView = () => {
+    setShowTable(!showTable);
+  };
+
   return (
     <Container fluid id={PAGE_IDS.DASHBOARD}>
       <Row>
@@ -80,9 +88,6 @@ const Dashboard = () => {
               </Dropdown.Item>
             ))}
           </DropdownButton>
-          <Button href="/dashboard-table" className="mt-2">
-            Table View
-          </Button>
         </Col>
       </Row>
       <Row className="py-2">
@@ -118,7 +123,20 @@ const Dashboard = () => {
         </Col>
       </Row>
       <Row>
-        <DashboardTable />
+        <Col className="mx-auto">
+
+          <Card>
+            <CardHeader>
+              <Button
+                onClick={toggleTableView}
+                className={`my-2 ${showTable ? 'btn-secondary' : 'btn-primary'}`}
+              >
+                {showTable ? 'Hide Table View' : 'Show Table View'}
+              </Button>
+            </CardHeader>
+            {showTable && <DashboardTable />}
+          </Card>
+        </Col>
       </Row>
     </Container>
   );

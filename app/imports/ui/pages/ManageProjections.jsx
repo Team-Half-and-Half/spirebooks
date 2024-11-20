@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Roles } from 'meteor/alanning:roles';
 import { Button, Card, Col, Container, Row, Modal } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import fileTypeChecker from 'file-type-checker';
@@ -134,7 +135,9 @@ const ManageProjections = () => {
                   </Card>
                 </Modal.Body>
               </Modal>
-              <Button>Manual Input Form</Button>
+              <Link to="/manage-projections/manual-input-form">
+                <Button variant="primary">Manual Input Form</Button>
+              </Link>
             </Col>
           </Col>
         </Row>

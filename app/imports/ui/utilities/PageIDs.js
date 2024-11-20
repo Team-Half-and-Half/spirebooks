@@ -17,6 +17,7 @@ export const PAGE_IDS = {
   VERIFICATION_TABLE: 'verification-table',
   COMPARE_PROJECTIONS: 'compare-projections',
   MANAGE_PROJECTIONS: 'manage-projections',
+  INPUT_PROJECTION: 'input-projection',
   USER_SETTINGS: 'user-settings',
   TOS: 'tos',
 };

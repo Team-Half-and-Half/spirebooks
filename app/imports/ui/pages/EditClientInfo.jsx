@@ -23,7 +23,7 @@ const EditStuff = () => {
     // const BPL = BudgetPL.subscribeBudgetPL();
     // const AFSAdmin = AuditedFS.subscribeAuditedFSAdmin();
     // const BPLAdmin = BudgetPL.subscribeBudgetPLAdmin();
-    const ABSAdmin = AuditedBalance.subscribeAuditedBalanceAdmin();
+    const ABSAdmin = AuditedBalance.subscribeAuditedBalance();
     // Determine if the subscription is ready
     const rdy = ABSAdmin.ready();
     const document = AuditedBalance.find({ owner: owner }).fetch();
@@ -44,6 +44,7 @@ const EditStuff = () => {
   };
   // On successful submit, insert the data.
   const submit = (data) => {
+    console.log(data);
     const { CashAndCashEquivalents,
       OtherAssets,
       Liabilities,

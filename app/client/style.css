@@ -209,3 +209,20 @@ html, body {
   height: 400px; /* Set the desired height */
   overflow: auto; /* Enable scrolling if necessary */
 }
+.tableField{
+  font-family: Roboto, sans-serif;
+  --bs-border-radius: 0;
+  font-weight: 350;
+  color: #3d3e3f;
+}
+.rowName{
+  font-weight: 350;
+  color: #3d3e3f;
+  font-family: Roboto, sans-serif;
+  --bs-border-radius: 0;
+  --bs-secondary-bg: none;
+  --bs-border-color: white;
+  font-size: 0.8rem;
+}
+
+

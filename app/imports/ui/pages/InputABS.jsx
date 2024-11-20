@@ -74,9 +74,6 @@ const InputABS = () => {
                   <TextField className="rowName" placeholder="Notes receivable - due after one year" name="OtherAssets.notesAfterOneYear" label={false} disabled />
                   <TextField className="rowName" placeholder="Security Deposits" name="OtherAssets.securityDeposits" label={false} disabled />
                   <TextField className="rowName" placeholder="Cash held by investment manager" name="OtherAssets.cashHeldInvestmentManager" label={false} disabled />
-
-
-
                   <TextField className="rowName" placeholder="Mutual Funds" name="OtherAssets.Investments.mutualFunds" label={false} disabled />
                   <TextField className="rowName" placeholder="Commingled funds" name="OtherAssets.Investments.commingledFunds" label={false} disabled />
                   <TextField className="rowName" placeholder="Hedge funds" name="OtherAssets.Investments.hedgeFunds" label={false} disabled />
@@ -90,7 +87,6 @@ const InputABS = () => {
                   <TextField className="rowName" placeholder="U.S. agencies" name="OtherAssets.Investments.agenciesUS" label={false} disabled />
                   <TextField className="rowName" placeholder="Subtotal - Loan Fund" name="subtotalLoanFund" label={false} disabled />
                   <TextField className="rowName" placeholder="Investments" name="investmentSum" label={false} disabled />
-
                   {/* Assets */}
                   <TextField className="rowName" placeholder="Buildings (Assets)" name="OtherAssets.CapitalAssetsNet.Assets.buildings" label={false} disabled />
                   <TextField className="rowName" placeholder="Leasehold improvements (Assets)" name="OtherAssets.CapitalAssetsNet.Assets.leaseholdImprovements" label={false} disabled />
@@ -110,7 +106,6 @@ const InputABS = () => {
                   <TextField className="rowName" placeholder="Net (B Assets)" name="netCompanyBAsset" label={false} disabled />
                   <TextField className="rowName" placeholder="Land (B Assets)" name="OtherAssets.CapitalAssetsNet.LiabilityBAsset.land" label={false} disabled />
                   <TextField className="rowName" placeholder="Subtotal - Limited Liability Company B's assets, net" name="subTotalCompanyBAssets" label={false} disabled />
-
                   <TextField className="rowName" placeholder="Capital Assets, net" name="capitalAssetsNetSum" label={false} disabled />
                   <TextField className="rowName" placeholder="Restricted cash" name="OtherAssets.restrictedCash" label={false} disabled />
                   <TextField className="rowName" placeholder="Total Other Assets" name="totalOtherAssets" label={false} disabled />

@@ -7,6 +7,7 @@ import fileTypeChecker from 'file-type-checker';
 import swal from 'sweetalert';
 import * as XLSX from 'xlsx';
 import { FaFileUpload } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import ManageProjectionsTable from '../components/ManageProjectionsTable';
 import { PAGE_IDS } from '../utilities/PageIDs';
 import { UserVerification } from '../../api/user/UserVerificationCollection';
@@ -134,7 +135,9 @@ const ManageProjections = () => {
                   </Card>
                 </Modal.Body>
               </Modal>
-              <Button>Manual Input Form</Button>
+              <Link to="/balance-sheet">
+                <Button>Manual Input Form</Button>
+              </Link>
             </Col>
           </Col>
         </Row>

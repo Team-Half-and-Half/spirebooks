@@ -25,6 +25,9 @@ export const snapshotData = [
   { year: 'Year 4', assets: 700301818.643744, liabilities: 113248352.984127, cash_on_hand: 21592948.2770016,
     investment: 418441322.033409, debt: 37672571.4285714, revenues: 36670341.0360191, opex: 37218413.6161603,
     cash_inflow: 36670341.0360191, inflows: 506857.142857143, admin: 1810733.61125723, mgmt_staff: 454060.519247739, mgmt: 122651.684292142, actual: 28211686.14, encumbrance: 8076217.33, budget: 36347749 },
+  { year: 'Year 5', assets: 701042984.891419, liabilities: 109830825.693122, cash_on_hand: 17757200.3932227,
+    investment: 427149326.264863, debt: 34165714.2857143, revenues: 37234516.6267727, opex: 37666058.1700631,
+    cash_inflow: 37234516.6267727, inflows: 506857.142857143, admin: 2038282.67974894, mgmt_staff: 517495.835688518, mgmt: 131868.570228926, actual: 26874729.42, encumbrance: 7034862.58, budget: 35218389 },
 ];
 
 // Calculate financial metrics and convert everything to millions afterward

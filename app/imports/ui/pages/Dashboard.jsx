@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { DropdownButton, Dropdown, Col, Container, Row, Card, CardHeader } from 'react-bootstrap';
+import { DropdownButton, Dropdown, Col, Container, Row, Card, CardHeader, Button } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import CustomLineChart from '../components/CustomLineChart';
 import { PAGE_IDS } from '../utilities/PageIDs';
 import { snapshotData } from '../utilities/TemporaryData'; // replace later when using real data
+import DashboardTable from '../components/DashboardTable';
 
 /** Renders graphs that show all the financial data */
 const Dashboard = () => {
@@ -68,16 +69,21 @@ const Dashboard = () => {
         </Col>
       </Row>
       <Row>
-        <DropdownButton id="dropdown-basic-button" title="Select Number of Years">
-          {snapshotData.map((item, index) => (
-            <Dropdown.Item
-              key={index}
-              onClick={() => handleYearChange(index + 1)}
-            >
-              {index + 1} Year(s)
-            </Dropdown.Item>
-          ))}
-        </DropdownButton>
+        <Col lg={5}>
+          <DropdownButton id="dropdown-basic-button" title="Select Number of Years">
+            {snapshotData.map((item, index) => (
+              <Dropdown.Item
+                key={index}
+                onClick={() => handleYearChange(index + 1)}
+              >
+                {index + 1} Year(s)
+              </Dropdown.Item>
+            ))}
+          </DropdownButton>
+          <Button href="/dashboard-table" className="mt-2">
+            Table View
+          </Button>
+        </Col>
       </Row>
       <Row className="py-2">
         <Col>
@@ -110,6 +116,9 @@ const Dashboard = () => {
             <CustomLineChart data={budgetData} />
           </Card>
         </Col>
+      </Row>
+      <Row>
+        <DashboardTable />
       </Row>
     </Container>
   );

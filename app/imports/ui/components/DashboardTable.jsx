@@ -21,7 +21,7 @@ const DashboardTable = () => {
       <tbody>
         {categories.map((category, index) => (
           <tr key={index}>
-            <td>{category.replace(/_/g, ' ').toUpperCase()}</td>
+            <td>{category.replace(/_/g, ' ')}</td>
             {snapshotData.map((data, dataIndex) => (
               <td key={dataIndex}>
                 {typeof data[category] === 'number'

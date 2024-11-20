@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { DropdownButton, Dropdown, Col, Container, Row, Card, CardHeader } from 'react-bootstrap';
+import { DropdownButton, Dropdown, Col, Container, Row, Card, CardHeader, Button } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import CustomLineChart from '../components/CustomLineChart';
 import { PAGE_IDS } from '../utilities/PageIDs';
 import { snapshotData } from '../utilities/TemporaryData'; // replace later when using real data
+import DashboardTable from '../components/DashboardTable';
 
 /** Renders graphs that show all the financial data */
 const Dashboard = () => {
@@ -58,6 +59,14 @@ const Dashboard = () => {
     actual_plus_encumbrance: year.actualPlusEncumbrance,
     year: year.year,
   }));
+
+  // states to manage show/hide table view button
+  const [showTable, setShowTable] = useState(false);
+
+  const toggleTableView = () => {
+    setShowTable(!showTable);
+  };
+
   return (
     <Container fluid id={PAGE_IDS.DASHBOARD}>
       <Row>
@@ -68,38 +77,64 @@ const Dashboard = () => {
         </Col>
       </Row>
       <Row>
-        <DropdownButton id="dropdown-basic-button" title="Select Number of Years">
-          {snapshotData.map((item, index) => (
-            <Dropdown.Item
-              key={index}
-              onClick={() => handleYearChange(index + 1)}
-            >
-              {index + 1} Year(s)
-            </Dropdown.Item>
-          ))}
-        </DropdownButton>
+        <Col lg={5}>
+          <DropdownButton id="dropdown-basic-button" title="Select Number of Years">
+            {snapshotData.map((item, index) => (
+              <Dropdown.Item
+                key={index}
+                onClick={() => handleYearChange(index + 1)}
+              >
+                {index + 1} Year(s)
+              </Dropdown.Item>
+            ))}
+          </DropdownButton>
+        </Col>
       </Row>
-      <Row>
+      <Row className="py-2">
         <Col>
           <h1>Equity Metrics</h1>
-          <Card>
+          <Card className="my-2">
             <CardHeader>Net Position</CardHeader>
             <CustomLineChart data={netPositionData} />
+          </Card>
+          <Card className="my-2">
             <CardHeader>Years of Solvency</CardHeader>
             <CustomLineChart data={yearsOfSolvencyData} />
+          </Card>
+          <Card className="my-2">
             <CardHeader>Demand for Capital</CardHeader>
             <CustomLineChart data={demandForCapitalData} />
           </Card>
         </Col>
         <Col>
           <h1>Cash Flow Metrics</h1>
-          <Card>
+          <Card className="my-2">
             <CardHeader>Financing</CardHeader>
             <CustomLineChart data={financingData} />
+          </Card>
+          <Card className="my-2">
             <CardHeader>Years of Solvency based on Cash Flow</CardHeader>
             <CustomLineChart data={yearsOfSolvencyCashData} />
+          </Card>
+          <Card className="my-2">
             <CardHeader>Budget</CardHeader>
             <CustomLineChart data={budgetData} />
+          </Card>
+        </Col>
+      </Row>
+      <Row>
+        <Col className="mx-auto">
+
+          <Card>
+            <CardHeader>
+              <Button
+                onClick={toggleTableView}
+                className={`my-2 ${showTable ? 'btn-secondary' : 'btn-primary'}`}
+              >
+                {showTable ? 'Hide Table View' : 'Show Table View'}
+              </Button>
+            </CardHeader>
+            {showTable && <DashboardTable />}
           </Card>
         </Col>
       </Row>

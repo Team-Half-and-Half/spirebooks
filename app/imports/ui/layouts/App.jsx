@@ -18,7 +18,6 @@ import ManageDatabase from '../pages/ManageDatabase';
 import Dashboard from '../pages/Dashboard';
 import TermsAndConditions from '../pages/TermsAndConditions';
 import ImportSheet from '../pages/ImportSheet';
-import InputClientInfo from '../pages/InputClientInfo';
 import UserSettings from '../pages/UserSettings';
 import VerificationTable from '../pages/VerificationTable';
 import CompareProjections from '../pages/CompareProjections';

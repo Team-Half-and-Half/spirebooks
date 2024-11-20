@@ -74,9 +74,6 @@ const InputABS = () => {
                   <TextField className="rowName" placeholder="Notes receivable - due after one year" name="OtherAssets.notesAfterOneYear" label={false} disabled />
                   <TextField className="rowName" placeholder="Security Deposits" name="OtherAssets.securityDeposits" label={false} disabled />
                   <TextField className="rowName" placeholder="Cash held by investment manager" name="OtherAssets.cashHeldInvestmentManager" label={false} disabled />
-
-
-
                   <TextField className="rowName" placeholder="Mutual Funds" name="OtherAssets.Investments.mutualFunds" label={false} disabled />
                   <TextField className="rowName" placeholder="Commingled funds" name="OtherAssets.Investments.commingledFunds" label={false} disabled />
                   <TextField className="rowName" placeholder="Hedge funds" name="OtherAssets.Investments.hedgeFunds" label={false} disabled />

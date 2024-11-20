@@ -1,17 +1,20 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { useTracker } from 'meteor/react-meteor-data';
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import * as XLSX from 'xlsx';
 import swal from 'sweetalert';
 import { FaFileUpload } from 'react-icons/fa';
 import fileTypeChecker from 'file-type-checker';
-import Spreadsheet from 'react-spreadsheet';
+// import Spreadsheet from 'react-spreadsheet';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { PAGE_IDS } from '../utilities/PageIDs';
 import { UserVerification } from '../../api/user/UserVerificationCollection';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { cleanData, createArraysOfObjects, padAllArraysToLength, transformData } from '../utilities/ImportFunctions';
+import { cleanData } from '../utilities/ImportFunctions';
+import { auditedBalanceImport } from '../utilities/AuditedBalanceImportFunc';
+import { budgetPLImport } from '../utilities/BudgetP&LImportFunc';
+import { auditedFSImport } from '../utilities/AuditedFSImportFunc';
 
 const ImportSheet = () => {
   const currentUserID = Meteor.userId();
@@ -25,124 +28,8 @@ const ImportSheet = () => {
     };
   }, []);
 
-  const [data, setData] = useState(null);
+  // const [data, setData] = useState(null);
   const fileInputRef = useRef(null);
-
-  // Data Collection
-  const collectData = (sheetData) => {
-    const cleanedData = cleanData(sheetData);
-    console.log(cleanedData);
-
-    const FundBalances = {
-      beginningOfYear: [...cleanedData[75].slice(0, 0), ...cleanedData[75].slice(7, 10)],
-      restatementAdjustment: [...cleanedData[76].slice(0, 0), ...cleanedData[76].slice(4, 7)],
-      netPositionEndOfYear: [...cleanedData[77].slice(0, 0), ...cleanedData[77].slice(7, 10)],
-    };
-    const FundBalancesSingleYears = createArraysOfObjects(padAllArraysToLength(FundBalances, 5));
-    console.log('Fund Balances:');
-    console.log(FundBalancesSingleYears);
-
-    const Expenditures = {
-      management: [...cleanedData[62].slice(0, 0), ...cleanedData[62].slice(6, 9)],
-      supportServices: [...cleanedData[63].slice(0, 0), ...cleanedData[63].slice(6, 9)],
-      beneficiaryAdvocacy: [...cleanedData[64].slice(0, 0), ...cleanedData[64].slice(6, 9)],
-      depreciation: [...cleanedData[65].slice(0, 0), ...cleanedData[65].slice(6, 9)],
-      limitedLiabilityA: [...cleanedData[66].slice(0, 0), ...cleanedData[66].slice(6, 9)],
-      limitedLiabilityB: [...cleanedData[67].slice(0, 0), ...cleanedData[67].slice(6, 9)],
-      totalExpenses: [...cleanedData[68].slice(0, 0), ...cleanedData[68].slice(6, 9)],
-      excessOfRevenue: [...cleanedData[69].slice(0, 0), ...cleanedData[69].slice(6, 9)],
-      proceedsFromDebt: [...cleanedData[70].slice(0, 0), ...cleanedData[70].slice(6, 9)],
-      proceedsFromCapitalLease: [...cleanedData[71].slice(0, 0), ...cleanedData[71].slice(6, 9)],
-      netTransfersOtherFunds: [...cleanedData[72].slice(0, 0), ...cleanedData[72].slice(6, 9)],
-      changeInNetAssets: [...cleanedData[73].slice(0, 0), ...cleanedData[73].slice(6, 9)],
-    };
-    const ExpendituresSingleYears = createArraysOfObjects(padAllArraysToLength(Expenditures, 5));
-    console.log('Expenditures:');
-    console.log(ExpendituresSingleYears);
-
-    const GeneralRevenues = {
-      appropriations: [...cleanedData[52].slice(0, 0), ...cleanedData[52].slice(6, 9)],
-      trust: [...cleanedData[53].slice(0, 0), ...cleanedData[53].slice(6, 9)],
-      interestInvestmentLossesEarnings: [...cleanedData[54].slice(0, 0), ...cleanedData[54].slice(6, 9)],
-      newspaperAds: [...cleanedData[55].slice(0, 0), ...cleanedData[55].slice(6, 9)],
-      donationsAndOther: [...cleanedData[56].slice(0, 0), ...cleanedData[56].slice(6, 9)],
-      limitedLiabilityB: [...cleanedData[57].slice(0, 0), ...cleanedData[57].slice(6, 9)],
-      nonImposedFringeBenefits: [...cleanedData[58].slice(0, 0), ...cleanedData[58].slice(6, 9)],
-      totalGeneralRevenue: [...cleanedData[59].slice(0, 0), ...cleanedData[59].slice(6, 9)],
-      totalRevenue: [...cleanedData[60].slice(0, 0), ...cleanedData[60].slice(6, 9)],
-    };
-    const GeneralRevenuesSingleYears = createArraysOfObjects(padAllArraysToLength(GeneralRevenues, 5));
-    console.log('General Revenues:');
-    console.log(GeneralRevenuesSingleYears);
-
-    const ProgramRevenues = {
-      chargesForServices: [...cleanedData[47].slice(0, 0), ...cleanedData[47].slice(6, 9)],
-      operatingGrants: [...cleanedData[48].slice(0, 0), ...cleanedData[48].slice(6, 9)],
-      interestInvestmentsEarnings: [...cleanedData[49].slice(0, 0), ...cleanedData[49].slice(6, 9)],
-      totalProgramRevenues: [...cleanedData[50].slice(0, 0), ...cleanedData[50].slice(6, 9)],
-    };
-    const ProgramRevenuesSingleYears = createArraysOfObjects(padAllArraysToLength(ProgramRevenues, 5));
-    console.log('Program Revenues:');
-    console.log(ProgramRevenuesSingleYears);
-
-    const NetAssets = {
-      investedCapitalAssets: [...cleanedData[38].slice(0, 0), ...cleanedData[38].slice(6, 9)],
-      restrictedFederal: [...cleanedData[39].slice(0, 0), ...cleanedData[39].slice(6, 9)],
-      unrestricted: [...cleanedData[40].slice(0, 0), ...cleanedData[40].slice(6, 9)],
-      totalNetAssets: [...cleanedData[41].slice(0, 0), ...cleanedData[41].slice(6, 9)],
-      totalLiabilitiesNetAssets: [...cleanedData[42].slice(0, 0), ...cleanedData[42].slice(6, 9)],
-    };
-    const NetAssetsSingleYears = createArraysOfObjects(padAllArraysToLength(NetAssets, 5));
-    console.log('Net Assets:');
-    console.log(NetAssetsSingleYears);
-
-    const Liabilities = {
-      accountPayableAccrued: [...cleanedData[28].slice(0, 0), ...cleanedData[28].slice(6, 9)],
-      dueToFund: [...cleanedData[29].slice(0, 0), ...cleanedData[29].slice(6, 9)],
-      dueToOther: [...cleanedData[30].slice(0, 0), ...cleanedData[30].slice(6, 9)],
-      longTermWithin: [...cleanedData[31].slice(0, 0), ...cleanedData[31].slice(6, 9)],
-      longTermAfter: [...cleanedData[32].slice(0, 0), ...cleanedData[32].slice(6, 9)],
-      totalLiabilities: [...cleanedData[33].slice(0, 0), ...cleanedData[33].slice(6, 9)],
-      deferredInflowsResources: [...cleanedData[34].slice(0, 0), ...cleanedData[34].slice(6, 9)],
-      deferredInflowsOPED: [...cleanedData[35].slice(0, 0), ...cleanedData[35].slice(6, 9)],
-      totalLiabilitiesDeferredInflows: [...cleanedData[36].slice(0, 0), ...cleanedData[36].slice(6, 9)],
-    };
-    const LiabilitiesSingleYears = createArraysOfObjects(padAllArraysToLength(Liabilities, 5));
-    console.log('Liabilities:');
-    console.log(LiabilitiesSingleYears);
-
-    const OtherAssets = {
-      accountsReceivable: [...cleanedData[15].slice(0, 0), ...cleanedData[15].slice(6, 9)],
-      dueFromOtherFund: [...cleanedData[16].slice(0, 0), ...cleanedData[16].slice(6, 9)],
-      interestDividendsReceivable: [...cleanedData[17].slice(0, 0), ...cleanedData[17].slice(6, 9)],
-      inventoryPrepaidOtherAssets: [...cleanedData[18].slice(0, 0), ...cleanedData[18].slice(6, 9)],
-      notesWithinOneYear: [...cleanedData[19].slice(0, 0), ...cleanedData[19].slice(6, 9)],
-      notesAfterOneYear: [...cleanedData[20].slice(0, 0), ...cleanedData[20].slice(6, 9)],
-      securityDeposits: [...cleanedData[21].slice(0, 0), ...cleanedData[21].slice(6, 9)],
-      investments: [...cleanedData[22].slice(0, 0), ...cleanedData[22].slice(6, 9)],
-      capitalAssetNet: [...cleanedData[23].slice(0, 0), ...cleanedData[23].slice(6, 9)],
-      totalOtherAssets: [...cleanedData[24].slice(0, 0), ...cleanedData[24].slice(6, 9)],
-      deferredOutflows: [...cleanedData[25].slice(0, 0), ...cleanedData[25].slice(6, 9)],
-      totalAssetsDeferred: [...cleanedData[26].slice(0, 0), ...cleanedData[26].slice(6, 9)],
-    };
-    const OtherAssetsSingleYears = createArraysOfObjects(padAllArraysToLength(OtherAssets, 5));
-    console.log('Other Assets:');
-    console.log(OtherAssetsSingleYears);
-
-    const CashAndCashEquivalents = {
-      pettyCash: [...cleanedData[8].slice(0, 0), ...cleanedData[8].slice(6, 9)],
-      cash: [...cleanedData[9].slice(0, 0), ...cleanedData[9].slice(6, 9)],
-      cashInBank: [...cleanedData[10].slice(0, 0), ...cleanedData[10].slice(6, 9)],
-      cashHeldInvestmentManager: [...cleanedData[11].slice(0, 0), ...cleanedData[11].slice(6, 9)],
-      restrictedCash: [...cleanedData[12].slice(0, 0), ...cleanedData[12].slice(6, 9)],
-      CashAndCashEquivalentsSum: [...cleanedData[13].slice(0, 0), ...cleanedData[13].slice(6, 9)],
-    };
-    const CashAndCashEquivalentsSingleYears = createArraysOfObjects(padAllArraysToLength(CashAndCashEquivalents, 5));
-    console.log('Cash And Cash Equivalents:');
-    console.log(CashAndCashEquivalentsSingleYears);
-
-    return cleanedData;
-  };
 
   const handleFileUpload = (e) => {
     const file = e[0];
@@ -160,12 +47,21 @@ const ImportSheet = () => {
         swal('Success!', 'File uploaded successfully', 'success');
         const fileData = new Uint8Array(event.target.result);
         const workbook = XLSX.read(fileData, { type: 'array' });
-        const sheetName = workbook.SheetNames[6];
-        const sheet = workbook.Sheets[sheetName];
-        const sheetData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+        const auditedBalanceSheet = workbook.Sheets[workbook.SheetNames[4]];
+        const auditedBalanceSheetData = XLSX.utils.sheet_to_json(auditedBalanceSheet, { header: 1 });
 
-        setData(transformData(sheetData));
-        collectData(sheetData);
+        const budgetPLSheet = workbook.Sheets[workbook.SheetNames[5]];
+        const budgetPLSheetData = XLSX.utils.sheet_to_json(budgetPLSheet, { header: 1 });
+
+        const auditedFSSheet = workbook.Sheets[workbook.SheetNames[6]];
+        const auditedFSSheetData = XLSX.utils.sheet_to_json(auditedFSSheet, { header: 1 });
+
+        // setData(transformData(auditedBalanceSheetData));
+
+        auditedBalanceImport(cleanData(auditedBalanceSheetData));
+        budgetPLImport(cleanData(budgetPLSheetData));
+        auditedFSImport(cleanData(auditedFSSheetData));
+
       }
     };
     reader.readAsArrayBuffer(file);
@@ -175,10 +71,10 @@ const ImportSheet = () => {
     const files = e.target.files; // Get selected files
     handleFileUpload(files); // Process files
   };
-  function preventDefaults(e) {
+  const preventDefaults = (e) => {
     e.preventDefault();
     e.stopPropagation();
-  }
+  };
   const handleClick = () => {
     fileInputRef.current.click(); // Trigger the file input click
   };
@@ -193,51 +89,50 @@ const ImportSheet = () => {
   if (ready) {
     return ((Roles.userIsInRole(currentUserID, 'ADMIN') || verificationStatus[0].verification) ? (
       <Container fluid id={PAGE_IDS.IMPORT}>
-        {!data && (
-          <Row className="p-4">
+        {/* {!data && ( */}
+        <Row className="p-4">
+          <Col className="col-3" />
+          <Col className="col-6">
+            <Card className="w-100 p-3">
+              <Card.Body>
+                <Card.Title className="text-style text-center"><h2>Import File</h2></Card.Title>
+                <Card.Subtitle className="mb-2 text-muted text-center text-style">Supported file: .xlsm
+                </Card.Subtitle>
+                <Row className="p-2">
+                  <Col className="col-3" />
+                  <Col className="col-6">
+                    <Card.Body
+                      className="drag-and-drop-area"
+                      onClick={handleClick} // Click event to open file dialog
+                      onDragEnter={(e) => { preventDefaults(e); }}
+                      onDragOver={(e) => { preventDefaults(e); }}
+                      onDrop={handleDrop}
+                    >
+                      <input
+                        type="file"
+                        ref={fileInputRef}
+                        style={{ display: 'none' }} // Hide the file input
+                        multiple // Allow multiple file selection
+                        onChange={handleChange} // Handle file selection
+                      />
+                      <FaFileUpload size="100px" />
+                      <p>Drag & Drop your Financial Model Spreadsheet</p>
+                    </Card.Body>
+                  </Col>
+                  <Col className="col-3" />
+                </Row>
+              </Card.Body>
+            </Card>
             <Col className="col-3" />
-            <Col className="col-6">
-              <Card className="w-100 p-3">
-                <Card.Body>
-                  <Card.Title className="text-style text-center"><h2>Import File</h2></Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted text-center text-style">Supported files: .xlsx or
-                    .csv
-                  </Card.Subtitle>
-                  <Row className="p-2">
-                    <Col className="col-3" />
-                    <Col className="col-6">
-                      <Card.Body
-                        className="drag-and-drop-area"
-                        onClick={handleClick} // Click event to open file dialog
-                        onDragEnter={(e) => { preventDefaults(e); }}
-                        onDragOver={(e) => { preventDefaults(e); }}
-                        onDrop={handleDrop}
-                      >
-                        <input
-                          type="file"
-                          ref={fileInputRef}
-                          style={{ display: 'none' }} // Hide the file input
-                          multiple // Allow multiple file selection
-                          onChange={handleChange} // Handle file selection
-                        />
-                        <FaFileUpload size="100px" />
-                        <p>Drag & Drop your files here or click to upload</p>
-                      </Card.Body>
-                    </Col>
-                    <Col className="col-3" />
-                  </Row>
-                </Card.Body>
-              </Card>
-              <Col className="col-3" />
-            </Col>
-          </Row>
-        )}
-        {data && (
-          <div>
-            <h3>Imported Data:</h3>
-            <Spreadsheet data={data} onChange={setData} />
-          </div>
-        )}
+          </Col>
+        </Row>
+        {/* )} */}
+        {/* {data && ( */}
+        {/*  <div> */}
+        {/*    <h3>Imported Data:</h3> */}
+        {/*    <Spreadsheet data={data} onChange={setData} /> */}
+        {/*  </div> */}
+        {/* )} */}
       </Container>
     ) : (
       <Container fluid>

@@ -1,19 +1,20 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { useTracker } from 'meteor/react-meteor-data';
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import * as XLSX from 'xlsx';
 import swal from 'sweetalert';
 import { FaFileUpload } from 'react-icons/fa';
 import fileTypeChecker from 'file-type-checker';
-import Spreadsheet from 'react-spreadsheet';
+// import Spreadsheet from 'react-spreadsheet';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { PAGE_IDS } from '../utilities/PageIDs';
 import { UserVerification } from '../../api/user/UserVerificationCollection';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { cleanData, transformData } from '../utilities/ImportFunctions';
+import { cleanData } from '../utilities/ImportFunctions';
 import { auditedBalanceImport } from '../utilities/AuditedBalanceImportFunc';
 import { budgetPLImport } from '../utilities/BudgetP&LImportFunc';
+import { auditedFSImport } from '../utilities/AuditedFSImportFunc';
 
 const ImportSheet = () => {
   const currentUserID = Meteor.userId();
@@ -27,7 +28,7 @@ const ImportSheet = () => {
     };
   }, []);
 
-  const [data, setData] = useState(null);
+  // const [data, setData] = useState(null);
   const fileInputRef = useRef(null);
 
   const handleFileUpload = (e) => {
@@ -55,11 +56,11 @@ const ImportSheet = () => {
         const auditedFSSheet = workbook.Sheets[workbook.SheetNames[6]];
         const auditedFSSheetData = XLSX.utils.sheet_to_json(auditedFSSheet, { header: 1 });
 
-        setData(transformData(auditedBalanceSheetData));
+        // setData(transformData(auditedBalanceSheetData));
 
         auditedBalanceImport(cleanData(auditedBalanceSheetData));
         budgetPLImport(cleanData(budgetPLSheetData));
-        auditedBalanceImport(cleanData(auditedFSSheetData));
+        auditedFSImport(cleanData(auditedFSSheetData));
 
       }
     };
@@ -88,50 +89,50 @@ const ImportSheet = () => {
   if (ready) {
     return ((Roles.userIsInRole(currentUserID, 'ADMIN') || verificationStatus[0].verification) ? (
       <Container fluid id={PAGE_IDS.IMPORT}>
-        {!data && (
-          <Row className="p-4">
+        {/* {!data && ( */}
+        <Row className="p-4">
+          <Col className="col-3" />
+          <Col className="col-6">
+            <Card className="w-100 p-3">
+              <Card.Body>
+                <Card.Title className="text-style text-center"><h2>Import File</h2></Card.Title>
+                <Card.Subtitle className="mb-2 text-muted text-center text-style">Supported file: .xlsm
+                </Card.Subtitle>
+                <Row className="p-2">
+                  <Col className="col-3" />
+                  <Col className="col-6">
+                    <Card.Body
+                      className="drag-and-drop-area"
+                      onClick={handleClick} // Click event to open file dialog
+                      onDragEnter={(e) => { preventDefaults(e); }}
+                      onDragOver={(e) => { preventDefaults(e); }}
+                      onDrop={handleDrop}
+                    >
+                      <input
+                        type="file"
+                        ref={fileInputRef}
+                        style={{ display: 'none' }} // Hide the file input
+                        multiple // Allow multiple file selection
+                        onChange={handleChange} // Handle file selection
+                      />
+                      <FaFileUpload size="100px" />
+                      <p>Drag & Drop your Financial Model Spreadsheet</p>
+                    </Card.Body>
+                  </Col>
+                  <Col className="col-3" />
+                </Row>
+              </Card.Body>
+            </Card>
             <Col className="col-3" />
-            <Col className="col-6">
-              <Card className="w-100 p-3">
-                <Card.Body>
-                  <Card.Title className="text-style text-center"><h2>Import File</h2></Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted text-center text-style">Supported file: .xlsm
-                  </Card.Subtitle>
-                  <Row className="p-2">
-                    <Col className="col-3" />
-                    <Col className="col-6">
-                      <Card.Body
-                        className="drag-and-drop-area"
-                        onClick={handleClick} // Click event to open file dialog
-                        onDragEnter={(e) => { preventDefaults(e); }}
-                        onDragOver={(e) => { preventDefaults(e); }}
-                        onDrop={handleDrop}
-                      >
-                        <input
-                          type="file"
-                          ref={fileInputRef}
-                          style={{ display: 'none' }} // Hide the file input
-                          multiple // Allow multiple file selection
-                          onChange={handleChange} // Handle file selection
-                        />
-                        <FaFileUpload size="100px" />
-                        <p>Drag & Drop your Financial Model Spreadsheet</p>
-                      </Card.Body>
-                    </Col>
-                    <Col className="col-3" />
-                  </Row>
-                </Card.Body>
-              </Card>
-              <Col className="col-3" />
-            </Col>
-          </Row>
-        )}
-        {data && (
-          <div>
-            <h3>Imported Data:</h3>
-            <Spreadsheet data={data} onChange={setData} />
-          </div>
-        )}
+          </Col>
+        </Row>
+        {/* )} */}
+        {/* {data && ( */}
+        {/*  <div> */}
+        {/*    <h3>Imported Data:</h3> */}
+        {/*    <Spreadsheet data={data} onChange={setData} /> */}
+        {/*  </div> */}
+        {/* )} */}
       </Container>
     ) : (
       <Container fluid>

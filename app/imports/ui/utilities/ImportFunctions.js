@@ -6,7 +6,7 @@ export const cleanData = (data) => {
   const emptyRemoved = innerEmptyRemoved.filter(innerArray => innerArray.length > 0);
 
   // Removes unnecessary data caused by xlsx formatting
-  const unnecessaryData = ['Audited FS', 'Audited FS, Statement of Net Position', 'Audited FS, Investment Footnote', 'Audited FS, Capital Assets Footnote', 'Audited FS, Long-Term Liabilities Footnote', 'Operating'];
+  const unnecessaryData = ['Audited Financials', 'Audited FS', 'Audited FS, Statement of Net Position', 'Audited FS, Investment Footnote', 'Audited FS, Capital Assets Footnote', 'Audited FS, Long-Term Liabilities Footnote', 'Operating'];
   return emptyRemoved.map(innerArray => innerArray.filter(item => !unnecessaryData.includes(item)));
 };
 

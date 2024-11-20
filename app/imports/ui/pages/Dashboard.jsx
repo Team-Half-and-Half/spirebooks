@@ -79,25 +79,33 @@ const Dashboard = () => {
           ))}
         </DropdownButton>
       </Row>
-      <Row>
+      <Row className="py-2">
         <Col>
           <h1>Equity Metrics</h1>
-          <Card>
+          <Card className="my-2">
             <CardHeader>Net Position</CardHeader>
             <CustomLineChart data={netPositionData} />
+          </Card>
+          <Card className="my-2">
             <CardHeader>Years of Solvency</CardHeader>
             <CustomLineChart data={yearsOfSolvencyData} />
+          </Card>
+          <Card className="my-2">
             <CardHeader>Demand for Capital</CardHeader>
             <CustomLineChart data={demandForCapitalData} />
           </Card>
         </Col>
         <Col>
           <h1>Cash Flow Metrics</h1>
-          <Card>
+          <Card className="my-2">
             <CardHeader>Financing</CardHeader>
             <CustomLineChart data={financingData} />
+          </Card>
+          <Card className="my-2">
             <CardHeader>Years of Solvency based on Cash Flow</CardHeader>
             <CustomLineChart data={yearsOfSolvencyCashData} />
+          </Card>
+          <Card className="my-2">
             <CardHeader>Budget</CardHeader>
             <CustomLineChart data={budgetData} />
           </Card>

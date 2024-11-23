@@ -31,31 +31,26 @@ const ProjectionGraph = ({ selectedChart, setSelectedChart, dropdownOpen, setDro
   </Card>
 );
 
+const chartDataPropType = PropTypes.shape({
+  name: PropTypes.string,
+  actual: PropTypes.number,
+  edited: PropTypes.number,
+  amt: PropTypes.number,
+});
+
+const chartPropType = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  data: PropTypes.arrayOf(chartDataPropType).isRequired,
+});
+
 // Require data to be passed to this component
 ProjectionGraph.propTypes = {
-  selectedChart: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    data: PropTypes.arrayOf(PropTypes.shape({
-      name: PropTypes.string,
-      actual: PropTypes.number,
-      edited: PropTypes.number,
-      amt: PropTypes.number,
-    })).isRequired,
-  }).isRequired,
+  selectedChart: chartPropType.isRequired,
   setSelectedChart: PropTypes.func.isRequired,
   dropdownOpen: PropTypes.bool.isRequired,
   setDropdownOpen: PropTypes.func.isRequired,
-  dropdownData: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    data: PropTypes.arrayOf(PropTypes.shape({
-      name: PropTypes.string,
-      actual: PropTypes.number,
-      edited: PropTypes.number,
-      amt: PropTypes.number,
-    })).isRequired,
-  })).isRequired,
+  dropdownData: PropTypes.arrayOf(chartPropType).isRequired,
 };
 
 export default ProjectionGraph;

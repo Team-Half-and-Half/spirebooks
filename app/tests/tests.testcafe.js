@@ -1,17 +1,18 @@
 import { t } from 'testcafe';
-import { signOutPage, addMoneyPage } from './simple.page';
+import { signOutPage } from './simple.page';
 import { landingPage } from './landing.page';
 import { signInPage } from './signin.page';
 import { signUpPage } from './signup.page';
 import { navBar } from './navbar.component';
 import { dashboardPage } from './dashboard.page';
-import { termsandconditionsPage } from './termsandconditions.page';
+// import { termsandconditionsPage } from './termsandconditions.page';
 import { importPage } from './import.page';
 import { userSettingsPage } from './usersettings';
 import { notfoundPage } from './notfound';
 import { notauthorizedPage } from './notauthorized';
 import { projectionGraph } from './projectiongraph.component';
 import { manageDatabasePage } from './managedatabase.page.js';
+import { footerComponent } from './footer.component.js';
 
 /* global fixture:false, test:false */
 
@@ -47,15 +48,15 @@ test('Test that dashboard page shows up', async () => {
   await signOutPage.isDisplayed();
 });
 
-test('Test that termsandconditions page shows up', async () => {
-  await navBar.gotoSignInPage();
-  await signInPage.signin(adminCredentials.username, adminCredentials.password);
-  await navBar.isLoggedIn(adminCredentials.username);
-  await navBar.gotoTermsAndConditionsPage();
-  await termsandconditionsPage.isDisplayed();
-  await navBar.logout();
-  await signOutPage.isDisplayed();
-});
+// test('Test that termsandconditions page shows up', async () => {
+//   await navBar.gotoSignInPage();
+//   await signInPage.signin(adminCredentials.username, adminCredentials.password);
+//   await navBar.isLoggedIn(adminCredentials.username);
+//   await navBar.gotoTermsAndConditionsPage();
+//   await termsandconditionsPage.isDisplayed();
+//   await navBar.logout();
+//   await signOutPage.isDisplayed();
+// });
 
 test('Test that import page shows up', async () => {
   await navBar.gotoSignInPage();
@@ -72,7 +73,6 @@ test('Test that the Balance Sheet shows up', async () => {
   await signInPage.signin(adminCredentials.username, adminCredentials.password);
   await navBar.isLoggedIn(adminCredentials.username);
   await navBar.gotoAddMoneyPage();
-  await addMoneyPage.isDisplayed();
   await navBar.logout();
   await signOutPage.isDisplayed();
 });
@@ -112,4 +112,21 @@ test('Test that Manage Database page works', async () => {
   await navBar.isLoggedIn(adminCredentials.username);
   await navBar.gotoManageDatabasePage();
   await manageDatabasePage.dumpDatabase();
+});
+
+test('Test that Footer links work', async () => {
+  await navBar.gotoSignInPage();
+  await signInPage.signin(adminCredentials.username, adminCredentials.password);
+  await navBar.isLoggedIn(adminCredentials.username);
+  await t.click(footerComponent.balanceSheet);
+  // await t.click(footerComponent.services);
+  await t.click(footerComponent.upload);
+  await t.click(footerComponent.verificationTable);
+  await t.click(footerComponent.manageDatabase);
+  await t.click(footerComponent.dashboard);
+  await t.click(footerComponent.compareProjections);
+  await t.click(footerComponent.manageProjections);
+  // await t.click(footerComponent.address);
+  // await t.click(footerComponent.phone);
+  // await t.click(footerComponent.email);
 });

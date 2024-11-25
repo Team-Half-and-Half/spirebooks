@@ -5,6 +5,7 @@ import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { ROLE } from '../../api/role/Role';
 import image from './footerData';
+import { COMPONENT_IDS } from '../utilities/ComponentIDs';
 
 /** Footer layout that maps footerData values to the rows of each column */
 const FooterColumn = ({ title, links, isAdminOnly }) => {
@@ -28,6 +29,7 @@ const FooterColumn = ({ title, links, isAdminOnly }) => {
               className="text-style link"
               target={link.external ? '_blank' : '_self'}
               rel={link.external ? 'noopener noreferrer' : ''}
+              id={COMPONENT_IDS[`FOOTER_${link.label.replace(/\s+/g, '_').toUpperCase()}`]}
             >
               {link.icon && React.createElement(link.icon)}&nbsp;{link.label}
             </a>

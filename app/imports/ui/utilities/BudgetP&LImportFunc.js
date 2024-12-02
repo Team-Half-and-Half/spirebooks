@@ -111,9 +111,11 @@ export const budgetPLImport = (sheetData) => {
     revenues: sheetData[6],
     generalFunds: sheetData[7],
     coreBudget: [sheetData[8].slice(0, 7), 0, 0, 0, 0],
-    totalRevenue: [sheetData[9].slice(0, 11)],
+    totalRevenue: sheetData[9].slice(0, 11),
   };
   const RevenueSingleYears = createArraysOfObjects(padAllArraysToLength(Revenue, 10));
   console.log('Revenue:');
   console.log(RevenueSingleYears);
+
+  return { RevenueSingleYears, ExpensesSingleYears, ExpenditurePerAuditedSingleYears };
 };

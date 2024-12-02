@@ -94,8 +94,8 @@ const ImportSheet = () => {
             FundBalances: AFSData.FundBalancesSingleYears[i],
             Expenditures: AFSData.ExpendituresSingleYears[i],
             GeneralRevenues: AFSData.GeneralRevenuesSingleYears[i],
-            ProgramRevenues: AFSData.ProgramRevenues[i],
-            NetAssets: AFSData.NetAssets[i],
+            ProgramRevenues: AFSData.ProgramRevenuesSingleYears[i],
+            NetAssets: AFSData.NetAssetsSingleYears[i],
             Liabilities: AFSData.LiabilitiesSingleYears[i],
             OtherAssets: AFSData.OtherAssetsSingleYears[i],
             CashAndCashEquivalents: AFSData.CashAndCashEquivalentsSingleYears[i] };

@@ -110,5 +110,5 @@ export const auditedFSImport = (sheetData) => {
   // console.log('Cash And Cash Equivalents:');
   // console.log(CashAndCashEquivalentsSingleYears);
 
-  return { FundBalancesSingleYears, ExpendituresSingleYears, GeneralRevenuesSingleYears, ProgramRevenues, NetAssets, LiabilitiesSingleYears, OtherAssetsSingleYears, CashAndCashEquivalentsSingleYears };
+  return { FundBalancesSingleYears, ExpendituresSingleYears, GeneralRevenuesSingleYears, ProgramRevenuesSingleYears, NetAssetsSingleYears, LiabilitiesSingleYears, OtherAssetsSingleYears, CashAndCashEquivalentsSingleYears };
 };

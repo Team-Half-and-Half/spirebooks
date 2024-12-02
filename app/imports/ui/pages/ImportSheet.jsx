@@ -15,6 +15,10 @@ import { cleanData } from '../utilities/ImportFunctions';
 import { auditedBalanceImport } from '../utilities/AuditedBalanceImportFunc';
 import { budgetPLImport } from '../utilities/BudgetP&LImportFunc';
 import { auditedFSImport } from '../utilities/AuditedFSImportFunc';
+import { AuditedBalance } from '../../api/spreadsheet/AuditedBalanceCollection';
+import { defineMethod, updateMethod } from '../../api/base/BaseCollection.methods';
+import { BudgetPL } from '../../api/spreadsheet/BudgetPLCollection';
+import { AuditedFS } from '../../api/spreadsheet/AuditedFSCollection';
 
 const ImportSheet = () => {
   const currentUserID = Meteor.userId();
@@ -59,8 +63,46 @@ const ImportSheet = () => {
         // setData(transformData(auditedBalanceSheetData));
 
         const ABData = auditedBalanceImport(cleanData(auditedBalanceSheetData));
+        for (let i = 0; i <= ABData.Liabilities.len; i++) {
+          const collectionName = AuditedBalance.getCollectionName();
+          const sepABData = {
+            CashAndCashEquivalents: ABData.CashAndCashEquivalentsSingleYears[i],
+            OtherAssets: ABData.OtherAssetsSingleYears[i],
+            Liabilities: ABData.Liabilities[i],
+            NetPosition: ABData.NetPosition[i] };
+          defineMethod.callPromise({ collectionName, sepABData })
+            .catch(error => swal('Error', error.message, 'error'))
+            .then(() => swal('Success', 'Item updated successfully', 'success'));
+        }
+
         const BPLData = budgetPLImport(cleanData(budgetPLSheetData));
+        for (let i = 0; i <= BPLData.RevenueSingleYears.len; i++) {
+          const collectionName = BudgetPL.getCollectionName();
+          const sepBPLData = {
+            Revenue: BPLData.RevenueSingleYears[i],
+            Expenses: BPLData.ExpensesSingleYears[i],
+            ExpenditurePerAudited: BPLData.ExpenditurePerAuditedSingleYears[i] };
+          defineMethod.callPromise({ collectionName, sepBPLData })
+            .catch(error => swal('Error', error.message, 'error'))
+            .then(() => swal('Success', 'Item updated successfully', 'success'));
+        }
+
         const AFSData = auditedFSImport(cleanData(auditedFSSheetData));
+        for (let i = 0; i <= AFSData.NetAssets.len; i++) {
+          const collectionName = AuditedFS.getCollectionName();
+          const sepAFSData = {
+            FundBalances: AFSData.FundBalancesSingleYears[i],
+            Expenditures: AFSData.ExpendituresSingleYears[i],
+            GeneralRevenues: AFSData.GeneralRevenuesSingleYears[i],
+            ProgramRevenues: AFSData.ProgramRevenues[i],
+            NetAssets: AFSData.NetAssets[i],
+            Liabilities: AFSData.LiabilitiesSingleYears[i],
+            OtherAssets: AFSData.OtherAssetsSingleYears[i],
+            CashAndCashEquivalents: AFSData.CashAndCashEquivalentsSingleYears[i] };
+          defineMethod.callPromise({ collectionName, sepAFSData })
+            .catch(error => swal('Error', error.message, 'error'))
+            .then(() => swal('Success', 'Item updated successfully', 'success'));
+        }
 
       }
     };

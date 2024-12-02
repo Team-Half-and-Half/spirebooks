@@ -68,8 +68,8 @@ const ImportSheet = () => {
           const sepABData = {
             CashAndCashEquivalents: ABData.CashAndCashEquivalentsSingleYears[i],
             OtherAssets: ABData.OtherAssetsSingleYears[i],
-            Liabilities: ABData.Liabilities[i],
-            NetPosition: ABData.NetPosition[i] };
+            Liabilities: ABData.LiabilitiesSingleYears[i],
+            NetPosition: ABData.NetPositionSingleYears[i] };
           defineMethod.callPromise({ collectionName, sepABData })
             .catch(error => swal('Error', error.message, 'error'))
             .then(() => swal('Success', 'Item updated successfully', 'success'));

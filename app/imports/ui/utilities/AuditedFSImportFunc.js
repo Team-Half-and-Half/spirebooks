@@ -1,15 +1,15 @@
 import { createArraysOfObjects, padAllArraysToLength } from './ImportFunctions';
 
 export const auditedFSImport = (sheetData) => {
-  console.log(sheetData);
+  // console.log(sheetData);
   const FundBalances = {
     beginningOfYear: sheetData[75].slice(0, 10),
     restatementAdjustment: [...sheetData[76].slice(0, 2), 0, 0, ...sheetData[76].slice(2, 7)],
     netPositionEndOfYear: [...sheetData[77].slice(0, 1), ...sheetData[77].slice(2, 11)],
   };
   const FundBalancesSingleYears = createArraysOfObjects(padAllArraysToLength(FundBalances, 10));
-  console.log('Fund Balances:');
-  console.log(FundBalancesSingleYears);
+  // console.log('Fund Balances:');
+  // console.log(FundBalancesSingleYears);
 
   const Expenditures = {
     management: sheetData[62].slice(0, 10),
@@ -26,8 +26,8 @@ export const auditedFSImport = (sheetData) => {
     changeInNetAssets: sheetData[73].slice(0, 10),
   };
   const ExpendituresSingleYears = createArraysOfObjects(padAllArraysToLength(Expenditures, 10));
-  console.log('Expenditures:');
-  console.log(ExpendituresSingleYears);
+  // console.log('Expenditures:');
+  // console.log(ExpendituresSingleYears);
 
   const GeneralRevenues = {
     appropriations: sheetData[52].slice(0, 10),
@@ -41,8 +41,8 @@ export const auditedFSImport = (sheetData) => {
     totalRevenue: sheetData[60].slice(0, 10),
   };
   const GeneralRevenuesSingleYears = createArraysOfObjects(padAllArraysToLength(GeneralRevenues, 10));
-  console.log('General Revenues:');
-  console.log(GeneralRevenuesSingleYears);
+  // console.log('General Revenues:');
+  // console.log(GeneralRevenuesSingleYears);
 
   const ProgramRevenues = {
     chargesForServices: sheetData[47].slice(0, 10),
@@ -51,8 +51,8 @@ export const auditedFSImport = (sheetData) => {
     totalProgramRevenues: sheetData[50].slice(0, 10),
   };
   const ProgramRevenuesSingleYears = createArraysOfObjects(padAllArraysToLength(ProgramRevenues, 10));
-  console.log('Program Revenues:');
-  console.log(ProgramRevenuesSingleYears);
+  // console.log('Program Revenues:');
+  // console.log(ProgramRevenuesSingleYears);
 
   const NetAssets = {
     investedCapitalAssets: sheetData[38].slice(0, 10),
@@ -62,8 +62,8 @@ export const auditedFSImport = (sheetData) => {
     totalLiabilitiesNetAssets: sheetData[42].slice(0, 10),
   };
   const NetAssetsSingleYears = createArraysOfObjects(padAllArraysToLength(NetAssets, 10));
-  console.log('Net Assets:');
-  console.log(NetAssetsSingleYears);
+  // console.log('Net Assets:');
+  // console.log(NetAssetsSingleYears);
 
   const Liabilities = {
     accountPayableAccrued: sheetData[28].slice(0, 10),
@@ -77,8 +77,8 @@ export const auditedFSImport = (sheetData) => {
     totalLiabilitiesDeferredInflows: sheetData[36].slice(0, 10),
   };
   const LiabilitiesSingleYears = createArraysOfObjects(padAllArraysToLength(Liabilities, 10));
-  console.log('Liabilities:');
-  console.log(LiabilitiesSingleYears);
+  // console.log('Liabilities:');
+  // console.log(LiabilitiesSingleYears);
 
   const OtherAssets = {
     accountsReceivable: sheetData[15].slice(0, 10),
@@ -95,8 +95,8 @@ export const auditedFSImport = (sheetData) => {
     totalAssetsDeferred: sheetData[26].slice(0, 10),
   };
   const OtherAssetsSingleYears = createArraysOfObjects(padAllArraysToLength(OtherAssets, 10));
-  console.log('Other Assets:');
-  console.log(OtherAssetsSingleYears);
+  // console.log('Other Assets:');
+  // console.log(OtherAssetsSingleYears);
 
   const CashAndCashEquivalents = {
     pettyCash: sheetData[8].slice(0, 10),
@@ -107,8 +107,8 @@ export const auditedFSImport = (sheetData) => {
     CashAndCashEquivalentsSum: sheetData[13].slice(0, 10),
   };
   const CashAndCashEquivalentsSingleYears = createArraysOfObjects(padAllArraysToLength(CashAndCashEquivalents, 10));
-  console.log('Cash And Cash Equivalents:');
-  console.log(CashAndCashEquivalentsSingleYears);
+  // console.log('Cash And Cash Equivalents:');
+  // console.log(CashAndCashEquivalentsSingleYears);
 
   return { FundBalancesSingleYears, ExpendituresSingleYears, GeneralRevenuesSingleYears, ProgramRevenues, NetAssets, LiabilitiesSingleYears, OtherAssetsSingleYears, CashAndCashEquivalentsSingleYears };
 };

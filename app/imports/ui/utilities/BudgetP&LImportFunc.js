@@ -1,15 +1,15 @@
 import { createArraysOfObjects, padAllArraysToLength, shiftArrayRight } from './ImportFunctions';
 
 export const budgetPLImport = (sheetData) => {
-  console.log(sheetData);
+  // console.log(sheetData);
   const ExpenditurePerAudited = {
     management: [...sheetData[69].slice(0, 1), ...sheetData[69].slice(1, 10)],
     supportServices: [...sheetData[70].slice(0, 1), ...sheetData[0].slice(1, 10)],
     beneficiaryAdvocacy: [...sheetData[71].slice(0, 1), ...sheetData[71].slice(1, 10)],
   };
   const ExpenditurePerAuditedSingleYears = createArraysOfObjects(padAllArraysToLength(ExpenditurePerAudited, 11));
-  console.log('Expenditure Per Audited:');
-  console.log(ExpenditurePerAuditedSingleYears);
+  // console.log('Expenditure Per Audited:');
+  // console.log(ExpenditurePerAuditedSingleYears);
 
   const FringeBenefitsAdmin = {
     pensionAccumulation: [...sheetData[15].slice(0, 1), 0, ...sheetData[15].slice(2, 11)],
@@ -24,8 +24,8 @@ export const budgetPLImport = (sheetData) => {
     fringeBenefitsSum: [...sheetData[24].slice(0, 1), 0, ...sheetData[24].slice(1, 10)],
   };
   const FringeBenefitsAdminSingleYears = createArraysOfObjects(padAllArraysToLength(FringeBenefitsAdmin, 11));
-  console.log('Fringe Benefits Admin:');
-  console.log(FringeBenefitsAdminSingleYears);
+  // console.log('Fringe Benefits Admin:');
+  // console.log(FringeBenefitsAdminSingleYears);
 
   const PersonnelFringeAdmin = {
     salary: [...sheetData[13].slice(0, 1), 0, ...sheetData[13].slice(2, 11)],
@@ -33,8 +33,8 @@ export const budgetPLImport = (sheetData) => {
     personnelFringeSum: [...sheetData[26].slice(0, 1), 0, ...sheetData[26].slice(1, 10)],
   };
   const PersonnelFringeAdminSingleYears = createArraysOfObjects(padAllArraysToLength(PersonnelFringeAdmin, 11));
-  console.log('Personnel Fringe Admin:');
-  console.log(PersonnelFringeAdminSingleYears);
+  // console.log('Personnel Fringe Admin:');
+  // console.log(PersonnelFringeAdminSingleYears);
 
   const FringeBenefitsAdminStaff = {
     pensionAccumulation: [...sheetData[30].slice(0, 1), 0, ...sheetData[30].slice(2, 11)],
@@ -49,8 +49,8 @@ export const budgetPLImport = (sheetData) => {
     fringeBenefitsSum: [...sheetData[39].slice(0, 1), 0, ...sheetData[39].slice(1, 10)],
   };
   const FringeBenefitsAdminStaffSingleYears = createArraysOfObjects(padAllArraysToLength(FringeBenefitsAdminStaff, 11));
-  console.log('Fringe Benefits Admin Staff:');
-  console.log(FringeBenefitsAdminStaffSingleYears);
+  // console.log('Fringe Benefits Admin Staff:');
+  // console.log(FringeBenefitsAdminStaffSingleYears);
 
   const PersonnelFringeAdminStaff = {
     salary: [...sheetData[28].slice(0, 1), 0, ...sheetData[28].slice(2, 11)],
@@ -58,8 +58,8 @@ export const budgetPLImport = (sheetData) => {
     personnelFringeSum: [...sheetData[41].slice(0, 1), 0, ...sheetData[41].slice(1, 10)],
   };
   const PersonnelFringeAdminStaffSingleYears = createArraysOfObjects(padAllArraysToLength(PersonnelFringeAdminStaff, 11));
-  console.log('Personnel Fringe Admin Staff:');
-  console.log(PersonnelFringeAdminStaffSingleYears);
+  // console.log('Personnel Fringe Admin Staff:');
+  // console.log(PersonnelFringeAdminStaffSingleYears);
 
   const FringeBenefitsManagement = {
     pensionAccumulation: [...sheetData[45].slice(0, 1), 0, ...sheetData[45].slice(2, 11)],
@@ -74,8 +74,8 @@ export const budgetPLImport = (sheetData) => {
     fringeBenefitsSum: [...sheetData[54].slice(0, 1), 0, ...sheetData[54].slice(1, 10)],
   };
   const FringeBenefitsManagementSingleYears = createArraysOfObjects(padAllArraysToLength(FringeBenefitsManagement, 11));
-  console.log('Fringe Benefits Management:');
-  console.log(FringeBenefitsManagementSingleYears);
+  // console.log('Fringe Benefits Management:');
+  // console.log(FringeBenefitsManagementSingleYears);
 
   const PersonnelFringeManagement = {
     salary: [...sheetData[43].slice(0, 1), 0, ...sheetData[43].slice(1, 10)],
@@ -83,12 +83,12 @@ export const budgetPLImport = (sheetData) => {
     personnelFringeSum: [...sheetData[56].slice(0, 1), 0, ...sheetData[56].slice(1, 10)],
   };
   const PersonnelFringeManagementSingleYears = createArraysOfObjects(padAllArraysToLength(PersonnelFringeManagement, 11));
-  console.log('Personnel Fringe Management:');
-  console.log(PersonnelFringeManagementSingleYears);
+  // console.log('Personnel Fringe Management:');
+  // console.log(PersonnelFringeManagementSingleYears);
 
   const Expenses = {
     personnel: [...sheetData[11].slice(0, 1), 0, ...sheetData[11].slice(2, 11)],
-    PersonnelFringeAdmin: shiftArrayRight(PersonnelFringeManagementSingleYears),
+    PersonnelFringeAdmin: shiftArrayRight(PersonnelFringeAdminSingleYears),
     PersonnelFringeAdminStaff: shiftArrayRight(PersonnelFringeAdminStaffSingleYears),
     FringeAdminManagement: shiftArrayRight(PersonnelFringeManagementSingleYears),
     personnelFringeSum: ['idk', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // ask brandon about it later
@@ -103,8 +103,8 @@ export const budgetPLImport = (sheetData) => {
     totalExpenses: [...sheetData[66].slice(0, 1), 0, ...sheetData[66].slice(2, 11)],
   };
   const ExpensesSingleYears = createArraysOfObjects(padAllArraysToLength(Expenses, 11));
-  console.log('Expenses:');
-  console.log(ExpensesSingleYears);
+  // console.log('Expenses:');
+  // console.log(ExpensesSingleYears);
 
   const Revenue = {
     investmentPortfolio: sheetData[5],
@@ -114,8 +114,8 @@ export const budgetPLImport = (sheetData) => {
     totalRevenue: sheetData[9].slice(0, 11),
   };
   const RevenueSingleYears = createArraysOfObjects(padAllArraysToLength(Revenue, 10));
-  console.log('Revenue:');
-  console.log(RevenueSingleYears);
+  // console.log('Revenue:');
+  // console.log(RevenueSingleYears);
 
   return { RevenueSingleYears, ExpensesSingleYears, ExpenditurePerAuditedSingleYears };
 };

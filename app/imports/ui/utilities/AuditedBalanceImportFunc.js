@@ -2,7 +2,7 @@ import { createArraysOfObjects, padAllArraysToLength, shiftArrayRight } from './
 
 // Function for audited balance sheet
 export const auditedBalanceImport = (sheetData) => {
-  console.log(sheetData);
+  // console.log(sheetData);
   const NetPosition = {
     netOfRelatedDebt: sheetData[105],
     restrictedFederal: sheetData[106],
@@ -11,8 +11,8 @@ export const auditedBalanceImport = (sheetData) => {
     totalLiabilitiesInflowsNetPosition: sheetData[109],
   };
   const NetPositionSingleYears = createArraysOfObjects(padAllArraysToLength(NetPosition, 5));
-  console.log('Net Position:');
-  console.log(NetPositionSingleYears);
+  // console.log('Net Position:');
+  // console.log(NetPositionSingleYears);
 
   const LongTermLiabilitiesWithinYear = {
     accruedVacation: sheetData[70],
@@ -62,8 +62,8 @@ export const auditedBalanceImport = (sheetData) => {
     totalLiabilitiesDeferredInflows: sheetData[102],
   };
   const LiabilitiesSingleYears = createArraysOfObjects(padAllArraysToLength(Liabilities, 5));
-  console.log('Liabilities:');
-  console.log(LiabilitiesSingleYears);
+  // console.log('Liabilities:');
+  // console.log(LiabilitiesSingleYears);
 
   const LiabilityBAsset = {
     buildings: sheetData[48],
@@ -100,8 +100,8 @@ export const auditedBalanceImport = (sheetData) => {
     capitalAssetsNetSum: sheetData[39],
   };
   const CapitalAssetsNetSingleYears = createArraysOfObjects(padAllArraysToLength(CapitalAssetsNet, 5));
-  console.log('Capital Assets Net:');
-  console.log(CapitalAssetsNetSingleYears);
+  // console.log('Capital Assets Net:');
+  // console.log(CapitalAssetsNetSingleYears);
 
   const Investments = {
     mutualFunds: sheetData[20],
@@ -118,8 +118,8 @@ export const auditedBalanceImport = (sheetData) => {
     subtotalLoanFund: sheetData[31],
   };
   const InvestmentsSingleYears = createArraysOfObjects(padAllArraysToLength(Investments, 5));
-  console.log('Investments:');
-  console.log(InvestmentsSingleYears);
+  // console.log('Investments:');
+  // console.log(InvestmentsSingleYears);
 
   const OtherAssets = {
     accountsReceivable: sheetData[11],
@@ -140,8 +140,8 @@ export const auditedBalanceImport = (sheetData) => {
     totalAssetsDeferred: sheetData[63],
   };
   const OtherAssetsSingleYears = createArraysOfObjects(padAllArraysToLength(OtherAssets, 5));
-  console.log('Other Assets:');
-  console.log(OtherAssetsSingleYears);
+  // console.log('Other Assets:');
+  // console.log(OtherAssetsSingleYears);
 
   const CashAndCashEquivalents = {
     pettyCash: sheetData[6],
@@ -150,7 +150,7 @@ export const auditedBalanceImport = (sheetData) => {
     cashAndCashEquivalentsSum: sheetData[9],
   };
   const CashAndCashEquivalentsSingleYears = createArraysOfObjects(padAllArraysToLength(CashAndCashEquivalents, 5));
-  console.log('Cash And Cash Equivalents:');
-  console.log(CashAndCashEquivalentsSingleYears);
-  return { CashAndCashEquivalentsSingleYears, OtherAssetsSingleYears, Liabilities, NetPosition };
+  // console.log('Cash And Cash Equivalents:');
+  // console.log(CashAndCashEquivalentsSingleYears);
+  return { CashAndCashEquivalentsSingleYears, OtherAssetsSingleYears, LiabilitiesSingleYears, NetPositionSingleYears };
 };

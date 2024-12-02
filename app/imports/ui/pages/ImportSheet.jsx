@@ -16,7 +16,7 @@ import { auditedBalanceImport } from '../utilities/AuditedBalanceImportFunc';
 import { budgetPLImport } from '../utilities/BudgetP&LImportFunc';
 import { auditedFSImport } from '../utilities/AuditedFSImportFunc';
 import { AuditedBalance } from '../../api/spreadsheet/AuditedBalanceCollection';
-import { defineMethod, updateMethod } from '../../api/base/BaseCollection.methods';
+import { defineMethod } from '../../api/base/BaseCollection.methods';
 import { BudgetPL } from '../../api/spreadsheet/BudgetPLCollection';
 import { AuditedFS } from '../../api/spreadsheet/AuditedFSCollection';
 

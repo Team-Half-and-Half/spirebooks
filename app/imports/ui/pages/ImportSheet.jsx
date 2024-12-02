@@ -58,9 +58,9 @@ const ImportSheet = () => {
 
         // setData(transformData(auditedBalanceSheetData));
 
-        auditedBalanceImport(cleanData(auditedBalanceSheetData));
-        budgetPLImport(cleanData(budgetPLSheetData));
-        auditedFSImport(cleanData(auditedFSSheetData));
+        const ABData = auditedBalanceImport(cleanData(auditedBalanceSheetData));
+        const BPLData = budgetPLImport(cleanData(budgetPLSheetData));
+        const AFSData = auditedFSImport(cleanData(auditedFSSheetData));
 
       }
     };

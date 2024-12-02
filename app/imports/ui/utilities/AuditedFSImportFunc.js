@@ -1,6 +1,7 @@
 import { createArraysOfObjects, padAllArraysToLength } from './ImportFunctions';
 
 export const auditedFSImport = (sheetData) => {
+  console.log(sheetData);
   const FundBalances = {
     beginningOfYear: [...sheetData[75].slice(0, 0), ...sheetData[75].slice(0, 10)],
     restatementAdjustment: [...sheetData[76].slice(0, 0), ...sheetData[76].slice(0, 10)],

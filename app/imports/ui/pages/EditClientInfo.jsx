@@ -46,7 +46,8 @@ const EditStuff = () => {
   const submit = (data) => {
     const { year, Revenue, Expenses, ExpenditurePerAudited } = data;
     const collectionName = BudgetPL.getCollectionName();
-    const updateData = { id: selectedDocument._id, year, Revenue, Expenses, ExpenditurePerAudited };
+    const updateData = { id: selectedDocument._id, year, Revenue,
+      Expenses, ExpenditurePerAudited };
     updateMethod.callPromise({ collectionName, updateData })
       .catch(error => swal('Error', error.message, 'error'))
       .then(() => swal('Success', 'Item updated successfully', 'success'));

@@ -891,52 +891,52 @@
       "Expenses": {
         "personnel": 14758898,
         "PersonnelFringeAdmin": {
-          "salary": 8049691,
+          "salary": -8049691,
           "FringeBenefits": {
-            "pensionAccumulation": 1368447,
-            "retireeHealthInsurance": 649610,
-            "otherBenefits": 626266,
-            "healthFund": 613386,
-            "socialSecurity": 499081,
-            "medicare": 116721,
-            "workersCompensation": 102231,
-            "unemploymentCompensation": 12075,
+            "pensionAccumulation": -1368447,
+            "retireeHealthInsurance": -649610,
+            "otherBenefits": -626266,
+            "healthFund": -613386,
+            "socialSecurity": -499081,
+            "medicare": -116721,
+            "workersCompensation": -102231,
+            "unemploymentCompensation": -12075,
             "pensionCompensation": null,
-            "fringeBenefitsSum": 3987817
+            "fringeBenefitsSum": -3987817
           },
-          "personnelFringeSum": 12037508
+          "personnelFringeSum": -12037508
         },
         "PersonnelFringeAdminStaff": {
-          "salary": 1305437,
+          "salary": -1305437,
           "FringeBenefits": {
-            "pensionAccumulation": 221924,
-            "retireeHealthInsurance": 105349,
-            "otherBenefits": 101563,
-            "healthFund": 99474,
-            "socialSecurity": 80937,
-            "medicare": 18929,
-            "workersCompensation": 16579,
-            "unemploymentCompensation": 1958,
+            "pensionAccumulation": -221924,
+            "retireeHealthInsurance": -105349,
+            "otherBenefits": -101563,
+            "healthFund": -99474,
+            "socialSecurity": -80937,
+            "medicare": -18929,
+            "workersCompensation": -16579,
+            "unemploymentCompensation": -1958,
             "pensionCompensation": null,
-            "fringeBenefitsSum": 646713
+            "fringeBenefitsSum": -646713
           },
-          "personnelFringeSum": 1952150
+          "personnelFringeSum": -1952150
         },
         "FringeAdminManagement": {
-          "salary": 514404,
+          "salary": -514404,
           "FringeBenefits": {
-            "pensionAccumulation": 87449,
-            "retireeHealthInsurance": 41512,
-            "otherBenefits": 40021,
-            "healthFund": 39198,
-            "socialSecurity": 31893,
-            "medicare": 7459,
-            "workersCompensation": 6533,
-            "unemploymentCompensation": 772,
+            "pensionAccumulation": -87449,
+            "retireeHealthInsurance": -41512,
+            "otherBenefits": -40021,
+            "healthFund": -39198,
+            "socialSecurity": -31893,
+            "medicare": -7459,
+            "workersCompensation": -6533,
+            "unemploymentCompensation": -772,
             "pensionCompensation": null,
-            "fringeBenefitsSum": 254836
+            "fringeBenefitsSum": -254836
           },
-          "personnelFringeSum": 769240
+          "personnelFringeSum": -769240
         },
         "program": 1041866,
         "contracts": 6378047,
@@ -950,9 +950,9 @@
       },
       "surplus": 279395,
       "ExpenditurePerAudited": {
-        "management": 2721390,
-        "supportServices": 18215811,
-        "beneficiaryAdvocacy": 25906661
+        "management": -2721390,
+        "supportServices": -18215811,
+        "beneficiaryAdvocacy": -25906661
       }
     },
     {

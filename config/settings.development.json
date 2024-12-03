@@ -1,18 +1,25 @@
 {
   "defaultAccounts": [
     {
-      "email": "accountant@spirebooks.com",
+      "email": "admin@spirebooks.com",
       "password": "spirebooksadmin",
       "role": "ADMIN",
       "firstName": "first_name_admin",
       "lastName": "last_name_admin"
     },
     {
-      "email": "customer@spirebooks.com",
-      "password": "spirebookscustomer",
+      "email": "analyst@spirebooks.com",
+      "password": "spirebooksanalyst",
+      "role": "MOD",
+      "firstName": "first_name_analyst",
+      "lastName": "last_name_analyst"
+    },
+    {
+      "email": "accountant@spirebooks.com",
+      "password": "spirebooksaccountant",
       "role": "USER",
-      "firstName": "first_name_customer",
-      "lastName": "last_name_customer"
+      "firstName": "first_name_accountant",
+      "lastName": "last_name_accountant"
     }
   ],
   "databaseConfigurationSettings": [
@@ -26,7 +33,7 @@
   "defaultABS": [
     {
       "year": 2020,
-      "owner": "customer@spirebooks.com",
+      "owner": "accountant@spirebooks.com",
       "green": false,
       "CashAndCashEquivalents": {
         "pettyCash": 800,
@@ -135,7 +142,7 @@
     },
     {
       "year": 2021,
-      "owner": "customer@spirebooks.com",
+      "owner": "accountant@spirebooks.com",
       "green": false,
       "CashAndCashEquivalents": {
         "pettyCash": 800,
@@ -245,7 +252,7 @@
     },
     {
       "year": 2022,
-      "owner": "customer@spirebooks.com",
+      "owner": "accountant@spirebooks.com",
       "green": false,
       "CashAndCashEquivalents": {
         "pettyCash": 784,
@@ -354,7 +361,7 @@
     },
     {
       "year": 2023,
-      "owner": "customer@spirebooks.com",
+      "owner": "accountant@spirebooks.com",
       "green": false,
       "CashAndCashEquivalents": {
         "pettyCash": 700,
@@ -465,7 +472,7 @@
     },
     {
       "year": 2024,
-      "owner": "customer@spirebooks.com",
+      "owner": "accountant@spirebooks.com",
       "green": true,
       "CashAndCashEquivalents": {
       },
@@ -490,7 +497,7 @@
     },
     {
       "year": 2025,
-      "owner": "customer@spirebooks.com",
+      "owner": "accountant@spirebooks.com",
       "green": true,
       "CashAndCashEquivalents": {
       },
@@ -515,7 +522,7 @@
     },
     {
       "year": 2026,
-      "owner": "customer@spirebooks.com",
+      "owner": "accountant@spirebooks.com",
       "green": true,
       "CashAndCashEquivalents": {
       },
@@ -540,7 +547,7 @@
     },
     {
       "year": 2027,
-      "owner": "customer@spirebooks.com",
+      "owner": "accountant@spirebooks.com",
       "green": true,
       "CashAndCashEquivalents": {
       },
@@ -879,7 +886,7 @@
     },
     {
       "year": 6,
-      "owner": "customer@spirebooks.com",
+      "owner": "accountant@spirebooks.com",
       "green": false,
       "Revenue": {
         "investmentPortfolio": 17298636,
@@ -957,7 +964,7 @@
     },
     {
       "year": 7,
-      "owner": "customer@spirebooks.com",
+      "owner": "accountant@spirebooks.com",
       "green": false,
       "Revenue": {
         "investmentPortfolio": 17745949,
@@ -1035,7 +1042,7 @@
     },
     {
       "year": 8,
-      "owner": "customer@spirebooks.com",
+      "owner": "accountant@spirebooks.com",
       "green": false,
       "Revenue": {
         "investmentPortfolio": 17555826,
@@ -1113,7 +1120,7 @@
     },
     {
       "year": 9,
-      "owner": "customer@spirebooks.com",
+      "owner": "accountant@spirebooks.com",
       "green": false,
       "Revenue": {
         "investmentPortfolio": 17448120,
@@ -1193,7 +1200,7 @@
   "defaultAFS": [
     {
       "year": 6,
-      "owner": "customer@spirebooks.com",
+      "owner": "accountant@spirebooks.com",
       "green": false,
       "CashAndCashEquivalents": {
         "pettyCash": 800,
@@ -1274,7 +1281,7 @@
     },
     {
       "year": 7,
-      "owner": "customer@spirebooks.com",
+      "owner": "accountant@spirebooks.com",
       "green": false,
       "CashAndCashEquivalents": {
         "pettyCash": 800,
@@ -1355,7 +1362,7 @@
     },
     {
       "year": 8,
-      "owner": "customer@spirebooks.com",
+      "owner": "accountant@spirebooks.com",
       "green": false,
       "CashAndCashEquivalents": {
         "pettyCash": 700,
@@ -1436,7 +1443,7 @@
     },
     {
       "year": 9,
-      "owner": "customer@spirebooks.com",
+      "owner": "accountant@spirebooks.com",
       "green": false,
       "CashAndCashEquivalents": {
         "pettyCash": 700,

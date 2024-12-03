@@ -21,7 +21,7 @@ class UserProfileCollection extends BaseProfileCollection {
     const username = email;
     const user = this.findOne({ email, firstName, lastName });
     if (!user) {
-      const role = ROLE.USER;
+      const role = this.getRoleForEmail(email);
       const userID = Users.define({ username, role, password });
       const profileID = this._collection.insert({ email, firstName, lastName, userID, role });
       // defaultVerification (set to false for all created users)
@@ -33,6 +33,20 @@ class UserProfileCollection extends BaseProfileCollection {
     return user._id;
     // }
     // return undefined;
+  }
+
+  /**
+   * Retrieves the role for user based on email, defaults to USER if no role found.
+   * @param email The email address of the user.
+   * @returns {string} The role of the user.
+   */
+  getRoleForEmail(email) {
+    const roleMapping = {
+      'analyst@spirebooks.com': ROLE.MOD,
+      'admin@spirebooks.com': ROLE.ADMIN,
+      'accountant@spirebooks.com': ROLE.USER,
+    };
+    return roleMapping[email] || ROLE.USER;
   }
 
   /**

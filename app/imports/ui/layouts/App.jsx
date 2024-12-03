@@ -95,7 +95,8 @@ const UserProtectedRoute = ({ children }) => {
   }
 
   const isUser = Roles.userIsInRole(Meteor.userId(), [ROLE.USER]);
-  return isLogged && isUser ? children : <Navigate to="/notauthorized" />;
+  const isAdmin = Roles.userIsInRole(Meteor.userId(), [ROLE.ADMIN]);
+  return isLogged && (isUser || isAdmin) ? children : <Navigate to="/notauthorized" />;
 };
 
 /**
@@ -137,7 +138,8 @@ const ModProtectedRoute = ({ children }) => {
   }
 
   const isMod = Roles.userIsInRole(Meteor.userId(), [ROLE.MOD]);
-  return isLogged && isMod ? children : <Navigate to="/notauthorized" />;
+  const isAdmin = Roles.userIsInRole(Meteor.userId(), [ROLE.ADMIN]);
+  return isLogged && (isMod || isAdmin) ? children : <Navigate to="/notauthorized" />;
 };
 
 // Require a component and location to be passed to each ProtectedRoute.

@@ -108,7 +108,7 @@ class BudgetPLCollection extends BaseCollection {
    * @param ExpenditurePerAudited Sub document for expenditure line items per audited financials values.
    * @return {String} the docID of the new document.
    */
-  update(docID, { year, Revenue, Expenses, surplus, ExpenditurePerAudited }) {
+  update(docID, { year, Revenue, Expenses, ExpenditurePerAudited }) {
     try {
       if (!docID) {
         throw new Meteor.Error('invalid-argument', 'Missing crucial field for updating BudgetPLCollection');

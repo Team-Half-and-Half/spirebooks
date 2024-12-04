@@ -8,9 +8,9 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { updateMethod } from '../../api/base/BaseCollection.methods';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { PAGE_IDS } from '../utilities/PageIDs';
-import { AuditedBalance } from '../../api/spreadsheet/AuditedBalanceCollection';
+import { BudgetPL } from '../../api/spreadsheet/BudgetPLCollection';
 
-const bridge = new SimpleSchema2Bridge(AuditedBalance._schema);
+const bridge = new SimpleSchema2Bridge(BudgetPL._schema);
 
 /* Renders the EditStuff page for editing a single document. */
 const EditStuff = () => {
@@ -23,10 +23,10 @@ const EditStuff = () => {
     // const BPL = BudgetPL.subscribeBudgetPL();
     // const AFSAdmin = AuditedFS.subscribeAuditedFSAdmin();
     // const BPLAdmin = BudgetPL.subscribeBudgetPLAdmin();
-    const ABSAdmin = AuditedBalance.subscribeAuditedBalance();
+    const ABSAdmin = BudgetPL.subscribeBudgetPL();
     // Determine if the subscription is ready
     const rdy = ABSAdmin.ready();
-    const document = AuditedBalance.find({ owner: owner }).fetch();
+    const document = BudgetPL.find({ owner: owner }).fetch();
     // Get the document
     // const document = AuditedBalance.find({ year: 6 });
     return {
@@ -44,16 +44,10 @@ const EditStuff = () => {
   };
   // On successful submit, insert the data.
   const submit = (data) => {
-    console.log(data);
-    const { CashAndCashEquivalents,
-      OtherAssets,
-      Liabilities,
-      NetPosition } = data;
-    const collectionName = AuditedBalance.getCollectionName();
-    const updateData = { id: selectedDocument._id, CashAndCashEquivalents,
-      OtherAssets,
-      Liabilities,
-      NetPosition };
+    const { year, Revenue, Expenses, ExpenditurePerAudited } = data;
+    const collectionName = BudgetPL.getCollectionName();
+    const updateData = { id: selectedDocument._id, year, Revenue,
+      Expenses, ExpenditurePerAudited };
     updateMethod.callPromise({ collectionName, updateData })
       .catch(error => swal('Error', error.message, 'error'))
       .then(() => swal('Success', 'Item updated successfully', 'success'));
@@ -74,10 +68,303 @@ const EditStuff = () => {
             />
             <Card>
               <Card.Body>
-                <NumField name="CashAndCashEquivalents.pettyCash" decimal={null} />
-                <NumField name="CashAndCashEquivalents.cash" decimal={null} />
-                <NumField name="CashAndCashEquivalents.cashInBank" decimal={null} />
-                <NumField name="totalCashAndCashEquivalents" decimal={null} disabled />
+                <NumField name="Revenue.investmentPortfolio" decimal={null} label="Investment Portfolio" />
+                <NumField name="Revenue.revenues" decimal={null} label="Revenues" />
+                <NumField name="Revenue.generalFunds" decimal={null} label="General Funds" />
+                <NumField name="Revenue.coreBudget" decimal={null} label="Core Budget" />
+                <NumField name="Revenue.totalRevenue" decimal={null} label="Total Revenue" disabled />
+
+                <NumField name="Expenses.personnel" decimal={null} label="Personnel" />
+
+                <NumField
+                  name="Expenses.PersonnelFringeAdmin.salary"
+                  decimal={null}
+                  disabled
+                  label="Admin Salary"
+                />
+                <NumField
+                  name="Expenses.PersonnelFringeAdmin.FringeBenefits.pensionAccumulation"
+                  decimal={null}
+                  disabled
+                  label="Pension Accumulation"
+                />
+                <NumField
+                  name="Expenses.PersonnelFringeAdmin.FringeBenefits.retireeHealthInsurance"
+                  decimal={null}
+                  disabled
+                  label="Retiree Health Insurance"
+                />
+                <NumField
+                  name="Expenses.PersonnelFringeAdmin.FringeBenefits.otherBenefits"
+                  decimal={null}
+                  disabled
+                  label="Other Benefits"
+                />
+                <NumField
+                  name="Expenses.PersonnelFringeAdmin.FringeBenefits.healthFund"
+                  decimal={null}
+                  disabled
+                  label="Health Fund"
+                />
+                <NumField
+                  name="Expenses.PersonnelFringeAdmin.FringeBenefits.socialSecurity"
+                  decimal={null}
+                  disabled
+                  label="Social Security"
+                />
+                <NumField
+                  name="Expenses.PersonnelFringeAdmin.FringeBenefits.medicare"
+                  decimal={null}
+                  disabled
+                  label="Medicare"
+                />
+                <NumField
+                  name="Expenses.PersonnelFringeAdmin.FringeBenefits.workersCompensation"
+                  decimal={null}
+                  disabled
+                  label="Workers Compensation"
+                />
+                <NumField
+                  name="Expenses.PersonnelFringeAdmin.FringeBenefits.unemploymentCompensation"
+                  decimal={null}
+                  disabled
+                  label="Unemployment Compensation"
+                />
+                <NumField
+                  name="Expenses.PersonnelFringeAdmin.FringeBenefits.pensionCompensation"
+                  decimal={null}
+                  disabled
+                  label="Pension Compensation"
+                />
+                <NumField
+                  name="Expenses.PersonnelFringeAdmin.FringeBenefits.fringeBenefitsSum"
+                  decimal={null}
+                  disabled
+                  label="Fringe Benefits Sum"
+                />
+                <NumField
+                  name="Expenses.PersonnelFringeAdmin.personnelFringeSum"
+                  decimal={null}
+                  disabled
+                  label="Personnel Fringe Sum"
+                />
+
+                <NumField
+                  name="Expenses.PersonnelFringeAdminStaff.salary"
+                  decimal={null}
+                  disabled
+                  label="Admin Staff Salary"
+                />
+                <NumField
+                  name="Expenses.PersonnelFringeAdminStaff.FringeBenefits.pensionAccumulation"
+                  decimal={null}
+                  disabled
+                  label="Pension Accumulation"
+                />
+                <NumField
+                  name="Expenses.PersonnelFringeAdminStaff.FringeBenefits.retireeHealthInsurance"
+                  decimal={null}
+                  disabled
+                  label="Retiree Health Insurance"
+                />
+                <NumField
+                  name="Expenses.PersonnelFringeAdminStaff.FringeBenefits.otherBenefits"
+                  decimal={null}
+                  disabled
+                  label="Other Benefits"
+                />
+                <NumField
+                  name="Expenses.PersonnelFringeAdminStaff.FringeBenefits.healthFund"
+                  decimal={null}
+                  disabled
+                  label="Health Fund"
+                />
+                <NumField
+                  name="Expenses.PersonnelFringeAdminStaff.FringeBenefits.socialSecurity"
+                  decimal={null}
+                  disabled
+                  label="Social Security"
+                />
+                <NumField
+                  name="Expenses.PersonnelFringeAdminStaff.FringeBenefits.medicare"
+                  decimal={null}
+                  disabled
+                  label="Medicare"
+                />
+                <NumField
+                  name="Expenses.PersonnelFringeAdminStaff.FringeBenefits.workersCompensation"
+                  decimal={null}
+                  disabled
+                  label="Workers Compensation"
+                />
+                <NumField
+                  name="Expenses.PersonnelFringeAdminStaff.FringeBenefits.unemploymentCompensation"
+                  decimal={null}
+                  disabled
+                  label="Unemployment Compensation"
+                />
+                <NumField
+                  name="Expenses.PersonnelFringeAdminStaff.FringeBenefits.pensionCompensation"
+                  decimal={null}
+                  disabled
+                  label="Pension Compensation"
+                />
+                <NumField
+                  name="Expenses.PersonnelFringeAdminStaff.FringeBenefits.fringeBenefitsSum"
+                  decimal={null}
+                  disabled
+                  label="Fringe Benefits Sum"
+                />
+                <NumField
+                  name="Expenses.PersonnelFringeAdminStaff.personnelFringeSum"
+                  decimal={null}
+                  disabled
+                  label="Personnel Fringe Sum"
+                />
+
+                <NumField
+                  name="Expenses.FringeAdminManagement.salary"
+                  decimal={null}
+                  label="Management Salary"
+                />
+
+                <NumField
+                  name="Expenses.FringeAdminManagement.FringeBenefits.pensionAccumulation"
+                  decimal={null}
+                  disabled
+                  label="Pension Accumulation"
+                />
+                <NumField
+                  name="Expenses.FringeAdminManagement.FringeBenefits.retireeHealthInsurance"
+                  decimal={null}
+                  disabled
+                  label="Retiree Health Insurance"
+                />
+                <NumField
+                  name="Expenses.FringeAdminManagement.FringeBenefits.otherBenefits"
+                  decimal={null}
+                  disabled
+                  label="Other Benefits"
+                />
+                <NumField
+                  name="Expenses.FringeAdminManagement.FringeBenefits.healthFund"
+                  decimal={null}
+                  disabled
+                  label="Health Fund"
+                />
+                <NumField
+                  name="Expenses.FringeAdminManagement.FringeBenefits.socialSecurity"
+                  decimal={null}
+                  disabled
+                  label="Social Security"
+                />
+                <NumField
+                  name="Expenses.FringeAdminManagement.FringeBenefits.medicare"
+                  decimal={null}
+                  disabled
+                  label="Medicare"
+                />
+                <NumField
+                  name="Expenses.FringeAdminManagement.FringeBenefits.workersCompensation"
+                  decimal={null}
+                  disabled
+                  label="Workers Compensation"
+                />
+                <NumField
+                  name="Expenses.FringeAdminManagement.FringeBenefits.unemploymentCompensation"
+                  decimal={null}
+                  disabled
+                  label="Unemployment Compensation"
+                />
+                <NumField
+                  name="Expenses.FringeAdminManagement.FringeBenefits.pensionCompensation"
+                  decimal={null}
+                  disabled
+                  label="Pension Compensation"
+                />
+                <NumField
+                  name="Expenses.FringeAdminManagement.FringeBenefits.fringeBenefitsSum"
+                  decimal={null}
+                  disabled
+                  label="Fringe Benefits Sum"
+                />
+                <NumField
+                  name="Expenses.FringeAdminManagement.personnelFringeSum"
+                  decimal={null}
+                  disabled
+                  label="Personnel Fringe Sum"
+                />
+
+                <NumField
+                  name="Expenses.program"
+                  decimal={null}
+                  label="Program"
+                />
+                <NumField
+                  name="Expenses.contracts"
+                  decimal={null}
+                  label="Contracts"
+                />
+                <NumField
+                  name="Expenses.grants"
+                  decimal={null}
+                  label="Grants"
+                />
+                <NumField
+                  name="Expenses.travel"
+                  decimal={null}
+                  label="Travel"
+                />
+                <NumField
+                  name="Expenses.equipment"
+                  decimal={null}
+                  label="Equipment"
+                />
+                <NumField
+                  name="Expenses.overhead"
+                  decimal={null}
+                  label="Overhead"
+                />
+                <NumField
+                  name="Expenses.debutService"
+                  decimal={null}
+                  label="Debut Service"
+                />
+                <NumField
+                  name="Expenses.other"
+                  decimal={null}
+                  label="Other"
+                />
+
+                <NumField
+                  name="Expenses.totalExpenses"
+                  decimal={null}
+                  disabled
+                  label="Total Expenses"
+                />
+
+                <NumField
+                  name="surplus"
+                  decimal={null}
+                  disabled
+                  label="Surplus"
+                />
+                <NumField
+                  name="ExpenditurePerAudited.management"
+                  decimal={null}
+                  label="Management"
+                />
+                <NumField
+                  name="ExpenditurePerAudited.supportServices"
+                  decimal={null}
+                  label="Support Services"
+                />
+                <NumField
+                  name="ExpenditurePerAudited.beneficiaryAdvocacy"
+                  decimal={null}
+                  label="Beneficiary Advocacy"
+                />
+
                 <SubmitField value="Submit" />
                 <ErrorsField />
                 <HiddenField name="owner" />

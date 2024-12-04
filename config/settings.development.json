@@ -586,52 +586,52 @@
       "Expenses": {
         "personnel": 14758898,
         "PersonnelFringeAdmin": {
-          "salary": 8049691,
+          "salary": -8049691,
           "FringeBenefits": {
-            "pensionAccumulation": 1368447,
-            "retireeHealthInsurance": 649610,
-            "otherBenefits": 626266,
-            "healthFund": 613386,
-            "socialSecurity": 499081,
-            "medicare": 116721,
-            "workersCompensation": 102231,
-            "unemploymentCompensation": 12075,
+            "pensionAccumulation": -1368447,
+            "retireeHealthInsurance": -649610,
+            "otherBenefits": -626266,
+            "healthFund": -613386,
+            "socialSecurity": -499081,
+            "medicare": -116721,
+            "workersCompensation": -102231,
+            "unemploymentCompensation": -12075,
             "pensionCompensation": null,
-            "fringeBenefitsSum": 3987817
+            "fringeBenefitsSum": -3987817
           },
-          "personnelFringeSum": 12037508
+          "personnelFringeSum": -12037508
         },
         "PersonnelFringeAdminStaff": {
-          "salary": 1305437,
+          "salary": -1305437,
           "FringeBenefits": {
-            "pensionAccumulation": 221924,
-            "retireeHealthInsurance": 105349,
-            "otherBenefits": 101563,
-            "healthFund": 99474,
-            "socialSecurity": 80937,
-            "medicare": 18929,
-            "workersCompensation": 16579,
-            "unemploymentCompensation": 1958,
+            "pensionAccumulation": -221924,
+            "retireeHealthInsurance": -105349,
+            "otherBenefits": -101563,
+            "healthFund": -99474,
+            "socialSecurity": -80937,
+            "medicare": -18929,
+            "workersCompensation": -16579,
+            "unemploymentCompensation": -1958,
             "pensionCompensation": null,
-            "fringeBenefitsSum": 646713
+            "fringeBenefitsSum": -646713
           },
-          "personnelFringeSum": 1952150
+          "personnelFringeSum": -1952150
         },
         "FringeAdminManagement": {
-          "salary": 514404,
+          "salary": -514404,
           "FringeBenefits": {
-            "pensionAccumulation": 87449,
-            "retireeHealthInsurance": 41512,
-            "otherBenefits": 40021,
-            "healthFund": 39198,
-            "socialSecurity": 31893,
-            "medicare": 7459,
-            "workersCompensation": 6533,
-            "unemploymentCompensation": 772,
+            "pensionAccumulation": -87449,
+            "retireeHealthInsurance": -41512,
+            "otherBenefits": -40021,
+            "healthFund": -39198,
+            "socialSecurity": -31893,
+            "medicare": -7459,
+            "workersCompensation": -6533,
+            "unemploymentCompensation": -772,
             "pensionCompensation": null,
-            "fringeBenefitsSum": 254836
+            "fringeBenefitsSum": -254836
           },
-          "personnelFringeSum": 769240
+          "personnelFringeSum": -769240
         },
         "program": 1041866,
         "contracts": 6378047,
@@ -645,321 +645,9 @@
       },
       "surplus": 279395,
       "ExpenditurePerAudited": {
-        "management": 2721390,
-        "supportServices": 18215811,
-        "beneficiaryAdvocacy": 25906661
-      }
-    },
-    {
-      "year": 7,
-      "owner": "accountant@spirebooks.com",
-      "green": false,
-      "Revenue": {
-        "investmentPortfolio": 17745949,
-        "revenues": 15100000,
-        "generalFunds": 3741574,
-        "coreBudget": null,
-        "totalRevenue": 36587523
-      },
-      "Expenses": {
-        "personnel": 14295873,
-        "PersonnelFringeAdmin": {
-          "salary": 7415404,
-          "FringeBenefits": {
-            "pensionAccumulation": 1260619,
-            "retireeHealthInsurance": 696306,
-            "otherBenefits": 941015,
-            "healthFund": 563571,
-            "socialSecurity": 459755,
-            "medicare": 107523,
-            "workersCompensation": 78603,
-            "unemploymentCompensation": 6674,
-            "pensionCompensation": 148,
-            "fringeBenefitsSum": 4114214
-          },
-          "personnelFringeSum": 11529618
-        },
-        "PersonnelFringeAdminStaff": {
-          "salary": 1264744,
-          "FringeBenefits": {
-            "pensionAccumulation": 215006,
-            "retireeHealthInsurance": 118759,
-            "otherBenefits": 160496,
-            "healthFund": 96121,
-            "socialSecurity": 78414,
-            "medicare": 18339,
-            "workersCompensation": 13406,
-            "unemploymentCompensation": 1138,
-            "pensionCompensation": 25,
-            "fringeBenefitsSum": 701705
-          },
-          "personnelFringeSum": 1966449
-        },
-        "FringeAdminManagement": {
-          "salary": 514404,
-          "FringeBenefits": {
-            "pensionAccumulation": 87449,
-            "retireeHealthInsurance": 48303,
-            "otherBenefits": 65278,
-            "healthFund": 39095,
-            "socialSecurity": 31893,
-            "medicare": 7459,
-            "workersCompensation": 5453,
-            "unemploymentCompensation": 463,
-            "pensionCompensation": 10,
-            "fringeBenefitsSum": 285402
-          },
-          "personnelFringeSum": 799806
-        },
-        "program": 1074945,
-        "contracts": 4698334,
-        "grants": 10592038,
-        "travel": 371617,
-        "equipment": 855461,
-        "overhead": 2837064,
-        "debutService": 272927,
-        "other": null,
-        "totalExpenses": 34998259
-      },
-      "surplus": 1589264,
-      "ExpenditurePerAudited": {
-        "management": 2766255,
-        "supportServices": 19554828,
-        "beneficiaryAdvocacy": 14911396
-      }
-    },
-    {
-      "year": 8,
-      "owner": "accountant@spirebooks.com",
-      "green": false,
-      "Revenue": {
-        "investmentPortfolio": 17555826,
-        "revenues": 15100000,
-        "generalFunds": 3037879,
-        "coreBudget": null,
-        "totalRevenue": 35693705
-      },
-      "Expenses": {
-        "personnel": 14739767,
-        "PersonnelFringeAdmin": {
-          "salary": 7449811,
-          "FringeBenefits": {
-            "pensionAccumulation": 1340966,
-            "retireeHealthInsurance": 755411,
-            "otherBenefits": 1067558,
-            "healthFund": 572890,
-            "socialSecurity": 461888,
-            "medicare": 108022,
-            "workersCompensation": 92378,
-            "unemploymentCompensation": 1490,
-            "pensionCompensation": 745,
-            "fringeBenefitsSum": 4401348
-          },
-          "personnelFringeSum": 11851159
-        },
-        "PersonnelFringeAdminStaff": {
-          "salary": 1291643,
-          "FringeBenefits": {
-            "pensionAccumulation": 232496,
-            "retireeHealthInsurance": 130973,
-            "otherBenefits": 185092,
-            "healthFund": 99327,
-            "socialSecurity": 80082,
-            "medicare": 18729,
-            "workersCompensation": 16016,
-            "unemploymentCompensation": 258,
-            "pensionCompensation": 129,
-            "fringeBenefitsSum": 763103
-          },
-          "personnelFringeSum": 2054746
-        },
-        "FringeAdminManagement": {
-          "salary": 524178,
-          "FringeBenefits": {
-            "pensionAccumulation": 94352,
-            "retireeHealthInsurance": 53152,
-            "otherBenefits": 75115,
-            "healthFund": 40309,
-            "socialSecurity": 32499,
-            "medicare": 7601,
-            "workersCompensation": 6500,
-            "unemploymentCompensation": 105,
-            "pensionCompensation": 52,
-            "fringeBenefitsSum": 309684
-          },
-          "personnelFringeSum": 833862
-        },
-        "program": 1510657,
-        "contracts": 6185850,
-        "grants": 8282375,
-        "travel": 423186,
-        "equipment": 890414,
-        "overhead": 2991753,
-        "debutService": 579261,
-        "other": null,
-        "totalExpenses": 35603263
-      },
-      "surplus": 90442,
-      "ExpenditurePerAudited": {
-        "management": 2888608,
-        "supportServices": 18903267,
-        "beneficiaryAdvocacy": 19130071
-      }
-    },
-    {
-      "year": 9,
-      "owner": "accountant@spirebooks.com",
-      "green": false,
-      "Revenue": {
-        "investmentPortfolio": 17448120,
-        "revenues": 15100000,
-        "generalFunds": 3018899,
-        "coreBudget": null,
-        "totalRevenue": 35567019
-      },
-      "Expenses": {
-        "personnel": 15382787,
-        "PersonnelFringeAdmin": {
-          "salary": 7846105,
-          "FringeBenefits": {
-            "pensionAccumulation": 1490760,
-            "retireeHealthInsurance": 795595,
-            "otherBenefits": 1124347,
-            "healthFund": 603366,
-            "socialSecurity": 486459,
-            "medicare": 113769,
-            "workersCompensation": 97292,
-            "unemploymentCompensation": 1569,
-            "pensionCompensation": 785,
-            "fringeBenefitsSum": 4713940
-          },
-          "personnelFringeSum": 12560046
-        },
-        "PersonnelFringeAdminStaff": {
-          "salary": 1230767,
-          "FringeBenefits": {
-            "pensionAccumulation": 233846,
-            "retireeHealthInsurance": 124800,
-            "otherBenefits": 176369,
-            "healthFund": 94646,
-            "socialSecurity": 76308,
-            "medicare": 17846,
-            "workersCompensation": 15262,
-            "unemploymentCompensation": 246,
-            "pensionCompensation": 123,
-            "fringeBenefitsSum": 739445
-          },
-          "personnelFringeSum": 1970212
-        },
-        "FringeAdminManagement": {
-          "salary": 532565,
-          "FringeBenefits": {
-            "pensionAccumulation": 101187,
-            "retireeHealthInsurance": 54002,
-            "otherBenefits": 76316,
-            "healthFund": 40954,
-            "socialSecurity": 33019,
-            "medicare": 7722,
-            "workersCompensation": 6604,
-            "unemploymentCompensation": 107,
-            "pensionCompensation": 53,
-            "fringeBenefitsSum": 319965
-          },
-          "personnelFringeSum": 852529
-        },
-        "program": 1617949,
-        "contracts": 5498625,
-        "grants": 8792199,
-        "travel": 410158,
-        "equipment": 720254,
-        "overhead": 3025863,
-        "debutService": 566936,
-        "other": null,
-        "totalExpenses": 36014771
-      },
-      "surplus": 447752,
-      "ExpenditurePerAudited": {
-        "management": 3111437,
-        "supportServices": 20292212,
-        "beneficiaryAdvocacy": 17892353
-      }
-    },
-    {
-      "year": 6,
-      "owner": "accountant@spirebooks.com",
-      "green": false,
-      "Revenue": {
-        "investmentPortfolio": 17298636,
-        "revenues": 15100000,
-        "generalFunds": 3741574,
-        "coreBudget": null,
-        "totalRevenue": 36140210
-      },
-      "Expenses": {
-        "personnel": 14758898,
-        "PersonnelFringeAdmin": {
-          "salary": 8049691,
-          "FringeBenefits": {
-            "pensionAccumulation": 1368447,
-            "retireeHealthInsurance": 649610,
-            "otherBenefits": 626266,
-            "healthFund": 613386,
-            "socialSecurity": 499081,
-            "medicare": 116721,
-            "workersCompensation": 102231,
-            "unemploymentCompensation": 12075,
-            "pensionCompensation": null,
-            "fringeBenefitsSum": 3987817
-          },
-          "personnelFringeSum": 12037508
-        },
-        "PersonnelFringeAdminStaff": {
-          "salary": 1305437,
-          "FringeBenefits": {
-            "pensionAccumulation": 221924,
-            "retireeHealthInsurance": 105349,
-            "otherBenefits": 101563,
-            "healthFund": 99474,
-            "socialSecurity": 80937,
-            "medicare": 18929,
-            "workersCompensation": 16579,
-            "unemploymentCompensation": 1958,
-            "pensionCompensation": null,
-            "fringeBenefitsSum": 646713
-          },
-          "personnelFringeSum": 1952150
-        },
-        "FringeAdminManagement": {
-          "salary": 514404,
-          "FringeBenefits": {
-            "pensionAccumulation": 87449,
-            "retireeHealthInsurance": 41512,
-            "otherBenefits": 40021,
-            "healthFund": 39198,
-            "socialSecurity": 31893,
-            "medicare": 7459,
-            "workersCompensation": 6533,
-            "unemploymentCompensation": 772,
-            "pensionCompensation": null,
-            "fringeBenefitsSum": 254836
-          },
-          "personnelFringeSum": 769240
-        },
-        "program": 1041866,
-        "contracts": 6378047,
-        "grants": 10112056,
-        "travel": 498055,
-        "equipment": 854447,
-        "overhead": 2181256,
-        "debutService": 36190,
-        "other": null,
-        "totalExpenses": 35860815
-      },
-      "surplus": 279395,
-      "ExpenditurePerAudited": {
-        "management": 2721390,
-        "supportServices": 18215811,
-        "beneficiaryAdvocacy": 25906661
+        "management": -2721390,
+        "supportServices": -18215811,
+        "beneficiaryAdvocacy": -25906661
       }
     },
     {

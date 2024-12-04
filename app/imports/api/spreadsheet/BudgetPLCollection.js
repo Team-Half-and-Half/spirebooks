@@ -4,6 +4,7 @@ import { Roles } from 'meteor/alanning:roles';
 import BaseCollection from '../base/BaseCollection';
 import { ROLE } from '../role/Role';
 import { BudgetPLSchema } from '../schemas/BudgetPLSchema';
+import { calcFringeBenefit, calcFringeBenefitManagement, calcSalary, getYearPercentages, sumExpenses, sumFringe, sumFringeBenefits, sumSurplus, sumTotalRevenue } from './BudgetPLFunctions';
 
 export const budgetPLPublications = {
   budgetPL: 'budgetPL',
@@ -12,6 +13,65 @@ export const budgetPLPublications = {
 class BudgetPLCollection extends BaseCollection {
   constructor() {
     super('BudgetPL', BudgetPLSchema);
+  }
+
+  calculateValues({ year, Revenue, Expenses, ExpenditurePerAudited }) {
+    const yearPercentages = getYearPercentages(year);
+    const summedRevenue = sumTotalRevenue(Revenue);
+    const summedExpenses = sumExpenses(Expenses);
+    const summedSurplus = sumSurplus(summedRevenue, summedExpenses);
+
+    // todo: Rename FringeAdminManagement to PersonnelFringeManagement
+    const personnelFringeManagement = Expenses.FringeAdminManagement;
+    const personnelFringeStaff = Expenses.PersonnelFringeAdminStaff;
+    const personnelFringeAdmin = Expenses.PersonnelFringeAdmin;
+    const fringeBenefitsManagement = calcFringeBenefitManagement(year, yearPercentages, personnelFringeManagement.FringeBenefits, personnelFringeManagement.salary);
+    const summedFringeBenefitManagement = sumFringeBenefits(fringeBenefitsManagement);
+    const summedFringe = sumFringe(summedFringeBenefitManagement, personnelFringeManagement.salary, ExpenditurePerAudited.management, Expenses.personnel);
+
+    const fringeBenefitsStaff = calcFringeBenefit(year, yearPercentages, personnelFringeStaff.FringeBenefits, summedFringe.fringeStaff);
+    const fringeBenefitsAdmin = calcFringeBenefit(year, yearPercentages, personnelFringeAdmin.FringeBenefits, summedFringe.fringeAdmin);
+
+    const summedFringeBenefitStaff = sumFringeBenefits(fringeBenefitsStaff);
+    const summedFringeBenefitAdmin = sumFringeBenefits(fringeBenefitsAdmin);
+    const salaryStaff = calcSalary(yearPercentages.composite_rate, summedFringe.fringeStaff);
+    const salaryAdmin = calcSalary(yearPercentages.composite_rate, summedFringe.fringeAdmin);
+    const updatedFringeManagement = {
+      salary: personnelFringeManagement.salary,
+      FringeBenefits: {
+        ...fringeBenefitsManagement,
+        fringeBenefitsSum: summedFringeBenefitManagement,
+      },
+      personnelFringeSum: summedFringe.fringeManagement,
+    };
+    const updatedFringeStaff = {
+      salary: salaryStaff,
+      FringeBenefits: {
+        ...fringeBenefitsStaff,
+        fringeBenefitsSum: summedFringeBenefitStaff,
+      },
+      personnelFringeSum: summedFringe.fringeStaff,
+    };
+    const updatedFringeAdmin = {
+      salary: salaryAdmin,
+      FringeBenefits: {
+        ...fringeBenefitsAdmin,
+        fringeBenefitsSum: summedFringeBenefitAdmin,
+      },
+      personnelFringeSum: summedFringe.fringeAdmin,
+    };
+    const updatedRevenue = {
+      ...Revenue,
+      totalRevenue: summedRevenue,
+    };
+    const updatedExpenses = {
+      ...Expenses,
+      PersonnelFringeAdmin: updatedFringeAdmin,
+      PersonnelFringeAdminStaff: updatedFringeStaff,
+      FringeAdminManagement: updatedFringeManagement,
+      totalExpenses: summedExpenses,
+    };
+    return { updatedRevenue, updatedExpenses, summedSurplus };
   }
 
   /**
@@ -48,13 +108,13 @@ class BudgetPLCollection extends BaseCollection {
    * @param ExpenditurePerAudited Sub document for expenditure line items per audited financials values.
    * @return {String} the docID of the new document.
    */
-  update(docID, { Revenue, Expenses, surplus, ExpenditurePerAudited }) {
+  update(docID, { year, Revenue, Expenses, ExpenditurePerAudited }) {
     try {
       if (!docID) {
         throw new Meteor.Error('invalid-argument', 'Missing crucial field for updating BudgetPLCollection');
       }
-      const updateData = {
-        Revenue, Expenses, surplus, ExpenditurePerAudited };
+      const calcData = this.calculateValues({ year, Revenue, Expenses, ExpenditurePerAudited });
+      const updateData = { Revenue: calcData.updatedRevenue, Expenses: calcData.updatedExpenses, surplus: calcData.summedSurplus, ExpenditurePerAudited };
       this._collection.update(docID, { $set: updateData });
     } catch (e) {
       throw new Meteor.Error('BudgetPLCollection.update', e.message || 'Update BudgetPLCollection failed.');

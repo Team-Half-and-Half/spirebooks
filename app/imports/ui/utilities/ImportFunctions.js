@@ -62,3 +62,9 @@ export const createArraysOfObjects = (inputObj) => {
   }
   return resultArray;
 };
+
+// Function to shift elements to the right (for certain arrays)
+export const shiftArrayRight = (arr) => {
+  arr.unshift(0);
+  return arr;
+};

@@ -15,6 +15,10 @@ import { cleanData } from '../utilities/ImportFunctions';
 import { auditedBalanceImport } from '../utilities/AuditedBalanceImportFunc';
 import { budgetPLImport } from '../utilities/BudgetP&LImportFunc';
 import { auditedFSImport } from '../utilities/AuditedFSImportFunc';
+import { AuditedBalance } from '../../api/spreadsheet/AuditedBalanceCollection';
+import { defineMethod } from '../../api/base/BaseCollection.methods';
+import { BudgetPL } from '../../api/spreadsheet/BudgetPLCollection';
+import { AuditedFS } from '../../api/spreadsheet/AuditedFSCollection';
 
 const ImportSheet = () => {
   const currentUserID = Meteor.userId();
@@ -58,9 +62,56 @@ const ImportSheet = () => {
 
         // setData(transformData(auditedBalanceSheetData));
 
-        auditedBalanceImport(cleanData(auditedBalanceSheetData));
-        budgetPLImport(cleanData(budgetPLSheetData));
-        auditedFSImport(cleanData(auditedFSSheetData));
+        const ABData = auditedBalanceImport(cleanData(auditedBalanceSheetData));
+        for (let i = 0; i <= ABData.LiabilitiesSingleYears.len; i++) {
+          const collectionName = AuditedBalance.getCollectionName();
+          const sepABData = {
+            owner: currentUserID,
+            year: i,
+            green: true,
+            CashAndCashEquivalents: ABData.CashAndCashEquivalentsSingleYears[i],
+            OtherAssets: ABData.OtherAssetsSingleYears[i],
+            Liabilities: ABData.LiabilitiesSingleYears[i],
+            NetPosition: ABData.NetPositionSingleYears[i] };
+          defineMethod.callPromise({ collectionName, sepABData })
+            .catch(error => swal('Error', error.message, 'error'))
+            .then(() => swal('Success', 'Item updated successfully', 'success'));
+        }
+
+        const BPLData = budgetPLImport(cleanData(budgetPLSheetData));
+        for (let i = 0; i <= BPLData.RevenueSingleYears.len; i++) {
+          const collectionName = BudgetPL.getCollectionName();
+          const sepBPLData = {
+            owner: currentUserID,
+            year: i,
+            green: true,
+            Revenue: BPLData.RevenueSingleYears[i],
+            Expenses: BPLData.ExpensesSingleYears[i],
+            ExpenditurePerAudited: BPLData.ExpenditurePerAuditedSingleYears[i] };
+          defineMethod.callPromise({ collectionName, sepBPLData })
+            .catch(error => swal('Error', error.message, 'error'))
+            .then(() => swal('Success', 'Item updated successfully', 'success'));
+        }
+
+        const AFSData = auditedFSImport(cleanData(auditedFSSheetData));
+        for (let i = 0; i <= AFSData.NetAssetsSingleYears.len; i++) {
+          const collectionName = AuditedFS.getCollectionName();
+          const sepAFSData = {
+            owner: currentUserID,
+            year: i,
+            green: true,
+            FundBalances: AFSData.FundBalancesSingleYears[i],
+            Expenditures: AFSData.ExpendituresSingleYears[i],
+            GeneralRevenues: AFSData.GeneralRevenuesSingleYears[i],
+            ProgramRevenues: AFSData.ProgramRevenuesSingleYears[i],
+            NetAssets: AFSData.NetAssetsSingleYears[i],
+            Liabilities: AFSData.LiabilitiesSingleYears[i],
+            OtherAssets: AFSData.OtherAssetsSingleYears[i],
+            CashAndCashEquivalents: AFSData.CashAndCashEquivalentsSingleYears[i] };
+          defineMethod.callPromise({ collectionName, sepAFSData })
+            .catch(error => swal('Error', error.message, 'error'))
+            .then(() => swal('Success', 'Item updated successfully', 'success'));
+        }
 
       }
     };

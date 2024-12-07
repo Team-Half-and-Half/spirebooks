@@ -63,9 +63,12 @@ const ImportSheet = () => {
         // setData(transformData(auditedBalanceSheetData));
 
         const ABData = auditedBalanceImport(cleanData(auditedBalanceSheetData));
-        for (let i = 0; i <= ABData.Liabilities.len; i++) {
+        for (let i = 0; i <= ABData.LiabilitiesSingleYears.len; i++) {
           const collectionName = AuditedBalance.getCollectionName();
           const sepABData = {
+            owner: currentUserID,
+            year: i,
+            green: true,
             CashAndCashEquivalents: ABData.CashAndCashEquivalentsSingleYears[i],
             OtherAssets: ABData.OtherAssetsSingleYears[i],
             Liabilities: ABData.LiabilitiesSingleYears[i],
@@ -79,6 +82,9 @@ const ImportSheet = () => {
         for (let i = 0; i <= BPLData.RevenueSingleYears.len; i++) {
           const collectionName = BudgetPL.getCollectionName();
           const sepBPLData = {
+            owner: currentUserID,
+            year: i,
+            green: true,
             Revenue: BPLData.RevenueSingleYears[i],
             Expenses: BPLData.ExpensesSingleYears[i],
             ExpenditurePerAudited: BPLData.ExpenditurePerAuditedSingleYears[i] };
@@ -88,9 +94,12 @@ const ImportSheet = () => {
         }
 
         const AFSData = auditedFSImport(cleanData(auditedFSSheetData));
-        for (let i = 0; i <= AFSData.NetAssets.len; i++) {
+        for (let i = 0; i <= AFSData.NetAssetsSingleYears.len; i++) {
           const collectionName = AuditedFS.getCollectionName();
           const sepAFSData = {
+            owner: currentUserID,
+            year: i,
+            green: true,
             FundBalances: AFSData.FundBalancesSingleYears[i],
             Expenditures: AFSData.ExpendituresSingleYears[i],
             GeneralRevenues: AFSData.GeneralRevenuesSingleYears[i],

@@ -1,13 +1,12 @@
 import React from 'react';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Meteor } from 'meteor/meteor';
-import swal from 'sweetalert';
-import { Container, Grid, Card, Button, Icon, Header } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
+import { Row } from 'react-bootstrap';
 import { Profile } from '../../api/profile/ProfileCollection';
 import LoadingSpinner from '../components/LoadingSpinner';
+import ProfileCard from '../components/ProfileCard';
 
 const ProfilePage = () => {
-  const currentUserID = Meteor.userId();
   const { profiles, ready } = useTracker(() => {
     const profile = Profile.subscribeProfile();
     const rdy = profile.ready();
@@ -18,7 +17,14 @@ const ProfilePage = () => {
   }, []);
 
   return ready ? (
-    <Container />
+    <Container className="mt-4">
+      <h1 className="text-center mb-4">Profiles</h1>
+      <Row>
+        {profiles.map((profile, index) => (
+          <ProfileCard key={index} profile={profile} />
+        ))}
+      </Row>
+    </Container>
 
   ) : <LoadingSpinner />;
 };

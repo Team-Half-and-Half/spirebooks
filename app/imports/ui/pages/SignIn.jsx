@@ -52,8 +52,8 @@ const SignIn = () => {
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
             <Card>
               <Card.Body>
-                <TextField id={COMPONENT_IDS.SIGN_IN_FORM_EMAIL} name="email" placeholder="E-mail address" />
-                <TextField id={COMPONENT_IDS.SIGN_IN_FORM_PASSWORD} name="password" placeholder="Password" type="password" />
+                <TextField id={COMPONENT_IDS.SIGN_IN_FORM_EMAIL} name="email" placeholder="E-mail address" value="admin@spirebooks.com" />
+                <TextField id={COMPONENT_IDS.SIGN_IN_FORM_PASSWORD} name="password" placeholder="Password" type="password" value="spirebooksadmin" />
                 <ErrorsField />
                 <SubmitField id={COMPONENT_IDS.SIGN_IN_FORM_SUBMIT} />
               </Card.Body>

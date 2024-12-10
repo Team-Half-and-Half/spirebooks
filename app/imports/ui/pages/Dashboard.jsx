@@ -78,7 +78,7 @@ const Dashboard = () => {
           </div>
         </Col>
       </Row>
-      <Row>
+      <Row className="text-center justify-content-center mb-3">
         <Col lg={5}>
           <DropdownButton id="dropdown-basic-button" title="Select Number of Years">
             {snapshotData.map((item, index) => (

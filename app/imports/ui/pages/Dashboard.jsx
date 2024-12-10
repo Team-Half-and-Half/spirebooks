@@ -95,30 +95,30 @@ const Dashboard = () => {
       <Row className="py-2">
         <Col>
           <h1 className="text-center">Equity Metrics</h1>
-          <Card className="my-2">
+          <Card className="text-center">
             <CardHeader>Net Position</CardHeader>
             <CustomLineChart data={netPositionData} />
           </Card>
-          <Card className="my-2">
+          <Card className="text-center">
             <CardHeader>Years of Solvency</CardHeader>
             <CustomLineChart data={yearsOfSolvencyData} />
           </Card>
-          <Card className="my-2">
+          <Card className="text-center">
             <CardHeader>Demand for Capital</CardHeader>
             <CustomLineChart data={demandForCapitalData} />
           </Card>
         </Col>
         <Col>
           <h1 className="text-center">Cash Flow Metrics</h1>
-          <Card className="my-2">
+          <Card className="text-center">
             <CardHeader>Financing</CardHeader>
             <CustomLineChart data={financingData} />
           </Card>
-          <Card className="my-2">
+          <Card className="text-center">
             <CardHeader>Years of Solvency based on Cash Flow</CardHeader>
             <CustomLineChart data={yearsOfSolvencyCashData} />
           </Card>
-          <Card className="my-2">
+          <Card className="text-center">
             <CardHeader>Budget</CardHeader>
             <CustomLineChart data={budgetData} />
           </Card>

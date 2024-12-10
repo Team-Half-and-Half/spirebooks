@@ -71,8 +71,10 @@ const Dashboard = () => {
     <Container fluid id={PAGE_IDS.DASHBOARD}>
       <Row>
         <Col>
-          <div>
-            <h1 className="company-title">{currentUser?.profile?.companyName || 'Company Name'}</h1>
+          <div className="text-center my-3">
+            <h1 className="company-title">
+              {currentUser?.profile?.companyName || 'Company Name'}
+            </h1>
           </div>
         </Col>
       </Row>
@@ -92,7 +94,7 @@ const Dashboard = () => {
       </Row>
       <Row className="py-2">
         <Col>
-          <h1>Equity Metrics</h1>
+          <h1 className="text-center">Equity Metrics</h1>
           <Card className="my-2">
             <CardHeader>Net Position</CardHeader>
             <CustomLineChart data={netPositionData} />
@@ -107,7 +109,7 @@ const Dashboard = () => {
           </Card>
         </Col>
         <Col>
-          <h1>Cash Flow Metrics</h1>
+          <h1 className="text-center">Cash Flow Metrics</h1>
           <Card className="my-2">
             <CardHeader>Financing</CardHeader>
             <CustomLineChart data={financingData} />

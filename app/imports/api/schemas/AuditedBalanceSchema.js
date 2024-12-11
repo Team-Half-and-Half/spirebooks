@@ -4,74 +4,125 @@ const NetPosition = new SimpleSchema({
   netOfRelatedDebt: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   restrictedFederal: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   unrestricted: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
 });
 const LongTermLiabilities = new SimpleSchema({
   accruedVacation: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   workersCompensation: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   accruedRetirement: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   accruedLease: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   capitalLease: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   notesPayableA: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   netPensionLiability: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   netOPEDLiability: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   lineOfCreditA: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   lineOfCreditB: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   debtService: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
 });
 const Liabilities = new SimpleSchema({
   accountPayableAccrued: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   dueToFund: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   dueToOther: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   LongTermWithin: {
     type: LongTermLiabilities,
@@ -84,66 +135,111 @@ const Liabilities = new SimpleSchema({
   deferredInflowsPension: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   deferredInflowsOPED: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
 });
 const LiabilityBAsset = new SimpleSchema({
   buildings: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   leaseholdImprovements: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   furnitureFixturesEquipment: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   vehicles: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   lessAccumulatedDepreciation: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   land: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
 });
 const Assets = new SimpleSchema({
   buildings: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   leaseholdImprovements: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   furnitureFixturesEquipment: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   lessAccumulatedDepreciation: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   landA: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   landB: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   constructionInProgress: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
 });
 const CapitalAssetsNet = new SimpleSchema({
@@ -160,76 +256,130 @@ const Investments = new SimpleSchema({
   mutualFunds: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   commingledFunds: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   hedgeFunds: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   privateEquity: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   commonTrustFund: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   commonPreferredStock: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   privateDebt: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   other: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   treasuriesUS: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   agenciesUS: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
 });
 const OtherAssets = new SimpleSchema({
   accountsReceivable: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   dueFromOtherFund: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   interestDividendsReceivable: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   inventoryPrepaidOtherAssets: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   notesWithinOneYear: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   notesAfterOneYear: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   securityDeposits: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   cashHeldInvestmentManager: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   Investments: {
     type: Investments,
@@ -242,28 +392,46 @@ const OtherAssets = new SimpleSchema({
   restrictedCash: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   deferredPensions: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   deferredOPEB: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
 });
 const CashAndCashEquivalents = new SimpleSchema({
   pettyCash: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   cash: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
   cashInBank: {
     type: Number,
     optional: true,
+    autoValue() {
+      return Number(parseFloat(this.value || 0).toFixed(2));
+    },
   },
 });
 
@@ -299,7 +467,7 @@ const AuditedBalanceSchema = new SimpleSchema({
         const cash = cashAndCashEquivalents.cash || 0;
         const cashInBank = cashAndCashEquivalents.cashInBank || 0;
         const total = pettyCash + cash + cashInBank;
-        return total;
+        return Number(parseFloat(total || 0).toFixed(2));
       }
       return this.value;
     },
@@ -319,7 +487,7 @@ const AuditedBalanceSchema = new SimpleSchema({
         const privateDebt = investments.privateDebt || 0;
         const other = investments.other || 0;
         const total = mutualFunds + commingledFunds + hedgeFunds + privateEquity + commonTrustFund + commonPreferredStock + privateDebt + other;
-        return total;
+        return Number(parseFloat(total || 0).toFixed(2));
       }
       return this.value;
     },
@@ -333,7 +501,7 @@ const AuditedBalanceSchema = new SimpleSchema({
         const treasuriesUS = investments.treasuriesUS || 0;
         const agenciesUS = investments.agenciesUS || 0;
         const total = treasuriesUS + agenciesUS;
-        return total;
+        return Number(parseFloat(total || 0).toFixed(2));
       }
       return this.value;
     },
@@ -346,7 +514,7 @@ const AuditedBalanceSchema = new SimpleSchema({
         const subtotalLoanFund = this.siblingField('subtotalLoanFund').value || 0;
         const subTotalInvestments = this.siblingField('subTotalInvestments').value || 0;
         const total = subtotalLoanFund + subTotalInvestments;
-        return total;
+        return Number(parseFloat(total || 0).toFixed(2));
       }
       return this.value;
     },
@@ -362,7 +530,7 @@ const AuditedBalanceSchema = new SimpleSchema({
         const furnitureFixturesEquipment = assets.furnitureFixturesEquipment || 0;
         const lessAccumulatedDepreciation = assets.lessAccumulatedDepreciation || 0;
         const total = buildings + leaseholdImprovements + furnitureFixturesEquipment + lessAccumulatedDepreciation;
-        return total;
+        return Number(parseFloat(total || 0).toFixed(2));
       }
       return this.value;
     },
@@ -377,7 +545,7 @@ const AuditedBalanceSchema = new SimpleSchema({
         const landB = assets.landB || 0;
         const constructionInProgress = assets.constructionInProgress || 0;
         const total = landA + landB + constructionInProgress;
-        return total;
+        return Number(parseFloat(total || 0).toFixed(2));
       }
       return this.value;
     },
@@ -394,7 +562,7 @@ const AuditedBalanceSchema = new SimpleSchema({
         const vehicles = assets.vehicles || 0;
         const lessAccumulatedDepreciation = assets.lessAccumulatedDepreciation || 0;
         const total = buildings + leaseholdImprovements + furnitureFixturesEquipment + vehicles + lessAccumulatedDepreciation;
-        return total;
+        return Number(parseFloat(total || 0).toFixed(2));
       }
       return this.value;
     },
@@ -407,7 +575,7 @@ const AuditedBalanceSchema = new SimpleSchema({
         const netCompanyBAsset = this.siblingField('netCompanyBAsset').value || 0;
         const leaseholdImprovements = this.siblingField('OtherAssets.CapitalAssetsNet.LiabilityBAsset.land').value || 0;
         const total = netCompanyBAsset + leaseholdImprovements;
-        return total;
+        return Number(parseFloat(total || 0).toFixed(2));
       }
       return this.value;
     },
@@ -421,7 +589,7 @@ const AuditedBalanceSchema = new SimpleSchema({
         const subTotalCapitalAssetNet = this.siblingField('subTotalCapitalAssetNet').value || 0;
         const subTotalCompanyBAssets = this.siblingField('subTotalCompanyBAssets').value || 0;
         const total = netAssets + subTotalCapitalAssetNet + subTotalCompanyBAssets;
-        return total;
+        return Number(parseFloat(total || 0).toFixed(2));
       }
       return this.value;
     },
@@ -447,7 +615,7 @@ const AuditedBalanceSchema = new SimpleSchema({
           + inventoryPrepaidOtherAssets + notesWithinOneYear + notesAfterOneYear
           + securityDeposits + cashHeldInvestmentManager + investmentSum
           + capitalAssetsNetSum + restrictedCash;
-        return total;
+        return Number(parseFloat(total || 0).toFixed(2));
       }
       return this.value;
     },
@@ -463,7 +631,7 @@ const AuditedBalanceSchema = new SimpleSchema({
         const deferredPensions = otherAssets.deferredPensions || 0;
         const deferredOPEB = otherAssets.deferredOPEB || 0;
         const total = totalCashAndCashEquivalents + totalOtherAssets + deferredPensions + deferredOPEB;
-        return total;
+        return Number(parseFloat(total || 0).toFixed(2));
       }
       return this.value;
     },
@@ -486,7 +654,7 @@ const AuditedBalanceSchema = new SimpleSchema({
         const lineOfCreditB = longTermWithin.lineOfCreditB || 0;
         const debtService = longTermWithin.debtService || 0;
         const total = accruedVacation + workersCompensation + accruedRetirement + accruedLease + capitalLease + notesPayableA + netPensionLiability + netOPEDLiability + lineOfCreditA + lineOfCreditB + debtService;
-        return total;
+        return Number(parseFloat(total || 0).toFixed(2));
       }
       return this.value;
     },
@@ -509,7 +677,7 @@ const AuditedBalanceSchema = new SimpleSchema({
         const lineOfCreditB = longTermAfter.lineOfCreditB || 0;
         const debtService = longTermAfter.debtService || 0;
         const total = accruedVacation + workersCompensation + accruedRetirement + accruedLease + capitalLease + notesPayableA + netPensionLiability + netOPEDLiability + lineOfCreditA + lineOfCreditB + debtService;
-        return total;
+        return Number(parseFloat(total || 0).toFixed(2));
       }
       return this.value;
     },
@@ -526,7 +694,7 @@ const AuditedBalanceSchema = new SimpleSchema({
         const dueWithinOneYearSum = liabilities.dueWithinOneYearSum || 0;
         const dueAfterOneYearSum = this.siblingField('dueAfterOneYearSum').value || 0;
         const total = accountPayableAccrued + dueToFund + dueToOther + dueWithinOneYearSum + dueAfterOneYearSum;
-        return total;
+        return Number(parseFloat(total || 0).toFixed(2));
       }
       return this.value;
     },
@@ -541,7 +709,7 @@ const AuditedBalanceSchema = new SimpleSchema({
         const deferredInflowsPension = liabilities.deferredInflowsPension || 0;
         const deferredInflowsOPED = liabilities.deferredInflowsOPED || 0;
         const total = totalLiabilities + deferredInflowsPension + deferredInflowsOPED;
-        return total;
+        return Number(parseFloat(total || 0).toFixed(2));
       }
       return this.value;
     },
@@ -556,7 +724,7 @@ const AuditedBalanceSchema = new SimpleSchema({
         const restrictedFederal = netPosition.restrictedFederal || 0;
         const unrestricted = netPosition.unrestricted || 0;
         const total = netOfRelatedDebt + restrictedFederal + unrestricted;
-        return total;
+        return Number(parseFloat(total || 0).toFixed(2));
       }
       return this.value;
     },
@@ -569,7 +737,7 @@ const AuditedBalanceSchema = new SimpleSchema({
         const totalLiabilitiesDeferredInflows = this.siblingField('totalLiabilitiesDeferredInflows').value || 0;
         const totalNetPosition = this.siblingField('totalNetPosition').value || 0;
         const total = totalLiabilitiesDeferredInflows + totalNetPosition;
-        return total;
+        return Number(parseFloat(total || 0).toFixed(2));
       }
       return this.value;
     },

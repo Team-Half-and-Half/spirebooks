@@ -85,14 +85,16 @@ class BudgetPLCollection extends BaseCollection {
    * @param ExpenditurePerAudited Sub document for expenditure line items per audited financials values.
    * @return {String} the docID of the new document.
    */
+  // eslint-disable-next-line no-unused-vars
   define({ year, owner, green, Revenue, Expenses, surplus, ExpenditurePerAudited }) {
     try {
       if (!year || !owner) {
         throw new Meteor.Error('invalid-arguments', 'Missing crucial fields for defining BudgetPLCollection.');
       }
+      const calcData = this.calculateValues({ year, Revenue, Expenses, ExpenditurePerAudited });
       return this._collection.insert({
         year, owner, green,
-        Revenue, Expenses, surplus, ExpenditurePerAudited,
+        Revenue: calcData.updatedRevenue, Expenses: calcData.updatedExpenses, surplus: calcData.summedSurplus, ExpenditurePerAudited,
       });
     } catch (e) {
       throw new Meteor.Error('BudgetPLCollection.define', e.message || 'Define BudgetPLCollection failed.');

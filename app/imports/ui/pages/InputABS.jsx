@@ -18,14 +18,17 @@ const InputABS = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { pastYears, futureYears, ready } = useTracker(() => {
     const ABS = AuditedBalance.subscribeAuditedBalance();
+    const ABSAdmin = AuditedBalance.subscribeAuditedBalanceAdmin();
     // Determine if the subscription is ready
     const rdy = ABS.ready();
+    const rdy2 = ABSAdmin.ready();
+
     const past = AuditedBalance.find({ green: false }).fetch();
     const future = AuditedBalance.find({ green: true }).fetch();
     return {
       pastYears: past,
       futureYears: future,
-      ready: rdy,
+      ready: rdy && rdy2,
     };
   }, []);
   const [activeTab, setActiveTab] = useState('past');

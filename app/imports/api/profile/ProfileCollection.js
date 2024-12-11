@@ -66,10 +66,11 @@ class ProfileCollection extends BaseCollection {
      * @param owner The owner of the profile.
      * @param image The optional image associated with the profile.
      */
-  update(docID, { name, image }) {
+  update(docID, { name, image, members }) {
     const updateData = {
       name,
       image,
+      members,
       modified: new Date(),
     };
     this._collection.update(docID, { $set: updateData });

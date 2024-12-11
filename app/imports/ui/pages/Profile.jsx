@@ -24,7 +24,10 @@ const ProfilePage = () => {
       ...profile,
       modified: `${profile.modified.toLocaleDateString('en-US')} ${profile.modified.toLocaleTimeString('en-US')}`,
     }));
-    return { profiles: profileData, ready: rdy };
+    return {
+      profiles: profileData,
+      ready: rdy,
+    };
   }, []);
 
   return ready ? (

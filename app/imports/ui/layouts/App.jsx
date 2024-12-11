@@ -24,6 +24,7 @@ import CompareProjections from '../pages/CompareProjections';
 import EditClientInfo from '../pages/EditClientInfo';
 import ManageProjections from '../pages/ManageProjections';
 import InputABS from '../pages/InputABS';
+import ViewWorkpaper from '../pages/ViewWorkpaper';
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
   const { ready } = useTracker(() => {
@@ -45,6 +46,7 @@ const App = () => {
           <Route path="/import" element={<UserProtectedRoute><ImportSheet /></UserProtectedRoute>} />
           <Route path="/compare-projections" element={<ModProtectedRoute><CompareProjections /></ModProtectedRoute>} />
           <Route path="/manage-projections" element={<ModProtectedRoute><ManageProjections /></ModProtectedRoute>} />
+          <Route path="/view-workpaper/:wpNumber" element={<ViewWorkpaper />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/list" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="/dashboard" element={<ModProtectedRoute><Dashboard /></ModProtectedRoute>} />

@@ -9,10 +9,12 @@ import { Profile } from '../../api/profile/ProfileCollection';
 const ProfilePage = () => {
   const { profiles, ready } = useTracker(() => {
     const user = Meteor.user();
+    if (!user) {
+      return { profiles: [], ready: false };
+    }
     const userEmail = user.username;
     const subscription = Meteor.subscribe('Profiles', user);
     const rdy = subscription.ready();
-
     const profileData = Profile.find({
       $or: [
         { owner: userEmail },

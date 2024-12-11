@@ -7,7 +7,7 @@
  * contains data from the green columns only (first 4 years), might need to split up by scenarios instead of by years if we want to utilize full table?
  */
 export const wp4001 = {
-  number: '4002',
+  number: '4001',
   name: 'Building B Line of Credit Projections',
   description: 'Building B LOC model with three scenarios of refinancing',
   data: [
@@ -20,9 +20,6 @@ export const wp4001 = {
         get totalDebtService() {
           return this.interest + this.principal;
         },
-        get PercentOfCoreOpBudget() {
-          return this.totalDebtService / wp4001[0].projectedCoreOpBudget;
-        },
       },
       SevenYearSecured: {
         interest: 46926,
@@ -30,18 +27,12 @@ export const wp4001 = {
         get totalDebtService() {
           return this.interest + this.principal;
         },
-        get PercentOfCoreOpBudget() {
-          return this.totalDebtService / wp4001[0].projectedCoreOpBudget;
-        },
       },
       NineYearSecured: {
         interest: 15891,
         principal: 0,
         get totalDebtService() {
           return this.interest + this.principal;
-        },
-        get PercentOfCoreOpBudget() {
-          return this.totalDebtService / wp4001[0].projectedCoreOpBudget;
         },
       },
     },
@@ -54,9 +45,6 @@ export const wp4001 = {
         get totalDebtService() {
           return this.interest + this.principal;
         },
-        get PercentOfCoreOpBudget() {
-          return this.totalDebtService / wp4001[1].projectedCoreOpBudget;
-        },
       },
       SevenYearSecured: {
         interest: 99279,
@@ -64,18 +52,12 @@ export const wp4001 = {
         get totalDebtService() {
           return this.interest + this.principal;
         },
-        get PercentOfCoreOpBudget() {
-          return this.totalDebtService / wp4001[1].projectedCoreOpBudget;
-        },
       },
       NineYearSecured: {
         interest: 37206,
         principal: 0,
         get totalDebtService() {
           return this.interest + this.principal;
-        },
-        get PercentOfCoreOpBudget() {
-          return this.totalDebtService / wp4001[1].projectedCoreOpBudget;
         },
       },
     },
@@ -88,9 +70,6 @@ export const wp4001 = {
         get totalDebtService() {
           return this.interest + this.principal;
         },
-        get PercentOfCoreOpBudget() {
-          return this.totalDebtService / wp4001[2].projectedCoreOpBudget;
-        },
       },
       SevenYearSecured: {
         interest: 136753,
@@ -98,18 +77,12 @@ export const wp4001 = {
         get totalDebtService() {
           return this.interest + this.principal;
         },
-        get PercentOfCoreOpBudget() {
-          return this.totalDebtService / wp4001[2].projectedCoreOpBudget;
-        },
       },
       NineYearSecured: {
         interest: 45414,
         principal: 506857,
         get totalDebtService() {
           return this.interest + this.principal;
-        },
-        get PercentOfCoreOpBudget() {
-          return this.totalDebtService / wp4001[2].projectedCoreOpBudget;
         },
       },
     },
@@ -122,18 +95,12 @@ export const wp4001 = {
         get totalDebtService() {
           return this.interest + this.principal;
         },
-        get PercentOfCoreOpBudget() {
-          return this.totalDebtService / wp4001[3].projectedCoreOpBudget;
-        },
       },
       SevenYearSecured: {
         interest: 103601,
         principal: 740000,
         get totalDebtService() {
           return this.interest + this.principal;
-        },
-        get PercentOfCoreOpBudget() {
-          return this.totalDebtService / wp4001[3].projectedCoreOpBudget;
         },
       },
       NineYearSecured: {
@@ -142,12 +109,9 @@ export const wp4001 = {
         get totalDebtService() {
           return this.interest + this.principal;
         },
-        get PercentOfCoreOpBudget() {
-          return this.totalDebtService / wp4001[3].projectedCoreOpBudget;
-        },
       },
     },
-  ]
+  ],
 };
 
 /*
@@ -199,4 +163,32 @@ export const wp2005 = {
       },
     },
   ],
+};
+
+// function to transpose data specifically for wp 2005
+export const transpose2005 = (data) => {
+  const transposed = {};
+
+  // Extract headers (categories) from the first entry
+  const categories = Object.keys(data[0]).filter(key => key !== 'year' && key !== 'marketValue');
+
+  // Initialize transposed structure
+  categories.forEach(category => {
+    transposed[category] = {};
+  });
+
+  // Fill the transposed structure with data
+  data.forEach(entry => {
+    categories.forEach(category => {
+      transposed[category][entry.year] = entry[category];
+    });
+  });
+
+  // Add marketValue for each year
+  transposed.marketValue = {};
+  data.forEach(entry => {
+    transposed.marketValue[entry.year] = entry.marketValue;
+  });
+
+  return transposed;
 };

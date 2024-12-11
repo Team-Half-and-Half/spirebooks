@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Roles } from 'meteor/alanning:roles';
-import { Button, Card, Col, Container, Row, Modal } from 'react-bootstrap';
+import { Button, Card, Col, Container, Row, Modal, Table } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import fileTypeChecker from 'file-type-checker';
@@ -8,10 +8,12 @@ import swal from 'sweetalert';
 import * as XLSX from 'xlsx';
 import { FaFileUpload } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { Eye } from 'react-bootstrap-icons';
 import ManageProjectionsTable from '../components/ManageProjectionsTable';
 import { PAGE_IDS } from '../utilities/PageIDs';
 import { UserVerification } from '../../api/user/UserVerificationCollection';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { wp2005, wp4001 } from '../utilities/Workpapers';
 
 /* Renders a table containing all the ProjectionGraphs documents. */
 const ManageProjections = () => {
@@ -145,6 +147,43 @@ const ManageProjections = () => {
           <Col md={10}>
             <Col><h2>Manage Projections</h2></Col>
             <ManageProjectionsTable />
+          </Col>
+        </Row>
+        <Row className="justify-content-center pt-4">
+          <Col md={10}>
+            <Col><h2>Manage Workpapers</h2></Col>
+            <Table className="table-responsive" striped bordered hover>
+              <thead>
+                <tr>
+                  <th>Number</th>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>View</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{wp4001.number}</td>
+                  <td>{wp4001.name}</td>
+                  <td>{wp4001.description}</td>
+                  <td className="text-center">
+                    <Link to={`/view-workpaper/${wp4001.number}`} className="btn btn-primary">
+                      <Eye />
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <td>{wp2005.number}</td>
+                  <td>{wp2005.name}</td>
+                  <td>{wp2005.description}</td>
+                  <td className="text-center">
+                    <Link to={`/view-workpaper/${wp2005.number}`} className="btn btn-primary">
+                      <Eye />
+                    </Link>
+                  </td>
+                </tr>
+              </tbody>
+            </Table>
           </Col>
         </Row>
       </Container>

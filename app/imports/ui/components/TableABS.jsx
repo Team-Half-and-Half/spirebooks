@@ -113,10 +113,10 @@ const TableAbS = ({ auditedBalance }) => (
       <NumField className="tableField" name="NetPosition.unrestricted" label={false} />
       <NumField className="tableField" name="totalNetPosition" label={false} disabled />
       <NumField className="tableField" name="totalLiabilitiesInflowsNetPosition" label={false} disabled />
-
-      {(auditedBalance.green === true) ? (
-        <SubmitField value="Submit" />
-      ) : (<div />)}
+      <SubmitField value="Submit" />
+      {/* {(auditedBalance.green === true) ? ( */}
+      {/*  <SubmitField value="Submit" /> */}
+      {/* ) : (<div />)} */}
     </AutoForm>
   </div>
 );

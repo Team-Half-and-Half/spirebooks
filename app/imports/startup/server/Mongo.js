@@ -22,7 +22,7 @@ function addAFSData(data) {
 
 function addProfileData(data) {
   console.log(`  Adding profile: ${data.name} (${data.owner})`);
-  Profile.define(data);
+  console.log(Profile.define(data));
 }
 
 function addDBConfig(data) {

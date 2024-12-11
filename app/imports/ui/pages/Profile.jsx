@@ -1,19 +1,21 @@
 import React from 'react';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Container } from 'semantic-ui-react';
-import { Row } from 'react-bootstrap';
-import { Profile } from '../../api/profile/ProfileCollection';
+import { Row, Container } from 'react-bootstrap';
+import { Meteor } from 'meteor/meteor';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ProfileCard from '../components/ProfileCard';
+import { Profile } from '../../api/profile/ProfileCollection';
 
 const ProfilePage = () => {
   const { profiles, ready } = useTracker(() => {
-    const profile = Profile.subscribeProfile();
-    const rdy = profile.ready();
-    return {
-      profiles: profile,
-      ready: rdy,
-    };
+    const subscription = Meteor.subscribe('ProfilesAdmin'); // Subscription
+    const rdy = subscription.ready(); // Set ready based on subscription status
+    const profileData = Profile.find().fetch().map(profile => ({
+      ...profile,
+      modified: `${profile.modified.toLocaleDateString('en-US')} ${profile.modified.toLocaleTimeString('en-US')}`,
+    }));
+    console.log(profileData);
+    return { profiles: profileData, ready: rdy }; // Return the fetched profiles and ready status
   }, []);
 
   return ready ? (
@@ -25,8 +27,9 @@ const ProfilePage = () => {
         ))}
       </Row>
     </Container>
-
-  ) : <LoadingSpinner />;
+  ) : (
+    <LoadingSpinner />
+  );
 };
 
 export default ProfilePage;

@@ -43,7 +43,7 @@ ProfileCard.defaultProps = {
   profile: {
     name: 'N/A',
     owner: 'N/A',
-    modified: 'N/A',
+    modified: new Date(),
     image: 'N/A',
   },
 };

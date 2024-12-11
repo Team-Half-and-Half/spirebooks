@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTracker } from 'meteor/react-meteor-data';
+import PropTypes from 'prop-types'; // Import PropTypes
 import { Container } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema from 'simpl-schema';
@@ -44,9 +45,12 @@ const ProfileEditPage = ({ profileId }) => {
 
   const navigate = useNavigate();
 
-  const submit = (data) => {
-    const { name, image, members } = data;
-    Profile.update(profileId, name, image, members);
+  const submit = () => {
+    // const { name, image, members } = data;
+    // const collectionName = Profile.getCollectionName();
+    // const updateData = { id: profileId, name, image, members };
+    // updateMethod.callPromise({ collectionName, updateData })
+    //   .then(() => swal('Success', 'Item updated successfully', 'success'));
     navigate('/profile');
   };
 
@@ -69,6 +73,10 @@ const ProfileEditPage = ({ profileId }) => {
   ) : (
     <LoadingSpinner />
   );
+};
+
+ProfileEditPage.propTypes = {
+  profileId: PropTypes.string.isRequired,
 };
 
 export default ProfileEditPage;

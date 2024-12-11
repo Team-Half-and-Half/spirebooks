@@ -10,6 +10,10 @@ const ProfileCard = ({ profile }) => {
     navigate(`/editprofile/${profile._id}`); // Navigate to the edit page with profileId
   };
 
+  const dashBoard = () => {
+    navigate('/dashboard'); // Navigate to the edit page with profileId
+  };
+
   return (
     <Col>
       <Card style={{ borderRadius: '10px', maxWidth: '300px' }} className="text-center h-100 pb-3 participant">
@@ -46,6 +50,9 @@ const ProfileCard = ({ profile }) => {
           <Button onClick={editProfile} variant="primary">
             Edit Profile
           </Button>
+          <Button onClick={dashBoard} variant="primary">
+            Dashboard
+          </Button>
         </Card.Body>
       </Card>
     </Col>
@@ -54,6 +61,7 @@ const ProfileCard = ({ profile }) => {
 
 ProfileCard.propTypes = {
   profile: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
     name: PropTypes.string,
     owner: PropTypes.string,
     modified: PropTypes.string,

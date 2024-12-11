@@ -43,16 +43,16 @@ const App = () => {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
-          <Route path="/import" element={<ImportSheet />} />
-          <Route path="/compare-projections" element={<CompareProjections />} />
-          <Route path="/manage-projections" element={<ManageProjections />} />
+          <Route path="/import" element={<UserProtectedRoute><ImportSheet /></UserProtectedRoute>} />
+          <Route path="/compare-projections" element={<ModProtectedRoute><CompareProjections /></ModProtectedRoute>} />
+          <Route path="/manage-projections" element={<ModProtectedRoute><ManageProjections /></ModProtectedRoute>} />
           <Route path="/view-workpaper/:wpNumber" element={<ViewWorkpaper />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/list" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-          <Route path="/balance-sheet" element={<ProtectedRoute><InputABS /></ProtectedRoute>} />
+          <Route path="/dashboard" element={<ModProtectedRoute><Dashboard /></ModProtectedRoute>} />
+          <Route path="/balance-sheet" element={<UserProtectedRoute><InputABS /></UserProtectedRoute>} />
           <Route path="/user-settings" element={<ProtectedRoute><UserSettings /></ProtectedRoute>} />
-          <Route path="/edit" element={<ProtectedRoute><EditClientInfo /></ProtectedRoute>} />
+          <Route path="/edit" element={<UserProtectedRoute><EditClientInfo /></UserProtectedRoute>} />
           <Route path="/verification-table" element={<AdminProtectedRoute ready={ready}><VerificationTable /></AdminProtectedRoute>} />
           <Route path="/manage-database" element={<AdminProtectedRoute ready={ready}><ManageDatabase /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
@@ -77,6 +77,31 @@ const ProtectedRoute = ({ children }) => {
 };
 
 /**
+ *  UserProtectedRoute
+ * Checks for Meteor login and user role before routing to the requested page, otherwise goes to signin page.
+ * @param {any} { component: Component, ...rest }
+ */
+const UserProtectedRoute = ({ children }) => {
+  const { ready } = useTracker(() => {
+    const rdy = Roles.subscription.ready();
+    return { ready: rdy };
+  });
+
+  const isLogged = Meteor.userId() !== null;
+  if (!isLogged) {
+    return <Navigate to="/signin" />;
+  }
+
+  if (!ready) {
+    return <LoadingSpinner />;
+  }
+
+  const isUser = Roles.userIsInRole(Meteor.userId(), [ROLE.USER]);
+  const isAdmin = Roles.userIsInRole(Meteor.userId(), [ROLE.ADMIN]);
+  return isLogged && (isUser || isAdmin) ? children : <Navigate to="/notauthorized" />;
+};
+
+/**
  * AdminProtectedRoute (see React Router v6 sample)
  * Checks for Meteor login and admin role before routing to the requested page, otherwise goes to signin page.
  * @param {any} { component: Component, ...rest }
@@ -94,12 +119,45 @@ const AdminProtectedRoute = ({ ready, children }) => {
   return (isLogged && isAdmin) ? children : <Navigate to="/notauthorized" />;
 };
 
+/**
+ *  ModProtectedRoute
+ * Checks for Meteor login and mod role before routing to the requested page, otherwise goes to signin page.
+ * @param {any} { component: Component, ...rest }
+ */
+const ModProtectedRoute = ({ children }) => {
+  const { ready } = useTracker(() => {
+    const rdy = Roles.subscription.ready();
+    return { ready: rdy };
+  });
+
+  const isLogged = Meteor.userId() !== null;
+  if (!isLogged) {
+    return <Navigate to="/signin" />;
+  }
+
+  if (!ready) {
+    return <LoadingSpinner />;
+  }
+
+  const isMod = Roles.userIsInRole(Meteor.userId(), [ROLE.MOD]);
+  const isAdmin = Roles.userIsInRole(Meteor.userId(), [ROLE.ADMIN]);
+  return isLogged && (isMod || isAdmin) ? children : <Navigate to="/notauthorized" />;
+};
+
 // Require a component and location to be passed to each ProtectedRoute.
 ProtectedRoute.propTypes = {
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
 };
 
 ProtectedRoute.defaultProps = {
+  children: <Landing />,
+};
+
+UserProtectedRoute.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+};
+
+UserProtectedRoute.defaultProps = {
   children: <Landing />,
 };
 
@@ -111,6 +169,14 @@ AdminProtectedRoute.propTypes = {
 
 AdminProtectedRoute.defaultProps = {
   ready: false,
+  children: <Landing />,
+};
+
+ModProtectedRoute.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+};
+
+ModProtectedRoute.defaultProps = {
   children: <Landing />,
 };
 

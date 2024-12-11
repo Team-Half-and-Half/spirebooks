@@ -71,12 +71,14 @@ const Dashboard = () => {
     <Container fluid id={PAGE_IDS.DASHBOARD}>
       <Row>
         <Col>
-          <div>
-            <h1 className="company-title">{currentUser?.profile?.companyName || 'Company Name'}</h1>
+          <div className="text-center my-3">
+            <h1 className="company-title">
+              {currentUser?.profile?.companyName || 'Company Name'}
+            </h1>
           </div>
         </Col>
       </Row>
-      <Row>
+      <Row className="text-center justify-content-center mb-3">
         <Col lg={5}>
           <DropdownButton id="dropdown-basic-button" title="Select Number of Years">
             {snapshotData.map((item, index) => (
@@ -92,31 +94,31 @@ const Dashboard = () => {
       </Row>
       <Row className="py-2">
         <Col>
-          <h1>Equity Metrics</h1>
-          <Card className="my-2">
+          <h1 className="text-center">Equity Metrics</h1>
+          <Card className="text-center">
             <CardHeader>Net Position</CardHeader>
             <CustomLineChart data={netPositionData} />
           </Card>
-          <Card className="my-2">
+          <Card className="text-center">
             <CardHeader>Years of Solvency</CardHeader>
             <CustomLineChart data={yearsOfSolvencyData} />
           </Card>
-          <Card className="my-2">
+          <Card className="text-center">
             <CardHeader>Demand for Capital</CardHeader>
             <CustomLineChart data={demandForCapitalData} />
           </Card>
         </Col>
         <Col>
-          <h1>Cash Flow Metrics</h1>
-          <Card className="my-2">
+          <h1 className="text-center">Cash Flow Metrics</h1>
+          <Card className="text-center">
             <CardHeader>Financing</CardHeader>
             <CustomLineChart data={financingData} />
           </Card>
-          <Card className="my-2">
+          <Card className="text-center">
             <CardHeader>Years of Solvency based on Cash Flow</CardHeader>
             <CustomLineChart data={yearsOfSolvencyCashData} />
           </Card>
-          <Card className="my-2">
+          <Card className="text-center">
             <CardHeader>Budget</CardHeader>
             <CustomLineChart data={budgetData} />
           </Card>

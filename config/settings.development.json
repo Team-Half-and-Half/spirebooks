@@ -1,4 +1,11 @@
 {
+  "defaultProfile": [
+    {
+      "name": "Test",
+      "owner": "admin@spirebooks.com",
+      "members": ["analyst@spirebooks.com", "accountant@spirebooks.com"]
+    }
+  ],
   "defaultAccounts": [
     {
       "email": "admin@spirebooks.com",

@@ -41,6 +41,8 @@ const NavBar = () => {
               <NavDropdown className="nav-tabs" title="FINANCING" id={COMPONENT_IDS.NAVBAR_FINANCING_DROPDOWN}>
                 <NavDropdown.Item className="basic-nav" as={NavLink} to="/balance-sheet" id={COMPONENT_IDS.NAVBAR_BALANCE_SHEET}><FileEarmarkSpreadsheet /> Balance Sheet</NavDropdown.Item>
                 <NavDropdown.Item className="basic-nav" as={NavLink} to="/budget-pl"><FileEarmarkSpreadsheet /> Budget P&L</NavDropdown.Item>
+                <NavDropdown.Item className="basic-nav" as={NavLink} to="/profile" id={COMPONENT_IDS.NAVBAR_BALANCE_SHEET}><FileEarmarkSpreadsheet /> Scenario Profiles</NavDropdown.Item>
+
                 <NavDropdown.Item
                   className="basic-nav"
                   as={NavLink}

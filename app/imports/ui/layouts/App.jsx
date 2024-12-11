@@ -26,6 +26,8 @@ import ManageProjections from '../pages/ManageProjections';
 import InputABS from '../pages/InputABS';
 import ViewWorkpaper from '../pages/ViewWorkpaper';
 import InputBPL from '../pages/InputBPL';
+import ProfilePage from '../pages/Profile';
+import EditProfile from '../pages/EditProfile';
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
   const { ready } = useTracker(() => {
@@ -55,6 +57,8 @@ const App = () => {
           <Route path="/budget-pl" element={<UserProtectedRoute><InputBPL /></UserProtectedRoute>} />
           <Route path="/user-settings" element={<ProtectedRoute><UserSettings /></ProtectedRoute>} />
           <Route path="/edit" element={<UserProtectedRoute><EditClientInfo /></UserProtectedRoute>} />
+          <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
+          <Route path="/editprofile/:profileId" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
           <Route path="/verification-table" element={<AdminProtectedRoute ready={ready}><VerificationTable /></AdminProtectedRoute>} />
           <Route path="/manage-database" element={<AdminProtectedRoute ready={ready}><ManageDatabase /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />

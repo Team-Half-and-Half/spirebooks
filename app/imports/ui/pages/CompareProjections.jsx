@@ -5,7 +5,6 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { PAGE_IDS } from '../utilities/PageIDs';
 import ProjectionGraph from '../components/ProjectionGraph';
 import { multipleChartData } from '../utilities/TemporaryData';
-import ToggleSlider from '../components/ToggleSlider'; // replace later when using real data
 
 /** Compare projection graphs using dropdown menus */
 const CompareProjections = () => {
@@ -44,32 +43,6 @@ const CompareProjections = () => {
             dropdownOpen={dropdownOpen2}
             setDropdownOpen={setDropdownOpen2}
             dropdownData={multipleChartData}
-          />
-        </Col>
-      </Row>
-      <Row className="py-3 mx-auto justify-content-center">
-        <Col sm={12} md={10}>
-          <h3>Apply Volatility Factors</h3>
-          <ToggleSlider
-            id="revenue-toggle"
-            uncheckedText="Apply Revenue %"
-            checkedText="Remove Revenue %"
-            max={20}
-            step={0.01}
-          />
-          <ToggleSlider
-            id="cost-toggle"
-            uncheckedText="Apply Cost %"
-            checkedText="Remove Cost %"
-            max={15}
-            step={0.01}
-          />
-          <ToggleSlider
-            id="interest-toggle"
-            uncheckedText="Apply Interest Rate %"
-            checkedText="Remove Interest Rate %"
-            max={5}
-            step={0.001}
           />
         </Col>
       </Row>

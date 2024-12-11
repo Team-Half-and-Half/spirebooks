@@ -3,6 +3,7 @@ import { AuditedBalance } from '../../api/spreadsheet/AuditedBalanceCollection';
 import { BudgetPL } from '../../api/spreadsheet/BudgetPLCollection';
 import { AuditedFS } from '../../api/spreadsheet/AuditedFSCollection';
 import { DatabaseConfiguration } from '../../api/dbconfig/DatabaseConfigurationCollection';
+import { Profile } from '../../api/profile/ProfileCollection';
 /* eslint-disable no-console */
 
 // Initialize the database with a default data document.
@@ -17,6 +18,11 @@ function addBPLData(data) {
 function addAFSData(data) {
   console.log(`  Adding year: ${data.year} (${data.owner})`);
   AuditedFS.define(data);
+}
+
+function addProfileData(data) {
+  console.log(`  Adding profile: ${data.name} (${data.owner})`);
+  console.log(Profile.define(data));
 }
 
 function addDBConfig(data) {
@@ -40,6 +46,12 @@ if (AuditedFS.count() === 0) {
   if (Meteor.settings.defaultAFS) {
     console.log('Creating default AFS.');
     Meteor.settings.defaultAFS.forEach(data => addAFSData(data));
+  }
+}
+if (Profile.count() === 0) {
+  if (Meteor.settings.defaultProfile) {
+    console.log('Creating default Profile.');
+    Meteor.settings.defaultProfile.forEach(data => addProfileData(data));
   }
 }
 

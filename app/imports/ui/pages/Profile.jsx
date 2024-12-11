@@ -8,14 +8,21 @@ import { Profile } from '../../api/profile/ProfileCollection';
 
 const ProfilePage = () => {
   const { profiles, ready } = useTracker(() => {
-    const subscription = Meteor.subscribe('ProfilesAdmin'); // Subscription
-    const rdy = subscription.ready(); // Set ready based on subscription status
-    const profileData = Profile.find().fetch().map(profile => ({
+    const user = Meteor.user();
+    const userEmail = user.username;
+    const subscription = Meteor.subscribe('Profiles', user);
+    const rdy = subscription.ready();
+
+    const profileData = Profile.find({
+      $or: [
+        { owner: userEmail },
+        { members: userEmail },
+      ],
+    }).fetch().map(profile => ({
       ...profile,
       modified: `${profile.modified.toLocaleDateString('en-US')} ${profile.modified.toLocaleTimeString('en-US')}`,
     }));
-    console.log(profileData);
-    return { profiles: profileData, ready: rdy }; // Return the fetched profiles and ready status
+    return { profiles: profileData, ready: rdy };
   }, []);
 
   return ready ? (

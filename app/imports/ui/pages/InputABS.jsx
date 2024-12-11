@@ -53,19 +53,19 @@ const InputABS = () => {
                 <h5 className="text-style fw-bold">Custom Balance Sheet</h5>
                 <AutoForm schema={bridge}>
                   <h6 className="text-style px-1 fw-medium text-decoration-underline">Cash and Cash Equivalents</h6>
-                  <TextField className="rowName" placeholder="Petty cash" name="CashAndCashEquivalents.pettyCash" label={false} disabled />
-                  <TextField className="rowName" placeholder="Cash" name="CashAndCashEquivalents.cash" label={false} disabled />
-                  <TextField className="rowName" placeholder="Cash in banks/Draw on Line of Credit" name="CashAndCashEquivalents.cashInBank" label={false} disabled />
-                  <TextField className="rowName" placeholder="Total Cash and Cash Equivalents" name="totalCashAndCashEquivalents" label={false} disabled />
+                  <TextField className="rowName px-1" placeholder="Petty cash" name="CashAndCashEquivalents.pettyCash" label={false} disabled />
+                  <TextField className="rowName px-1" placeholder="Cash" name="CashAndCashEquivalents.cash" label={false} disabled />
+                  <TextField className="rowName px-1" placeholder="Cash in banks/Draw on Line of Credit" name="CashAndCashEquivalents.cashInBank" label={false} disabled />
+                  <TextField className="rowName px-1" placeholder="Total Cash and Cash Equivalents" name="totalCashAndCashEquivalents" label={false} disabled />
                   <h6 className="text-style px-1 fw-medium text-decoration-underline">Other Assets</h6>
-                  <TextField className="rowName" placeholder="Accounts receivable" name="OtherAssets.accountsReceivable" label={false} disabled />
-                  <TextField className="rowName" placeholder="Due from other fund" name="OtherAssets.dueFromOtherFund" label={false} disabled />
-                  <TextField className="rowName" placeholder="Interest and dividends receivable" name="OtherAssets.interestDividendsReceivable" label={false} disabled />
-                  <TextField className="rowName" placeholder="Inventory, prepaid items and other assets" name="OtherAssets.inventoryPrepaidOtherAssets" label={false} disabled />
-                  <TextField className="rowName" placeholder="Notes receivable - due within one year" name="OtherAssets.notesWithinOneYear" label={false} disabled />
-                  <TextField className="rowName" placeholder="Notes receivable - due after one year" name="OtherAssets.notesAfterOneYear" label={false} disabled />
-                  <TextField className="rowName" placeholder="Security Deposits" name="OtherAssets.securityDeposits" label={false} disabled />
-                  <TextField className="rowName" placeholder="Cash held by investment manager" name="OtherAssets.cashHeldInvestmentManager" label={false} disabled />
+                  <TextField className="rowName px-1" placeholder="Accounts receivable" name="OtherAssets.accountsReceivable" label={false} disabled />
+                  <TextField className="rowName px-1" placeholder="Due from other fund" name="OtherAssets.dueFromOtherFund" label={false} disabled />
+                  <TextField className="rowName px-1" placeholder="Interest and dividends receivable" name="OtherAssets.interestDividendsReceivable" label={false} disabled />
+                  <TextField className="rowName px-1" placeholder="Inventory, prepaid items and other assets" name="OtherAssets.inventoryPrepaidOtherAssets" label={false} disabled />
+                  <TextField className="rowName px-1" placeholder="Notes receivable - due within one year" name="OtherAssets.notesWithinOneYear" label={false} disabled />
+                  <TextField className="rowName px-1" placeholder="Notes receivable - due after one year" name="OtherAssets.notesAfterOneYear" label={false} disabled />
+                  <TextField className="rowName px-1" placeholder="Security Deposits" name="OtherAssets.securityDeposits" label={false} disabled />
+                  <TextField className="rowName px-1" placeholder="Cash held by investment manager" name="OtherAssets.cashHeldInvestmentManager" label={false} disabled />
 
                   <h6 className="text-style px-3 fw-medium text-decoration-underline">Investments</h6>
                   <TextField className="rowName px-3" placeholder="Mutual Funds" name="OtherAssets.Investments.mutualFunds" label={false} disabled />
@@ -84,36 +84,37 @@ const InputABS = () => {
 
                   {/* Assets */}
                   <h6 className="text-style px-3 fw-medium text-decoration-underline">Capital, Assets, net</h6>
-                  <TextField className="rowName px-3" placeholder="Buildings (Assets)" name="OtherAssets.CapitalAssetsNet.Assets.buildings" label={false} disabled />
-                  <TextField className="rowName px-3" placeholder="Leasehold improvements (Assets)" name="OtherAssets.CapitalAssetsNet.Assets.leaseholdImprovements" label={false} disabled />
-                  <TextField className="rowName px-3" placeholder="Furniture, fixtures and equipment (Assets)" name="OtherAssets.CapitalAssetsNet.Assets.furnitureFixturesEquipment" label={false} disabled />
-                  <TextField className="rowName px-3" placeholder="Less accumulated depreciation (Assets)" name="OtherAssets.CapitalAssetsNet.Assets.lessAccumulatedDepreciation" label={false} disabled />
-                  <TextField className="rowName px-3" placeholder="Net (Assets)" name="netAssets" label={false} disabled />
-                  <TextField className="rowName px-3" placeholder="Land A (Assets)" name="OtherAssets.CapitalAssetsNet.Assets.landA" label={false} disabled />
-                  <TextField className="rowName px-3" placeholder="Land B (Assets)" name="OtherAssets.CapitalAssetsNet.Assets.landB" label={false} disabled />
-                  <TextField className="rowName px-3" placeholder="Construction in Progress (Assets)" name="OtherAssets.CapitalAssetsNet.Assets.constructionInProgress" label={false} disabled />
+                  <TextField className="rowName px-3" placeholder="Buildings " name="OtherAssets.CapitalAssetsNet.Assets.buildings" label={false} disabled />
+                  <TextField className="rowName px-3" placeholder="Leasehold improvements " name="OtherAssets.CapitalAssetsNet.Assets.leaseholdImprovements" label={false} disabled />
+                  <TextField className="rowName px-3" placeholder="Furniture, fixtures and equipment " name="OtherAssets.CapitalAssetsNet.Assets.furnitureFixturesEquipment" label={false} disabled />
+                  <TextField className="rowName px-3" placeholder="Less accumulated depreciation " name="OtherAssets.CapitalAssetsNet.Assets.lessAccumulatedDepreciation" label={false} disabled />
+                  <TextField className="rowName px-3" placeholder="Net " name="netAssets" label={false} disabled />
+                  <TextField className="rowName px-3" placeholder="Land A " name="OtherAssets.CapitalAssetsNet.Assets.landA" label={false} disabled />
+                  <TextField className="rowName px-3" placeholder="Land B " name="OtherAssets.CapitalAssetsNet.Assets.landB" label={false} disabled />
+                  <TextField className="rowName px-3" placeholder="Construction in Progress " name="OtherAssets.CapitalAssetsNet.Assets.constructionInProgress" label={false} disabled />
                   <TextField className="rowName px-3" placeholder="Subtotal - Capital Assets, net" name="subTotalCapitalAssetNet" label={false} disabled />
                   {/* BAssets */}
-                  <TextField className="rowName px-3" placeholder="Buildings (B Assets)" name="OtherAssets.CapitalAssetsNet.LiabilityBAsset.buildings" label={false} disabled />
-                  <TextField className="rowName px-3" placeholder="Leasehold improvements (B Assets)" name="OtherAssets.CapitalAssetsNet.LiabilityBAsset.leaseholdImprovements" label={false} disabled />
-                  <TextField className="rowName px-3" placeholder="Furniture, fixtures and equipment (B Assets)" name="OtherAssets.CapitalAssetsNet.LiabilityBAsset.furnitureFixturesEquipment" label={false} disabled />
-                  <TextField className="rowName px-3" placeholder="Vehicles (B Assets)" name="OtherAssets.CapitalAssetsNet.LiabilityBAsset.vehicles" label={false} disabled />
-                  <TextField className="rowName px-3" placeholder="Less accumulated depreciation (B Assets)" name="OtherAssets.CapitalAssetsNet.LiabilityBAsset.lessAccumulatedDepreciation" label={false} disabled />
-                  <TextField className="rowName px-3" placeholder="Net (B Assets)" name="netCompanyBAsset" label={false} disabled />
-                  <TextField className="rowName px-3" placeholder="Land (B Assets)" name="OtherAssets.CapitalAssetsNet.LiabilityBAsset.land" label={false} disabled />
-                  <TextField className="rowName px-3" placeholder="Subtotal - Company B's assets, net" name="subTotalCompanyBAssets" label={false} disabled />
-                  <TextField className="rowName px-3" placeholder="Capital Assets, net" name="capitalAssetsNetSum" label={false} disabled />
+                  <h6 className="text-style px-5 fw-medium text-decoration-underline">Limited Liability Company B Assets</h6>
+                  <TextField className="rowName px-5" placeholder="Buildings " name="OtherAssets.CapitalAssetsNet.LiabilityBAsset.buildings" label={false} disabled />
+                  <TextField className="rowName px-5" placeholder="Leasehold improvements " name="OtherAssets.CapitalAssetsNet.LiabilityBAsset.leaseholdImprovements" label={false} disabled />
+                  <TextField className="rowName px-5" placeholder="Furniture, fixtures and equipment " name="OtherAssets.CapitalAssetsNet.LiabilityBAsset.furnitureFixturesEquipment" label={false} disabled />
+                  <TextField className="rowName px-5" placeholder="Vehicles " name="OtherAssets.CapitalAssetsNet.LiabilityBAsset.vehicles" label={false} disabled />
+                  <TextField className="rowName px-5" placeholder="Less accumulated depreciation " name="OtherAssets.CapitalAssetsNet.LiabilityBAsset.lessAccumulatedDepreciation" label={false} disabled />
+                  <TextField className="rowName px-5" placeholder="Net " name="netCompanyBAsset" label={false} disabled />
+                  <TextField className="rowName px-5" placeholder="Land " name="OtherAssets.CapitalAssetsNet.LiabilityBAsset.land" label={false} disabled />
+                  <TextField className="rowName px-5" placeholder="Subtotal - Company B's assets, net" name="subTotalCompanyBAssets" label={false} disabled />
+                  <TextField className="rowName px-1" placeholder="Capital Assets, net" name="capitalAssetsNetSum" label={false} disabled />
 
-                  <TextField className="rowName" placeholder="Restricted cash" name="OtherAssets.restrictedCash" label={false} disabled />
-                  <TextField className="rowName" placeholder="Total Other Assets" name="totalOtherAssets" label={false} disabled />
-                  <TextField className="rowName" placeholder="Deferred outflows of resources related to pensions" name="OtherAssets.deferredPensions" label={false} disabled />
-                  <TextField className="rowName" placeholder="Deferred outflows of resources related to OPEB" name="OtherAssets.deferredOPEB" label={false} disabled />
-                  <TextField className="rowName" placeholder="Total assets and deferred outflows of resources" name="totalAssetsDeferred" label={false} disabled />
+                  <TextField className="rowName px-1" placeholder="Restricted cash" name="OtherAssets.restrictedCash" label={false} disabled />
+                  <TextField className="rowName px-1" placeholder="Total Other Assets" name="totalOtherAssets" label={false} disabled />
+                  <TextField className="rowName px-1" placeholder="Deferred outflows of resources related to pensions" name="OtherAssets.deferredPensions" label={false} disabled />
+                  <TextField className="rowName px-1" placeholder="Deferred outflows of resources related to OPEB" name="OtherAssets.deferredOPEB" label={false} disabled />
+                  <TextField className="rowName px-1" placeholder="Total assets and deferred outflows of resources" name="totalAssetsDeferred" label={false} disabled />
 
                   <h6 className="text-style px-1 fw-medium text-decoration-underline">Liabilities</h6>
-                  <TextField className="rowName" placeholder="Accounts payable and accrued liabilities" name="Liabilities.accountPayableAccrued" label={false} disabled />
-                  <TextField className="rowName" placeholder="Due to fund" name="Liabilities.dueToFund" label={false} disabled />
-                  <TextField className="rowName" placeholder="Due to other fund" name="Liabilities.dueToOther" label={false} disabled />
+                  <TextField className="rowName px-1" placeholder="Accounts payable and accrued liabilities" name="Liabilities.accountPayableAccrued" label={false} disabled />
+                  <TextField className="rowName px-1" placeholder="Due to fund" name="Liabilities.dueToFund" label={false} disabled />
+                  <TextField className="rowName px-1" placeholder="Due to other fund" name="Liabilities.dueToOther" label={false} disabled />
 
                   {/* DueWithin */}
                   <h6 className="text-style px-3 fw-medium text-decoration-underline">Long-term Liabilities - due within one year</h6>

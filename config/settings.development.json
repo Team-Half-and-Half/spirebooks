@@ -39,7 +39,7 @@
   },
   "defaultABS": [
     {
-      "year": 2020,
+      "year": 6,
       "owner": "accountant@spirebooks.com",
       "green": false,
       "CashAndCashEquivalents": {
@@ -49,22 +49,22 @@
       },
       "OtherAssets": {
         "accountsReceivable": 4771991,
-        "dueFromOtherFund": null,
+        "dueFromOtherFund": 0,
         "interestDividendsReceivable": 41741,
         "inventoryPrepaidOtherAssets": 1295094,
         "notesWithinOneYear": 2524267,
         "notesAfterOneYear": 6688754,
-        "securityDeposits": null,
+        "securityDeposits": 0,
         "cashHeldInvestmentManager": 9380389,
         "Investments": {
           "mutualFunds": 110086715,
           "commingledFunds": 99948462,
           "hedgeFunds": 57442185,
           "privateEquity": 52547943,
-          "commonTrustFund": null,
-          "commonPreferredStock": null,
+          "commonTrustFund": 0,
+          "commonPreferredStock": 0,
           "privateDebt": 9398843,
-          "other": null,
+          "other": 0,
           "treasuriesUS": 3142866,
           "agenciesUS": 1778895
         },
@@ -76,53 +76,53 @@
             "lessAccumulatedDepreciation": -11581988,
             "landA": 200000000,
             "landB": 13961981,
-            "constructionInProgress": null
+            "constructionInProgress": 0
           },
           "LiabilityBAsset": {
             "buildings": 968388,
             "leaseholdImprovements": 1613512,
             "furnitureFixturesEquipment": 958173,
-            "vehicles": null,
+            "vehicles": 0,
             "lessAccumulatedDepreciation": -1611697,
             "land": 13003821
           }
         },
         "restrictedCash": 184230,
         "deferredPensions": 3070777,
-        "deferredOPEB": null
+        "deferredOPEB": 0
       },
       "Liabilities": {
         "accountPayableAccrued": -6653737,
         "dueToFund": -3359468,
-        "dueToOther": null,
+        "dueToOther": 0,
         "LongTermWithin": {
           "accruedVacation": -958024,
-          "workersCompensation": null,
-          "accruedRetirement": null,
-          "accruedLease": null,
+          "workersCompensation": 0,
+          "accruedRetirement": 0,
+          "accruedLease": 0,
           "capitalLease": -41595,
           "notesPayableA": -555069,
-          "netPensionLiability": null,
-          "netOPEDLiability": null,
+          "netPensionLiability": 0,
+          "netOPEDLiability": 0,
           "lineOfCreditA": -454379,
-          "lineOfCreditB": null,
-          "debtService": null
+          "lineOfCreditB": 0,
+          "debtService": 0
         },
         "LongTermAfter": {
           "accruedVacation": -773416,
-          "workersCompensation": null,
-          "accruedRetirement": null,
-          "accruedLease": null,
+          "workersCompensation": 0,
+          "accruedRetirement": 0,
+          "accruedLease": 0,
           "capitalLease": -688,
           "notesPayableA": -20336417,
           "netPensionLiability": -21773504,
-          "netOPEDLiability": null,
+          "netOPEDLiability": 0,
           "lineOfCreditA": -9741121,
-          "lineOfCreditB": null,
-          "debtService": null
+          "lineOfCreditB": 0,
+          "debtService": 0
         },
         "deferredInflowsPension": -1413791,
-        "deferredInflowsOPED": null
+        "deferredInflowsOPED": 0
       },
       "NetPosition": {
         "netOfRelatedDebt": -225290261,
@@ -148,7 +148,7 @@
       "totalLiabilitiesInflowsNetPosition": -640866388
     },
     {
-      "year": 2021,
+      "year": 7,
       "owner": "accountant@spirebooks.com",
       "green": false,
       "CashAndCashEquivalents": {
@@ -158,22 +158,22 @@
       },
       "OtherAssets": {
         "accountsReceivable": 364228,
-        "dueFromOtherFund": null,
+        "dueFromOtherFund": 0,
         "interestDividendsReceivable": 69291,
         "inventoryPrepaidOtherAssets": 1120233,
         "notesWithinOneYear": 2146507,
         "notesAfterOneYear": 4136100,
-        "securityDeposits": null,
+        "securityDeposits": 0,
         "cashHeldInvestmentManager": 4498433,
         "Investments": {
           "mutualFunds": 198130341,
           "commingledFunds": 65120614,
           "hedgeFunds": 23836788,
           "privateEquity": 61486931,
-          "commonTrustFund": null,
-          "commonPreferredStock": null,
+          "commonTrustFund": 0,
+          "commonPreferredStock": 0,
           "privateDebt": 8439611,
-          "other": null,
+          "other": 0,
           "treasuriesUS": 11109117,
           "agenciesUS": 2198305
         },
@@ -185,55 +185,55 @@
             "lessAccumulatedDepreciation": -13650057,
             "landA": 200000000,
             "landB": 13961981,
-            "constructionInProgress": null
+            "constructionInProgress": 0
           },
           "LiabilityBAsset": {
             "buildings": 1196598,
             "leaseholdImprovements": 1651916,
             "furnitureFixturesEquipment": 993982,
-            "vehicles": null,
+            "vehicles": 0,
             "lessAccumulatedDepreciation": -1909242,
             "land": 13003821
           }
         },
         "restrictedCash": 365259,
         "deferredPensions": 10362562,
-        "deferredOPEB": null,
+        "deferredOPEB": 0,
         "netAssets": 22032417
       },
       "Liabilities": {
         "accountPayableAccrued": -5386031,
         "dueToFund": -1138542,
-        "dueToOther": null,
+        "dueToOther": 0,
         "LongTermWithin": {
           "accruedVacation": -982476,
-          "workersCompensation": null,
-          "accruedRetirement": null,
-          "accruedLease": null,
+          "workersCompensation": 0,
+          "accruedRetirement": 0,
+          "accruedLease": 0,
           "capitalLease": -45277,
           "notesPayableA": -575385,
-          "netPensionLiability": null,
-          "netOPEDLiability": null,
+          "netPensionLiability": 0,
+          "netOPEDLiability": 0,
           "lineOfCreditA": -1614774,
-          "lineOfCreditB": null,
-          "debtService": null,
+          "lineOfCreditB": 0,
+          "debtService": 0,
           "longTermWithinSum": -3217912
         },
         "LongTermAfter": {
           "accruedVacation": -678289,
-          "workersCompensation": null,
-          "accruedRetirement": null,
-          "accruedLease": null,
+          "workersCompensation": 0,
+          "accruedRetirement": 0,
+          "accruedLease": 0,
           "capitalLease": -167694,
           "notesPayableA": -19725001,
           "netPensionLiability": -32669717,
-          "netOPEDLiability": null,
+          "netOPEDLiability": 0,
           "lineOfCreditA": -8580726,
-          "lineOfCreditB": null,
-          "debtService": null
+          "lineOfCreditB": 0,
+          "debtService": 0
         },
         "deferredInflowsPension": -575904,
-        "deferredInflowsOPED": null
+        "deferredInflowsOPED": 0
       },
       "NetPosition": {
         "netOfRelatedDebt": -220222616,
@@ -258,7 +258,7 @@
       "totalLiabilitiesInflowsNetPosition": -672865961
     },
     {
-      "year": 2022,
+      "year": 8,
       "owner": "accountant@spirebooks.com",
       "green": false,
       "CashAndCashEquivalents": {
@@ -268,22 +268,22 @@
       },
       "OtherAssets": {
         "accountsReceivable": 2029739,
-        "dueFromOtherFund": null,
+        "dueFromOtherFund": 0,
         "interestDividendsReceivable": 83425,
         "inventoryPrepaidOtherAssets": 1166716,
         "notesWithinOneYear": 1775892,
         "notesAfterOneYear": 3546701,
-        "securityDeposits": null,
+        "securityDeposits": 0,
         "cashHeldInvestmentManager": 4685289,
         "Investments": {
           "mutualFunds": 200172908,
           "commingledFunds": 59446468,
           "hedgeFunds": 45365409,
           "privateEquity": 79695102,
-          "commonTrustFund": null,
-          "commonPreferredStock": null,
-          "privateDebt": null,
-          "other": null,
+          "commonTrustFund": 0,
+          "commonPreferredStock": 0,
+          "privateDebt": 0,
+          "other": 0,
           "treasuriesUS": 11713544,
           "agenciesUS": 1435432
         },
@@ -295,11 +295,11 @@
             "lessAccumulatedDepreciation": -15863772,
             "landA": 200000000,
             "landB": 13961981,
-            "constructionInProgress": null
+            "constructionInProgress": 0
           },
           "LiabilityBAsset": {
             "buildings": 3104262,
-            "leaseholdImprovements": null,
+            "leaseholdImprovements": 0,
             "furnitureFixturesEquipment": 926734,
             "vehicles": 244742,
             "lessAccumulatedDepreciation": -2197309,
@@ -314,32 +314,32 @@
       "Liabilities": {
         "accountPayableAccrued": -7225413,
         "dueToFund": -332397,
-        "dueToOther": null,
+        "dueToOther": 0,
         "LongTermWithin": {
           "accruedVacation": -1095736,
-          "workersCompensation": null,
-          "accruedRetirement": null,
-          "accruedLease": null,
+          "workersCompensation": 0,
+          "accruedRetirement": 0,
+          "accruedLease": 0,
           "capitalLease": -48898,
           "notesPayableA": -596444,
-          "netPensionLiability": null,
-          "netOPEDLiability": null,
+          "netPensionLiability": 0,
+          "netOPEDLiability": 0,
           "lineOfCreditA": -1614666,
-          "lineOfCreditB": null,
-          "debtService": null
+          "lineOfCreditB": 0,
+          "debtService": 0
         },
         "LongTermAfter": {
           "accruedVacation": -494627,
-          "workersCompensation": null,
-          "accruedRetirement": null,
-          "accruedLease": null,
+          "workersCompensation": 0,
+          "accruedRetirement": 0,
+          "accruedLease": 0,
           "capitalLease": -131617,
           "notesPayableA": -19137923,
           "netPensionLiability": -31892391,
           "netOPEDLiability": -33325299,
           "lineOfCreditA": -6711039,
-          "lineOfCreditB": null,
-          "debtService": null
+          "lineOfCreditB": 0,
+          "debtService": 0
         },
         "deferredInflowsPension": -420848,
         "deferredInflowsOPED": -38288
@@ -367,7 +367,7 @@
       "totalLiabilitiesInflowsNetPosition": -689525419
     },
     {
-      "year": 2023,
+      "year": 9,
       "owner": "accountant@spirebooks.com",
       "green": false,
       "CashAndCashEquivalents": {
@@ -377,22 +377,22 @@
       },
       "OtherAssets": {
         "accountsReceivable": 2253707,
-        "dueFromOtherFund": null,
+        "dueFromOtherFund": 0,
         "interestDividendsReceivable": 172599,
         "inventoryPrepaidOtherAssets": 1181746,
         "notesWithinOneYear": 1477076,
         "notesAfterOneYear": 4977748,
-        "securityDeposits": null,
+        "securityDeposits": 0,
         "cashHeldInvestmentManager": 3925659,
         "Investments": {
           "mutualFunds": 200421798,
           "commingledFunds": 61042978,
           "hedgeFunds": 48479482,
           "privateEquity": 75472196,
-          "commonTrustFund": null,
-          "commonPreferredStock": null,
+          "commonTrustFund": 0,
+          "commonPreferredStock": 0,
           "privateDebt": 6796150,
-          "other": null,
+          "other": 0,
           "treasuriesUS": 13091017,
           "agenciesUS": 792260
         },
@@ -408,7 +408,7 @@
           },
           "LiabilityBAsset": {
             "buildings": 3445360,
-            "leaseholdImprovements": null,
+            "leaseholdImprovements": 0,
             "furnitureFixturesEquipment": 923806,
             "vehicles": 227402,
             "lessAccumulatedDepreciation": -2489934,
@@ -422,33 +422,33 @@
       "Liabilities": {
         "accountPayableAccrued": -6730596,
         "dueToFund": -300000,
-        "dueToOther": null,
+        "dueToOther": 0,
         "LongTermWithin": {
           "accruedVacation": -1005458,
-          "workersCompensation": null,
-          "accruedRetirement": null,
-          "accruedLease": null,
+          "workersCompensation": 0,
+          "accruedRetirement": 0,
+          "accruedLease": 0,
           "capitalLease": -50461,
           "notesPayableA": -618274,
-          "netPensionLiability": null,
-          "netOPEDLiability": null,
+          "netPensionLiability": 0,
+          "netOPEDLiability": 0,
           "lineOfCreditA": -1614666,
-          "lineOfCreditB": null,
-          "debtService": null,
+          "lineOfCreditB": 0,
+          "debtService": 0,
           "longTermWithinSum": -3288859
         },
         "LongTermAfter": {
           "accruedVacation": -417670,
-          "workersCompensation": null,
-          "accruedRetirement": null,
-          "accruedLease": null,
+          "workersCompensation": 0,
+          "accruedRetirement": 0,
+          "accruedLease": 0,
           "capitalLease": -81808,
           "notesPayableA": -18518211,
           "netPensionLiability": -32698545,
           "netOPEDLiability": -33586793,
           "lineOfCreditA": -5096373,
-          "lineOfCreditB": null,
-          "debtService": null
+          "lineOfCreditB": 0,
+          "debtService": 0
         },
         "deferredInflowsPension": -528581,
         "deferredInflowsOPED": -521102
@@ -478,7 +478,7 @@
       "totalLiabilitiesInflowsNetPosition": -698716700
     },
     {
-      "year": 2024,
+      "year": 10,
       "owner": "accountant@spirebooks.com",
       "green": true,
       "CashAndCashEquivalents": {
@@ -503,7 +503,7 @@
       }
     },
     {
-      "year": 2025,
+      "year": 11,
       "owner": "accountant@spirebooks.com",
       "green": true,
       "CashAndCashEquivalents": {
@@ -528,7 +528,7 @@
       }
     },
     {
-      "year": 2026,
+      "year": 12,
       "owner": "accountant@spirebooks.com",
       "green": true,
       "CashAndCashEquivalents": {
@@ -553,7 +553,7 @@
       }
     },
     {
-      "year": 2027,
+      "year": 13,
       "owner": "accountant@spirebooks.com",
       "green": true,
       "CashAndCashEquivalents": {
@@ -587,7 +587,7 @@
         "investmentPortfolio": 17298636,
         "revenues": 15100000,
         "generalFunds": 3741574,
-        "coreBudget": null,
+        "coreBudget": 0,
         "totalRevenue": 36140210
       },
       "Expenses": {
@@ -603,7 +603,7 @@
             "medicare": -116721,
             "workersCompensation": -102231,
             "unemploymentCompensation": -12075,
-            "pensionCompensation": null,
+            "pensionCompensation": 0,
             "fringeBenefitsSum": -3987817
           },
           "personnelFringeSum": -12037508
@@ -619,7 +619,7 @@
             "medicare": -18929,
             "workersCompensation": -16579,
             "unemploymentCompensation": -1958,
-            "pensionCompensation": null,
+            "pensionCompensation": 0,
             "fringeBenefitsSum": -646713
           },
           "personnelFringeSum": -1952150
@@ -635,7 +635,7 @@
             "medicare": -7459,
             "workersCompensation": -6533,
             "unemploymentCompensation": -772,
-            "pensionCompensation": null,
+            "pensionCompensation": 0,
             "fringeBenefitsSum": -254836
           },
           "personnelFringeSum": -769240
@@ -647,7 +647,7 @@
         "equipment": 854447,
         "overhead": 2181256,
         "debutService": 36190,
-        "other": null,
+        "other": 0,
         "totalExpenses": 35860815
       },
       "surplus": 279395,
@@ -665,58 +665,58 @@
         "investmentPortfolio": 17745949,
         "revenues": 15100000,
         "generalFunds": 3741574,
-        "coreBudget": null,
+        "coreBudget": 0,
         "totalRevenue": 36587523
       },
       "Expenses": {
         "personnel": 14295873,
         "PersonnelFringeAdmin": {
-          "salary": 7415404,
+          "salary": -7415404,
           "FringeBenefits": {
-            "pensionAccumulation": 1260619,
-            "retireeHealthInsurance": 696306,
-            "otherBenefits": 941015,
-            "healthFund": 563571,
-            "socialSecurity": 459755,
-            "medicare": 107523,
-            "workersCompensation": 78603,
-            "unemploymentCompensation": 6674,
-            "pensionCompensation": 148,
-            "fringeBenefitsSum": 4114214
+            "pensionAccumulation": -1260619,
+            "retireeHealthInsurance": -696306,
+            "otherBenefits": -941015,
+            "healthFund": -563571,
+            "socialSecurity": -459755,
+            "medicare": -107523,
+            "workersCompensation": -78603,
+            "unemploymentCompensation": -6674,
+            "pensionCompensation": -148,
+            "fringeBenefitsSum": -4114214
           },
-          "personnelFringeSum": 11529618
+          "personnelFringeSum": -11529618
         },
         "PersonnelFringeAdminStaff": {
-          "salary": 1264744,
+          "salary": -1264744,
           "FringeBenefits": {
-            "pensionAccumulation": 215006,
-            "retireeHealthInsurance": 118759,
-            "otherBenefits": 160496,
-            "healthFund": 96121,
-            "socialSecurity": 78414,
-            "medicare": 18339,
-            "workersCompensation": 13406,
-            "unemploymentCompensation": 1138,
-            "pensionCompensation": 25,
-            "fringeBenefitsSum": 701705
+            "pensionAccumulation": -215006,
+            "retireeHealthInsurance": -118759,
+            "otherBenefits": -160496,
+            "healthFund": -96121,
+            "socialSecurity": -78414,
+            "medicare": -18339,
+            "workersCompensation": -13406,
+            "unemploymentCompensation": -1138,
+            "pensionCompensation": -25,
+            "fringeBenefitsSum": -701705
           },
-          "personnelFringeSum": 1966449
+          "personnelFringeSum": -1966449
         },
         "FringeAdminManagement": {
-          "salary": 514404,
+          "salary": -514404,
           "FringeBenefits": {
-            "pensionAccumulation": 87449,
-            "retireeHealthInsurance": 48303,
-            "otherBenefits": 65278,
-            "healthFund": 39095,
-            "socialSecurity": 31893,
-            "medicare": 7459,
-            "workersCompensation": 5453,
-            "unemploymentCompensation": 463,
-            "pensionCompensation": 10,
-            "fringeBenefitsSum": 285402
+            "pensionAccumulation": -87449,
+            "retireeHealthInsurance": -48303,
+            "otherBenefits": -65278,
+            "healthFund": -39095,
+            "socialSecurity": -31893,
+            "medicare": -7459,
+            "workersCompensation": -5453,
+            "unemploymentCompensation": -463,
+            "pensionCompensation": -10,
+            "fringeBenefitsSum": -285402
           },
-          "personnelFringeSum": 799806
+          "personnelFringeSum": -799806
         },
         "program": 1074945,
         "contracts": 4698334,
@@ -725,14 +725,14 @@
         "equipment": 855461,
         "overhead": 2837064,
         "debutService": 272927,
-        "other": null,
+        "other": 0,
         "totalExpenses": 34998259
       },
       "surplus": 1589264,
       "ExpenditurePerAudited": {
-        "management": 2766255,
-        "supportServices": 19554828,
-        "beneficiaryAdvocacy": 14911396
+        "management": -2766255,
+        "supportServices": -19554828,
+        "beneficiaryAdvocacy": -14911396
       }
     },
     {
@@ -743,58 +743,58 @@
         "investmentPortfolio": 17555826,
         "revenues": 15100000,
         "generalFunds": 3037879,
-        "coreBudget": null,
+        "coreBudget": 0,
         "totalRevenue": 35693705
       },
       "Expenses": {
         "personnel": 14739767,
         "PersonnelFringeAdmin": {
-          "salary": 7449811,
+          "salary": -7449811,
           "FringeBenefits": {
-            "pensionAccumulation": 1340966,
-            "retireeHealthInsurance": 755411,
-            "otherBenefits": 1067558,
-            "healthFund": 572890,
-            "socialSecurity": 461888,
-            "medicare": 108022,
-            "workersCompensation": 92378,
-            "unemploymentCompensation": 1490,
-            "pensionCompensation": 745,
-            "fringeBenefitsSum": 4401348
+            "pensionAccumulation": -1340966,
+            "retireeHealthInsurance": -755411,
+            "otherBenefits": -1067558,
+            "healthFund": -572890,
+            "socialSecurity": -461888,
+            "medicare": -108022,
+            "workersCompensation": -92378,
+            "unemploymentCompensation": -1490,
+            "pensionCompensation": -745,
+            "fringeBenefitsSum": -4401348
           },
-          "personnelFringeSum": 11851159
+          "personnelFringeSum": -11851159
         },
         "PersonnelFringeAdminStaff": {
-          "salary": 1291643,
+          "salary": -1291643,
           "FringeBenefits": {
-            "pensionAccumulation": 232496,
-            "retireeHealthInsurance": 130973,
-            "otherBenefits": 185092,
-            "healthFund": 99327,
-            "socialSecurity": 80082,
-            "medicare": 18729,
-            "workersCompensation": 16016,
-            "unemploymentCompensation": 258,
-            "pensionCompensation": 129,
-            "fringeBenefitsSum": 763103
+            "pensionAccumulation": -232496,
+            "retireeHealthInsurance": -130973,
+            "otherBenefits": -185092,
+            "healthFund": -99327,
+            "socialSecurity": -80082,
+            "medicare": -18729,
+            "workersCompensation": -16016,
+            "unemploymentCompensation": -258,
+            "pensionCompensation": -129,
+            "fringeBenefitsSum": -763103
           },
-          "personnelFringeSum": 2054746
+          "personnelFringeSum": -2054746
         },
         "FringeAdminManagement": {
-          "salary": 524178,
+          "salary": -524178,
           "FringeBenefits": {
-            "pensionAccumulation": 94352,
-            "retireeHealthInsurance": 53152,
-            "otherBenefits": 75115,
-            "healthFund": 40309,
-            "socialSecurity": 32499,
-            "medicare": 7601,
-            "workersCompensation": 6500,
-            "unemploymentCompensation": 105,
-            "pensionCompensation": 52,
-            "fringeBenefitsSum": 309684
+            "pensionAccumulation": -94352,
+            "retireeHealthInsurance": -53152,
+            "otherBenefits": -75115,
+            "healthFund": -40309,
+            "socialSecurity": -32499,
+            "medicare": -7601,
+            "workersCompensation": -6500,
+            "unemploymentCompensation": -105,
+            "pensionCompensation": -52,
+            "fringeBenefitsSum": -309684
           },
-          "personnelFringeSum": 833862
+          "personnelFringeSum": -833862
         },
         "program": 1510657,
         "contracts": 6185850,
@@ -803,14 +803,14 @@
         "equipment": 890414,
         "overhead": 2991753,
         "debutService": 579261,
-        "other": null,
+        "other": 0,
         "totalExpenses": 35603263
       },
       "surplus": 90442,
       "ExpenditurePerAudited": {
-        "management": 2888608,
-        "supportServices": 18903267,
-        "beneficiaryAdvocacy": 19130071
+        "management": -2888608,
+        "supportServices": -18903267,
+        "beneficiaryAdvocacy": -19130071
       }
     },
     {
@@ -821,58 +821,58 @@
         "investmentPortfolio": 17448120,
         "revenues": 15100000,
         "generalFunds": 3018899,
-        "coreBudget": null,
+        "coreBudget": 0,
         "totalRevenue": 35567019
       },
       "Expenses": {
         "personnel": 15382787,
         "PersonnelFringeAdmin": {
-          "salary": 7846105,
+          "salary": -7846105,
           "FringeBenefits": {
-            "pensionAccumulation": 1490760,
-            "retireeHealthInsurance": 795595,
-            "otherBenefits": 1124347,
-            "healthFund": 603366,
-            "socialSecurity": 486459,
-            "medicare": 113769,
-            "workersCompensation": 97292,
-            "unemploymentCompensation": 1569,
-            "pensionCompensation": 785,
-            "fringeBenefitsSum": 4713940
+            "pensionAccumulation": -1490760,
+            "retireeHealthInsurance": -795595,
+            "otherBenefits": -1124347,
+            "healthFund": -603366,
+            "socialSecurity": -486459,
+            "medicare": -113769,
+            "workersCompensation": -97292,
+            "unemploymentCompensation": -1569,
+            "pensionCompensation": -785,
+            "fringeBenefitsSum": -4713940
           },
-          "personnelFringeSum": 12560046
+          "personnelFringeSum": -12560046
         },
         "PersonnelFringeAdminStaff": {
-          "salary": 1230767,
+          "salary": -1230767,
           "FringeBenefits": {
-            "pensionAccumulation": 233846,
-            "retireeHealthInsurance": 124800,
-            "otherBenefits": 176369,
-            "healthFund": 94646,
-            "socialSecurity": 76308,
-            "medicare": 17846,
-            "workersCompensation": 15262,
-            "unemploymentCompensation": 246,
-            "pensionCompensation": 123,
-            "fringeBenefitsSum": 739445
+            "pensionAccumulation": -233846,
+            "retireeHealthInsurance": -124800,
+            "otherBenefits": -176369,
+            "healthFund": -94646,
+            "socialSecurity": -76308,
+            "medicare": -17846,
+            "workersCompensation": -15262,
+            "unemploymentCompensation": -246,
+            "pensionCompensation": -123,
+            "fringeBenefitsSum": -739445
           },
-          "personnelFringeSum": 1970212
+          "personnelFringeSum": -1970212
         },
         "FringeAdminManagement": {
-          "salary": 532565,
+          "salary": -532565,
           "FringeBenefits": {
-            "pensionAccumulation": 101187,
-            "retireeHealthInsurance": 54002,
-            "otherBenefits": 76316,
-            "healthFund": 40954,
-            "socialSecurity": 33019,
-            "medicare": 7722,
-            "workersCompensation": 6604,
-            "unemploymentCompensation": 107,
-            "pensionCompensation": 53,
-            "fringeBenefitsSum": 319965
+            "pensionAccumulation": -101187,
+            "retireeHealthInsurance": -54002,
+            "otherBenefits": -76316,
+            "healthFund": -40954,
+            "socialSecurity": -33019,
+            "medicare": -7722,
+            "workersCompensation": -6604,
+            "unemploymentCompensation": -107,
+            "pensionCompensation": -53,
+            "fringeBenefitsSum": -319965
           },
-          "personnelFringeSum": 852529
+          "personnelFringeSum": -852529
         },
         "program": 1617949,
         "contracts": 5498625,
@@ -881,14 +881,106 @@
         "equipment": 720254,
         "overhead": 3025863,
         "debutService": 566936,
-        "other": null,
+        "other": 0,
         "totalExpenses": 36014771
       },
-      "surplus": 447752,
+      "surplus": -447752,
       "ExpenditurePerAudited": {
-        "management": 3111437,
-        "supportServices": 20292212,
-        "beneficiaryAdvocacy": 17892353
+        "management": -3111437,
+        "supportServices": -20292212,
+        "beneficiaryAdvocacy": -17892353
+      }
+    },
+    {
+      "year": 10,
+      "owner": "accountant@spirebooks.com",
+      "green": true,
+      "Revenue": {
+      },
+      "Expenses": {
+        "PersonnelFringeAdmin": {
+          "FringeBenefits": {
+          }
+        },
+        "PersonnelFringeAdminStaff": {
+          "FringeBenefits": {
+          }
+        },
+        "FringeAdminManagement": {
+          "FringeBenefits": {
+          }
+        }
+      },
+      "ExpenditurePerAudited": {
+      }
+    },
+    {
+      "year": 11,
+      "owner": "accountant@spirebooks.com",
+      "green": true,
+      "Revenue": {
+      },
+      "Expenses": {
+        "PersonnelFringeAdmin": {
+          "FringeBenefits": {
+          }
+        },
+        "PersonnelFringeAdminStaff": {
+          "FringeBenefits": {
+          }
+        },
+        "FringeAdminManagement": {
+          "FringeBenefits": {
+          }
+        }
+      },
+      "ExpenditurePerAudited": {
+      }
+    },
+    {
+      "year": 12,
+      "owner": "accountant@spirebooks.com",
+      "green": true,
+      "Revenue": {
+      },
+      "Expenses": {
+        "PersonnelFringeAdmin": {
+          "FringeBenefits": {
+          }
+        },
+        "PersonnelFringeAdminStaff": {
+          "FringeBenefits": {
+          }
+        },
+        "FringeAdminManagement": {
+          "FringeBenefits": {
+          }
+        }
+      },
+      "ExpenditurePerAudited": {
+      }
+    },
+    {
+      "year": 13,
+      "owner": "accountant@spirebooks.com",
+      "green": true,
+      "Revenue": {
+      },
+      "Expenses": {
+        "PersonnelFringeAdmin": {
+          "FringeBenefits": {
+          }
+        },
+        "PersonnelFringeAdminStaff": {
+          "FringeBenefits": {
+          }
+        },
+        "FringeAdminManagement": {
+          "FringeBenefits": {
+          }
+        }
+      },
+      "ExpenditurePerAudited": {
       }
     }
   ],
@@ -907,12 +999,12 @@
       },
       "OtherAssets": {
         "accountsReceivable": 4771991,
-        "dueFromOtherFund": null,
+        "dueFromOtherFund": 0,
         "interestDividendsReceivable": 41741,
         "inventoryPrepaidOtherAssets": 1295094,
         "notesWithinOneYear": 2524267,
         "notesAfterOneYear": 6688754,
-        "securityDeposits": null,
+        "securityDeposits": 0,
         "investments": 334345909,
         "capitalAssetNet": 252871530,
         "totalOtherAssets": 637795611,
@@ -922,12 +1014,12 @@
       "Liabilities": {
         "accountPayableAccrued": 6653737,
         "dueToFund": 3359468,
-        "dueToOther": null,
+        "dueToOther": 0,
         "longTermWithin": 2009067,
         "longTermAfter": 52625146,
         "totalLiabilities": 64647418,
         "deferredInflowsResources": 1413791,
-        "deferredInflowsOPED": null,
+        "deferredInflowsOPED": 0,
         "totalLiabilitiesDeferredInflows": 66061209
       },
       "NetAssets": {
@@ -940,16 +1032,16 @@
       "ProgramRevenues": {
         "chargesForServices": 9899686,
         "operatingGrants": 1164361,
-        "interestInvestmentsEarnings": null,
+        "interestInvestmentsEarnings": 0,
         "totalProgramRevenues": 11064047
       },
       "GeneralRevenues": {
         "appropriations": 3217099,
         "trust": 15100000,
         "interestInvestmentLossesEarnings": -3759322,
-        "newspaperAds": null,
+        "newspaperAds": 0,
         "donationsAndOther": 331028,
-        "limitedLiabilityB": null,
+        "limitedLiabilityB": 0,
         "nonImposedFringeBenefits": 213008,
         "totalGeneralRevenue": 15101813,
         "totalRevenue": 26165860
@@ -963,14 +1055,14 @@
         "limitedLiabilityB": 5010868,
         "totalExpenses": 54516442,
         "excessOfRevenue": -28350582,
-        "proceedsFromDebt": null,
-        "proceedsFromCapitalLease": null,
+        "proceedsFromDebt": 0,
+        "proceedsFromCapitalLease": 0,
         "netTransfersOtherFunds": 350316,
         "changeInNetAssets": -28000266
       },
       "FundBalances": {
         "beginningOfYear": 602805445,
-        "restatementAdjustment": null,
+        "restatementAdjustment": 0,
         "netPositionEndOfYear": 574805179
       }
     },
@@ -988,12 +1080,12 @@
       },
       "OtherAssets": {
         "accountsReceivable": 364228,
-        "dueFromOtherFund": null,
+        "dueFromOtherFund": 0,
         "interestDividendsReceivable": 69291,
         "inventoryPrepaidOtherAssets": 1120233,
         "notesWithinOneYear": 2146507,
         "notesAfterOneYear": 4136100,
-        "securityDeposits": null,
+        "securityDeposits": 0,
         "investments": 370321707,
         "capitalAssetNet": 250931473,
         "totalOtherAssets": 662503399,
@@ -1003,12 +1095,12 @@
       "Liabilities": {
         "accountPayableAccrued": 5386031,
         "dueToFund": 1138542,
-        "dueToOther": null,
+        "dueToOther": 0,
         "longTermWithin": 3217912,
         "longTermAfter": 61821427,
         "totalLiabilities": 71563912,
         "deferredInflowsResources": 575904,
-        "deferredInflowsOPED": null,
+        "deferredInflowsOPED": 0,
         "totalLiabilitiesDeferredInflows": 72139816
       },
       "NetAssets": {
@@ -1021,16 +1113,16 @@
       "ProgramRevenues": {
         "chargesForServices": 12500418,
         "operatingGrants": 730421,
-        "interestInvestmentsEarnings": null,
+        "interestInvestmentsEarnings": 0,
         "totalProgramRevenues": 13230839
       },
       "GeneralRevenues": {
         "appropriations": 2990908,
         "trust": 15100000,
         "interestInvestmentLossesEarnings": 39560405,
-        "newspaperAds": null,
+        "newspaperAds": 0,
         "donationsAndOther": 635326,
-        "limitedLiabilityB": null,
+        "limitedLiabilityB": 0,
         "nonImposedFringeBenefits": 235135,
         "totalGeneralRevenue": 58521774,
         "totalRevenue": 71752613
@@ -1044,8 +1136,8 @@
         "limitedLiabilityB": 5214852,
         "totalExpenses": 45173451,
         "excessOfRevenue": 26579162,
-        "proceedsFromDebt": null,
-        "proceedsFromCapitalLease": null,
+        "proceedsFromDebt": 0,
+        "proceedsFromCapitalLease": 0,
         "netTransfersOtherFunds": -31085,
         "changeInNetAssets": 26548077
       },
@@ -1069,12 +1161,12 @@
       },
       "OtherAssets": {
         "accountsReceivable": 2253707,
-        "dueFromOtherFund": null,
+        "dueFromOtherFund": 0,
         "interestDividendsReceivable": 172599,
         "inventoryPrepaidOtherAssets": 1181746,
         "notesWithinOneYear": 1477076,
         "notesAfterOneYear": 4977748,
-        "securityDeposits": null,
+        "securityDeposits": 0,
         "investments": 406095881,
         "capitalAssetNet": 247480101,
         "totalOtherAssets": 690497185,
@@ -1084,7 +1176,7 @@
       "Liabilities": {
         "accountPayableAccrued": 6730596,
         "dueToFund": 300000,
-        "dueToOther": null,
+        "dueToOther": 0,
         "longTermWithin": 3288859,
         "longTermAfter": 90399400,
         "totalLiabilities": 100718855,
@@ -1102,16 +1194,16 @@
       "ProgramRevenues": {
         "chargesForServices": 14501281,
         "operatingGrants": 1281115,
-        "interestInvestmentsEarnings": null,
+        "interestInvestmentsEarnings": 0,
         "totalProgramRevenues": 15782396
       },
       "GeneralRevenues": {
         "appropriations": 3018899,
         "trust": 15100000,
         "interestInvestmentLossesEarnings": 24595989,
-        "newspaperAds": null,
+        "newspaperAds": 0,
         "donationsAndOther": 468624,
-        "limitedLiabilityB": null,
+        "limitedLiabilityB": 0,
         "nonImposedFringeBenefits": 594067,
         "totalGeneralRevenue": 43777579,
         "totalRevenue": 59559975
@@ -1125,14 +1217,14 @@
         "limitedLiabilityB": 6248529,
         "totalExpenses": 50008972,
         "excessOfRevenue": 9551003,
-        "proceedsFromDebt": null,
-        "proceedsFromCapitalLease": null,
+        "proceedsFromDebt": 0,
+        "proceedsFromCapitalLease": 0,
         "netTransfersOtherFunds": 937326,
         "changeInNetAssets": 10488329
       },
       "FundBalances": {
         "beginningOfYear": 586459833,
-        "restatementAdjustment": null,
+        "restatementAdjustment": 0,
         "netPositionEndOfYear": 596948162
       }
     },
@@ -1150,12 +1242,12 @@
       },
       "OtherAssets": {
         "accountsReceivable": 2253707,
-        "dueFromOtherFund": null,
+        "dueFromOtherFund": 0,
         "interestDividendsReceivable": 172599,
         "inventoryPrepaidOtherAssets": 1181746,
         "notesWithinOneYear": 1477076,
         "notesAfterOneYear": 4977748,
-        "securityDeposits": null,
+        "securityDeposits": 0,
         "investments": 406095881,
         "capitalAssetNet": 247480101,
         "totalOtherAssets": 690497185,
@@ -1165,7 +1257,7 @@
       "Liabilities": {
         "accountPayableAccrued": 6730596,
         "dueToFund": 300000,
-        "dueToOther": null,
+        "dueToOther": 0,
         "longTermWithin": 3288859,
         "longTermAfter": 90399400,
         "totalLiabilities": 100718855,
@@ -1183,16 +1275,16 @@
       "ProgramRevenues": {
         "chargesForServices": 14501281,
         "operatingGrants": 1281115,
-        "interestInvestmentsEarnings": null,
+        "interestInvestmentsEarnings": 0,
         "totalProgramRevenues": 15782396
       },
       "GeneralRevenues": {
         "appropriations": 3018899,
         "trust": 15100000,
         "interestInvestmentLossesEarnings": 24595989,
-        "newspaperAds": null,
+        "newspaperAds": 0,
         "donationsAndOther": 468624,
-        "limitedLiabilityB": null,
+        "limitedLiabilityB": 0,
         "nonImposedFringeBenefits": 594067,
         "totalGeneralRevenue": 43777579,
         "totalRevenue": 59559975
@@ -1206,14 +1298,14 @@
         "limitedLiabilityB": 6248529,
         "totalExpenses": 50008972,
         "excessOfRevenue": 9551003,
-        "proceedsFromDebt": null,
-        "proceedsFromCapitalLease": null,
+        "proceedsFromDebt": 0,
+        "proceedsFromCapitalLease": 0,
         "netTransfersOtherFunds": 937326,
         "changeInNetAssets": 10488329
       },
       "FundBalances": {
         "beginningOfYear": 586459833,
-        "restatementAdjustment": null,
+        "restatementAdjustment": 0,
         "netPositionEndOfYear": 596948162
       }
     }

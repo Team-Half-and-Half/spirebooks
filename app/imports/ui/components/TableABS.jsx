@@ -24,12 +24,14 @@ const submit = (data, auditedBalance) => {
 };
 const TableAbS = ({ auditedBalance }) => (
   <div>
-    <h5>{auditedBalance.year}</h5>
+    <h5>{auditedBalance.year + 2014}</h5>
     <AutoForm schema={bridge} model={auditedBalance} onSubmit={data => submit(data, auditedBalance)}>
+      <h6 className="text-style text-center px-3">---</h6>
       <NumField className="tableField" name="CashAndCashEquivalents.pettyCash" label={false} />
       <NumField className="tableField" name="CashAndCashEquivalents.cash" label={false} />
       <NumField className="tableField" name="CashAndCashEquivalents.cashInBank" label={false} />
       <NumField className="tableField" name="totalCashAndCashEquivalents" label={false} disabled />
+      <h6 className="text-style text-center px-3">---</h6>
       <NumField className="tableField" name="OtherAssets.accountsReceivable" label={false} />
       <NumField className="tableField" name="OtherAssets.dueFromOtherFund" label={false} />
       <NumField className="tableField" name="OtherAssets.interestDividendsReceivable" label={false} />
@@ -38,6 +40,7 @@ const TableAbS = ({ auditedBalance }) => (
       <NumField className="tableField" name="OtherAssets.notesAfterOneYear" label={false} />
       <NumField className="tableField" name="OtherAssets.securityDeposits" label={false} />
       <NumField className="tableField" name="OtherAssets.cashHeldInvestmentManager" label={false} />
+      <h6 className="text-style text-center px-3">---</h6>
       <NumField className="tableField" name="OtherAssets.Investments.mutualFunds" label={false} />
       <NumField className="tableField" name="OtherAssets.Investments.commingledFunds" label={false} />
       <NumField className="tableField" name="OtherAssets.Investments.hedgeFunds" label={false} />
@@ -51,6 +54,7 @@ const TableAbS = ({ auditedBalance }) => (
       <NumField className="tableField" name="OtherAssets.Investments.agenciesUS" label={false} />
       <NumField className="tableField" name="subtotalLoanFund" label={false} disabled />
       <NumField className="tableField" name="investmentSum" label={false} disabled />
+      <h6 className="text-style text-center px-3">---</h6>
       <NumField className="tableField" name="OtherAssets.CapitalAssetsNet.Assets.buildings" label={false} />
       <NumField className="tableField" name="OtherAssets.CapitalAssetsNet.Assets.leaseholdImprovements" label={false} />
       <NumField className="tableField" name="OtherAssets.CapitalAssetsNet.Assets.furnitureFixturesEquipment" label={false} />
@@ -60,6 +64,7 @@ const TableAbS = ({ auditedBalance }) => (
       <NumField className="tableField" name="OtherAssets.CapitalAssetsNet.Assets.landB" label={false} />
       <NumField className="tableField" name="OtherAssets.CapitalAssetsNet.Assets.constructionInProgress" label={false} />
       <NumField className="tableField" name="subTotalCapitalAssetNet" label={false} disabled />
+      <h6 className="text-style text-center px-3">---</h6>
       <NumField className="tableField" name="OtherAssets.CapitalAssetsNet.LiabilityBAsset.buildings" label={false} />
       <NumField className="tableField" name="OtherAssets.CapitalAssetsNet.LiabilityBAsset.leaseholdImprovements" label={false} />
       <NumField className="tableField" name="OtherAssets.CapitalAssetsNet.LiabilityBAsset.furnitureFixturesEquipment" label={false} />
@@ -74,9 +79,11 @@ const TableAbS = ({ auditedBalance }) => (
       <NumField className="tableField" name="OtherAssets.deferredPensions" label={false} />
       <NumField className="tableField" name="OtherAssets.deferredOPEB" label={false} />
       <NumField className="tableField" name="totalAssetsDeferred" label={false} disabled />
+      <h6 className="text-style text-center px-3">---</h6>
       <NumField className="tableField" name="Liabilities.accountPayableAccrued" label={false} />
       <NumField className="tableField" name="Liabilities.dueToFund" label={false} />
       <NumField className="tableField" name="Liabilities.dueToOther" label={false} />
+      <h6 className="text-style text-center px-3">---</h6>
       <NumField className="tableField" name="Liabilities.LongTermWithin.accruedVacation" label={false} />
       <NumField className="tableField" name="Liabilities.LongTermWithin.workersCompensation" label={false} />
       <NumField className="tableField" name="Liabilities.LongTermWithin.accruedRetirement" label={false} />
@@ -89,7 +96,7 @@ const TableAbS = ({ auditedBalance }) => (
       <NumField className="tableField" name="Liabilities.LongTermWithin.lineOfCreditB" label={false} />
       <NumField className="tableField" name="Liabilities.LongTermWithin.debtService" label={false} />
       <NumField className="tableField" name="dueWithinOneYearSum" label={false} disabled />
-
+      <h6 className="text-style text-center px-3">---</h6>
       <NumField className="tableField" name="Liabilities.LongTermAfter.accruedVacation" label={false} />
       <NumField className="tableField" name="Liabilities.LongTermAfter.workersCompensation" label={false} />
       <NumField className="tableField" name="Liabilities.LongTermAfter.accruedRetirement" label={false} />
@@ -107,16 +114,16 @@ const TableAbS = ({ auditedBalance }) => (
       <NumField className="tableField" name="Liabilities.deferredInflowsPension" label={false} />
       <NumField className="tableField" name="Liabilities.deferredInflowsOPED" label={false} />
       <NumField className="tableField" name="totalLiabilitiesDeferredInflows" label={false} disabled />
-
+      <h6 className="text-style text-center px-3">---</h6>
       <NumField className="tableField" name="NetPosition.netOfRelatedDebt" label={false} />
       <NumField className="tableField" name="NetPosition.restrictedFederal" label={false} />
       <NumField className="tableField" name="NetPosition.unrestricted" label={false} />
       <NumField className="tableField" name="totalNetPosition" label={false} disabled />
       <NumField className="tableField" name="totalLiabilitiesInflowsNetPosition" label={false} disabled />
-
-      {(auditedBalance.green === true) ? (
-        <SubmitField value="Submit" />
-      ) : (<div />)}
+      <SubmitField value="Submit" />
+      {/* {(auditedBalance.green === true) ? ( */}
+      {/*  <SubmitField value="Submit" /> */}
+      {/* ) : (<div />)} */}
     </AutoForm>
   </div>
 );

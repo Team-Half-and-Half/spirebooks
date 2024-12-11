@@ -134,6 +134,51 @@ const percentages = [
       composite_rate: 63.08,
     },
   },
+  {
+    year: 11,
+    percentages: {
+      pension_accumulation: 22.84,
+      retiree_health_insurance: 10.96,
+      other_post_employment_benefits: 14.45,
+      employees_health_fund: 7.71,
+      social_security: 6.20,
+      medicare: 1.45,
+      workers_compensation: 1.24,
+      unemployment_compensation: 0.01,
+      pension_administration: 0.00,
+      composite_rate: 64.87,
+    },
+  },
+  {
+    year: 12,
+    percentages: {
+      pension_accumulation: 23.71,
+      retiree_health_insurance: 11.85,
+      other_post_employment_benefits: 14.56,
+      employees_health_fund: 7.74,
+      social_security: 6.20,
+      medicare: 1.45,
+      workers_compensation: 1.24,
+      unemployment_compensation: 0.01,
+      pension_administration: 0.00,
+      composite_rate: 66.76,
+    },
+  },
+  {
+    year: 13,
+    percentages: {
+      pension_accumulation: 24.61,
+      retiree_health_insurance: 12.81,
+      other_post_employment_benefits: 14.68,
+      employees_health_fund: 7.76,
+      social_security: 6.20,
+      medicare: 1.45,
+      workers_compensation: 1.25,
+      unemployment_compensation: 0.00,
+      pension_administration: 0.00,
+      composite_rate: 68.77,
+    },
+  },
 ];
 export const getYearPercentages = (year) => {
   const yearPercentages = percentages.find((entry) => entry.year === year);

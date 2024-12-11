@@ -11,33 +11,24 @@ import { PAGE_IDS } from '../utilities/PageIDs';
 import { BudgetPL } from '../../api/spreadsheet/BudgetPLCollection';
 import TableBPL from '../components/TableBPL';
 
-/* Renders the EditStuff page for editing a single document. */
 const bridge = new SimpleSchema2Bridge(BudgetPL._schema);
 
 const InputABS = () => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { pastYears, futureYears, ready } = useTracker(() => {
-    // Get access to Stuff documents.
-    // const AFS = AuditedFS.subscribeAuditedFS();
-    // const BPL = BudgetPL.subscribeBudgetPL();
-    // const AFSAdmin = AuditedFS.subscribeAuditedFSAdmin();
-    // const BPLAdmin = BudgetPL.subscribeBudgetPLAdmin();
-    const ABSAdmin = BudgetPL.subscribeBudgetPL();
+    const BPL = BudgetPL.subscribeBudgetPL();
     // Determine if the subscription is ready
-    const rdy = ABSAdmin.ready();
+    const rdy = BPL.ready();
     const past = BudgetPL.find({ green: false }).fetch();
     const future = BudgetPL.find({ green: true }).fetch();
-
-    // Get the document
-    // const document = AuditedBalance.find({ year: 6 });
     return {
       pastYears: past,
       futureYears: future,
       ready: rdy,
     };
   }, []);
-  const [activeTab, setActiveTab] = useState('past'); // Track active tab ('past' or 'future')
+  const [activeTab, setActiveTab] = useState('past');
 
   return ready ? (
     <Container id={PAGE_IDS.EDIT_STUFF} className="py-5">
@@ -71,9 +62,9 @@ const InputABS = () => {
                   {/* Expenses */}
                   <h6 className="text-style px-1 fw-medium text-decoration-underline">Expenses</h6>
                   <TextField className="rowName" placeholder="Personnel" name="Expenses.personnel" label={false} disabled />
-                  {/* Fring Admin */}
+                  {/* Fringe Admin */}
                   <h6 className="text-style px-3 fw-medium text-decoration-underline">Personnel & Fringe (Admin)</h6>
-                  <TextField className="rowName px-3" placeholder="Salary (Admin)" name="Expenses.PersonnelFringeAdmin.salary" label={false} disabled />
+                  <TextField className="rowName px-3" placeholder="Salary" name="Expenses.PersonnelFringeAdmin.salary" label={false} disabled />
                   <TextField className="rowName px-3" placeholder="Pension Accumulation" name="Expenses.PersonnelFringeAdmin.FringeBenefits.pensionAccumulation" label={false} disabled />
                   <TextField className="rowName px-3" placeholder="Retiree Health Insurance" name="Expenses.PersonnelFringeAdmin.FringeBenefits.retireeHealthInsurance" label={false} disabled />
                   <TextField className="rowName px-3" placeholder="Other Post-Employment Benefits" name="Expenses.PersonnelFringeAdmin.FringeBenefits.otherBenefits" label={false} disabled />
@@ -84,11 +75,11 @@ const InputABS = () => {
                   <TextField className="rowName px-3" placeholder="Unemployment Compensation" name="Expenses.PersonnelFringeAdmin.FringeBenefits.unemploymentCompensation" label={false} disabled />
                   <TextField className="rowName px-3" placeholder="Pension Administration" name="Expenses.PersonnelFringeAdmin.FringeBenefits.pensionCompensation" label={false} disabled />
                   <TextField className="rowName px-3" placeholder="Fringe Benefits" name="Expenses.PersonnelFringeAdmin.FringeBenefits.fringeBenefitsSum" label={false} disabled />
-                  <TextField className="rowName px-3" placeholder="Personal & Fringe(Admin)" name="Expenses.PersonnelFringeAdmin.personnelFringeSum" label={false} disabled />
+                  <TextField className="rowName px-3" placeholder="Personal & Fringe (Admin)" name="Expenses.PersonnelFringeAdmin.personnelFringeSum" label={false} disabled />
 
                   {/* Fringe Staff */}
                   <h6 className="text-style px-3 fw-medium text-decoration-underline">Personnel & Fringe (Admin Staff)</h6>
-                  <TextField className="rowName px-3" placeholder="Salary (Admin Staff)" name="Expenses.PersonnelFringeAdminStaff.salary" label={false} disabled />
+                  <TextField className="rowName px-3" placeholder="Salary" name="Expenses.PersonnelFringeAdminStaff.salary" label={false} disabled />
                   <TextField className="rowName px-3" placeholder="Pension Accumulation" name="Expenses.PersonnelFringeAdminStaff.FringeBenefits.pensionAccumulation" label={false} disabled />
                   <TextField className="rowName px-3" placeholder="Retiree Health Insurance" name="Expenses.PersonnelFringeAdminStaff.FringeBenefits.retireeHealthInsurance" label={false} disabled />
                   <TextField className="rowName px-3" placeholder="Other Post-Employment Benefits" name="Expenses.PersonnelFringeAdminStaff.FringeBenefits.otherBenefits" label={false} disabled />
@@ -99,11 +90,11 @@ const InputABS = () => {
                   <TextField className="rowName px-3" placeholder="Unemployment Compensation" name="Expenses.PersonnelFringeAdminStaff.FringeBenefits.unemploymentCompensation" label={false} disabled />
                   <TextField className="rowName px-3" placeholder="Pension Administration" name="Expenses.PersonnelFringeAdminStaff.FringeBenefits.pensionCompensation" label={false} disabled />
                   <TextField className="rowName px-3" placeholder="Fringe Benefits" name="Expenses.PersonnelFringeAdminStaff.FringeBenefits.fringeBenefitsSum" label={false} disabled />
-                  <TextField className="rowName px-3" placeholder="Personal & Fringe(Admin Staff)" name="Expenses.PersonnelFringeAdminStaff.personnelFringeSum" label={false} disabled />
+                  <TextField className="rowName px-3" placeholder="Personal & Fringe (Management Staff)" name="Expenses.PersonnelFringeAdminStaff.personnelFringeSum" label={false} disabled />
 
                   {/* Fringe Management */}
                   <h6 className="text-style px-3 fw-medium text-decoration-underline">Personnel & Fringe (Management)</h6>
-                  <TextField className="rowName px-3" placeholder="Salary (Management)" name="Expenses.FringeAdminManagement.salary" label={false} disabled />
+                  <TextField className="rowName px-3" placeholder="Salary" name="Expenses.FringeAdminManagement.salary" label={false} disabled />
                   <TextField className="rowName px-3" placeholder="Pension Accumulation" name="Expenses.FringeAdminManagement.FringeBenefits.pensionAccumulation" label={false} disabled />
                   <TextField className="rowName px-3" placeholder="Retiree Health Insurance" name="Expenses.FringeAdminManagement.FringeBenefits.retireeHealthInsurance" label={false} disabled />
                   <TextField className="rowName px-3" placeholder="Other Post-Employment Benefits" name="Expenses.FringeAdminManagement.FringeBenefits.otherBenefits" label={false} disabled />
